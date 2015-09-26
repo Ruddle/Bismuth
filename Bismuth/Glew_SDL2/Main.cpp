@@ -15,6 +15,8 @@ extern "C" FILE * __cdecl __iob_func(void)
 	return _iob;
 }
 
+//Machin
+
 
 int main(int argc, char **argv)
 {
