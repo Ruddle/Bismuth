@@ -21,7 +21,6 @@ int main(int argc, char **argv)
 	SDL_Event evenements;
 	bool terminer(false);
 
-
 	// Initialisation de la SDL
 
 	if (SDL_Init(SDL_INIT_VIDEO) < 0)
