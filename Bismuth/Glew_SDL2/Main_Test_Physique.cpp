@@ -1,4 +1,4 @@
-#include "glm\glm.hpp"
+#include "glm.hpp"
 #include "Camera.h"
 #include "Contact.h"
 #include "DetectionComponent.h"

@@ -2,7 +2,7 @@
 
 #include "DetectionComponent.h"
 #include "Contact.h"
-#include "glm\glm.hpp"
+#include "glm.hpp"
 #define _USE_MATH_DEFINES
 #include <math.h>
 
