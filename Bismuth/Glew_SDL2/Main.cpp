@@ -10,7 +10,7 @@ FILE _iob[] = { *stdin, *stdout, *stderr };
 extern "C" FILE * __cdecl __iob_func(void)
 {return _iob;}
 
-//Machin
+//Machin Aska
 
 
 int main(int argc, char **argv)
