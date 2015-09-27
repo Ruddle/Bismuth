@@ -17,7 +17,4 @@ public :
 	virtual int getShape() = 0;
 
 
-
-
-
 };
