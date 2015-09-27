@@ -13,6 +13,8 @@ extern "C" FILE * __cdecl __iob_func(void)
 //Machin
 //Machin Ruddle
 
+//Machin 2 Aska
+
 int main(int argc, char **argv)
 {
 	// Notre fenêtre
