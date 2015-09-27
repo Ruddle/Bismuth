@@ -132,7 +132,9 @@
     <ClCompile Include="EntityManager.cpp" />
     <ClCompile Include="GraphicComponent.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Main_Test_Physique.cpp" />
+    <ClCompile Include="Main_Test_Physique.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="PhysicComponent.cpp" />
     <ClCompile Include="RayDetectionComponent.cpp" />
     <ClCompile Include="RessourceManager.cpp" />

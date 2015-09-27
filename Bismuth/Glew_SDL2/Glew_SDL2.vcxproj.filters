@@ -13,81 +13,111 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Fichiers sources\Bis 2">
+      <UniqueIdentifier>{ce28cf34-eb03-49a9-a8dc-483c6b8db129}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Bis 2\Graphics">
+      <UniqueIdentifier>{6ab5d841-1269-4036-80bd-c448b8880594}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Bis 2\Physics">
+      <UniqueIdentifier>{29a751ba-e6fb-4250-b4ac-ee508e580d5e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Bis 2">
+      <UniqueIdentifier>{50870328-12a6-477e-8c41-c89b1617184d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Bis 2\Physics">
+      <UniqueIdentifier>{b7b6fd28-3a67-46df-a274-1ddfcba67a7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Bis 2\Graphics">
+      <UniqueIdentifier>{471101d7-a935-4f0c-ae48-5621cee73fcc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Bis 3">
+      <UniqueIdentifier>{d13642e0-09c2-4632-8574-aa1d93105a2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Bis 3">
+      <UniqueIdentifier>{548fc59e-6b4b-48b7-b330-bd7fd76a1869}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Bis 1">
+      <UniqueIdentifier>{8eb9521c-e0a1-440a-9351-82c452875285}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Bis 1">
+      <UniqueIdentifier>{5207d0db-3dd7-48f3-9ce0-c89e235c70e2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Camera.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="DetectionComponent.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Entity.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="EntityManager.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="GraphicComponent.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="PhysicComponent.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="RayDetectionComponent.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="RessourceManager.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="SphereDetectionComponent.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="StateComponent.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="Main_Test_Physique.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="StateComponent.cpp">
+      <Filter>Fichiers sources\Bis 2\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="SphereDetectionComponent.cpp">
+      <Filter>Fichiers sources\Bis 2\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="RayDetectionComponent.cpp">
+      <Filter>Fichiers sources\Bis 2\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="DetectionComponent.cpp">
+      <Filter>Fichiers sources\Bis 2\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicComponent.cpp">
+      <Filter>Fichiers sources\Bis 2\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicComponent.cpp">
+      <Filter>Fichiers sources\Bis 2\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="RessourceManager.cpp">
+      <Filter>Fichiers sources\Bis 2\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityManager.cpp">
+      <Filter>Fichiers sources\Bis 3</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Fichiers sources\Bis 3</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Fichiers sources\Bis 3</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Camera.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
     <ClInclude Include="Const.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="Contact.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Entity.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="DetectionComponent.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="EntityManager.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="GraphicComponent.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
     <ClInclude Include="PhysicComponent.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Bis 2\Physics</Filter>
     </ClInclude>
     <ClInclude Include="RayDetectionComponent.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="RessourceManager.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Bis 2\Physics</Filter>
     </ClInclude>
     <ClInclude Include="SphereDetectionComponent.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Bis 2\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="DetectionComponent.h">
+      <Filter>Fichiers d%27en-tête\Bis 2\Physics</Filter>
     </ClInclude>
     <ClInclude Include="StateComponent.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Bis 2\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicComponent.h">
+      <Filter>Fichiers d%27en-tête\Bis 2\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="RessourceManager.h">
+      <Filter>Fichiers d%27en-tête\Bis 2\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Fichiers d%27en-tête\Bis 3</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Fichiers d%27en-tête\Bis 3</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityManager.h">
+      <Filter>Fichiers d%27en-tête\Bis 3</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
