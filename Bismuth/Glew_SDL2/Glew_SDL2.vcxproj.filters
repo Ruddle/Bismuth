@@ -93,6 +93,9 @@
     <ClCompile Include="Fbo.cpp">
       <Filter>Fichiers sources\Bis 1</Filter>
     </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>Fichiers sources\Bis 1</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Const.h">
@@ -141,6 +144,9 @@
       <Filter>Fichiers d%27en-tête\Bis 1</Filter>
     </ClInclude>
     <ClInclude Include="Fbo.h">
+      <Filter>Fichiers d%27en-tête\Bis 1</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
       <Filter>Fichiers d%27en-tête\Bis 1</Filter>
     </ClInclude>
   </ItemGroup>

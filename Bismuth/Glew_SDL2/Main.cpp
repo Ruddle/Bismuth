@@ -10,12 +10,6 @@ FILE _iob[] = { *stdin, *stdout, *stderr };
 extern "C" FILE * __cdecl __iob_func(void)
 {return _iob;}
 
-//Machin
-//Machin Ruddle
-
-//Machin 2 Aska
-//Machin 3 Aska
-
 int main(int argc, char **argv)
 {
 	// Notre fenêtre
