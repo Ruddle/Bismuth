@@ -43,14 +43,14 @@
     <Filter Include="Fichiers sources\Bis 1">
       <UniqueIdentifier>{5207d0db-3dd7-48f3-9ce0-c89e235c70e2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\Temp_Test">
+      <UniqueIdentifier>{954eb4b6-3167-4a72-9a7a-6d6b0e09f3a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Temp_Test">
+      <UniqueIdentifier>{6e98b4ef-cc82-4909-9ddb-788a39d26142}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Main_Test_Physique.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="StateComponent.cpp">
       <Filter>Fichiers sources\Bis 2\Physics</Filter>
     </ClCompile>
@@ -95,6 +95,15 @@
     </ClCompile>
     <ClCompile Include="Input.cpp">
       <Filter>Fichiers sources\Bis 1</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene_SDL.cpp">
+      <Filter>Fichiers sources\Temp_Test</Filter>
+    </ClCompile>
+    <ClCompile Include="Main_Test_Physique.cpp">
+      <Filter>Fichiers sources\Temp_Test</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Fichiers sources\Temp_Test</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -148,6 +157,9 @@
     </ClInclude>
     <ClInclude Include="Input.h">
       <Filter>Fichiers d%27en-tête\Bis 1</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene_SDL.h">
+      <Filter>Fichiers d%27en-tête\Temp_Test</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
