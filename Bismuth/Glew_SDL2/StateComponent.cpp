@@ -42,18 +42,18 @@ void StateComponent::update(int time)
 	mPosition += mPositionDiff*float(time);
 	mRotation += mRotationDiff*float(time);
 
-	mRotation = mod(mRotation + vec3(M_PI), vec3(2 * M_PI));
+	mRotation = mod(mRotation + vec3((float)M_PI), vec3(2 * (float)M_PI));
 
 	if (mRotation.x < 0)
-		mRotation.x += 2 * M_PI;
+		mRotation.x += 2 * (float)M_PI;
 	if (mRotation.y < 0)
-		mRotation.y += 2 * M_PI;
+		mRotation.y += 2 * (float)M_PI;
 	if (mRotation.z < 0)
-		mRotation.z += 2 * M_PI;
+		mRotation.z += 2 * (float)M_PI;
 
-	mRotation.x -= M_PI;
+	mRotation.x -= (float)M_PI;
 
-	mRotation.y -= M_PI;
+	mRotation.y -= (float)M_PI;
 
-	mRotation.z -= M_PI;
+	mRotation.z -= (float)M_PI;
 }
