@@ -81,12 +81,21 @@
     <ClCompile Include="Camera.cpp">
       <Filter>Fichiers sources\Bis 3</Filter>
     </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Fichiers sources\Bis 1</Filter>
+    </ClCompile>
+    <ClCompile Include="Vao.cpp">
+      <Filter>Fichiers sources\Bis 1</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>Fichiers sources\Bis 1</Filter>
+    </ClCompile>
+    <ClCompile Include="Fbo.cpp">
+      <Filter>Fichiers sources\Bis 1</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Const.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Contact.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="PhysicComponent.h">
@@ -118,6 +127,21 @@
     </ClInclude>
     <ClInclude Include="EntityManager.h">
       <Filter>Fichiers d%27en-tête\Bis 3</Filter>
+    </ClInclude>
+    <ClInclude Include="Contact.h">
+      <Filter>Fichiers d%27en-tête\Bis 2\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Fichiers d%27en-tête\Bis 1</Filter>
+    </ClInclude>
+    <ClInclude Include="Vao.h">
+      <Filter>Fichiers d%27en-tête\Bis 1</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>Fichiers d%27en-tête\Bis 1</Filter>
+    </ClInclude>
+    <ClInclude Include="Fbo.h">
+      <Filter>Fichiers d%27en-tête\Bis 1</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
