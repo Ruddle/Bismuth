@@ -2,7 +2,7 @@
 
 using namespace glm;
 
-SphereDetectionComponent::SphereDetectionComponent(float radius2) :mRadius2(radius2)
+SphereDetectionComponent::SphereDetectionComponent(float radius) :mRadius2(radius*radius)
 {
 
 }

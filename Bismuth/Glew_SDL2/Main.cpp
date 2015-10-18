@@ -17,12 +17,7 @@ int main(int argc, char **argv)
 	Scene_SDL* CurrentScene = new Scene_SDL();
 	
 
-
-
-
-	delete CurrentScene;
-
-
 	system("PAUSE");
+	delete CurrentScene;
 	return 0;
 }

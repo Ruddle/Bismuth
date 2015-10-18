@@ -11,3 +11,8 @@ Entity::~Entity()
     delete mPhysicComponent;
 
 }
+
+
+
+
+

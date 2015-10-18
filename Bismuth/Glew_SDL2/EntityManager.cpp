@@ -3,7 +3,7 @@
 
 EntityManager::EntityManager()
 {
-
+	nextId = 1;
 }
 EntityManager::~EntityManager()
 {
@@ -60,4 +60,6 @@ void EntityManager::collision()
 void EntityManager::add(Entity* entity)
 {
 	mEntity.push_back(entity);
+	entity->setId(nextId);
+	nextId++;
 }

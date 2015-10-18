@@ -9,12 +9,7 @@ public:
 	RessourceManager();
 	~RessourceManager();
 
-
-
 private:
 
 
-
-
-	
 };

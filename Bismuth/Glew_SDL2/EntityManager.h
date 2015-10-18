@@ -21,8 +21,10 @@ public:
 	void collision();
 
 	void add(Entity* entity);
+	std::vector<Entity*> getEntities() { return mEntity; }
 
 private:
 
 	std::vector<Entity*> mEntity;
+	int nextId;
 };
