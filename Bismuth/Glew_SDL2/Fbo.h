@@ -3,6 +3,7 @@ class Fbo
 {
 public:
 	Fbo();
+
 	~Fbo();
 };
 
