@@ -6,7 +6,7 @@
 class Scene_SDL
 {
 public:
-	Scene_SDL();
+	Scene_SDL(int w,int h);
 	~Scene_SDL();
 
 private :

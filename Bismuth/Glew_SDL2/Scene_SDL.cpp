@@ -2,7 +2,7 @@
 
 
 using namespace std;
-Scene_SDL::Scene_SDL()
+Scene_SDL::Scene_SDL(int w, int h)
 {
 	cout << "Creation    : Scene_SDL" << endl;
 	
@@ -36,8 +36,8 @@ Scene_SDL::Scene_SDL()
 		"Ma premiere application SDL2",
 		300,
 		50,
-		1600,
-		900,
+		w,
+		h,
 		SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL);
 
 	if (mWindow)
