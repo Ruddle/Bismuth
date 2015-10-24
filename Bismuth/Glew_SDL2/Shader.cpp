@@ -96,10 +96,10 @@ bool Shader::load()
 
 	// Verrouillage des entrées shader
 
-	glBindAttribLocation(mProgramID, 0, "in_Vertex");
-	glBindAttribLocation(mProgramID, 1, "in_Color");
-	glBindAttribLocation(mProgramID, 2, "in_TexCoord0");
-	glBindAttribLocation(mProgramID, 3, "in_Normal");
+	glBindAttribLocation(mProgramID, 0, "inPosition");
+	glBindAttribLocation(mProgramID, 1, "inNormal");
+	glBindAttribLocation(mProgramID, 2, "inColor");
+	glBindAttribLocation(mProgramID, 3, "inUV");
 
 
 	// Linkage du programme
