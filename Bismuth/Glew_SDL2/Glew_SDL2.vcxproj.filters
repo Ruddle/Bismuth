@@ -49,6 +49,12 @@
     <Filter Include="Fichiers sources\Temp_Test">
       <UniqueIdentifier>{6e98b4ef-cc82-4909-9ddb-788a39d26142}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers de ressources\Mesh">
+      <UniqueIdentifier>{f0bf3526-8140-4279-8402-80abd9c25e15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers de ressources\Shader">
+      <UniqueIdentifier>{8cb5aa30-f8cd-4ce8-941a-40946f6d6ef1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="StateComponent.cpp">
@@ -161,5 +167,10 @@
     <ClInclude Include="Scene_SDL.h">
       <Filter>Fichiers d%27en-tête\Temp_Test</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="Mesh\cube.obj">
+      <Filter>Fichiers de ressources\Mesh</Filter>
+    </Object>
   </ItemGroup>
 </Project>
