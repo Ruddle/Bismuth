@@ -108,9 +108,6 @@
     <ClCompile Include="Main_Test_Physique.cpp">
       <Filter>Fichiers sources\Temp_Test</Filter>
     </ClCompile>
-    <ClCompile Include="Main.cpp">
-      <Filter>Fichiers sources\Temp_Test</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Const.h">

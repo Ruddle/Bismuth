@@ -16,7 +16,7 @@ Texture::~Texture()
 
 void Texture::load() {
 
-	if (mPath.length == 0)
+	if (mPath.length() == 0)
 		loadFromVoid();
 	else 
 		loadFromPath();
