@@ -179,6 +179,10 @@
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
     </Object>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Shader\test.vert" />
+    <None Include="Shader\test2.frag" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
