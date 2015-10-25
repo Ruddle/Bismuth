@@ -58,7 +58,7 @@ int main(int argc, char **argv)
 
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, texA.getID());
-		glUniform1i(glGetUniformLocation(shaderA.getProgramID(), "texture"), 0);
+		glUniform1i(glGetUniformLocation(shaderA.getProgramID(), "texture_diffuse"), 0);
 
 		vaoA.draw();
 		CurrentScene->flip();
