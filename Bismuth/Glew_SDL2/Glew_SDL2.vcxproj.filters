@@ -178,6 +178,9 @@
     <Object Include="Mesh\sphere.obj">
       <Filter>Fichiers de ressources\Mesh</Filter>
     </Object>
+    <Object Include="Mesh\ray.obj">
+      <Filter>Fichiers de ressources\Mesh</Filter>
+    </Object>
   </ItemGroup>
   <ItemGroup>
     <None Include="Shader\test.vert">
