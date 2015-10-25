@@ -16,13 +16,9 @@ public:
 
 	void load();
 
-
 	GLuint getId() { return mId; }
 	GLuint getRenderBufferId() { return mRenderBufferId; }
 	GLuint getColorBufferId(int n) { return mColorBufferTexture[n]->getId(); }
-
-
-
 
 private:
 

@@ -31,8 +31,5 @@ private:
 
 	int mX;
 	int mY;
-
-
-
 };
 
