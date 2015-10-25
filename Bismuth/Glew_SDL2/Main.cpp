@@ -36,10 +36,11 @@ int main(int argc, char **argv)
 
 
 	while (true) {
+		modelview = view;
 		glViewport(0, 0, 1600, 900);
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);
 		glEnable(GL_BLEND);
-		modelview = view;
+		
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glUseProgram(shaderA.getProgramID());
 		glUniformMatrix4fv(glGetUniformLocation(shaderA.getProgramID(), "projection"), 1, GL_FALSE, value_ptr(projection));
