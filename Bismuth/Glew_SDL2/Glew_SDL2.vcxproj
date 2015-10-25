@@ -175,7 +175,9 @@
     <ClInclude Include="Vao.h" />
   </ItemGroup>
   <ItemGroup>
-    <Object Include="Mesh\cube.obj" />
+    <Object Include="Mesh\cube.obj">
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
+    </Object>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
