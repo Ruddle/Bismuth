@@ -5,6 +5,7 @@
 #include "Scene_SDL.h"
 #include "Vao.h"
 #include "Shader.h"
+#include "Input.h"
 #include "glm.hpp"
 #include "gtx\transform.hpp"
 #include "gtc\type_ptr.hpp"
@@ -13,12 +14,12 @@ FILE _iob[] = { *stdin, *stdout, *stderr };
 extern "C" FILE * __cdecl __iob_func(void)
 {return _iob;}
 
+using namespace glm;
 
 int main(int argc, char **argv)
 {
 	Scene_SDL* CurrentScene = new Scene_SDL(1600,900);
 
-	
 
 	Vao vaoA = Vao("Mesh/cube.obj");
 	vaoA.load();
@@ -35,11 +36,15 @@ int main(int argc, char **argv)
 	view = glm::lookAt(glm::vec3(3, 3, 3), glm::vec3(0, 0, 0), glm::vec3(0, 0, 1));
 
 
-	while (true) {
+	Input input;
+
+	while (!input.end()) {
+
+		input.updateEvents();
 		glViewport(0, 0, 1600, 900);
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);
 		glEnable(GL_BLEND);
-		modelview = view;
+		modelview = rotate(view, (input.getX()-1600)/100.0f, vec3(0.0f, 0.0f, 1.0f));
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glUseProgram(shaderA.getProgramID());
 		glUniformMatrix4fv(glGetUniformLocation(shaderA.getProgramID(), "projection"), 1, GL_FALSE, value_ptr(projection));
@@ -49,8 +54,6 @@ int main(int argc, char **argv)
 		CurrentScene->flip();
 	}
 
-
-	system("PAUSE");
 	delete CurrentScene;
 	return 0;
 }

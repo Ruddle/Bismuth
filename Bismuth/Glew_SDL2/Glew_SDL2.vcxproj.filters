@@ -108,7 +108,7 @@
     <ClCompile Include="Main_Test_Physique.cpp">
       <Filter>Fichiers sources\Temp_Test</Filter>
     </ClCompile>
-    <ClCompile Include="Main.cpp">
+    <ClCompile Include="Main_Bis1.cpp">
       <Filter>Fichiers sources\Temp_Test</Filter>
     </ClCompile>
   </ItemGroup>
