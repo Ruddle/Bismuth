@@ -30,7 +30,7 @@ private:
 	GLuint mVboVertexID;
 	GLuint mVaoID;
 
-	std::string m_path;
+	std::string mPath;
 
 	//Vertex
 	std::vector<glm::vec3> mPosition;

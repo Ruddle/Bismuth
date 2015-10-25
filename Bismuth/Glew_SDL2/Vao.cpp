@@ -3,7 +3,7 @@
 using namespace std;
 using namespace glm;
 
-Vao::Vao(std::string path) :m_path(path), mVaoID(0), mVboVertexID(0),
+Vao::Vao(std::string path) :mPath(path), mVaoID(0), mVboVertexID(0),
 mPosition(0), mUv(0), mNormal(0)
 {
 
@@ -69,10 +69,10 @@ void Vao::loadFile()
 	vector<int> indexN;
 	vector<int> indexT;
 
-	ifstream flux(m_path.c_str());
+	ifstream flux(mPath.c_str());
 
 	if (!flux)
-		cout << "ERROR : Loading of " << m_path << " failed !" << endl;
+		cout << "ERROR : Loading of " << mPath << " failed !" << endl;
 
 
 	bool loading = true;
