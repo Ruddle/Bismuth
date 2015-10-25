@@ -21,7 +21,6 @@ int main(int argc, char **argv)
 {
 	Scene_SDL* CurrentScene = new Scene_SDL(1600,900);
 
-
 	Vao vaoA = Vao("Mesh/sphere.obj");
 	vaoA.load();
 
@@ -57,7 +56,7 @@ int main(int argc, char **argv)
 
 
 		glActiveTexture(GL_TEXTURE0);
-		glBindTexture(GL_TEXTURE_2D, texA.getID());
+		glBindTexture(GL_TEXTURE_2D, texA.getId());
 		glUniform1i(glGetUniformLocation(shaderA.getProgramID(), "texture_diffuse"), 0);
 
 		vaoA.draw();
