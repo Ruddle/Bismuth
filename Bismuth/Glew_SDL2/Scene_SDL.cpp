@@ -77,3 +77,8 @@ Scene_SDL::~Scene_SDL()
 	SDL_DestroyWindow(mWindow);
 	SDL_Quit();
 }
+
+
+void Scene_SDL::flip() {
+	SDL_GL_SwapWindow(mWindow);
+}

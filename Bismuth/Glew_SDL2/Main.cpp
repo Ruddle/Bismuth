@@ -35,9 +35,6 @@ int main(int argc, char **argv)
 	view = glm::lookAt(glm::vec3(3, 3, 3), glm::vec3(0, 0, 0), glm::vec3(0, 0, 1));
 
 
-
-
-
 	while (true) {
 		glViewport(0, 0, 1600, 900);
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);
@@ -49,8 +46,7 @@ int main(int argc, char **argv)
 		glUniformMatrix4fv(glGetUniformLocation(shaderA.getProgramID(), "modelview"), 1, GL_FALSE, value_ptr(modelview));
 		glUniformMatrix3fv(glGetUniformLocation(shaderA.getProgramID(), "normal"), 1, GL_FALSE, value_ptr(transpose(inverse(glm::mat3(modelview)))));
 		vaoA.draw();
-
-
+		CurrentScene->flip();
 	}
 
 

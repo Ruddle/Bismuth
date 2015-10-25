@@ -9,6 +9,8 @@ public:
 	Scene_SDL(int w,int h);
 	~Scene_SDL();
 
+	void flip();
+
 private :
 	SDL_GLContext mGLContext;
 	SDL_Window* mWindow;
