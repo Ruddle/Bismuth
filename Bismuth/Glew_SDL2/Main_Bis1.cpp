@@ -9,6 +9,7 @@
 #include "glm.hpp"
 #include "gtx\transform.hpp"
 #include "gtc\type_ptr.hpp"
+#include "Texture.h"
 
 FILE _iob[] = { *stdin, *stdout, *stderr };
 extern "C" FILE * __cdecl __iob_func(void)
@@ -23,7 +24,10 @@ int main(int argc, char **argv)
 
 	Vao vaoA = Vao("Mesh/cube.obj");
 	vaoA.load();
-	
+
+	TextureCfg cfg = { GL_RGB8, GL_NEAREST, GL_REPEAT };
+	Texture texA = Texture("Texture/checker.png", cfg);
+	texA.load();
 
 	Shader shaderA = Shader("Shader/test.vert", "Shader/test.frag");
 	shaderA.load();
@@ -50,6 +54,12 @@ int main(int argc, char **argv)
 		glUniformMatrix4fv(glGetUniformLocation(shaderA.getProgramID(), "projection"), 1, GL_FALSE, value_ptr(projection));
 		glUniformMatrix4fv(glGetUniformLocation(shaderA.getProgramID(), "modelview"), 1, GL_FALSE, value_ptr(modelview));
 		glUniformMatrix3fv(glGetUniformLocation(shaderA.getProgramID(), "normal"), 1, GL_FALSE, value_ptr(transpose(inverse(glm::mat3(modelview)))));
+
+
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, texA.getID());
+		glUniform1i(glGetUniformLocation(shaderA.getProgramID(), "tex_diffuse"), 0);
+
 		vaoA.draw();
 		CurrentScene->flip();
 	}

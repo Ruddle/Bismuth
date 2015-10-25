@@ -55,6 +55,9 @@
     <Filter Include="Fichiers de ressources\Shader">
       <UniqueIdentifier>{8cb5aa30-f8cd-4ce8-941a-40946f6d6ef1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers de ressources\Texture">
+      <UniqueIdentifier>{84d520af-043a-4f65-94b0-2f3e17eb535d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="StateComponent.cpp">
@@ -180,5 +183,10 @@
     <None Include="Shader\test.frag">
       <Filter>Fichiers de ressources\Shader</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Texture\checker.png">
+      <Filter>Fichiers de ressources\Texture</Filter>
+    </Image>
   </ItemGroup>
 </Project>

@@ -24,6 +24,8 @@ public:
 	void loadFromPath();
 	void loadFromVoid();
 
+	GLuint getID() { return mId; }
+
 	SDL_Surface* invertPixels(SDL_Surface *src) const;
 
 private:
