@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 	Scene_SDL* CurrentScene = new Scene_SDL(1600,900);
 
 
-	Vao vaoA = Vao("Mesh/cube.obj");
+	Vao vaoA = Vao("Mesh/sphere.obj");
 	vaoA.load();
 
 	TextureCfg cfg = { GL_RGB8, GL_NEAREST, GL_REPEAT };

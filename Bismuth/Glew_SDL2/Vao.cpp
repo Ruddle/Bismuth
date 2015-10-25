@@ -151,12 +151,12 @@ void Vao::loadFile()
 		mUv.push_back(uv[index]);
 	}
 
-	cout << "numVertex : " << indexV.size() << endl;
+/*	cout << "numVertex : " << indexV.size() << endl;
 	for (int i = 0; i < indexV.size() * 1; i++)
 	{
 		cout << "n : " << i << endl;
 		cout << "Vertex " << " x : " << mPosition[i].x << " y : " << mPosition[i].y << " z : " << mPosition[i].z << endl;
 		cout << "Normal " << " x : " << mNormal[i].x << " y : " << mNormal[i].y << " z : " << mNormal[i].z << endl;
 		cout << "uv     " << " x : " << mUv[i].x << " y : " << mUv[i].y << endl;
-	}
+	}*/
 }
