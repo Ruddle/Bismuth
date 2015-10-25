@@ -31,7 +31,7 @@ int main(int argc, char **argv)
 	glm::mat4 modelview;
 	glm::mat4 view;
 
-	projection = glm::perspective(70.0, (double)16 / 9, 0.1, 100.0);
+	projection = glm::perspective(70.0*M_PI/180.0, (double)16 / 9, 0.1, 100.0);
 	view = glm::lookAt(glm::vec3(3, 3, 3), glm::vec3(0, 0, 0), glm::vec3(0, 0, 1));
 
 
