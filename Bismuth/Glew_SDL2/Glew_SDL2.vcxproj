@@ -146,6 +146,7 @@
     </ClCompile>
     <ClCompile Include="PhysicComponent.cpp" />
     <ClCompile Include="RayDetectionComponent.cpp" />
+    <ClCompile Include="ResourcesManager.cpp" />
     <ClCompile Include="RessourceManager.cpp" />
     <ClCompile Include="Scene_SDL.cpp" />
     <ClCompile Include="Shader.cpp" />
@@ -166,6 +167,7 @@
     <ClInclude Include="Input.h" />
     <ClInclude Include="PhysicComponent.h" />
     <ClInclude Include="RayDetectionComponent.h" />
+    <ClInclude Include="ResourcesManager.h" />
     <ClInclude Include="RessourceManager.h" />
     <ClInclude Include="Scene_SDL.h" />
     <ClInclude Include="Shader.h" />

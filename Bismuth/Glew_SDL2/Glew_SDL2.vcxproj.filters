@@ -114,6 +114,9 @@
     <ClCompile Include="Main_Bis1.cpp">
       <Filter>Fichiers sources\Temp_Test</Filter>
     </ClCompile>
+    <ClCompile Include="ResourcesManager.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Const.h">
@@ -169,6 +172,9 @@
     </ClInclude>
     <ClInclude Include="Scene_SDL.h">
       <Filter>Fichiers d%27en-tête\Temp_Test</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourcesManager.h">
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
