@@ -78,9 +78,6 @@
     <ClCompile Include="GraphicComponent.cpp">
       <Filter>Fichiers sources\Bis 2\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="RessourceManager.cpp">
-      <Filter>Fichiers sources\Bis 2\Graphics</Filter>
-    </ClCompile>
     <ClCompile Include="EntityManager.cpp">
       <Filter>Fichiers sources\Bis 3</Filter>
     </ClCompile>
@@ -140,9 +137,6 @@
     <ClInclude Include="GraphicComponent.h">
       <Filter>Fichiers d%27en-tête\Bis 2\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="RessourceManager.h">
-      <Filter>Fichiers d%27en-tête\Bis 2\Graphics</Filter>
-    </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>Fichiers d%27en-tête\Bis 3</Filter>
     </ClInclude>
@@ -194,6 +188,9 @@
     </None>
     <None Include="Shader\test.frag">
       <Filter>Fichiers de ressources\Shader</Filter>
+    </None>
+    <None Include="config.ini">
+      <Filter>Fichiers de ressources</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

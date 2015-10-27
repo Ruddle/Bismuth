@@ -146,8 +146,9 @@
     </ClCompile>
     <ClCompile Include="PhysicComponent.cpp" />
     <ClCompile Include="RayDetectionComponent.cpp" />
-    <ClCompile Include="ResourcesManager.cpp" />
-    <ClCompile Include="RessourceManager.cpp" />
+    <ClCompile Include="ResourcesManager.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="Scene_SDL.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="SphereDetectionComponent.cpp" />
@@ -167,8 +168,9 @@
     <ClInclude Include="Input.h" />
     <ClInclude Include="PhysicComponent.h" />
     <ClInclude Include="RayDetectionComponent.h" />
-    <ClInclude Include="ResourcesManager.h" />
-    <ClInclude Include="RessourceManager.h" />
+    <ClInclude Include="ResourcesManager.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="Scene_SDL.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="SphereDetectionComponent.h" />
@@ -189,6 +191,7 @@
     </Object>
   </ItemGroup>
   <ItemGroup>
+    <None Include="config.ini" />
     <None Include="Shader\test.frag" />
     <None Include="Shader\test.vert">
       <FileType>Document</FileType>
