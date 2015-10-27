@@ -21,13 +21,16 @@ public:
 	~Vao();
 
 	void draw();
-	void Vao::loadFile();
-	void Vao::load();
+	void loadFile();
+	void load();
+	void load(glm::vec3 color);
+
 	GLuint getVAO() { return mVaoID; }
 	std::string getPath() const { return mPath; }
 
 private:
 
+	GLuint mVboInstanceID;
 	GLuint mVboVertexID;
 	GLuint mVaoID;
 

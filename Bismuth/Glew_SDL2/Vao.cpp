@@ -20,8 +20,19 @@ Vao::~Vao()
 
 }
 
-void Vao::load()
+void Vao::load() {
+	load(vec3(1, 0, 1));
+}
+
+void Vao::load(vec3 color)
 {
+	//mVboInstance
+	glGenBuffers(1, &mVboInstanceID);
+	glBindBuffer(GL_ARRAY_BUFFER, mVboInstanceID);
+	glBufferData(GL_ARRAY_BUFFER, 1 * (sizeof(vec3)), 0, GL_DYNAMIC_DRAW);
+	glBufferSubData(GL_ARRAY_BUFFER, 0, 1*sizeof(vec3), &color[0]);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+
 	//mVboVertex
 	glGenBuffers(1, &mVboVertexID);
 	glBindBuffer(GL_ARRAY_BUFFER, mVboVertexID);
@@ -40,13 +51,19 @@ void Vao::load()
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(0)); //position
 	glEnableVertexAttribArray(0);
 
-	glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(sizeof(vec3)*mPosition.size())); //normal
-	glEnableVertexAttribArray(2);
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(sizeof(vec3)*mPosition.size())); //normal
+	glEnableVertexAttribArray(1);
 
 	glVertexAttribPointer(3, 2, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(2 * sizeof(vec3)*mPosition.size())); // uv
 	glEnableVertexAttribArray(3);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 
+	//mVboInstance
+	glBindBuffer(GL_ARRAY_BUFFER, mVboInstanceID);
+	glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(0)); 
+	glEnableVertexAttribArray(2);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glVertexAttribDivisor(2, 1);
 
 	glBindVertexArray(0);
 	//Vao LOADED

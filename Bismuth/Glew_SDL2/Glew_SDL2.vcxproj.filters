@@ -192,6 +192,12 @@
     <None Include="config.ini">
       <Filter>Fichiers de ressources</Filter>
     </None>
+    <None Include="Shader\defPass1.frag">
+      <Filter>Fichiers de ressources\Shader</Filter>
+    </None>
+    <None Include="Shader\defPass1.vert">
+      <Filter>Fichiers de ressources\Shader</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Texture\checker.png">
