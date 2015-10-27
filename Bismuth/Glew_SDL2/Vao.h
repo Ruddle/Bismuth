@@ -23,7 +23,7 @@ public:
 	void draw();
 	void loadFile();
 	void load();
-	void load(glm::vec3 color);
+	void load(glm::vec4 color);
 
 	GLuint getVAO() { return mVaoID; }
 	std::string getPath() const { return mPath; }

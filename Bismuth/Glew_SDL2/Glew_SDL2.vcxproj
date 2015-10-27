@@ -152,6 +152,7 @@
     <ClCompile Include="StateComponent.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Vao.cpp" />
+    <ClCompile Include="Vao2D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
@@ -174,6 +175,7 @@
     <ClInclude Include="StateComponent.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Vao.h" />
+    <ClInclude Include="Vao2D.h" />
   </ItemGroup>
   <ItemGroup>
     <Object Include="Mesh\cube.obj">
@@ -191,6 +193,8 @@
     <None Include="config.ini" />
     <None Include="Shader\defPass1.frag" />
     <None Include="Shader\defPass1.vert" />
+    <None Include="Shader\defPassN.frag" />
+    <None Include="Shader\defPassN.vert" />
     <None Include="Shader\test.frag" />
     <None Include="Shader\test.vert">
       <FileType>Document</FileType>

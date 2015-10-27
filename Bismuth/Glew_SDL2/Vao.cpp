@@ -21,16 +21,16 @@ Vao::~Vao()
 }
 
 void Vao::load() {
-	load(vec3(1, 0, 1));
+	load(vec4(1, 0, 1,0.5));
 }
 
-void Vao::load(vec3 color)
+void Vao::load(vec4 color)
 {
 	//mVboInstance
 	glGenBuffers(1, &mVboInstanceID);
 	glBindBuffer(GL_ARRAY_BUFFER, mVboInstanceID);
-	glBufferData(GL_ARRAY_BUFFER, 1 * (sizeof(vec3)), 0, GL_DYNAMIC_DRAW);
-	glBufferSubData(GL_ARRAY_BUFFER, 0, 1*sizeof(vec3), &color[0]);
+	glBufferData(GL_ARRAY_BUFFER, 1 * (sizeof(vec4)), 0, GL_DYNAMIC_DRAW);
+	glBufferSubData(GL_ARRAY_BUFFER, 0, 1*sizeof(vec4), &color[0]);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 
 	//mVboVertex
@@ -60,7 +60,7 @@ void Vao::load(vec3 color)
 
 	//mVboInstance
 	glBindBuffer(GL_ARRAY_BUFFER, mVboInstanceID);
-	glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(0)); 
+	glVertexAttribPointer(2, 4, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(0)); 
 	glEnableVertexAttribArray(2);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glVertexAttribDivisor(2, 1);

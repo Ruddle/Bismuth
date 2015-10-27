@@ -3,13 +3,13 @@
 in vec3 inPosition;
 in vec3 inNormal;
 in vec2 inUV;
-in vec3 inColor;
+in vec4 inColor;
 
 uniform mat4 projection;
 uniform mat4 modelview;
 
 out vec2 UV;
-out vec3 Color;
+out vec4 Color;
 
 void main()
 {

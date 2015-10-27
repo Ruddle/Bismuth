@@ -111,6 +111,9 @@
     <ClCompile Include="Main_Bis1.cpp">
       <Filter>Fichiers sources\Temp_Test</Filter>
     </ClCompile>
+    <ClCompile Include="Vao2D.cpp">
+      <Filter>Fichiers sources\Bis 1</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Const.h">
@@ -167,6 +170,9 @@
     <ClInclude Include="ResourcesManager.h">
       <Filter>Fichiers d%27en-tête\Bis 1</Filter>
     </ClInclude>
+    <ClInclude Include="Vao2D.h">
+      <Filter>Fichiers d%27en-tête\Bis 1</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Object Include="Mesh\cube.obj">
@@ -193,6 +199,12 @@
       <Filter>Fichiers de ressources\Shader</Filter>
     </None>
     <None Include="Shader\defPass1.vert">
+      <Filter>Fichiers de ressources\Shader</Filter>
+    </None>
+    <None Include="Shader\defPassN.frag">
+      <Filter>Fichiers de ressources\Shader</Filter>
+    </None>
+    <None Include="Shader\defPassN.vert">
       <Filter>Fichiers de ressources\Shader</Filter>
     </None>
   </ItemGroup>

@@ -10,6 +10,8 @@
 #include "gtx\transform.hpp"
 #include "gtc\type_ptr.hpp"
 #include "Texture.h"
+#include "Fbo.h"
+#include "Vao2D.h"
 
 #define CONFIGPATH  "config.ini"
 
@@ -36,14 +38,29 @@ int main(int argc, char **argv)
 	Scene_SDL* CurrentScene = new Scene_SDL(cfg.ResolutionX,cfg.ResolutionY);
 
 	Vao vaoA = Vao("Mesh/sphere.obj");
-	vaoA.load();
+	vaoA.load(vec4(0,0,0,0));
 
-	TextureCfg texCfg = { GL_RGB8, GL_NEAREST, GL_REPEAT };
-	Texture texA = Texture("Texture/checker.png", texCfg);
+	TextureCfg texCfgA = { GL_RGB8, GL_NEAREST, GL_REPEAT };
+	Texture texA = Texture("Texture/checker.png", texCfgA);
 	texA.load();
 
 	Shader shaderA = Shader("Shader/test.vert", "Shader/test.frag");
 	shaderA.load();
+
+	Shader shaderB = Shader("Shader/defPass1.vert", "Shader/defPass1.frag");
+	shaderB.load();
+
+	Shader shaderC = Shader("Shader/defPassN.vert", "Shader/defPassN.frag");
+	shaderC.load();
+
+	TextureCfg texCfgB = { GL_RGB8, GL_NEAREST, GL_CLAMP_TO_EDGE };
+	Texture texB = Texture(cfg.ResolutionX, cfg.ResolutionY, texCfgA);
+	vector<Texture*> textureArray = vector<Texture*>();
+	textureArray.push_back(&texB);
+	Fbo fbaA = Fbo(textureArray, 1, 0);
+
+	Vao2D supportFbo = Vao2D();
+	supportFbo.load();
 
 	glm::mat4 projection;
 	glm::mat4 modelview;

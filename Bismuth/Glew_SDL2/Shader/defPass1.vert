@@ -6,11 +6,14 @@ in vec2 inUV;
 
 uniform mat4 projection;
 uniform mat4 modelview;
+uniform mat3 normal;
 
-out vec2 UV;
+out vec2 varUV;
+out vec3 varNormal;
 
 void main()
 {
     gl_Position = projection * modelview * vec4(inPosition, 1.0);
-	UV = inUV;
+	varUV = inUV;
+	varNormal = normal * inNormal;
 }
