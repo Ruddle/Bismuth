@@ -112,7 +112,7 @@
       <Filter>Fichiers sources\Temp_Test</Filter>
     </ClCompile>
     <ClCompile Include="ResourcesManager.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\Bis 1</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -168,7 +168,7 @@
       <Filter>Fichiers d%27en-tête\Temp_Test</Filter>
     </ClInclude>
     <ClInclude Include="ResourcesManager.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Bis 1</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

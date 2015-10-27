@@ -9,14 +9,14 @@ public:
 	ResourcesManager();
 	~ResourcesManager();
 	int loadTexture(std::string path, GLenum format, GLenum filter, GLenum wrap);
-	int loadVAO(std::string path);
+	int loadVao(std::string path);
 
 	Texture* getTexture(unsigned int id);
 	Vao* getVao(unsigned int id);
 
 private:
 	int getTexture(std::string path, TextureCfg cfg);
-	int getVAO(std::string path);
+	int getVao(std::string path);
 
 	std::vector<Texture*> mTextures;
 	std::vector<Vao*> mVaos;

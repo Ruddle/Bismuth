@@ -24,6 +24,7 @@ public:
 	void Vao::loadFile();
 	void Vao::load();
 	GLuint getVAO() { return mVaoID; }
+	std::string getPath() const { return mPath; }
 
 private:
 
