@@ -192,6 +192,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="config.ini" />
+    <None Include="Shader\defPass1.frag" />
+    <None Include="Shader\defPass1.vert" />
     <None Include="Shader\test.frag" />
     <None Include="Shader\test.vert">
       <FileType>Document</FileType>
