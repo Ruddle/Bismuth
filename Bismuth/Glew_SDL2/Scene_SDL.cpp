@@ -33,7 +33,7 @@ Scene_SDL::Scene_SDL(int w, int h)
 	//	SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1);
 	//	SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 8);
 	mWindow = SDL_CreateWindow(
-		"Ma premiere application SDL2",
+		"Bismuth Engine",
 		300,
 		50,
 		w,

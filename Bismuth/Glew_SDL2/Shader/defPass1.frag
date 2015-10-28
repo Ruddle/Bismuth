@@ -6,9 +6,12 @@ in vec3 varNormal;
 uniform sampler2D texture_diffuse;
 
 layout (location = 0) out vec3 gNormal;
-
+layout (location = 1) out vec3 gDiffuse;
+layout (location = 2) out vec3 gPosition;
 
 void main()
 {
-	gNormal =  texture(texture_diffuse, varUV).xyz;
+	gDiffuse= texture(texture_diffuse, varUV).xyz;
+	gNormal =  varNormal;
+	gPosition = gl_FragCoord.xyz;
 }
