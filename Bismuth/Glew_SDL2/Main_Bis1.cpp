@@ -37,7 +37,7 @@ int main(int argc, char **argv)
 	Config cfg = readConfig();
 	Scene_SDL* CurrentScene = new Scene_SDL(cfg.ResolutionX,cfg.ResolutionY);
 
-	Vao vaoA = Vao("Mesh/cube.obj");
+	Vao vaoA = Vao("Mesh/thing.obj");
 	vaoA.load(vec4(0,0,0,0));
 
 	TextureCfg texCfgA = { GL_RGB8, GL_NEAREST, GL_REPEAT };
@@ -77,7 +77,7 @@ int main(int argc, char **argv)
 	glm::mat4 view;
 
 	projection = glm::perspective(70.0*M_PI/180.0, (double)cfg.ResolutionX / (double)cfg.ResolutionY, 0.1, 100.0);
-	view = glm::lookAt(glm::vec3(2,2,2), glm::vec3(0, 0, 0), glm::vec3(0, 0, 1));
+	view = glm::lookAt(glm::vec3(1.5,1.5,1.5), glm::vec3(0, 0, 0), glm::vec3(0, 0, 1));
 
 
 	Input input;
