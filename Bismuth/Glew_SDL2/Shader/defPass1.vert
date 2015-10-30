@@ -10,10 +10,12 @@ uniform mat3 normal;
 
 out vec2 varUV;
 out vec3 varNormal;
+out vec3 varPosition;
 
 void main()
 {
     gl_Position = projection * modelview * vec4(inPosition, 1.0);
+	varPosition = (modelview* vec4(inPosition, 1.0)).xyz;
 	varUV = inUV;
 	varNormal = normal * inNormal;
 }

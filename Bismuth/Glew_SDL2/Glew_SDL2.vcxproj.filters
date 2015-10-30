@@ -207,6 +207,9 @@
     <None Include="Shader\defPassN.vert">
       <Filter>Fichiers de ressources\Shader</Filter>
     </None>
+    <None Include="Shader\AO.frag">
+      <Filter>Fichiers de ressources\Shader</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Texture\checker.png">

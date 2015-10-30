@@ -53,7 +53,7 @@ int main(int argc, char **argv)
 	Shader shaderC = Shader("Shader/defPassN.vert", "Shader/defPassN.frag");
 	shaderC.load();
 
-	TextureCfg texCfgB = { GL_RGB16F, GL_NEAREST, GL_CLAMP_TO_EDGE };
+	TextureCfg texCfgB = { GL_RGBA16F, GL_NEAREST, GL_CLAMP_TO_EDGE };
 	Texture texB =Texture(cfg.ResolutionX, cfg.ResolutionY, texCfgB);
 	texB.load();
 	TextureCfg texCfgC = { GL_RGB16F, GL_NEAREST, GL_CLAMP_TO_EDGE };
@@ -123,6 +123,8 @@ int main(int argc, char **argv)
 			glActiveTexture(GL_TEXTURE2);
 			glBindTexture(GL_TEXTURE_2D, fboA.getColorBufferId(2));
 			glUniform1i(glGetUniformLocation(shaderC.getProgramID(), "gPosition"), 2);
+
+			glUniformMatrix4fv(glGetUniformLocation(shaderC.getProgramID(), "projection"), 1, GL_FALSE, value_ptr(projection));
 
 			supportFbo.draw();
 			
