@@ -121,7 +121,7 @@
       <Filter>Fichiers sources\Bis 1</Filter>
     </ClCompile>
     <ClCompile Include="RenderSystem.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\Bis 1</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -183,7 +183,7 @@
       <Filter>Fichiers d%27en-tête\Bis 1</Filter>
     </ClInclude>
     <ClInclude Include="RenderSystem.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Bis 1</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
