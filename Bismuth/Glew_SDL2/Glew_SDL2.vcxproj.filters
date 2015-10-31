@@ -93,9 +93,6 @@
     <ClCompile Include="Shader.cpp">
       <Filter>Fichiers sources\Bis 1</Filter>
     </ClCompile>
-    <ClCompile Include="Fbo.cpp">
-      <Filter>Fichiers sources\Bis 1</Filter>
-    </ClCompile>
     <ClCompile Include="Input.cpp">
       <Filter>Fichiers sources\Bis 1</Filter>
     </ClCompile>
@@ -125,6 +122,9 @@
     </ClCompile>
     <ClCompile Include="Main_Bis2.cpp">
       <Filter>Fichiers sources\Temp_Test</Filter>
+    </ClCompile>
+    <ClCompile Include="Fbo.cpp">
+      <Filter>Fichiers sources\Bis 1</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -40,6 +40,28 @@ Config readConfig(void) {
 	return cfg;
 }
 
+
+Entity* createSphere(ResourcesManager* rm) {
+	GraphicComponent* gc1 = new GraphicComponent(rm->loadTexture("Texture/checker.png", GL_RGB8, GL_NEAREST, GL_REPEAT), 0, 0, rm->loadVao("Mesh/sphere.obj"));
+	SphereDetectionComponent* dc1 = new SphereDetectionComponent(1);
+	StateComponent* sc1 = new StateComponent();
+	sc1->setPosition(vec3(0, 0, 0.5));
+	PhysicComponent* pc1 = new PhysicComponent(dc1, sc1);
+	Entity* entity = new Entity(gc1, pc1);
+	return entity;
+}
+
+Entity* createPlane(ResourcesManager* rm) {
+	GraphicComponent* gc1 = new GraphicComponent(rm->loadTexture("Texture/checker.png", GL_RGB8, GL_NEAREST, GL_REPEAT), 0, 0, rm->loadVao("Mesh/plane.obj"));
+	SphereDetectionComponent* dc1 = new SphereDetectionComponent(1);
+	StateComponent* sc1 = new StateComponent();
+	PhysicComponent* pc1 = new PhysicComponent(dc1, sc1);
+	Entity* entity = new Entity(gc1, pc1);
+	return entity;
+}
+
+
+
 Fbo* createFboGeometry(Config cfg) {
 
 	TextureCfg texCfgNormal = { GL_RGB16F, GL_NEAREST, GL_CLAMP_TO_EDGE };
