@@ -6,6 +6,7 @@ out vec4 outColor;
 uniform sampler2D gNormal;
 uniform sampler2D gDiffuse;
 uniform sampler2D gPosition;
+uniform vec2 resolution;
 
 struct Light
 {
@@ -35,12 +36,12 @@ for(int k=0;k<2;k++){
 	lighting += attenuation* (alpha+0.2)*diffuse*lights[k].intensity;
 }
 
-if(gl_FragCoord.x>800 ||gl_FragCoord.y>450)
+if(gl_FragCoord.x>resolution.x/2.0 ||gl_FragCoord.y>resolution.y/2.0)
 lighting=vec3(0);
 
-vec4 diffuseSide = (gl_FragCoord.x<800 && gl_FragCoord.y>450) ? texture(gDiffuse, vec2(0,-1)+UV*2) : vec4(0);
-vec4 normalSide = (gl_FragCoord.x>800 && gl_FragCoord.y>450) ? texture(gNormal, vec2(-1,-1)+UV*2) : vec4(0);
-vec4 positionSide = (gl_FragCoord.x>800 && gl_FragCoord.y<450) ? vec4(texture(gPosition, vec2(-1,0)+UV*2).xyz*vec3(1,1,-0.1),1) : vec4(0);
+vec4 diffuseSide = (gl_FragCoord.x<resolution.x/2.0 && gl_FragCoord.y>resolution.y/2.0) ? texture(gDiffuse, vec2(0,-1)+UV*2) : vec4(0);
+vec4 normalSide = (gl_FragCoord.x>resolution.x/2.0 && gl_FragCoord.y>resolution.y/2.0) ? texture(gNormal, vec2(-1,-1)+UV*2) : vec4(0);
+vec4 positionSide = (gl_FragCoord.x>resolution.x/2.0 && gl_FragCoord.y<resolution.y/2.0) ? vec4(texture(gPosition, vec2(-1,0)+UV*2).xyz*vec3(1,1,-0.1),1) : vec4(0);
 
 outColor =		diffuseSide + 
 				normalSide + 	 

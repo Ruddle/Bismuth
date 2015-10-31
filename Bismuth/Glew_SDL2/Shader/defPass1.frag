@@ -5,6 +5,7 @@ in vec3 varNormal;
 in vec3 varPosition;
 
 uniform sampler2D texture_diffuse;
+uniform vec2 resolution;
 
 layout (location = 0) out vec3 gNormal;
 layout (location = 1) out vec3 gDiffuse;

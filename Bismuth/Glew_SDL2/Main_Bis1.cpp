@@ -12,33 +12,28 @@
 #include "Texture.h"
 #include "Fbo.h"
 #include "Vao2D.h"
+#include "Misc.h"
 
-#define CONFIGPATH  "config.ini"
-
-FILE _iob[] = { *stdin, *stdout, *stderr };
-extern "C" FILE * __cdecl __iob_func(void)
-{return _iob;}
 
 using namespace glm;
 using namespace std;
 
-struct Config
+FILE _iob[] = { *stdin, *stdout, *stderr };
+extern "C" FILE * __cdecl __iob_func(void)
 {
-	int ResolutionX;
-	int ResolutionY;
-};
-
-Config readConfig(void); 
-
+	return _iob;
+}
 
 int main(int argc, char **argv)
 {
 	
 
-	Config cfg = readConfig();
+	Config cfg = readConfig(); // Misc.cpp
 	Scene_SDL* CurrentScene = new Scene_SDL(cfg.ResolutionX,cfg.ResolutionY);
 
-	Vao vaoA = Vao("Mesh/thing.obj");
+	vec2 resolution = vec2(cfg.ResolutionX, cfg.ResolutionY);
+
+	Vao vaoA = Vao("Mesh/sphere.obj");
 	vaoA.load(vec4(0,0,0,0));
 
 	Vao vaoB = Vao("Mesh/plane.obj");
@@ -48,30 +43,19 @@ int main(int argc, char **argv)
 	Texture texA = Texture("Texture/checker.png", texCfgA);
 	texA.load();
 
-	Shader shaderA = Shader("Shader/test.vert", "Shader/test.frag");
-	shaderA.load();
+	Shader shaderForward = Shader("Shader/test.vert", "Shader/test.frag");
+	shaderForward.load();
 
-	Shader shaderB = Shader("Shader/defPass1.vert", "Shader/defPass1.frag");
-	shaderB.load();
+	Shader shaderGeometry = Shader("Shader/defPass1.vert", "Shader/defPass1.frag");
+	shaderGeometry.load();
 
-	Shader shaderC = Shader("Shader/defPassN.vert", "Shader/defPassN.frag");
-	shaderC.load();
+	Shader shaderDeferred = Shader("Shader/defPassN.vert", "Shader/defPassN.frag");
+	shaderDeferred.load();
 
-	TextureCfg texCfgB = { GL_RGB16F, GL_NEAREST, GL_CLAMP_TO_EDGE };
-	Texture texB =Texture(cfg.ResolutionX, cfg.ResolutionY, texCfgB);
-	texB.load();
-	TextureCfg texCfgC = { GL_RGB16F, GL_NEAREST, GL_CLAMP_TO_EDGE };
-	Texture texC = Texture(cfg.ResolutionX, cfg.ResolutionY, texCfgC);
-	texC.load();
-	TextureCfg texCfgD = { GL_RGBA32F, GL_NEAREST, GL_CLAMP_TO_EDGE };
-	Texture texD = Texture(cfg.ResolutionX, cfg.ResolutionY, texCfgD);
-	texD.load();
-	vector<Texture*> textureArray = vector<Texture*>();
-	textureArray.push_back(&texB);
-	textureArray.push_back(&texC);
-	textureArray.push_back(&texD);
-	Fbo fboA = Fbo(textureArray, 1, 0);
-	fboA.load();
+	Shader shaderAO = Shader("Shader/defPassN.vert", "Shader/AO.frag");
+	shaderAO.load();
+
+	Fbo* fboGeometry = createFboGeometry(cfg); // Misc.cpp
 
 	Vao2D supportFbo = Vao2D();
 	supportFbo.load();
@@ -94,28 +78,29 @@ int main(int argc, char **argv)
 			
 			input.updateEvents();
 
-			modelview = rotate(view, (input.getX() - cfg.ResolutionX) / 500.0f, vec3(0.0f, 0.0f, 1.0f));
+			modelview = rotate(view, (input.getX() - cfg.ResolutionX) / 200.0f, vec3(0.0f, 0.0f, 1.0f));
 			modelview = translate(modelview, vec3(0, 0, 0.8));
 
 
 			glViewport(0, 0, cfg.ResolutionX, cfg.ResolutionY);
-			glBindFramebuffer(GL_FRAMEBUFFER, fboA.getId());
+			glBindFramebuffer(GL_FRAMEBUFFER, fboGeometry->getId());
 			glDrawBuffers(3, attachments);
 			glDisable(GL_BLEND);
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-			glUseProgram(shaderB.getProgramID());
-			glUniformMatrix4fv(glGetUniformLocation(shaderB.getProgramID(), "projection"), 1, GL_FALSE, value_ptr(projection));
-			glUniformMatrix4fv(glGetUniformLocation(shaderB.getProgramID(), "modelview"), 1, GL_FALSE, value_ptr(modelview));
-			glUniformMatrix3fv(glGetUniformLocation(shaderB.getProgramID(), "normal"), 1, GL_FALSE, value_ptr(transpose(inverse(glm::mat3(modelview)))));
+			glUseProgram(shaderGeometry.getProgramID());
+			glUniformMatrix4fv(glGetUniformLocation(shaderGeometry.getProgramID(), "projection"), 1, GL_FALSE, value_ptr(projection));
+			glUniformMatrix4fv(glGetUniformLocation(shaderGeometry.getProgramID(), "modelview"), 1, GL_FALSE, value_ptr(modelview));
+			glUniformMatrix3fv(glGetUniformLocation(shaderGeometry.getProgramID(), "normal"), 1, GL_FALSE, value_ptr(transpose(inverse(glm::mat3(modelview)))));
+			glUniform2fv(glGetUniformLocation(shaderGeometry.getProgramID(),"resolution") ,1, value_ptr(resolution));
 			glActiveTexture(GL_TEXTURE0);
 			glBindTexture(GL_TEXTURE_2D, texA.getId());
-			glUniform1i(glGetUniformLocation(shaderB.getProgramID(), "texture_diffuse"), 0);
+			glUniform1i(glGetUniformLocation(shaderGeometry.getProgramID(), "texture_diffuse"), 0);
 			vaoA.draw();
 
 			modelview = view;
-			glUniformMatrix4fv(glGetUniformLocation(shaderB.getProgramID(), "projection"), 1, GL_FALSE, value_ptr(projection));
-			glUniformMatrix4fv(glGetUniformLocation(shaderB.getProgramID(), "modelview"), 1, GL_FALSE, value_ptr(modelview));
-			glUniformMatrix3fv(glGetUniformLocation(shaderB.getProgramID(), "normal"), 1, GL_FALSE, value_ptr(transpose(inverse(glm::mat3(modelview)))));
+			glUniformMatrix4fv(glGetUniformLocation(shaderGeometry.getProgramID(), "projection"), 1, GL_FALSE, value_ptr(projection));
+			glUniformMatrix4fv(glGetUniformLocation(shaderGeometry.getProgramID(), "modelview"), 1, GL_FALSE, value_ptr(modelview));
+			glUniformMatrix3fv(glGetUniformLocation(shaderGeometry.getProgramID(), "normal"), 1, GL_FALSE, value_ptr(transpose(inverse(glm::mat3(modelview)))));
 			vaoB.draw();
 			glBindTexture(GL_TEXTURE_2D, 0);
 			glUseProgram(0);
@@ -124,25 +109,25 @@ int main(int argc, char **argv)
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
 			glEnable(GL_BLEND);
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-			glUseProgram(shaderC.getProgramID());
+			glUseProgram(shaderDeferred.getProgramID());
 
 			glActiveTexture(GL_TEXTURE0);
-			glBindTexture(GL_TEXTURE_2D, fboA.getColorBufferId(0));
-			glUniform1i(glGetUniformLocation(shaderC.getProgramID(), "gNormal"), 0);
+			glBindTexture(GL_TEXTURE_2D, fboGeometry->getColorBufferId(0));
+			glUniform1i(glGetUniformLocation(shaderDeferred.getProgramID(), "gNormal"), 0);
 
 			glActiveTexture(GL_TEXTURE1);
-			glBindTexture(GL_TEXTURE_2D, fboA.getColorBufferId(1));
-			glUniform1i(glGetUniformLocation(shaderC.getProgramID(), "gDiffuse"), 1);
+			glBindTexture(GL_TEXTURE_2D, fboGeometry->getColorBufferId(1));
+			glUniform1i(glGetUniformLocation(shaderDeferred.getProgramID(), "gDiffuse"), 1);
 
 			glActiveTexture(GL_TEXTURE2);
-			glBindTexture(GL_TEXTURE_2D, fboA.getColorBufferId(2));
-			glUniform1i(glGetUniformLocation(shaderC.getProgramID(), "gPosition"), 2);
+			glBindTexture(GL_TEXTURE_2D, fboGeometry->getColorBufferId(2));
+			glUniform1i(glGetUniformLocation(shaderDeferred.getProgramID(), "gPosition"), 2);
 
-			glUniformMatrix4fv(glGetUniformLocation(shaderC.getProgramID(), "projection"), 1, GL_FALSE, value_ptr(projection));
+			glUniformMatrix4fv(glGetUniformLocation(shaderDeferred.getProgramID(), "projection"), 1, GL_FALSE, value_ptr(projection));
 
-			glUniform1f(glGetUniformLocation(shaderC.getProgramID(), "varA"), input.getY() / 900.0);
-			glUniform1i(glGetUniformLocation(shaderC.getProgramID(), "time"), frame);
-
+			glUniform1f(glGetUniformLocation(shaderDeferred.getProgramID(), "varA"), input.getY() / resolution.y);
+			glUniform1i(glGetUniformLocation(shaderDeferred.getProgramID(), "time"), frame);
+			glUniform2fv(glGetUniformLocation(shaderDeferred.getProgramID(), "resolution"), 1, value_ptr(resolution));
 
 			supportFbo.draw();
 			
@@ -156,14 +141,14 @@ int main(int argc, char **argv)
 			glEnable(GL_BLEND);
 			modelview = rotate(view, (input.getX() - cfg.ResolutionX) / 100.0f, vec3(0.0f, 0.0f, 1.0f));
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-			glUseProgram(shaderA.getProgramID());
-			glUniformMatrix4fv(glGetUniformLocation(shaderA.getProgramID(), "projection"), 1, GL_FALSE, value_ptr(projection));
-			glUniformMatrix4fv(glGetUniformLocation(shaderA.getProgramID(), "modelview"), 1, GL_FALSE, value_ptr(modelview));
-			glUniformMatrix3fv(glGetUniformLocation(shaderA.getProgramID(), "normal"), 1, GL_FALSE, value_ptr(transpose(inverse(glm::mat3(modelview)))));
+			glUseProgram(shaderForward.getProgramID());
+			glUniformMatrix4fv(glGetUniformLocation(shaderForward.getProgramID(), "projection"), 1, GL_FALSE, value_ptr(projection));
+			glUniformMatrix4fv(glGetUniformLocation(shaderForward.getProgramID(), "modelview"), 1, GL_FALSE, value_ptr(modelview));
+			glUniformMatrix3fv(glGetUniformLocation(shaderForward.getProgramID(), "normal"), 1, GL_FALSE, value_ptr(transpose(inverse(glm::mat3(modelview)))));
 
 			glActiveTexture(GL_TEXTURE0);
 			glBindTexture(GL_TEXTURE_2D, texA.getId());
-			glUniform1i(glGetUniformLocation(shaderA.getProgramID(), "texture_diffuse"), 0);
+			glUniform1i(glGetUniformLocation(shaderForward.getProgramID(), "texture_diffuse"), 0);
 
 			vaoA.draw();
 			CurrentScene->flip();
@@ -174,39 +159,3 @@ int main(int argc, char **argv)
 	return 0;
 }
 
-
-
-Config readConfig(void) {
-
-	Config cfg;
-
-	ifstream flux(CONFIGPATH);
-
-	if (!flux)
-		cout << "ERROR : Loading of " << CONFIGPATH << " failed !" << endl;
-
-	bool loading = true;
-
-	while (loading)
-	{
-		string line;
-		if (!getline(flux, line)) //On lit une ligne complète
-			loading = false;
-
-		istringstream lineStream(line);
-
-		string word1;
-		lineStream >> word1;
-
-		string word2;
-		lineStream >> word2;
-		lineStream >> word2;
-
-		if (word1 == "ResolutionX")
-			cfg.ResolutionX = stoi(word2);
-
-		if (word1 == "ResolutionY")
-			cfg.ResolutionY = stoi(word2);
-	}
-	return cfg;
-}
