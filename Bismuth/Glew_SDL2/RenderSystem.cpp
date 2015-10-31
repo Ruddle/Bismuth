@@ -83,28 +83,20 @@ void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float t
 		
 
 		glActiveTexture(GL_TEXTURE0);
-		glBindTexture(GL_TEXTURE_2D, mRm->getTexture(entity->getGraphicComponent->getTextureDiffuseId()    )   );
+		glBindTexture(GL_TEXTURE_2D, mRm->getTexture(entity->getGraphicComponent->getTextureDiffuseId()    )->getId()   );
 		glUniform1i(glGetUniformLocation(mShaderGeometry.getProgramID(), "texture_diffuse"), 0);
 
-/*
-		modelview = rotate(view, (input.getX() - cfg.ResolutionX) / 200.0f, vec3(0.0f, 0.0f, 1.0f));
-		modelview = translate(modelview, vec3(0, 0, 0.8));
+
+		//modelview = rotate(view,  entity->getPhysicComponent()->getStateComponent()->getRotation()   );
+		modelview = translate(modelview, entity->getPhysicComponent()->getStateComponent()->getPosition());
 		glUniformMatrix4fv(glGetUniformLocation(mShaderGeometry.getProgramID(), "modelview"), 1, GL_FALSE, value_ptr(modelview));
 		glUniformMatrix3fv(glGetUniformLocation(mShaderGeometry.getProgramID(), "normal"), 1, GL_FALSE, value_ptr(transpose(inverse(glm::mat3(modelview)))));
 
-		vaoA.draw();
-
-		modelview = view;
-		glUniformMatrix4fv(glGetUniformLocation(mShaderGeometry.getProgramID(), "modelview"), 1, GL_FALSE, value_ptr(modelview));
-		glUniformMatrix3fv(glGetUniformLocation(mShaderGeometry.getProgramID(), "normal"), 1, GL_FALSE, value_ptr(transpose(inverse(glm::mat3(modelview)))));
-		vaoB.draw();
-
-		glBindTexture(GL_TEXTURE_2D, 0);
-		glUseProgram(0);
-*/
+		mRm->getVao( entity->getGraphicComponent()->getVaoId() )->draw();
 
 	}
-		
+	glBindTexture(GL_TEXTURE_2D, 0);
+	glUseProgram(0);
 
 
 	// END OF EACH VAO
