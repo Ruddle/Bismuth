@@ -35,10 +35,13 @@ RenderSystem::RenderSystem(Config cfg, ResourcesManager* rm) : mCfg(cfg), mRm(rm
 
 
 	mShaderGeometry = Shader("Shader/defPass1.vert", "Shader/defPass1.frag") ;
+	mShaderGeometry.load();
 
 	mShaderAo       = Shader("Shader/defPassN.vert", "Shader/AO.frag");
+	mShaderAo.load();
 
 	mShaderDeferredFinal = Shader("Shader/defPassN.vert", "Shader/defPassNDebug.frag");
+	mShaderDeferredFinal.load();
 
 	mSupportFbo = Vao2D();
 	mSupportFbo.load();
@@ -88,7 +91,7 @@ void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float t
 
 
 		//modelview = rotate(view,  entity->getPhysicComponent()->getStateComponent()->getRotation()   );
-		modelview = translate(modelview, entity->getPhysicComponent()->getStateComponent()->getPosition());
+		modelview = translate(view, entity->getPhysicComponent()->getStateComponent()->getPosition());
 		glUniformMatrix4fv(glGetUniformLocation(mShaderGeometry.getProgramID(), "modelview"), 1, GL_FALSE, value_ptr(modelview));
 		glUniformMatrix3fv(glGetUniformLocation(mShaderGeometry.getProgramID(), "normal"), 1, GL_FALSE, value_ptr(transpose(inverse(glm::mat3(modelview)))));
 
