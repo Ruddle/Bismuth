@@ -10,6 +10,7 @@
 class Fbo
 {
 public:
+	Fbo();
 	Fbo(std::vector<Texture*> colorBufferTexture, bool depthBuffer, bool stencilBuffer);
 	Fbo(int w,int h, bool depthBuffer, bool stencilBuffer);
 	~Fbo();

@@ -2,6 +2,12 @@
 
 using namespace std;
 
+
+Fbo::Fbo() {
+
+}
+
+
 Fbo::Fbo(std::vector<Texture*> colorBufferTexture, bool depthBuffer, bool stencilBuffer) : mColorBufferTexture(colorBufferTexture),
 mDepthBuffer(depthBuffer), mStencilBuffer(stencilBuffer)
 {
