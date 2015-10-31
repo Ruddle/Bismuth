@@ -9,6 +9,7 @@ uniform sampler2D gPosition;
 uniform mat4 projection;
 uniform float varA;
 uniform int time;
+uniform vec2 resolution;
 
 uint hash( uint x ) {
     x += ( x << 10u );
@@ -91,7 +92,7 @@ float doAO(int numPass,vec4 position,float radius) {
 }
 
 
-int NUMPASS=int(floor(128.0*varA));
+int NUMPASS=16;
 float RADIUS = 1;
 
 void main()

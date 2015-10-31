@@ -102,9 +102,6 @@
     <ClCompile Include="Input.cpp">
       <Filter>Fichiers sources\Bis 1</Filter>
     </ClCompile>
-    <ClCompile Include="Scene_SDL.cpp">
-      <Filter>Fichiers sources\Temp_Test</Filter>
-    </ClCompile>
     <ClCompile Include="Main_Test_Physique.cpp">
       <Filter>Fichiers sources\Temp_Test</Filter>
     </ClCompile>
@@ -117,11 +114,14 @@
     <ClCompile Include="ResourcesManager.cpp">
       <Filter>Fichiers sources\Bis 1</Filter>
     </ClCompile>
+    <ClCompile Include="Misc.cpp">
+      <Filter>Fichiers sources\Temp_Test</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene_SDL.cpp">
+      <Filter>Fichiers sources\Bis 1</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Const.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
     <ClInclude Include="PhysicComponent.h">
       <Filter>Fichiers d%27en-tête\Bis 2\Physics</Filter>
     </ClInclude>
@@ -167,13 +167,16 @@
     <ClInclude Include="Input.h">
       <Filter>Fichiers d%27en-tête\Bis 1</Filter>
     </ClInclude>
-    <ClInclude Include="Scene_SDL.h">
-      <Filter>Fichiers d%27en-tête\Temp_Test</Filter>
-    </ClInclude>
     <ClInclude Include="ResourcesManager.h">
       <Filter>Fichiers d%27en-tête\Bis 1</Filter>
     </ClInclude>
     <ClInclude Include="Vao2D.h">
+      <Filter>Fichiers d%27en-tête\Bis 1</Filter>
+    </ClInclude>
+    <ClInclude Include="Misc.h">
+      <Filter>Fichiers d%27en-tête\Temp_Test</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene_SDL.h">
       <Filter>Fichiers d%27en-tête\Bis 1</Filter>
     </ClInclude>
   </ItemGroup>
@@ -210,9 +213,6 @@
     <None Include="Shader\defPass1.vert">
       <Filter>Fichiers de ressources\Shader</Filter>
     </None>
-    <None Include="Shader\defPassN.frag">
-      <Filter>Fichiers de ressources\Shader</Filter>
-    </None>
     <None Include="Shader\defPassN.vert">
       <Filter>Fichiers de ressources\Shader</Filter>
     </None>
@@ -223,6 +223,12 @@
       <Filter>Fichiers de ressources\Shader</Filter>
     </None>
     <None Include="Shader\blurV_1ch.frag">
+      <Filter>Fichiers de ressources\Shader</Filter>
+    </None>
+    <None Include="Shader\defPassNDebug.frag">
+      <Filter>Fichiers de ressources\Shader</Filter>
+    </None>
+    <None Include="Shader\defPassN.frag">
       <Filter>Fichiers de ressources\Shader</Filter>
     </None>
   </ItemGroup>

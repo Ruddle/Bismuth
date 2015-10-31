@@ -43,15 +43,15 @@ void Vao2D::load()
 	glBufferData(GL_ARRAY_BUFFER, 6 * 3 * sizeof(float) + 6 * 2 * sizeof(float), 0, GL_STATIC_DRAW);
 
 	// Transfert des données
-	float px = 0 * 2.0 / 1600.0;
+	
 
 	float m_vertex[18] = {
-		-px, 0, 0,
+		0,0,0,
 		1,0,0,
 		1,1,0,
 
 		0,0,0,
-		1 + px, 1, 0,
+		1,1,0,
 		0,1,0
 	};
 
@@ -66,9 +66,6 @@ void Vao2D::load()
 
 	for (int i = 0; i < 18; i++)
 	m_vertex[i] *= 2;
-
-
-
 
 	float m_coords[12] = {
 		0, 0,

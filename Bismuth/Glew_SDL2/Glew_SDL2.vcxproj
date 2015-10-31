@@ -118,18 +118,20 @@
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>.\SDL2-2.0.3\include;.\glew-1.13.0\include\GL;.\SDL2_image-2.0.0\include;.\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>.\SDL2-2.0.3\lib\x64;.\glew-1.13.0\lib\Release\x64;.\SDL2_image-2.0.0\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;opengl32.lib;legacy_stdio_definitions.lib;glew32.lib;glew32s.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;opengl32.lib;legacy_stdio_definitions.lib;glew32.lib;glew32s.lib;SDL2_image.lib;shell32.lib;msvcrt.lib;msvcmrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>msvcrt.lib</IgnoreSpecificDefaultLibraries>
       <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -143,7 +145,9 @@
     <ClCompile Include="Main_Bis1.cpp" />
     <ClCompile Include="Main_Test_Physique.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="Misc.cpp" />
     <ClCompile Include="PhysicComponent.cpp" />
     <ClCompile Include="RayDetectionComponent.cpp" />
     <ClCompile Include="ResourcesManager.cpp" />
@@ -157,7 +161,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
-    <ClInclude Include="Const.h" />
     <ClInclude Include="Contact.h" />
     <ClInclude Include="DetectionComponent.h" />
     <ClInclude Include="Entity.h" />
@@ -165,6 +168,7 @@
     <ClInclude Include="Fbo.h" />
     <ClInclude Include="GraphicComponent.h" />
     <ClInclude Include="Input.h" />
+    <ClInclude Include="Misc.h" />
     <ClInclude Include="PhysicComponent.h" />
     <ClInclude Include="RayDetectionComponent.h" />
     <ClInclude Include="ResourcesManager.h">
@@ -182,18 +186,23 @@
     <Object Include="Mesh\cube.obj">
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </Object>
     <Object Include="Mesh\plane.obj">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </Object>
     <Object Include="Mesh\ray.obj">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </Object>
     <Object Include="Mesh\sphere.obj">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </Object>
     <Object Include="Mesh\thing.obj">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </Object>
   </ItemGroup>
   <ItemGroup>
@@ -204,6 +213,7 @@
     <None Include="Shader\defPass1.frag" />
     <None Include="Shader\defPass1.vert" />
     <None Include="Shader\defPassN.frag" />
+    <None Include="Shader\defPassNDebug.frag" />
     <None Include="Shader\defPassN.vert" />
     <None Include="Shader\test.frag" />
     <None Include="Shader\test.vert">

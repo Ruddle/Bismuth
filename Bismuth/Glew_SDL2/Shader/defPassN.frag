@@ -6,6 +6,8 @@ out vec4 outColor;
 uniform sampler2D gNormal;
 uniform sampler2D gDiffuse;
 uniform sampler2D gPosition;
+uniform sampler2D samplerAO;
+uniform vec2 resolution;
 
 struct Light
 {
@@ -20,9 +22,9 @@ void main()
 
 vec3 lighting= vec3(0);
 
-vec3 position = texture(gPosition, vec2(0,0)+UV*2).xyz;
-vec3 normal   = texture(gNormal, vec2(0,0)+UV*2).xyz;
-vec3 diffuse = texture(gDiffuse, vec2(0,0)+UV*2).xyz;
+vec3 position = texture(gPosition, UV).xyz;
+vec3 normal   = texture(gNormal, UV).xyz;
+vec3 diffuse = texture(gDiffuse, UV).xyz;
 
 for(int k=0;k<2;k++){
 	vec3 i = position-lights[k].position_ViewSpace;
@@ -35,15 +37,8 @@ for(int k=0;k<2;k++){
 	lighting += attenuation* (alpha+0.2)*diffuse*lights[k].intensity;
 }
 
-if(gl_FragCoord.x>800 ||gl_FragCoord.y>450)
-lighting=vec3(0);
 
-vec4 diffuseSide = (gl_FragCoord.x<800 && gl_FragCoord.y>450) ? texture(gDiffuse, vec2(0,-1)+UV*2) : vec4(0);
-vec4 normalSide = (gl_FragCoord.x>800 && gl_FragCoord.y>450) ? texture(gNormal, vec2(-1,-1)+UV*2) : vec4(0);
-vec4 positionSide = (gl_FragCoord.x>800 && gl_FragCoord.y<450) ? vec4(texture(gPosition, vec2(-1,0)+UV*2).xyz*vec3(1,1,-0.1),1) : vec4(0);
 
-outColor =		diffuseSide + 
-				normalSide + 	 
-			    positionSide +
-				vec4(lighting,1);
+
+outColor =		vec4(lighting,1);
 }
