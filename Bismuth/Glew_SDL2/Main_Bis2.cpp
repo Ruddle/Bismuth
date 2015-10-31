@@ -31,6 +31,11 @@ int main(int argc, char **argv)
 {
 	Config cfg = readConfig(); // Misc.cpp
 	Scene_SDL* currentScene = new Scene_SDL(cfg.ResolutionX, cfg.ResolutionY);
+	
+	
+	mat4 projection = glm::perspective(70.0*M_PI / 180.0, 16.0 / 9.0, 0.1, 100.0);
+	Camera* cam = new Camera(projection);
+
 
 	ResourcesManager* rm = new ResourcesManager();
 	GraphicComponent* gc1 = new GraphicComponent(rm->loadTexture("Texture/checker.png", GL_RGB8, GL_NEAREST, GL_REPEAT), 0, 0, rm->loadVao("Mesh/cube.obj"));
@@ -46,7 +51,7 @@ int main(int argc, char **argv)
 	entityManager->add(entity);
 
 
-	RenderSystem *renderSystem = new RenderSystem(rm, cfg);
+	RenderSystem *renderSystem = new RenderSystem(cfg, rm);
 
 
 	Input input;
@@ -54,9 +59,11 @@ int main(int argc, char **argv)
 	while (!input.end()) {
 		input.updateEvents();
 
+		renderSystem->draw(entityManager->getEntities(), *cam);
 		currentScene->flip();
 	}
 
+	delete cam;
 	delete renderSystem;
 	delete entityManager;
 	delete rm;
