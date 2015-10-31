@@ -168,7 +168,7 @@
     <ClInclude Include="PhysicComponent.h" />
     <ClInclude Include="RayDetectionComponent.h" />
     <ClInclude Include="ResourcesManager.h">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="Scene_SDL.h" />
     <ClInclude Include="Shader.h" />
