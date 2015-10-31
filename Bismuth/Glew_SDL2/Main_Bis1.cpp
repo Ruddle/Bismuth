@@ -80,7 +80,7 @@ int main(int argc, char **argv)
 	int frame = 0;
 	while (!input.end()) {
 		frame++;
-		if (true) {
+		
 			
 			input.updateEvents();
 
@@ -147,26 +147,7 @@ int main(int argc, char **argv)
 			
 			CurrentScene->flip();
 
-		}
-		else {
-			input.updateEvents();
-			glViewport(0, 0, cfg.ResolutionX, cfg.ResolutionY);
-			glBindFramebuffer(GL_FRAMEBUFFER, 0);
-			glEnable(GL_BLEND);
-			modelview = rotate(view, (input.getX() - cfg.ResolutionX) / 100.0f, vec3(0.0f, 0.0f, 1.0f));
-			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-			glUseProgram(shaderForward.getProgramID());
-			glUniformMatrix4fv(glGetUniformLocation(shaderForward.getProgramID(), "projection"), 1, GL_FALSE, value_ptr(projection));
-			glUniformMatrix4fv(glGetUniformLocation(shaderForward.getProgramID(), "modelview"), 1, GL_FALSE, value_ptr(modelview));
-			glUniformMatrix3fv(glGetUniformLocation(shaderForward.getProgramID(), "normal"), 1, GL_FALSE, value_ptr(transpose(inverse(glm::mat3(modelview)))));
-
-			glActiveTexture(GL_TEXTURE0);
-			glBindTexture(GL_TEXTURE_2D, texA.getId());
-			glUniform1i(glGetUniformLocation(shaderForward.getProgramID(), "texture_diffuse"), 0);
-
-			vaoA.draw();
-			CurrentScene->flip();
-		}
+		
 	}
 
 	delete CurrentScene;
