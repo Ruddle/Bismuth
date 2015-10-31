@@ -9,6 +9,7 @@ public:
 	ResourcesManager();
 	~ResourcesManager();
 	int loadTexture(std::string path, GLenum format, GLenum filter, GLenum wrap);
+	int loadTexture(std::string path, TextureCfg cfg);
 	int loadVao(std::string path);
 
 	Texture* getTexture(unsigned int id);

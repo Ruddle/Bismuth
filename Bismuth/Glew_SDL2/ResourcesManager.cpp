@@ -32,6 +32,11 @@ Vao* ResourcesManager::getVao(unsigned int id)
 		return NULL;
 }
 
+int ResourcesManager::loadTexture(std::string path, TextureCfg cfg)
+{
+	loadTexture(path, cfg.format, cfg.filter, cfg.wrap);
+}
+
 int ResourcesManager::loadTexture(std::string path, GLenum format, GLenum filter, GLenum wrap)
 {
 	TextureCfg cfg = { format , filter, wrap };

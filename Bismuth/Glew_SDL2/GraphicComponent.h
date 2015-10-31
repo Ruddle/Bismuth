@@ -14,7 +14,11 @@ class GraphicComponent
 
 public:
 
-	GraphicComponent();
+	GraphicComponent(int textureDiffuse, int textureNormal, int textureSpec, int vao);
+	int getTextureDiffuseId() const { return mTextureDiffuse; }
+	int getTextureNormalId() const { return mTextureNormal; }
+	int getTextureSpecId() const { return mTextureSpec; }
+	int getVaoId() const { return mVao; }
 	~GraphicComponent();
 
 

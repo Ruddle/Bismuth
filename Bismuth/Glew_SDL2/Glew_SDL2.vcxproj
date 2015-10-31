@@ -142,7 +142,10 @@
     <ClCompile Include="Fbo.cpp" />
     <ClCompile Include="GraphicComponent.cpp" />
     <ClCompile Include="Input.cpp" />
-    <ClCompile Include="Main_Bis1.cpp" />
+    <ClCompile Include="Main_Bis1.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Main_Bis2.cpp" />
     <ClCompile Include="Main_Test_Physique.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
