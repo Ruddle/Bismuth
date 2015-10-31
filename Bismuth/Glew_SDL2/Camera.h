@@ -6,13 +6,13 @@
 class Camera
 {
 public:
-	Camera(glm::mat4 &projection, PhysicComponent* physicComponent);
+	Camera(glm::mat4 &projection);
 	~Camera();
 
-	PhysicComponent*  getPhysicComponent(void) { return mPhysicComponent; }
+	
 
 private:
-	PhysicComponent* mPhysicComponent;
+	
 	glm::mat4 mProjection;
 	glm::mat4 mView;
 
