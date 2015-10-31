@@ -40,6 +40,9 @@ int main(int argc, char **argv)
 	Vao vaoA = Vao("Mesh/thing.obj");
 	vaoA.load(vec4(0,0,0,0));
 
+	Vao vaoB = Vao("Mesh/plane.obj");
+	vaoB.load(vec4(0, 0, 0, 0));
+
 	TextureCfg texCfgA = { GL_RGB8, GL_NEAREST, GL_REPEAT };
 	Texture texA = Texture("Texture/checker.png", texCfgA);
 	texA.load();
@@ -53,13 +56,13 @@ int main(int argc, char **argv)
 	Shader shaderC = Shader("Shader/defPassN.vert", "Shader/defPassN.frag");
 	shaderC.load();
 
-	TextureCfg texCfgB = { GL_RGBA16F, GL_NEAREST, GL_CLAMP_TO_EDGE };
+	TextureCfg texCfgB = { GL_RGB16F, GL_NEAREST, GL_CLAMP_TO_EDGE };
 	Texture texB =Texture(cfg.ResolutionX, cfg.ResolutionY, texCfgB);
 	texB.load();
 	TextureCfg texCfgC = { GL_RGB16F, GL_NEAREST, GL_CLAMP_TO_EDGE };
 	Texture texC = Texture(cfg.ResolutionX, cfg.ResolutionY, texCfgC);
 	texC.load();
-	TextureCfg texCfgD = { GL_RGB16F, GL_NEAREST, GL_CLAMP_TO_EDGE };
+	TextureCfg texCfgD = { GL_RGBA32F, GL_NEAREST, GL_CLAMP_TO_EDGE };
 	Texture texD = Texture(cfg.ResolutionX, cfg.ResolutionY, texCfgD);
 	texD.load();
 	vector<Texture*> textureArray = vector<Texture*>();
@@ -77,7 +80,7 @@ int main(int argc, char **argv)
 	glm::mat4 view;
 
 	projection = glm::perspective(70.0*M_PI/180.0, (double)cfg.ResolutionX / (double)cfg.ResolutionY, 0.1, 100.0);
-	view = glm::lookAt(glm::vec3(1.5,1.5,1.5), glm::vec3(0, 0, 0), glm::vec3(0, 0, 1));
+	view = glm::lookAt(glm::vec3(1.5,1.5,1.5), glm::vec3(0, 0, 0.5), glm::vec3(0, 0, 1));
 
 
 	Input input;
@@ -88,7 +91,10 @@ int main(int argc, char **argv)
 			GLuint attachments[3] = { GL_COLOR_ATTACHMENT0 , GL_COLOR_ATTACHMENT1 ,GL_COLOR_ATTACHMENT2};
 			
 			input.updateEvents();
-			modelview = rotate(view, (input.getX() - cfg.ResolutionX) / 100.0f, vec3(0.0f, 0.0f, 1.0f));
+
+			modelview = rotate(view, (input.getX() - cfg.ResolutionX) / 500.0f, vec3(0.0f, 0.0f, 1.0f));
+			modelview = translate(modelview, vec3(0, 0, 0.8));
+
 
 			glViewport(0, 0, cfg.ResolutionX, cfg.ResolutionY);
 			glBindFramebuffer(GL_FRAMEBUFFER, fboA.getId());
@@ -103,6 +109,12 @@ int main(int argc, char **argv)
 			glBindTexture(GL_TEXTURE_2D, texA.getId());
 			glUniform1i(glGetUniformLocation(shaderB.getProgramID(), "texture_diffuse"), 0);
 			vaoA.draw();
+
+			modelview = view;
+			glUniformMatrix4fv(glGetUniformLocation(shaderB.getProgramID(), "projection"), 1, GL_FALSE, value_ptr(projection));
+			glUniformMatrix4fv(glGetUniformLocation(shaderB.getProgramID(), "modelview"), 1, GL_FALSE, value_ptr(modelview));
+			glUniformMatrix3fv(glGetUniformLocation(shaderB.getProgramID(), "normal"), 1, GL_FALSE, value_ptr(transpose(inverse(glm::mat3(modelview)))));
+			vaoB.draw();
 			glBindTexture(GL_TEXTURE_2D, 0);
 			glUseProgram(0);
 
@@ -125,6 +137,8 @@ int main(int argc, char **argv)
 			glUniform1i(glGetUniformLocation(shaderC.getProgramID(), "gPosition"), 2);
 
 			glUniformMatrix4fv(glGetUniformLocation(shaderC.getProgramID(), "projection"), 1, GL_FALSE, value_ptr(projection));
+
+			glUniform1f(glGetUniformLocation(shaderC.getProgramID(), "varA"), input.getY() / 900.0);
 
 			supportFbo.draw();
 			
