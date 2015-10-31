@@ -1,10 +1,11 @@
 #include "GraphicComponent.h"
 
 
-GraphicComponent::GraphicComponent():mTextureDiffuse(0),mVao(0),mTextureNormal(0),mTextureSpec(0)
+GraphicComponent::GraphicComponent(int textureDiffuse, int textureNormal, int textureSpec, int vao) : mTextureDiffuse(textureDiffuse),mVao(vao),mTextureNormal(textureNormal),mTextureSpec(textureSpec)
 {
 
 }
+
 GraphicComponent::~GraphicComponent()
 {
 
