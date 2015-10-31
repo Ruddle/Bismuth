@@ -18,7 +18,7 @@ StateComponent::~StateComponent()
 
 void StateComponent::force(glm::vec3 force)
 {
-	mPosition += force / mMass;
+	mPositionDiff += force / mMass;
 }
 void StateComponent::force(glm::vec3 force, glm::vec3 pt)
 {
