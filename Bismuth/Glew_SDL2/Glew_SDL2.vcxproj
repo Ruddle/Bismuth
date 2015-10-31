@@ -213,6 +213,7 @@
     <None Include="Shader\defPass1.frag" />
     <None Include="Shader\defPass1.vert" />
     <None Include="Shader\defPassN.frag" />
+    <None Include="Shader\defPassNDebug.frag" />
     <None Include="Shader\defPassN.vert" />
     <None Include="Shader\test.frag" />
     <None Include="Shader\test.vert">

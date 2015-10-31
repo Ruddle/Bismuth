@@ -213,9 +213,6 @@
     <None Include="Shader\defPass1.vert">
       <Filter>Fichiers de ressources\Shader</Filter>
     </None>
-    <None Include="Shader\defPassN.frag">
-      <Filter>Fichiers de ressources\Shader</Filter>
-    </None>
     <None Include="Shader\defPassN.vert">
       <Filter>Fichiers de ressources\Shader</Filter>
     </None>
@@ -226,6 +223,12 @@
       <Filter>Fichiers de ressources\Shader</Filter>
     </None>
     <None Include="Shader\blurV_1ch.frag">
+      <Filter>Fichiers de ressources\Shader</Filter>
+    </None>
+    <None Include="Shader\defPassNDebug.frag">
+      <Filter>Fichiers de ressources\Shader</Filter>
+    </None>
+    <None Include="Shader\defPassN.frag">
       <Filter>Fichiers de ressources\Shader</Filter>
     </None>
   </ItemGroup>

@@ -52,6 +52,9 @@ int main(int argc, char **argv)
 	Shader shaderDeferred = Shader("Shader/defPassN.vert", "Shader/defPassN.frag");
 	shaderDeferred.load();
 
+	Shader shaderDeferredDebug = Shader("Shader/defPassN.vert", "Shader/defPassNDebug.frag");
+	shaderDeferredDebug.load();
+
 	Shader* shaderSelected = &shaderDeferred;
 
 	Shader shaderAO = Shader("Shader/defPassN.vert", "Shader/AO.frag");
@@ -82,64 +85,65 @@ int main(int argc, char **argv)
 			input.updateEvents();
 
 			if (input.getRisingKey(SDL_SCANCODE_SPACE)) {
-				shaderSelected = (shaderSelected == &shaderAO) ? &shaderDeferred : &shaderAO;
+				shaderSelected = (shaderSelected == &shaderDeferredDebug) ? &shaderDeferred : &shaderDeferredDebug;
 			}
 				
 
 			glViewport(0, 0, cfg.ResolutionX, cfg.ResolutionY);
 			glBindFramebuffer(GL_FRAMEBUFFER, fboGeometry->getId());
-			glDrawBuffers(3, attachments);
-			glDisable(GL_BLEND);
-			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-			glUseProgram(shaderGeometry.getProgramID());
+				glDrawBuffers(3, attachments);
+				glDisable(GL_BLEND);
+				glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+				glUseProgram(shaderGeometry.getProgramID());
 
-			glUniformMatrix4fv(glGetUniformLocation(shaderGeometry.getProgramID(), "projection"), 1, GL_FALSE, value_ptr(projection));
-			glUniform2fv(glGetUniformLocation(shaderGeometry.getProgramID(), "resolution"), 1, value_ptr(resolution));
+				glUniformMatrix4fv(glGetUniformLocation(shaderGeometry.getProgramID(), "projection"), 1, GL_FALSE, value_ptr(projection));
+				glUniform2fv(glGetUniformLocation(shaderGeometry.getProgramID(), "resolution"), 1, value_ptr(resolution));
 
-			glActiveTexture(GL_TEXTURE0);
-			glBindTexture(GL_TEXTURE_2D, texA.getId());
-			glUniform1i(glGetUniformLocation(shaderGeometry.getProgramID(), "texture_diffuse"), 0);
+				glActiveTexture(GL_TEXTURE0);
+				glBindTexture(GL_TEXTURE_2D, texA.getId());
+				glUniform1i(glGetUniformLocation(shaderGeometry.getProgramID(), "texture_diffuse"), 0);
 
-			modelview = rotate(view, (input.getX() - cfg.ResolutionX) / 200.0f, vec3(0.0f, 0.0f, 1.0f));
-			modelview = translate(modelview, vec3(0, 0, 0.8));
-			glUniformMatrix4fv(glGetUniformLocation(shaderGeometry.getProgramID(), "modelview"), 1, GL_FALSE, value_ptr(modelview));
-			glUniformMatrix3fv(glGetUniformLocation(shaderGeometry.getProgramID(), "normal"), 1, GL_FALSE, value_ptr(transpose(inverse(glm::mat3(modelview)))));
+				modelview = rotate(view, (input.getX() - cfg.ResolutionX) / 200.0f, vec3(0.0f, 0.0f, 1.0f));
+				modelview = translate(modelview, vec3(0, 0, 0.8));
+				glUniformMatrix4fv(glGetUniformLocation(shaderGeometry.getProgramID(), "modelview"), 1, GL_FALSE, value_ptr(modelview));
+				glUniformMatrix3fv(glGetUniformLocation(shaderGeometry.getProgramID(), "normal"), 1, GL_FALSE, value_ptr(transpose(inverse(glm::mat3(modelview)))));
 
-			vaoA.draw();
+				vaoA.draw();
 
-			modelview = view;
-			glUniformMatrix4fv(glGetUniformLocation(shaderGeometry.getProgramID(), "modelview"), 1, GL_FALSE, value_ptr(modelview));
-			glUniformMatrix3fv(glGetUniformLocation(shaderGeometry.getProgramID(), "normal"), 1, GL_FALSE, value_ptr(transpose(inverse(glm::mat3(modelview)))));
-			vaoB.draw();
+				modelview = view;
+				glUniformMatrix4fv(glGetUniformLocation(shaderGeometry.getProgramID(), "modelview"), 1, GL_FALSE, value_ptr(modelview));
+				glUniformMatrix3fv(glGetUniformLocation(shaderGeometry.getProgramID(), "normal"), 1, GL_FALSE, value_ptr(transpose(inverse(glm::mat3(modelview)))));
+				vaoB.draw();
 
-			glBindTexture(GL_TEXTURE_2D, 0);
-			glUseProgram(0);
+				glBindTexture(GL_TEXTURE_2D, 0);
+				glUseProgram(0);
+			
 
 
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
-			glEnable(GL_BLEND);
-			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-			glUseProgram(shaderSelected->getProgramID());
+				glEnable(GL_BLEND);
+				glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+				glUseProgram(shaderSelected->getProgramID());
 
-			glActiveTexture(GL_TEXTURE0);
-			glBindTexture(GL_TEXTURE_2D, fboGeometry->getColorBufferId(0));
-			glUniform1i(glGetUniformLocation(shaderSelected->getProgramID(), "gNormal"), 0);
+				glActiveTexture(GL_TEXTURE0);
+				glBindTexture(GL_TEXTURE_2D, fboGeometry->getColorBufferId(0));
+				glUniform1i(glGetUniformLocation(shaderSelected->getProgramID(), "gNormal"), 0);
 
-			glActiveTexture(GL_TEXTURE1);
-			glBindTexture(GL_TEXTURE_2D, fboGeometry->getColorBufferId(1));
-			glUniform1i(glGetUniformLocation(shaderSelected->getProgramID(), "gDiffuse"), 1);
+				glActiveTexture(GL_TEXTURE1);
+				glBindTexture(GL_TEXTURE_2D, fboGeometry->getColorBufferId(1));
+				glUniform1i(glGetUniformLocation(shaderSelected->getProgramID(), "gDiffuse"), 1);
 
-			glActiveTexture(GL_TEXTURE2);
-			glBindTexture(GL_TEXTURE_2D, fboGeometry->getColorBufferId(2));
-			glUniform1i(glGetUniformLocation(shaderSelected->getProgramID(), "gPosition"), 2);
+				glActiveTexture(GL_TEXTURE2);
+				glBindTexture(GL_TEXTURE_2D, fboGeometry->getColorBufferId(2));
+				glUniform1i(glGetUniformLocation(shaderSelected->getProgramID(), "gPosition"), 2);
 
-			glUniformMatrix4fv(glGetUniformLocation(shaderSelected->getProgramID(), "projection"), 1, GL_FALSE, value_ptr(projection));
+				glUniformMatrix4fv(glGetUniformLocation(shaderSelected->getProgramID(), "projection"), 1, GL_FALSE, value_ptr(projection));
 
-			glUniform1f(glGetUniformLocation(shaderSelected->getProgramID(), "varA"), input.getY() / resolution.y);
-			glUniform1i(glGetUniformLocation(shaderSelected->getProgramID(), "time"), frame);
-			glUniform2fv(glGetUniformLocation(shaderSelected->getProgramID(), "resolution"), 1, value_ptr(resolution));
+				glUniform1f(glGetUniformLocation(shaderSelected->getProgramID(), "varA"), input.getY() / resolution.y);
+				glUniform1i(glGetUniformLocation(shaderSelected->getProgramID(), "time"), frame);
+				glUniform2fv(glGetUniformLocation(shaderSelected->getProgramID(), "resolution"), 1, value_ptr(resolution));
 
-			supportFbo.draw();
+				supportFbo.draw();
 			
 			CurrentScene->flip();
 
