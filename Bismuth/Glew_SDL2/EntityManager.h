@@ -16,7 +16,6 @@ public:
 	EntityManager();
 	~EntityManager();
 
-	void draw(Camera* camera);
 	void update();
 	void collision();
 

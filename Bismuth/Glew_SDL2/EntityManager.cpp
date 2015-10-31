@@ -7,16 +7,8 @@ EntityManager::EntityManager()
 }
 EntityManager::~EntityManager()
 {
-
-}
-
-void EntityManager::draw(Camera* camera)
-{
 	for (int i = 0; i < mEntity.size(); i++)
-	{
-		Entity *entity = mEntity[i];
-		entity->getGraphicComponent()->draw(camera);
-	}
+		delete mEntity[i];
 }
 
 void EntityManager::update()

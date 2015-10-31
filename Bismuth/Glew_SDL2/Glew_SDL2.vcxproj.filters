@@ -123,6 +123,9 @@
     <ClCompile Include="Camera.cpp">
       <Filter>Fichiers sources\Bis 2\Graphics</Filter>
     </ClCompile>
+    <ClCompile Include="Main_Bis2.cpp">
+      <Filter>Fichiers sources\Temp_Test</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PhysicComponent.h">
