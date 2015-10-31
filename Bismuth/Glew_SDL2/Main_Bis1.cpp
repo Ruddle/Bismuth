@@ -33,7 +33,7 @@ int main(int argc, char **argv)
 
 	vec2 resolution = vec2(cfg.ResolutionX, cfg.ResolutionY);
 
-	Vao vaoA = Vao("Mesh/sphere.obj");
+	Vao vaoA = Vao("Mesh/thing.obj");
 	vaoA.load(vec4(0,0,0,0));
 
 	Vao vaoB = Vao("Mesh/plane.obj");
@@ -82,9 +82,7 @@ int main(int argc, char **argv)
 			input.updateEvents();
 
 			if (input.getRisingKey(SDL_SCANCODE_SPACE)) {
-
 				shaderSelected = (shaderSelected == &shaderAO) ? &shaderDeferred : &shaderAO;
-
 			}
 				
 
