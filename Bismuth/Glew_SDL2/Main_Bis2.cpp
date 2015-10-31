@@ -59,7 +59,7 @@ int main(int argc, char **argv)
 	while (!input.end()) {
 		input.updateEvents();
 
-		renderSystem->draw(entityManager->getEntities(), *cam);
+		renderSystem->draw(entityManager->getEntities(), *cam,0);
 		currentScene->flip();
 	}
 
