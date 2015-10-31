@@ -1,10 +1,10 @@
 #pragma once
-//#include "RessourceManager.h"
+#include "ResourcesManager.h"
 #include "Camera.h"
-//#include "Texture.h"
-//#include "VAO.h"
-//#include "Shader.h"
-//#include "FBO.h"
+#include "Texture.h"
+#include "VAO.h"
+#include "Shader.h"
+#include "Fbo.h"
 
 class Camera;
 
@@ -17,11 +17,15 @@ public:
 	GraphicComponent();
 	~GraphicComponent();
 
-	void draw(Camera* camera);
-
-
 
 private:
+
+
+	int mTextureDiffuse;
+	int mTextureNormal;
+	int mTextureSpec;
+	int mVao;
+
 
 
 
