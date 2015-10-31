@@ -24,7 +24,7 @@ public:
 	RenderSystem(Config cfg, ResourcesManager* rm);
 	~RenderSystem();
 
-	void draw(std::vector<Entity*> entities, Camera const& cam);
+	void draw(std::vector<Entity*> entities, Camera const& cam, float time);
 
 
 
