@@ -84,6 +84,9 @@
     <ClCompile Include="Entity.cpp">
       <Filter>Fichiers sources\Bis 3</Filter>
     </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Fichiers sources\Bis 3</Filter>
+    </ClCompile>
     <ClCompile Include="Texture.cpp">
       <Filter>Fichiers sources\Bis 1</Filter>
     </ClCompile>
@@ -118,10 +121,7 @@
       <Filter>Fichiers sources\Bis 1</Filter>
     </ClCompile>
     <ClCompile Include="RenderSystem.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Camera.cpp">
-      <Filter>Fichiers sources\Bis 2\Graphics</Filter>
+      <Filter>Fichiers sources\Bis 1</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -142,6 +142,9 @@
     </ClInclude>
     <ClInclude Include="GraphicComponent.h">
       <Filter>Fichiers d%27en-tête\Bis 2\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Fichiers d%27en-tête\Bis 3</Filter>
     </ClInclude>
     <ClInclude Include="Entity.h">
       <Filter>Fichiers d%27en-tête\Bis 3</Filter>
@@ -180,10 +183,7 @@
       <Filter>Fichiers d%27en-tête\Bis 1</Filter>
     </ClInclude>
     <ClInclude Include="RenderSystem.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Camera.h">
-      <Filter>Fichiers d%27en-tête\Bis 2\Graphics</Filter>
+      <Filter>Fichiers d%27en-tête\Bis 1</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
