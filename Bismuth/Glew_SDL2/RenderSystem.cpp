@@ -83,7 +83,7 @@ void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float t
 		
 
 		glActiveTexture(GL_TEXTURE0);
-		glBindTexture(GL_TEXTURE_2D, mRm->getTexture(entity->getGraphicComponent->getTextureDiffuseId()    )->getId()   );
+		glBindTexture(GL_TEXTURE_2D, ( mRm->getTexture(       entity->getGraphicComponent()->getTextureDiffuseId()    )->getId()  )   );
 		glUniform1i(glGetUniformLocation(mShaderGeometry.getProgramID(), "texture_diffuse"), 0);
 
 
