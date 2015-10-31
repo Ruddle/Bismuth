@@ -58,6 +58,8 @@ int main(int argc, char **argv)
 
 	Input input;
 
+	cam->
+
 	while (!input.end()) {
 		input.updateEvents();
 
