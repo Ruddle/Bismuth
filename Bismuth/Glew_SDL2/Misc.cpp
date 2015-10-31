@@ -67,7 +67,7 @@ Fbo* createFboGeometry(Config cfg) {
 
 Fbo* createFbo_1ch(Config cfg) { // AO, blur, shadow 
 
-	TextureCfg texCfg = { GL_RGB16F, GL_NEAREST, GL_CLAMP_TO_EDGE };
+	TextureCfg texCfg = { GL_R8, GL_NEAREST, GL_CLAMP_TO_EDGE };
 	Texture* tex =new Texture(cfg.ResolutionX, cfg.ResolutionY, texCfg);
 	tex->load();
 	vector<Texture*> textureArray = vector<Texture*>();
