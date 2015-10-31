@@ -38,7 +38,7 @@ RenderSystem::RenderSystem(Config cfg, ResourcesManager* rm) : mCfg(cfg), mRm(rm
 
 	mShaderAo       = Shader("Shader/defPassN.vert", "Shader/AO.frag");
 
-	mShaderDeferredFinal = Shader("Shader/defPassN.vert", "Shader/defPassN.frag");
+	mShaderDeferredFinal = Shader("Shader/defPassN.vert", "Shader/defPassNDebug.frag");
 
 	mSupportFbo = Vao2D();
 	mSupportFbo.load();
