@@ -120,6 +120,9 @@
     <ClCompile Include="Scene_SDL.cpp">
       <Filter>Fichiers sources\Bis 1</Filter>
     </ClCompile>
+    <ClCompile Include="RenderSystem.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PhysicComponent.h">
@@ -178,6 +181,9 @@
     </ClInclude>
     <ClInclude Include="Scene_SDL.h">
       <Filter>Fichiers d%27en-tête\Bis 1</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderSystem.h">
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

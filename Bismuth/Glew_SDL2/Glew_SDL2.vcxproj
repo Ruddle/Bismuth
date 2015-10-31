@@ -150,6 +150,7 @@
     <ClCompile Include="Misc.cpp" />
     <ClCompile Include="PhysicComponent.cpp" />
     <ClCompile Include="RayDetectionComponent.cpp" />
+    <ClCompile Include="RenderSystem.cpp" />
     <ClCompile Include="ResourcesManager.cpp" />
     <ClCompile Include="Scene_SDL.cpp" />
     <ClCompile Include="Shader.cpp" />
@@ -171,6 +172,7 @@
     <ClInclude Include="Misc.h" />
     <ClInclude Include="PhysicComponent.h" />
     <ClInclude Include="RayDetectionComponent.h" />
+    <ClInclude Include="RenderSystem.h" />
     <ClInclude Include="ResourcesManager.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClInclude>
