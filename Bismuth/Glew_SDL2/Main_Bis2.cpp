@@ -34,7 +34,9 @@ int main(int argc, char **argv)
 	
 	
 	mat4 projection = glm::perspective(70.0*M_PI / 180.0, 16.0 / 9.0, 0.1, 100.0);
-	Camera* cam = new Camera(projection);
+	mat4 view = glm::lookAt(glm::vec3(2, 2, 2), glm::vec3(0, 0, 0.0), glm::vec3(0, 0, 1));
+
+	Camera* cam = new Camera(projection,view);
 
 
 	ResourcesManager* rm = new ResourcesManager();
