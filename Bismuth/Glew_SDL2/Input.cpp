@@ -35,7 +35,6 @@ void Input::updateEvents()
 			
 			mKeys[mEvent.key.keysym.scancode] = true;
 			if (mRisingKeysAble[mEvent.key.keysym.scancode] == true) {
-				std::cout << mRisingKeys[mEvent.key.keysym.scancode];
 				mRisingKeys[mEvent.key.keysym.scancode] = true;
 				mRisingKeysAble[mEvent.key.keysym.scancode] = false;
 			}

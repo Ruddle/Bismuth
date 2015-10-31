@@ -40,7 +40,7 @@ int main(int argc, char **argv)
 
 
 	ResourcesManager* rm = new ResourcesManager();
-	GraphicComponent* gc1 = new GraphicComponent(rm->loadTexture("Texture/checker.png", GL_RGB8, GL_NEAREST, GL_REPEAT), 0, 0, rm->loadVao("Mesh/cube.obj"));
+	GraphicComponent* gc1 = new GraphicComponent(rm->loadTexture("Texture/checker.png", GL_RGB8, GL_NEAREST, GL_REPEAT), 0, 0, rm->loadVao("Mesh/sphere.obj"));
 
 	SphereDetectionComponent* dc1 = new SphereDetectionComponent(1);
 	StateComponent* sc1 = new StateComponent();
@@ -60,6 +60,10 @@ int main(int argc, char **argv)
 
 	while (!input.end()) {
 		input.updateEvents();
+
+		entity->getPhysicComponent()->getStateComponent()->force(vec3(0, 0, -0.001));
+		entityManager->update();
+
 
 		renderSystem->draw(entityManager->getEntities(), *cam,0);
 		currentScene->flip();
