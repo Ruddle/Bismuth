@@ -114,6 +114,9 @@
     <ClCompile Include="Vao2D.cpp">
       <Filter>Fichiers sources\Bis 1</Filter>
     </ClCompile>
+    <ClCompile Include="ResourcesManager.cpp">
+      <Filter>Fichiers sources\Bis 1</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Const.h">
