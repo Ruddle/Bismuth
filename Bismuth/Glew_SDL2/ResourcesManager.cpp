@@ -49,7 +49,9 @@ int ResourcesManager::loadTexture(std::string path, GLenum format, GLenum filter
 	}
 	else // La texture n'a pas encore été chargée
 	{
-		mTextures.push_back(new Texture(path, cfg));
+		Texture *newTexture = new Texture(path, cfg);
+		mTextures.push_back(newTexture);
+		newTexture->load();
 		return mTextures.size() - 1;
 	}
 }
@@ -64,7 +66,9 @@ int ResourcesManager::loadVao(std::string path)
 	}
 	else // Le VAO n'a pas encore été chargé
 	{
-		mVaos.push_back(new Vao(path));
+		Vao *newVao = new Vao(path);
+		mVaos.push_back(newVao);
+		newVao->load();
 		return mVaos.size() - 1;
 	}
 }
