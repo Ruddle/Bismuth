@@ -33,6 +33,7 @@ Config readConfig(void);
 
 int main(int argc, char **argv)
 {
+	
 
 	Config cfg = readConfig();
 	Scene_SDL* CurrentScene = new Scene_SDL(cfg.ResolutionX,cfg.ResolutionY);
@@ -79,14 +80,15 @@ int main(int argc, char **argv)
 	glm::mat4 modelview;
 	glm::mat4 view;
 
-	projection = glm::perspective(70.0*M_PI/180.0, (double)cfg.ResolutionX / (double)cfg.ResolutionY, 0.1, 100.0);
-	view = glm::lookAt(glm::vec3(1.5,1.5,1.5), glm::vec3(0, 0, 0.5), glm::vec3(0, 0, 1));
+	projection = glm::perspective(70.0*M_PI/180.0, (double)cfg.ResolutionX / (double)cfg.ResolutionY, 0.01, 100.0);
+	view = glm::lookAt(glm::vec3(2,2,2), glm::vec3(0, 0, 0.5), glm::vec3(0, 0, 1));
 
 
 	Input input;
 
+	int frame = 0;
 	while (!input.end()) {
-
+		frame++;
 		if (true) {
 			GLuint attachments[3] = { GL_COLOR_ATTACHMENT0 , GL_COLOR_ATTACHMENT1 ,GL_COLOR_ATTACHMENT2};
 			
@@ -139,6 +141,8 @@ int main(int argc, char **argv)
 			glUniformMatrix4fv(glGetUniformLocation(shaderC.getProgramID(), "projection"), 1, GL_FALSE, value_ptr(projection));
 
 			glUniform1f(glGetUniformLocation(shaderC.getProgramID(), "varA"), input.getY() / 900.0);
+			glUniform1i(glGetUniformLocation(shaderC.getProgramID(), "time"), frame);
+
 
 			supportFbo.draw();
 			

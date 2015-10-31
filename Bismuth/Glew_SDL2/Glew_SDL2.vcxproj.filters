@@ -184,6 +184,12 @@
     <Object Include="Mesh\ray.obj">
       <Filter>Fichiers de ressources\Mesh</Filter>
     </Object>
+    <Object Include="Mesh\plane.obj">
+      <Filter>Fichiers de ressources\Mesh</Filter>
+    </Object>
+    <Object Include="Mesh\thing.obj">
+      <Filter>Fichiers de ressources\Mesh</Filter>
+    </Object>
   </ItemGroup>
   <ItemGroup>
     <None Include="Shader\test.vert">
@@ -208,6 +214,12 @@
       <Filter>Fichiers de ressources\Shader</Filter>
     </None>
     <None Include="Shader\AO.frag">
+      <Filter>Fichiers de ressources\Shader</Filter>
+    </None>
+    <None Include="Shader\blurH_1ch.frag">
+      <Filter>Fichiers de ressources\Shader</Filter>
+    </None>
+    <None Include="Shader\blurV_1ch.frag">
       <Filter>Fichiers de ressources\Shader</Filter>
     </None>
   </ItemGroup>

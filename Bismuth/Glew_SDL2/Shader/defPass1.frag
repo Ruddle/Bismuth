@@ -11,7 +11,7 @@ layout (location = 1) out vec3 gDiffuse;
 layout (location = 2) out vec4 gPosition;
 
 
-const float NEAR = 0.10f; // projection matrix's near plane
+const float NEAR = 0.010f; // projection matrix's near plane
 const float FAR = 100.0f; // projection matrix's far plane
 float LinearizeDepth(float depth)
 {
