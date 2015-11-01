@@ -31,9 +31,9 @@ public:
 	bool hasForc() { return mHasForce; }
 	bool isSleeping() { return mIsSleeping; }
 
-	void setPosition(glm::vec3 value) { mPosition = value; update(0); }
+	void setPosition(glm::vec3 value) { mPosition = value; }
 	void setPositionDiff(glm::vec3 value) { mPositionDiff = value; }
-	void setRotation(glm::vec3 value) { mRotation = value; update(0);}
+	void setRotation(glm::vec3 value) { mRotation = value;}
 	void setRotationDiff(glm::vec3 value) { mRotationDiff = value; }
 
 private:

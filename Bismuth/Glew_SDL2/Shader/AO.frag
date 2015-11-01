@@ -90,7 +90,7 @@ float doAO(int numPass,vec4 position,float radius) {
 }
 
 
-int NUMPASS=16;
+int NUMPASS=32;
 float RADIUS = 1;
 
 void main()

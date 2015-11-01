@@ -239,5 +239,8 @@
     <Image Include="Texture\checker.png">
       <Filter>Fichiers de ressources\Texture</Filter>
     </Image>
+    <Image Include="Texture\checker2.png">
+      <Filter>Fichiers de ressources\Texture</Filter>
+    </Image>
   </ItemGroup>
 </Project>

@@ -32,8 +32,12 @@ private:
 	Config mCfg;
 	Fbo mFboGeometry;
 	Fbo mFboAo;
+	Fbo mFboBlurH;
+	Fbo mFboBlurV;
 	Shader mShaderGeometry;
 	Shader mShaderAo;
+	Shader mShaderBlurH;
+	Shader mShaderBlurV;
 	Shader mShaderDeferredFinal;
 	Shader mShaderDeferredFinalDebug;
 

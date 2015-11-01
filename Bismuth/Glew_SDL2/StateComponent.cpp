@@ -7,7 +7,7 @@ StateComponent::StateComponent() : mHasCollision(true), mHasForce(true), mHasGra
 									mPosition(0), mPositionDiff(0), mRotation(0), mRotationDiff(0),
 									mMass(1),mInertia(1), mModel(0)
 {
-	update(0);
+	
 }
 
 StateComponent::~StateComponent()

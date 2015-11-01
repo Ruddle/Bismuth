@@ -32,6 +32,7 @@ Config readConfig(void);
 
 // Utile pour Main_Bis2
 Entity* createSphere(ResourcesManager* rm);
+Entity* createThing(ResourcesManager* rm);
 Entity* createPlane(ResourcesManager* rm);
 
 // Utile pour Main_Bis1

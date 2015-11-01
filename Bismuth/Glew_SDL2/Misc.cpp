@@ -52,7 +52,7 @@ Entity* createSphere(ResourcesManager* rm) {
 }
 
 Entity* createPlane(ResourcesManager* rm) {
-	GraphicComponent* gc1 = new GraphicComponent(rm->loadTexture("Texture/checker.png", GL_RGB8, GL_NEAREST, GL_REPEAT), 0, 0, rm->loadVao("Mesh/plane.obj"));
+	GraphicComponent* gc1 = new GraphicComponent(rm->loadTexture("Texture/checker2.png", GL_RGB8, GL_LINEAR, GL_REPEAT), 0, 0, rm->loadVao("Mesh/plane.obj"));
 	SphereDetectionComponent* dc1 = new SphereDetectionComponent(1);
 	StateComponent* sc1 = new StateComponent();
 	PhysicComponent* pc1 = new PhysicComponent(dc1, sc1);
@@ -60,6 +60,16 @@ Entity* createPlane(ResourcesManager* rm) {
 	return entity;
 }
 
+
+Entity* createThing(ResourcesManager* rm) {
+	GraphicComponent* gc1 = new GraphicComponent(rm->loadTexture("Texture/checker2.png", GL_RGB8, GL_LINEAR, GL_REPEAT), 0, 0, rm->loadVao("Mesh/thing.obj"));
+	SphereDetectionComponent* dc1 = new SphereDetectionComponent(1);
+	StateComponent* sc1 = new StateComponent();
+	sc1->setPosition(vec3(0, 0, 0.8));
+	PhysicComponent* pc1 = new PhysicComponent(dc1, sc1);
+	Entity* entity = new Entity(gc1, pc1);
+	return entity;
+}
 
 
 Fbo* createFboGeometry(Config cfg) {
