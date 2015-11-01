@@ -9,6 +9,7 @@ uniform sampler2D gPosition;
 uniform sampler2D aoSampler;
 uniform float time;
 uniform vec2 resolution;
+uniform bool keyF2;
 
 struct Light
 {
@@ -60,7 +61,8 @@ for(int k=0;k<2;k++){
 
 //lighting  = vec3(ao) ;
 
+if(!keyF2) lighting=lighting*(ao+1);
 
-outColor =		vec4(lighting*(ao+0.3),1);
+outColor =		vec4(lighting,1);
 
 }

@@ -127,6 +127,7 @@ void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float t
 	glUniformMatrix4fv(glGetUniformLocation(selectedFinalShader, "projection"), 1, GL_FALSE, value_ptr(projection));
 
 	glUniform1f(glGetUniformLocation(selectedFinalShader, "time"), time);
+	glUniform1i(glGetUniformLocation(selectedFinalShader, "keyF2"), input.getKey(SDL_SCANCODE_F2));
 	glUniform2fv(glGetUniformLocation(selectedFinalShader, "resolution"), 1, value_ptr(resolution));
 
 	mSupportFbo.draw();
