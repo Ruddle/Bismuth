@@ -225,9 +225,6 @@
     <None Include="Shader\blurV_1ch.frag">
       <Filter>Fichiers de ressources\Shader</Filter>
     </None>
-    <None Include="Shader\defPassNDebug.frag">
-      <Filter>Fichiers de ressources\Shader</Filter>
-    </None>
     <None Include="Shader\defPassN.frag">
       <Filter>Fichiers de ressources\Shader</Filter>
     </None>

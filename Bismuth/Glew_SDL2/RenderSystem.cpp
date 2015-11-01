@@ -11,7 +11,7 @@ RenderSystem::RenderSystem(Config cfg, ResourcesManager* rm) : mCfg(cfg), mRm(rm
 	TextureCfg texCfgDiffuse = { GL_RGBA8, GL_NEAREST, GL_CLAMP_TO_EDGE };
 	Texture* texDiffuse = new Texture(cfg.ResolutionX, cfg.ResolutionY, texCfgDiffuse);
 	texDiffuse->load();
-	TextureCfg texCfgPosition = { GL_RGBA32F, GL_NEAREST, GL_CLAMP_TO_EDGE };
+	TextureCfg texCfgPosition = { GL_R32F, GL_NEAREST, GL_CLAMP_TO_EDGE };
 	Texture* texPosition = new Texture(cfg.ResolutionX, cfg.ResolutionY, texCfgPosition);
 	texPosition->load();
 	vector<Texture*> textureArray = vector<Texture*>();
@@ -60,7 +60,7 @@ RenderSystem::RenderSystem(Config cfg, ResourcesManager* rm) : mCfg(cfg), mRm(rm
 	mShaderDeferredFinal = Shader("Shader/defPassN.vert", "Shader/defPassN.frag");
 	mShaderDeferredFinal.load();
 
-	mShaderDeferredFinalDebug = Shader("Shader/defPassN.vert", "Shader/defPassNDebug.frag");
+	mShaderDeferredFinalDebug = Shader("Shader/defPassN.vert", "Shader/defPassN.frag");
 	mShaderDeferredFinalDebug.load();
 
 	mSupportFbo = Vao2D();
@@ -119,6 +119,10 @@ void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float t
 	glUniform1i(glGetUniformLocation(mShaderAo.getProgramID(), "gPosition"), 0);
 	glUniform1f(glGetUniformLocation(mShaderAo.getProgramID(), "time"), time);
 	glUniformMatrix4fv(glGetUniformLocation(mShaderAo.getProgramID(), "projection"), 1, GL_FALSE, value_ptr(projection));
+	glUniform1f(glGetUniformLocation(mShaderAo.getProgramID(), "aspect"), cam.getAspect());
+	glUniform1f(glGetUniformLocation(mShaderAo.getProgramID(), "tanHalfFov"), cam.getTanHalfFov());
+	glUniform1f(glGetUniformLocation(mShaderAo.getProgramID(), "near"), cam.getNear());
+	glUniform1f(glGetUniformLocation(mShaderAo.getProgramID(), "far"), cam.getFar());
 	mSupportFbo.draw();
 
 	//Blur AO Horizontal
@@ -186,6 +190,12 @@ void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float t
 	glBindTexture(GL_TEXTURE_2D, mFboGeometry.getColorBufferId(2));
 	glUniform1i(glGetUniformLocation(selectedFinalShader, "gPosition"), 2);
 
+	glUniform1f(glGetUniformLocation(selectedFinalShader, "aspect"), cam.getAspect());
+	glUniform1f(glGetUniformLocation(selectedFinalShader, "tanHalfFov"), cam.getTanHalfFov());
+	glUniform1f(glGetUniformLocation(selectedFinalShader, "near"), cam.getNear());
+	glUniform1f(glGetUniformLocation(selectedFinalShader, "far"), cam.getFar());
+
+
 	glActiveTexture(GL_TEXTURE3);
 	glBindTexture(GL_TEXTURE_2D, !input.getKey(SDL_SCANCODE_F6) ? mFboBlurV.getColorBufferId(0) : mFboAo.getColorBufferId(0));
 	glUniform1i(glGetUniformLocation(selectedFinalShader, "aoSampler"), 3);
@@ -193,8 +203,15 @@ void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float t
 	glUniformMatrix4fv(glGetUniformLocation(selectedFinalShader, "projection"), 1, GL_FALSE, value_ptr(projection));
 
 	glUniform1f(glGetUniformLocation(selectedFinalShader, "time"), time);
+	glUniform1i(glGetUniformLocation(selectedFinalShader, "keyF1"), input.getKey(SDL_SCANCODE_F1));
 	glUniform1i(glGetUniformLocation(selectedFinalShader, "keyF2"), input.getKey(SDL_SCANCODE_F2));
+	glUniform1i(glGetUniformLocation(selectedFinalShader, "keyF3"), input.getKey(SDL_SCANCODE_F3));
+	glUniform1i(glGetUniformLocation(selectedFinalShader, "keyF4"), input.getKey(SDL_SCANCODE_F4));
+	glUniform1i(glGetUniformLocation(selectedFinalShader, "keyF5"), input.getKey(SDL_SCANCODE_F5));
+	glUniform1i(glGetUniformLocation(selectedFinalShader, "keyF6"), input.getKey(SDL_SCANCODE_F6));
 	glUniform1i(glGetUniformLocation(selectedFinalShader, "keyF7"), input.getKey(SDL_SCANCODE_F7));
+	glUniform1i(glGetUniformLocation(selectedFinalShader, "keyF8"), input.getKey(SDL_SCANCODE_F8));
+
 	glUniform2fv(glGetUniformLocation(selectedFinalShader, "resolution"), 1, value_ptr(resolution));
 
 	mSupportFbo.draw();

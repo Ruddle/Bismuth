@@ -8,6 +8,10 @@ uniform sampler2D gPosition;
 uniform mat4 projection;
 uniform float time;
 uniform vec2 resolution;
+uniform float aspect;
+uniform float tanHalfFov;
+uniform float near;
+uniform float far;
 
 uint hash( uint x ) {
     x += ( x << 10u );
@@ -46,7 +50,7 @@ float random( vec2 f ) {
     return r2 - 1.0;
 }
 
-float doAO(int numPass,vec4 position,float radius) {
+float doAO(int numPass,vec3 position,float radius) {
 
 	float ao=0;
 	for(float i =1;i<numPass+1;i++){
@@ -71,12 +75,12 @@ float doAO(int numPass,vec4 position,float radius) {
 				depthRay.xy = depthRay.xy * 0.5 + vec2(0.5);
 
 				if(gl_FragCoord.x>8000) {
-					ao+= (position.a >=  texture(gPosition, depthRay.xy ).a) ? 1.0:0.0;
+					ao+= (-position.z >=  texture(gPosition, depthRay.xy ).r) ? 1.0:0.0;
 				}
 
 				else{
 					float cut = 0.7;
-					float ecart = position.a -  texture(gPosition, depthRay.xy ).a;
+					float ecart = -position.z -  texture(gPosition, depthRay.xy ).r;
 					if(ecart>0){
 						if(ecart<cut)
 						ao++;
@@ -95,20 +99,13 @@ float RADIUS = 1;
 
 void main()
 {
-vec4 position = texture(gPosition,UV);
 
-//float ao1= 1-doAO(NUMPASS,position,1*RADIUS);
-//float ao2= 1-doAO(NUMPASS,position,2*RADIUS);
-//float ao3= 1-doAO(NUMPASS,position,4*RADIUS);
-//
-//vec3 color1 = vec3(1,0,0);
-//vec3 color2 = vec3(1,0.5,0);
-//vec3 color3 = vec3(1,1,0);
-//
-//outColor =		vec4( color1*ao1 + color2*ao2+ color3*ao3 + max(0,ao1+ao2+ao3-0.3)*vec3(0,0,0.33) ,1);
+vec3 position_ViewSpace ;
+	position_ViewSpace.z = -texture(gPosition, UV).r ;
+	position_ViewSpace.x = -(UV.x*2-1)*position_ViewSpace.z*(aspect) *tanHalfFov ;
+	position_ViewSpace.y = -(UV.y*2-1)*position_ViewSpace.z *tanHalfFov ;
 
-float ao = doAO(NUMPASS,position,RADIUS);
+
+float ao = doAO(NUMPASS,position_ViewSpace,RADIUS);
 outColor =		vec4(vec3(1- ao)  ,1);
-
-//outColor = vec4(vec3(position.a)/10.0,1);
 }

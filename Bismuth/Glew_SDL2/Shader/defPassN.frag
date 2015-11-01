@@ -9,8 +9,20 @@ uniform sampler2D gPosition;
 uniform sampler2D aoSampler;
 uniform float time;
 uniform vec2 resolution;
+uniform float aspect;
+uniform float tanHalfFov;
+uniform float near;
+uniform float far;
+uniform bool keyF1;
 uniform bool keyF2;
+uniform bool keyF3;
+uniform bool keyF4;
+uniform bool keyF5;
+uniform bool keyF6;
 uniform bool keyF7;
+uniform bool keyF8;
+
+
 
 struct Light
 {
@@ -25,7 +37,10 @@ void main()
 
 vec3 lighting= vec3(0);
 
-vec3 position = texture(gPosition, UV).xyz;
+vec3 position_ViewSpace ;
+	position_ViewSpace.z = -texture(gPosition, UV).r ;
+	position_ViewSpace.x = -(UV.x*2-1)*position_ViewSpace.z*(aspect) *tanHalfFov ;
+	position_ViewSpace.y = -(UV.y*2-1)*position_ViewSpace.z *tanHalfFov ;
 
 vec3 normal = vec3(texture(gNormal, UV).rg,0);
     normal.z= sqrt(1.0 - normal.x*normal.x - normal.y*normal.y); 
@@ -34,7 +49,7 @@ vec3 diffuse = texture(gDiffuse, UV).xyz;
 float ao = texture(aoSampler,UV).x;
 
 for(int k=0;k<2;k++){
-	vec3 i = position-lights[k].position_ViewSpace;
+	vec3 i = position_ViewSpace-lights[k].position_ViewSpace;
 	float dist = length(i) *length(i);
 	i=normalize(i);
 	float alpha = dot(-i,normal);
@@ -43,27 +58,14 @@ for(int k=0;k<2;k++){
 	attenuation=1;
 	lighting += attenuation* (alpha+0.2)*diffuse*lights[k].intensity;
 }
-
-    // Retrieve data from gbuffer
-    vec3 FragPos ;
-	float depth = texture(gPosition, UV).a;
+if(!keyF5) lighting=lighting*(ao*1.5);
 
 
-
-	float widthInv = 1.0/1200.0;
-	float heightInv = 1.0/700.0;
-	float aspectInv = 7.0/12.0;
-	float fov= 70*3.14159265359/180.0;
-
-	FragPos.x = (UV.x*2-1)*fov*depth;
-	FragPos.y = (UV.y*2-1)*fov*depth*aspectInv*1.019;
-	FragPos.z = 0.1*depth ;
+if(keyF1) lighting = normal;
+if(keyF2) lighting = position_ViewSpace*vec3(1,1,-1);
+if(keyF3) lighting = vec3(ao);
 
 
-//lighting  = vec3(ao) ;
-
-if(keyF2) lighting=lighting*(ao*1.5);
-if(keyF7) lighting=vec3(ao);
 
 outColor =		vec4(lighting,1);
 
