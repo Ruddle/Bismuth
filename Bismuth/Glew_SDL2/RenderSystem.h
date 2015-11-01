@@ -24,7 +24,7 @@ public:
 	RenderSystem(Config cfg, ResourcesManager* rm);
 	~RenderSystem();
 
-	void draw(std::vector<Entity*> entities, Camera const& cam, float time);
+	void draw(std::vector<Entity*> entities, Camera const& cam, float time, Input &input);
 
 
 
@@ -35,6 +35,8 @@ private:
 	Shader mShaderGeometry;
 	Shader mShaderAo;
 	Shader mShaderDeferredFinal;
+	Shader mShaderDeferredFinalDebug;
+
 	Vao2D mSupportFbo;
 	ResourcesManager* mRm;
 	

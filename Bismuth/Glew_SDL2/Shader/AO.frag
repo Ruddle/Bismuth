@@ -3,12 +3,10 @@
 in vec2 UV;
 out vec4 outColor;
 
-uniform sampler2D gNormal;
-uniform sampler2D gDiffuse;
+
 uniform sampler2D gPosition;
 uniform mat4 projection;
-uniform float varA;
-uniform int time;
+uniform float time;
 uniform vec2 resolution;
 
 uint hash( uint x ) {

@@ -225,10 +225,6 @@
     <None Include="Shader\defPassN.frag" />
     <None Include="Shader\defPassNDebug.frag" />
     <None Include="Shader\defPassN.vert" />
-    <None Include="Shader\test.frag" />
-    <None Include="Shader\test.vert">
-      <FileType>Document</FileType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Texture\checker.png" />

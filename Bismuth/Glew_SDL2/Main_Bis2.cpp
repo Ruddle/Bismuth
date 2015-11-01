@@ -26,7 +26,7 @@ int main(int argc, char **argv)
 	Config cfg = readConfig(); // Misc.cpp
 	Scene_SDL* currentScene = new Scene_SDL(cfg.ResolutionX, cfg.ResolutionY);
 	mat4 projection = glm::perspective(70.0*M_PI / 180.0, 16.0 / 9.0, 0.1, 100.0);
-	mat4 view = glm::lookAt(glm::vec3(2, 2, 2), glm::vec3(0, 0, 0.0), glm::vec3(0, 0, 1));
+	mat4 view = glm::lookAt(glm::vec3(2, 2, 1), glm::vec3(0, 0, 0.0), glm::vec3(0, 0, 1));
 	Camera* cam = new Camera(projection,view);
 	ResourcesManager* rm = new ResourcesManager();
 	Entity* entityA = createSphere(rm);// Misc.cpp
@@ -36,12 +36,12 @@ int main(int argc, char **argv)
 	entityManager->add(entityB);
 	RenderSystem *renderSystem = new RenderSystem(cfg, rm);
 	Input input;
-
+	int time = 0;
 	while (!input.end()) {
 		input.updateEvents();
 		//entity->getPhysicComponent()->getStateComponent()->force(vec3(0, 0, -0.0000001));
 		//entityManager->update();
-		renderSystem->draw(entityManager->getEntities(), *cam,0);
+		renderSystem->draw(entityManager->getEntities(), *cam,time++,input);
 		currentScene->flip();
 	}
 

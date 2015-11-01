@@ -207,12 +207,6 @@
     </Object>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Shader\test.vert">
-      <Filter>Fichiers de ressources\Shader</Filter>
-    </None>
-    <None Include="Shader\test.frag">
-      <Filter>Fichiers de ressources\Shader</Filter>
-    </None>
     <None Include="config.ini">
       <Filter>Fichiers de ressources</Filter>
     </None>

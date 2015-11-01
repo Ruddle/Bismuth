@@ -7,8 +7,8 @@ in vec3 varPosition;
 uniform sampler2D texture_diffuse;
 uniform vec2 resolution;
 
-layout (location = 0) out vec3 gNormal;
-layout (location = 1) out vec3 gDiffuse;
+layout (location = 0) out vec2 gNormal;
+layout (location = 1) out vec4 gDiffuse;
 layout (location = 2) out vec4 gPosition;
 
 
@@ -23,8 +23,8 @@ float LinearizeDepth(float depth)
 
 void main()
 {
-	gDiffuse= texture(texture_diffuse, varUV).xyz;
-	gNormal =  varNormal;
+	gDiffuse= vec4(texture(texture_diffuse, varUV).xyz,1.0);
+	gNormal =  varNormal.xy;
 	gPosition.xyz = varPosition;
 	gPosition.a = LinearizeDepth(gl_FragCoord.z);
 }
