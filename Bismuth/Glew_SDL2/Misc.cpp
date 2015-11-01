@@ -80,7 +80,7 @@ Entity* createThing(ResourcesManager* rm) {
 		rm->loadTexture("Texture/checker2.png", GL_RGB8, GL_LINEAR, GL_REPEAT),
 		0,
 		0, 
-		rm->loadVao("Mesh/thing.obj"));
+		rm->loadVao("Mesh/cube.obj"));
 	SphereDetectionComponent* dc1 = new SphereDetectionComponent(1);
 	StateComponent* sc1 = new StateComponent();
 	sc1->setPosition(vec3(0, 0, 0.8));

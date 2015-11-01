@@ -9,7 +9,7 @@ public:
 	Scene_SDL(int w,int h);
 	~Scene_SDL();
 
-	int waitForFps(int fpsTarget);
+	double waitForFps(double fpsTarget);
 	void flip();
 
 private :

@@ -119,6 +119,9 @@ void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float t
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, mFboGeometry.getColorBufferId(2));
 	glUniform1i(glGetUniformLocation(mShaderAo.getProgramID(), "gPosition"), 0);
+	glActiveTexture(GL_TEXTURE1);
+	glBindTexture(GL_TEXTURE_2D, mFboGeometry.getColorBufferId(0));
+	glUniform1i(glGetUniformLocation(mShaderAo.getProgramID(), "gNormal"), 1);
 	glUniform1f(glGetUniformLocation(mShaderAo.getProgramID(), "time"), time);
 	glUniformMatrix4fv(glGetUniformLocation(mShaderAo.getProgramID(), "projection"), 1, GL_FALSE, value_ptr(projection));
 	glUniform1f(glGetUniformLocation(mShaderAo.getProgramID(), "aspect"), cam.getAspect());
@@ -136,6 +139,7 @@ void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float t
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, mFboAo.getColorBufferId(0));
 	glUniform1i(glGetUniformLocation(mShaderBlurH.getProgramID(), "image"), 0);
+	glUniform1f(glGetUniformLocation(mShaderBlurH.getProgramID(), "size"), 0);
 	glUniform2fv(glGetUniformLocation(mShaderBlurH.getProgramID(), "resolution"), 1, value_ptr(resolution));
 	mSupportFbo.draw();
 
@@ -147,10 +151,12 @@ void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float t
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, mFboBlurH.getColorBufferId(0));
 	glUniform1i(glGetUniformLocation(mShaderBlurV.getProgramID(), "image"), 0);
+	glUniform1f(glGetUniformLocation(mShaderBlurV.getProgramID(), "size"), 0);
 	glUniform2fv(glGetUniformLocation(mShaderBlurV.getProgramID(), "resolution"), 1, value_ptr(resolution));
 	mSupportFbo.draw();
 
-	for (int i = 0; i < 9; i++) {
+	int nombreDePasseBlur = 10;
+	for (int i = 1; i < nombreDePasseBlur; i++) {
 		//Blur AO Horizontal
 		glBindFramebuffer(GL_FRAMEBUFFER, mFboBlurH.getId());
 		glDrawBuffers(1, attachments);
@@ -159,6 +165,7 @@ void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float t
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, mFboBlurV.getColorBufferId(0));
 		glUniform1i(glGetUniformLocation(mShaderBlurH.getProgramID(), "image"), 0);
+		glUniform1f(glGetUniformLocation(mShaderBlurH.getProgramID(), "size"),3.0* (float) i/ (float)nombreDePasseBlur );
 		mSupportFbo.draw();
 
 		//Blur AO Vertical
@@ -169,6 +176,7 @@ void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float t
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, mFboBlurH.getColorBufferId(0));
 		glUniform1i(glGetUniformLocation(mShaderBlurV.getProgramID(), "image"), 0);
+		glUniform1f(glGetUniformLocation(mShaderBlurV.getProgramID(), "size"),3.0* (float)i / (float)nombreDePasseBlur );
 		mSupportFbo.draw();
 	}
 
@@ -204,6 +212,10 @@ void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float t
 	glUniform1i(glGetUniformLocation(selectedFinalShader, "aoSampler"), 3);
 
 	glUniformMatrix4fv(glGetUniformLocation(selectedFinalShader, "projection"), 1, GL_FALSE, value_ptr(projection));
+
+	
+	glUniformMatrix4fv(glGetUniformLocation(selectedFinalShader, "view"), 1, GL_FALSE, value_ptr(view));
+
 
 	glUniform1f(glGetUniformLocation(selectedFinalShader, "time"), time);
 	glUniform1i(glGetUniformLocation(selectedFinalShader, "keyF1"), input.getKey(SDL_SCANCODE_F1));

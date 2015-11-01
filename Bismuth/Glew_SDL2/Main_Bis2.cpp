@@ -27,9 +27,9 @@ int main(int argc, char **argv)
 	Scene_SDL* currentScene = new Scene_SDL(cfg.ResolutionX, cfg.ResolutionY);
 	Camera* cam = new Camera(70.0, 16.0 / 9.0, 0.01, 100.0);
 	ResourcesManager* rm = new ResourcesManager();
-	Entity* entityC = createSphere(rm);// Misc.cpp
-	Entity* entityB = createPlane(rm);// Misc.cpp
 	Entity* entityA = createSphere(rm);// Misc.cpp
+	Entity* entityB = createPlane(rm);// Misc.cpp
+	Entity* entityC = createThing(rm);// Misc.cpp
 	entityA->getPhysicComponent()->getStateComponent()->setRotationDiff(vec3(0, 0, 0.001));
 	entityC->getPhysicComponent()->getStateComponent()->setPosition(vec3(2, 0, 0.8));
 	EntityManager* entityManager = new EntityManager();
@@ -41,10 +41,9 @@ int main(int argc, char **argv)
 	int time = 0;
 	while (!input.end()) {
 		double elapsedTime = 1000.0/ currentScene->waitForFps(60);
-		elapsedTime = elapsedTime < 1000 ? elapsedTime : 1000;
 		input.updateEvents();
 		cam->update(input, elapsedTime);
-		cout <<1000.0/elapsedTime<<endl;
+		if(time%10==0)	cout <<1000.0/elapsedTime<<endl;
 		entityManager->update(elapsedTime);
 		renderSystem->draw(entityManager->getEntities(), *cam,time++,input);
 		currentScene->flip();
