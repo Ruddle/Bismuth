@@ -54,11 +54,11 @@ for(int k=0;k<2;k++){
 	i=normalize(i);
 	float alpha = dot(-i,normal);
 	alpha = clamp(alpha,0,1);
-	float attenuation = (1/(dist/50000));
-	attenuation=1;
-	lighting += attenuation* (alpha+0.2)*diffuse*lights[k].intensity;
+	float attenuation = 1/(1+    pow( dist/300.0,2)    );
+	
+	lighting += (attenuation+0.2) * (alpha+0.2)*diffuse*lights[k].intensity;
 }
-if(!keyF5) lighting=lighting*(ao*1.5);
+if(!keyF4) lighting=lighting*(ao*1.5);
 
 
 if(keyF1) lighting = normal;

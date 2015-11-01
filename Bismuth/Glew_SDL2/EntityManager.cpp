@@ -11,15 +11,13 @@ EntityManager::~EntityManager()
 		delete mEntity[i];
 }
 
-void EntityManager::update()
+void EntityManager::update(float elapsedTime)
 {
-	// Calcul du temps ecoulé depuis l'ancien appel 
-	int time = 10; // TODO
 
 	for (int i = 0; i < mEntity.size(); i++)
 	{
 		Entity *entity = mEntity[i];
-		entity->getPhysicComponent()->getStateComponent()->update(time);
+		entity->getPhysicComponent()->getStateComponent()->update(elapsedTime);
 	}
 }
 

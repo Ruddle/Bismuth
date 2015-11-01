@@ -22,7 +22,7 @@ RenderSystem::RenderSystem(Config cfg, ResourcesManager* rm) : mCfg(cfg), mRm(rm
 	mFboGeometry.load();
 
 	TextureCfg texCfgAo = { GL_R8, GL_LINEAR, GL_CLAMP_TO_EDGE };
-	Texture* texAo = new Texture(cfg.ResolutionX, cfg.ResolutionY, texCfgAo);
+	Texture* texAo = new Texture(cfg.ResolutionX/(cfg.HalfAO ? 2.0:1.0) , cfg.ResolutionY/ (cfg.HalfAO ? 2.0 : 1.0), texCfgAo);
 	texAo->load();
 	textureArray = vector<Texture*>();
 	textureArray.push_back(texAo);
@@ -111,6 +111,8 @@ void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float t
 	
 	//AO
 	glBindFramebuffer(GL_FRAMEBUFFER, mFboAo.getId());
+	if(mCfg.HalfAO==1 )
+	glViewport(0, 0, mCfg.ResolutionX/2.0, mCfg.ResolutionY/2.0);
 	glDrawBuffers(1, attachments);
 	glClear(GL_COLOR_BUFFER_BIT);
 	glUseProgram(mShaderAo.getProgramID());
@@ -126,6 +128,7 @@ void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float t
 	mSupportFbo.draw();
 
 	//Blur AO Horizontal
+	glViewport(0, 0, mCfg.ResolutionX, mCfg.ResolutionY);
 	glBindFramebuffer(GL_FRAMEBUFFER, mFboBlurH.getId());
 	glDrawBuffers(1, attachments);
 	glClear(GL_COLOR_BUFFER_BIT);

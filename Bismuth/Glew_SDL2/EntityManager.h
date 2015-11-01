@@ -16,7 +16,7 @@ public:
 	EntityManager();
 	~EntityManager();
 
-	void update();
+	void update(float elapsedTime);
 	void collision();
 
 	void add(Entity* entity);

@@ -26,6 +26,7 @@ struct Config
 {
 	int ResolutionX;
 	int ResolutionY;
+	int HalfAO;
 };
 
 Config readConfig(void);

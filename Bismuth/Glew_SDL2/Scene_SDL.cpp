@@ -2,7 +2,7 @@
 
 
 using namespace std;
-Scene_SDL::Scene_SDL(int w, int h)
+Scene_SDL::Scene_SDL(int w, int h) : mLastTime(0)
 {
 	cout << "Creation    : Scene_SDL" << endl;
 	
@@ -78,6 +78,22 @@ Scene_SDL::~Scene_SDL()
 	SDL_Quit();
 }
 
+
+int Scene_SDL::waitForFps(int fpsTarget)
+{
+	
+		Uint64 diff = (SDL_GetPerformanceCounter() - mLastTime);
+
+		double fps = (double)SDL_GetPerformanceFrequency() / ((double)diff);
+
+
+		//if ( (1000.0 / fps) < (1000.0 / (double)fpsTarget))	{	SDL_Delay((1000.0 / (double)fpsTarget) - (1000.0 / fps));}
+
+
+		mLastTime = SDL_GetPerformanceCounter();
+		return fps;
+	
+}
 
 void Scene_SDL::flip() {
 	SDL_GL_SwapWindow(mWindow);
