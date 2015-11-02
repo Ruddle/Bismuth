@@ -31,7 +31,7 @@ int main(int argc, char **argv)
 	Entity* entityB = createPlane(rm);// Misc.cpp
 	Entity* entityC = createThing(rm);// Misc.cpp
 	entityA->getPhysicComponent()->getStateComponent()->setRotationDiff(vec3(0, 0, 0.001));
-	entityC->getPhysicComponent()->getStateComponent()->setPosition(vec3(2, 0, 0.8));
+	entityC->getPhysicComponent()->getStateComponent()->setPosition(vec3(2, 0, 0.81));
 	EntityManager* entityManager = new EntityManager();
 	entityManager->add(entityA);
 	entityManager->add(entityB);

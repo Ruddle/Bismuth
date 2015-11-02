@@ -51,11 +51,11 @@ RenderSystem::RenderSystem(Config cfg, ResourcesManager* rm) : mCfg(cfg), mRm(rm
 	mShaderAo       = Shader("Shader/defPassN.vert", "Shader/AO.frag");
 	mShaderAo.load();
 
-	mShaderBlurH = Shader("Shader/defPassN.vert", "Shader/blurH_1ch.frag");
-	mShaderBlurH.load();
+	mShaderBlur = Shader("Shader/defPassN.vert", "Shader/blurBilateral_1ch.frag");
+	mShaderBlur.load();
 
-	mShaderBlurV = Shader("Shader/defPassN.vert", "Shader/blurV_1ch.frag");
-	mShaderBlurV.load();
+	mShaderBlurBilateral = Shader("Shader/defPassN.vert", "Shader/blurBilateral_1ch.frag");
+	mShaderBlurBilateral.load();
 
 	mShaderDeferredFinal = Shader("Shader/defPassN.vert", "Shader/defPassN.frag");
 	mShaderDeferredFinal.load();
@@ -135,24 +135,30 @@ void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float t
 	glBindFramebuffer(GL_FRAMEBUFFER, mFboBlurH.getId());
 	glDrawBuffers(1, attachments);
 	glClear(GL_COLOR_BUFFER_BIT);
-	glUseProgram(mShaderBlurH.getProgramID());
+	glUseProgram(mShaderBlur.getProgramID());
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, mFboGeometry.getColorBufferId(2));
+	glUniform1i(glGetUniformLocation(mShaderBlur.getProgramID(), "gPosition"), 0);
+	glActiveTexture(GL_TEXTURE1);
+	glBindTexture(GL_TEXTURE_2D, mFboGeometry.getColorBufferId(0));
+	glUniform1i(glGetUniformLocation(mShaderBlur.getProgramID(), "gNormal"), 1);
+	glUniform2fv(glGetUniformLocation(mShaderBlur.getProgramID(), "resolution"), 1, value_ptr(resolution));
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, mFboAo.getColorBufferId(0));
-	glUniform1i(glGetUniformLocation(mShaderBlurH.getProgramID(), "image"), 0);
-	glUniform1f(glGetUniformLocation(mShaderBlurH.getProgramID(), "size"), 0);
-	glUniform2fv(glGetUniformLocation(mShaderBlurH.getProgramID(), "resolution"), 1, value_ptr(resolution));
+	glUniform1i(glGetUniformLocation(mShaderBlur.getProgramID(), "image"), 0);
+	glUniform1i(glGetUniformLocation(mShaderBlur.getProgramID(), "h"), 1);
+	glUniform1f(glGetUniformLocation(mShaderBlur.getProgramID(), "size"), 0);
 	mSupportFbo.draw();
 
 	//Blur AO Vertical
 	glBindFramebuffer(GL_FRAMEBUFFER, mFboBlurV.getId());
 	glDrawBuffers(1, attachments);
 	glClear(GL_COLOR_BUFFER_BIT);
-	glUseProgram(mShaderBlurV.getProgramID());
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, mFboBlurH.getColorBufferId(0));
-	glUniform1i(glGetUniformLocation(mShaderBlurV.getProgramID(), "image"), 0);
-	glUniform1f(glGetUniformLocation(mShaderBlurV.getProgramID(), "size"), 0);
-	glUniform2fv(glGetUniformLocation(mShaderBlurV.getProgramID(), "resolution"), 1, value_ptr(resolution));
+	glUniform1i(glGetUniformLocation(mShaderBlur.getProgramID(), "image"), 0);
+	glUniform1i(glGetUniformLocation(mShaderBlur.getProgramID(), "h"), 0);
+	glUniform1f(glGetUniformLocation(mShaderBlur.getProgramID(), "size"), 0);
 	mSupportFbo.draw();
 
 	int nombreDePasseBlur = 10;
@@ -161,22 +167,22 @@ void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float t
 		glBindFramebuffer(GL_FRAMEBUFFER, mFboBlurH.getId());
 		glDrawBuffers(1, attachments);
 		glClear(GL_COLOR_BUFFER_BIT);
-		glUseProgram(mShaderBlurH.getProgramID());
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, mFboBlurV.getColorBufferId(0));
-		glUniform1i(glGetUniformLocation(mShaderBlurH.getProgramID(), "image"), 0);
-		glUniform1f(glGetUniformLocation(mShaderBlurH.getProgramID(), "size"),3.0* (float) i/ (float)nombreDePasseBlur );
+		glUniform1i(glGetUniformLocation(mShaderBlur.getProgramID(), "h"), 1);
+		glUniform1i(glGetUniformLocation(mShaderBlur.getProgramID(), "image"), 0);
+		glUniform1f(glGetUniformLocation(mShaderBlur.getProgramID(), "size"),3.0* (float) i/ (float)nombreDePasseBlur );
 		mSupportFbo.draw();
 
 		//Blur AO Vertical
 		glBindFramebuffer(GL_FRAMEBUFFER, mFboBlurV.getId());
 		glDrawBuffers(1, attachments);
 		glClear(GL_COLOR_BUFFER_BIT);
-		glUseProgram(mShaderBlurV.getProgramID());
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, mFboBlurH.getColorBufferId(0));
-		glUniform1i(glGetUniformLocation(mShaderBlurV.getProgramID(), "image"), 0);
-		glUniform1f(glGetUniformLocation(mShaderBlurV.getProgramID(), "size"),3.0* (float)i / (float)nombreDePasseBlur );
+		glUniform1i(glGetUniformLocation(mShaderBlur.getProgramID(), "h"), 0);
+		glUniform1i(glGetUniformLocation(mShaderBlur.getProgramID(), "image"), 0);
+		glUniform1f(glGetUniformLocation(mShaderBlur.getProgramID(), "size"),3.0* (float)i / (float)nombreDePasseBlur );
 		mSupportFbo.draw();
 	}
 

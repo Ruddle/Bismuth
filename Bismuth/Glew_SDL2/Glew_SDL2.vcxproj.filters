@@ -219,17 +219,17 @@
     <None Include="Shader\AO.frag">
       <Filter>Fichiers de ressources\Shader</Filter>
     </None>
-    <None Include="Shader\blurH_1ch.frag">
-      <Filter>Fichiers de ressources\Shader</Filter>
-    </None>
-    <None Include="Shader\blurV_1ch.frag">
-      <Filter>Fichiers de ressources\Shader</Filter>
-    </None>
     <None Include="Shader\defPassN.frag">
       <Filter>Fichiers de ressources\Shader</Filter>
     </None>
     <None Include="config.ini">
       <Filter>Fichiers de ressources</Filter>
+    </None>
+    <None Include="Shader\blur_1ch.frag">
+      <Filter>Fichiers de ressources\Shader</Filter>
+    </None>
+    <None Include="Shader\blurBilateral_1ch.frag">
+      <Filter>Fichiers de ressources\Shader</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

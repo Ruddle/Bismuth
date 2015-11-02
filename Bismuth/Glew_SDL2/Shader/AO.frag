@@ -119,7 +119,7 @@ float ao = doAO(NUMPASS,position_ViewSpace,normal,RADIUS);
 
 
 ao = 1-ao;
-ao = min(ao,0.7)/0.7;
+ao = min(ao,0.8)/0.8;
 
-outColor =		pow(ao,2);
+outColor =		pow(ao,3);
 }

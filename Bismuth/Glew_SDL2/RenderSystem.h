@@ -36,8 +36,8 @@ private:
 	Fbo mFboBlurV;
 	Shader mShaderGeometry;
 	Shader mShaderAo;
-	Shader mShaderBlurH;
-	Shader mShaderBlurV;
+	Shader mShaderBlur;
+	Shader mShaderBlurBilateral;
 	Shader mShaderDeferredFinal;
 	Shader mShaderDeferredFinalDebug;
 
