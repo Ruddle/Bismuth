@@ -273,12 +273,10 @@ void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float t
 
 	glUniform2fv(glGetUniformLocation(mShaderBlur.getProgramID(), "resolution"), 1, value_ptr(resolution));
 	glUniform1f(glGetUniformLocation(mShaderBlur.getProgramID(), "size"), 0.0);
-
 	mSupportFbo.draw();
 
 
 	//Motion Blur 2
-
 	glBindFramebuffer(GL_FRAMEBUFFER, mFboShading.getId());
 	glClear(GL_COLOR_BUFFER_BIT);
 	glUseProgram(mShaderBlur.getProgramID());
@@ -288,10 +286,7 @@ void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float t
 	mSupportFbo.draw();
 
 
-
-
 	//Motion Blur 3
-
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glUseProgram(mShaderBlur.getProgramID());
