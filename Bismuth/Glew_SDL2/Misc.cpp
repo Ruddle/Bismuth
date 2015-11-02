@@ -63,7 +63,7 @@ Entity* createSphere(ResourcesManager* rm) {
 
 Entity* createPlane(ResourcesManager* rm) {
 	GraphicComponent* gc1 = new GraphicComponent(
-		rm->loadTexture("Texture/checker2.png", GL_RGB8, GL_LINEAR, GL_REPEAT), 
+		rm->loadTexture("Texture/checker2.png", GL_RGB8, GL_NEAREST, GL_REPEAT), 
 		0, 
 		0,
 		rm->loadVao("Mesh/plane.obj"));

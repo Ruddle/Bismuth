@@ -220,6 +220,7 @@
     <None Include="Shader\AO.frag" />
     <None Include="Shader\blurBilateral_1ch.frag" />
     <None Include="Shader\blur_1ch.frag" />
+    <None Include="Shader\blurDir_3ch.frag" />
     <None Include="Shader\defPass1.frag" />
     <None Include="Shader\defPass1.vert" />
     <None Include="Shader\defPassN.frag" />

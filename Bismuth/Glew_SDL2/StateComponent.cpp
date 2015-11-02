@@ -5,7 +5,7 @@ using namespace glm;
 
 StateComponent::StateComponent() : mHasCollision(true), mHasForce(true), mHasGravity(true), mHasTorque(true), mHasUpdate(true), mIsSleeping(false),
 									mPosition(0), mPositionDiff(0), mRotation(0), mRotationDiff(0),
-									mMass(1),mInertia(1), mModel(0)
+									mMass(1),mInertia(1), mModel(0), mLastModel(0)
 {
 	
 }
@@ -57,7 +57,7 @@ void StateComponent::update(int time)
 
 	mRotation.z -= (float)M_PI;
 
-
+	mLastModel = mModel;
 	mModel = translate(mPosition)* rotate(mRotation.x, vec3(1, 0, 0)) *rotate(mRotation.y, vec3(0, 1, 0))*rotate(mRotation.z, vec3(0, 0, 1));
 }
 

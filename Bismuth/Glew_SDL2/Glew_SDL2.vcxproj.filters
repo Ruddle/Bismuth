@@ -84,9 +84,6 @@
     <ClCompile Include="Entity.cpp">
       <Filter>Fichiers sources\Bis 3</Filter>
     </ClCompile>
-    <ClCompile Include="Texture.cpp">
-      <Filter>Fichiers sources\Bis 1</Filter>
-    </ClCompile>
     <ClCompile Include="Vao.cpp">
       <Filter>Fichiers sources\Bis 1</Filter>
     </ClCompile>
@@ -124,6 +121,9 @@
       <Filter>Fichiers sources\Temp_Test</Filter>
     </ClCompile>
     <ClCompile Include="Fbo.cpp">
+      <Filter>Fichiers sources\Bis 1</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
       <Filter>Fichiers sources\Bis 1</Filter>
     </ClCompile>
   </ItemGroup>
@@ -231,12 +231,15 @@
     <None Include="Shader\blurBilateral_1ch.frag">
       <Filter>Fichiers de ressources\Shader</Filter>
     </None>
+    <None Include="Shader\blurDir_3ch.frag">
+      <Filter>Fichiers de ressources\Shader</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Texture\checker.png">
+    <Image Include="Texture\checker2.png">
       <Filter>Fichiers de ressources\Texture</Filter>
     </Image>
-    <Image Include="Texture\checker2.png">
+    <Image Include="Texture\checker.png">
       <Filter>Fichiers de ressources\Texture</Filter>
     </Image>
   </ItemGroup>

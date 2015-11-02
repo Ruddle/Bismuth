@@ -34,16 +34,17 @@ private:
 	Fbo mFboAo;
 	Fbo mFboBlurH;
 	Fbo mFboBlurV;
+	Fbo mFboShading;
+	Fbo mFboShading2;
 	Shader mShaderGeometry;
 	Shader mShaderAo;
 	Shader mShaderBlur;
 	Shader mShaderBlurBilateral;
 	Shader mShaderDeferredFinal;
-	Shader mShaderDeferredFinalDebug;
 
 	Vao2D mSupportFbo;
 	ResourcesManager* mRm;
-	
+	glm::mat4 mLastViewProjection;
 
 
 };
