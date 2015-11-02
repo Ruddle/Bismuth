@@ -161,7 +161,7 @@ void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float t
 	glUniform1f(glGetUniformLocation(mShaderBlur.getProgramID(), "size"), 0);
 	mSupportFbo.draw();
 
-	int nombreDePasseBlur = 10;
+	int nombreDePasseBlur = 7;
 	for (int i = 1; i < nombreDePasseBlur; i++) {
 		//Blur AO Horizontal
 		glBindFramebuffer(GL_FRAMEBUFFER, mFboBlurH.getId());
@@ -185,7 +185,6 @@ void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float t
 		glUniform1f(glGetUniformLocation(mShaderBlur.getProgramID(), "size"),3.0* (float)i / (float)nombreDePasseBlur );
 		mSupportFbo.draw();
 	}
-
 
 	//Dessin final, sur l'écran
 	GLuint selectedFinalShader = input.getKey(SDL_SCANCODE_F3) ? mShaderDeferredFinalDebug.getProgramID() : mShaderDeferredFinal.getProgramID();
