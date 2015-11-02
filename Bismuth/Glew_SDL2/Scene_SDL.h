@@ -3,6 +3,10 @@
 #include <stdio.h>
 #include <iostream>
 #include "glew.h"
+
+#include <chrono>
+#include <thread>
+
 class Scene_SDL
 {
 public:

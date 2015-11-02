@@ -259,6 +259,7 @@ void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float t
 
 	//Motion Blur 1
 	glBindFramebuffer(GL_FRAMEBUFFER, mFboShading2.getId());
+	glClear(GL_COLOR_BUFFER_BIT);
 	glUseProgram(mShaderBlur.getProgramID());
 	glUniform1i(glGetUniformLocation(mShaderBlur.getProgramID(), "active"), !input.getKey(SDL_SCANCODE_F6));
 
@@ -276,26 +277,31 @@ void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float t
 	mSupportFbo.draw();
 
 
-
 	//Motion Blur 2
 
-	glBindFramebuffer(GL_FRAMEBUFFER, 0);
-	//glEnable(GL_BLEND);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glBindFramebuffer(GL_FRAMEBUFFER, mFboShading.getId());
+	glClear(GL_COLOR_BUFFER_BIT);
 	glUseProgram(mShaderBlur.getProgramID());
-
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, mFboShading2.getColorBufferId(0));
-	glUniform1i(glGetUniformLocation(mShaderBlur.getProgramID(), "image"), 0);
-
-	glActiveTexture(GL_TEXTURE1);
-	glBindTexture(GL_TEXTURE_2D, mFboGeometry.getColorBufferId(3));
-	glUniform1i(glGetUniformLocation(mShaderBlur.getProgramID(), "speed"), 1);
-
-	glUniform2fv(glGetUniformLocation(mShaderBlur.getProgramID(), "resolution"), 1, value_ptr(resolution));
 	glUniform1f(glGetUniformLocation(mShaderBlur.getProgramID(), "size"), 0.0);
-
 	mSupportFbo.draw();
+
+
+
+
+	//Motion Blur 3
+
+	glBindFramebuffer(GL_FRAMEBUFFER, 0);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glUseProgram(mShaderBlur.getProgramID());
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, mFboShading.getColorBufferId(0));
+	glUniform1f(glGetUniformLocation(mShaderBlur.getProgramID(), "size"), 0.0);
+	mSupportFbo.draw();
+
+
+
 
 	mLastViewProjection = projection*view  ;
 }

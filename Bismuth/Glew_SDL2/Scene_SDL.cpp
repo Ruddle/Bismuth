@@ -86,15 +86,19 @@ double Scene_SDL::waitForFps(double fpsTarget)
 
 		double fps = (double)SDL_GetPerformanceFrequency() / ((double)diff);
 
-		double TimetoWait  =  (1000.0 / (double)fpsTarget)- (1000.0 / fps);
+		double TimetoWait  =  (1000.0 / (double)fpsTarget) - (1000.0 / fps);
 
-		//if (TimetoWait > 0.0)
-		//SDL_Delay(TimetoWait>0 ? TimetoWait:0);
-
+		
 
 		mLastTime = SDL_GetPerformanceCounter();
-		return fps!=0.0? fps:0.001;
+
+		if (TimetoWait > 0.0)
+		SDL_Delay(TimetoWait);
+		//std::this_thread::sleep_for(std::chrono::milliseconds((long)TimetoWait));
+		//SDL_Delay(1000);
+
 	
+		return fps>1.0? fps:1;
 }
 
 void Scene_SDL::flip() {
