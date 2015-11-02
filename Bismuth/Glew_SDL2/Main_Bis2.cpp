@@ -21,51 +21,31 @@
 using namespace glm;
 using namespace std;
 
-FILE _iob[] = { *stdin, *stdout, *stderr };
-extern "C" FILE * __cdecl __iob_func(void)
-{
-	return _iob;
-}
-
 int main(int argc, char **argv)
 {
 	Config cfg = readConfig(); // Misc.cpp
 	Scene_SDL* currentScene = new Scene_SDL(cfg.ResolutionX, cfg.ResolutionY);
-	
-	
-	mat4 projection = glm::perspective(70.0*M_PI / 180.0, 16.0 / 9.0, 0.1, 100.0);
-	mat4 view = glm::lookAt(glm::vec3(2, 2, 2), glm::vec3(0, 0, 0.0), glm::vec3(0, 0, 1));
-
-	Camera* cam = new Camera(projection,view);
-
-
+	Camera* cam = new Camera(70.0, 16.0 / 9.0, 0.01, 100.0);
 	ResourcesManager* rm = new ResourcesManager();
-	GraphicComponent* gc1 = new GraphicComponent(rm->loadTexture("Texture/checker.png", GL_RGB8, GL_NEAREST, GL_REPEAT), 0, 0, rm->loadVao("Mesh/sphere.obj"));
-
-	SphereDetectionComponent* dc1 = new SphereDetectionComponent(1);
-	StateComponent* sc1 = new StateComponent();
-	PhysicComponent* pc1 = new PhysicComponent(dc1, sc1);
-
-	Entity* entity = new Entity(gc1, pc1);
-
+	Entity* entityA = createSphere(rm);// Misc.cpp
+	Entity* entityB = createPlane(rm);// Misc.cpp
+	Entity* entityC = createThing(rm);// Misc.cpp
+	entityA->getPhysicComponent()->getStateComponent()->setRotationDiff(vec3(0, 0, 0.001));
+	entityC->getPhysicComponent()->getStateComponent()->setPosition(vec3(2, 0, 0.81));
 	EntityManager* entityManager = new EntityManager();
-
-	entityManager->add(entity);
-
-
+	entityManager->add(entityA);
+	entityManager->add(entityB);
+	entityManager->add(entityC);
 	RenderSystem *renderSystem = new RenderSystem(cfg, rm);
-
-
 	Input input;
-
+	int time = 0;
 	while (!input.end()) {
+		double elapsedTime = 1000.0/ currentScene->waitForFps(60);
 		input.updateEvents();
-
-		entity->getPhysicComponent()->getStateComponent()->force(vec3(0, 0, -0.01));
-		entityManager->update();
-
-
-		renderSystem->draw(entityManager->getEntities(), *cam,0);
+		cam->update(input, elapsedTime);
+		if(time%10==0)	cout <<1000.0/elapsedTime<<endl;
+		entityManager->update(elapsedTime);
+		renderSystem->draw(entityManager->getEntities(), *cam,time++,input);
 		currentScene->flip();
 	}
 
@@ -76,4 +56,12 @@ int main(int argc, char **argv)
 
 	delete currentScene;
 	return 0;
+}
+
+
+
+FILE _iob[] = { *stdin, *stdout, *stderr };
+extern "C" FILE * __cdecl __iob_func(void)
+{
+	return _iob;
 }

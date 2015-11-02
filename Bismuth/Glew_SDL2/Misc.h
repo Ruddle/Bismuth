@@ -13,6 +13,10 @@
 #include "Texture.h"
 #include "Fbo.h"
 #include "Vao2D.h"
+#include "Entity.h"
+#include "PhysicComponent.h"
+#include "GraphicComponent.h"
+#include "SphereDetectionComponent.h"
 
 #define CONFIGPATH  "config.ini"
 
@@ -22,10 +26,16 @@ struct Config
 {
 	int ResolutionX;
 	int ResolutionY;
+	int HalfAO;
 };
 
 Config readConfig(void);
 
+// Utile pour Main_Bis2
+Entity* createSphere(ResourcesManager* rm);
+Entity* createThing(ResourcesManager* rm);
+Entity* createPlane(ResourcesManager* rm);
 
+// Utile pour Main_Bis1
 Fbo* createFboGeometry(Config cfg);
 Fbo* createFbo_1ch(Config cfg); // AO, blur, shadow 

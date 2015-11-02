@@ -24,7 +24,7 @@ public:
 	RenderSystem(Config cfg, ResourcesManager* rm);
 	~RenderSystem();
 
-	void draw(std::vector<Entity*> entities, Camera const& cam, float time);
+	void draw(std::vector<Entity*> entities, Camera const& cam, float time, Input &input);
 
 
 
@@ -32,12 +32,19 @@ private:
 	Config mCfg;
 	Fbo mFboGeometry;
 	Fbo mFboAo;
+	Fbo mFboBlurH;
+	Fbo mFboBlurV;
+	Fbo mFboShading;
+	Fbo mFboShading2;
 	Shader mShaderGeometry;
 	Shader mShaderAo;
+	Shader mShaderBlur;
+	Shader mShaderBlurBilateral;
 	Shader mShaderDeferredFinal;
+
 	Vao2D mSupportFbo;
 	ResourcesManager* mRm;
-	
+	glm::mat4 mLastViewProjection;
 
 
 };

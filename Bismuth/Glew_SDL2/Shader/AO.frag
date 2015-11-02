@@ -1,15 +1,18 @@
 #version 330
 
 in vec2 UV;
-out vec4 outColor;
+out float outColor;
 
-uniform sampler2D gNormal;
-uniform sampler2D gDiffuse;
+
 uniform sampler2D gPosition;
+uniform sampler2D gNormal;
 uniform mat4 projection;
-uniform float varA;
-uniform int time;
+uniform float time;
 uniform vec2 resolution;
+uniform float aspect;
+uniform float tanHalfFov;
+uniform float near;
+uniform float far;
 
 uint hash( uint x ) {
     x += ( x << 10u );
@@ -48,44 +51,49 @@ float random( vec2 f ) {
     return r2 - 1.0;
 }
 
-float doAO(int numPass,vec4 position,float radius) {
+float doAO(int numPass,vec3 position,vec3 normal,float radius) {
+
+
+				
+
 
 	float ao=0;
 	for(float i =1;i<numPass+1;i++){
 
-		float index = i+(pow(time,1.334))*0.348484657;
+		float index = 1001*i+(pow(time,1.334))*0.348484657;
 	
-		float rand1 =	random(gl_FragCoord.xy*0.3153548679861*pow(index,2));
-		float rand2 =	random(gl_FragCoord.xy*0.1461276795721*pow(index,3));
-		float rand3 =	random(gl_FragCoord.xy*1.5364988515456*pow(index,4));
+		float rand1 =	random(gl_FragCoord.xy*0.3153548679861*pow(index,2.3513));
+		float rand2 =	random(gl_FragCoord.xy*0.1461276795721*pow(index,3.545));
+		float rand3 =	random(gl_FragCoord.xy*1.5364988515456*pow(index,4.9875));
 		float rand4 =	random(gl_FragCoord.xy*0.9876543598998*index);
 
 				vec3 random3 = vec3(rand1,rand2,rand3) ;
 				random3 = random3-vec3(0.5);
 				random3 = normalize(random3);
+				
+
+				if(dot(normal,random3)<0){
+				random3 = -random3;
+				}
 
 				float length = rand4;
-				length = pow(length,3);
+				length = pow(length,2);
 
 				vec3 ray = length*radius*random3 + position.xyz;
 				vec4 depthRay = projection*vec4(ray,1.0);
 				depthRay.xy /= depthRay.w;
 				depthRay.xy = depthRay.xy * 0.5 + vec2(0.5);
 
-				if(gl_FragCoord.x>8000) {
-					ao+= (position.a >=  texture(gPosition, depthRay.xy ).a) ? 1.0:0.0;
-				}
-
-				else{
-					float cut = 0.7;
-					float ecart = position.a -  texture(gPosition, depthRay.xy ).a;
+				
+					float cut = radius*1;
+					float ecart = -position.z -  texture(gPosition, depthRay.xy ).r;
 					if(ecart>0){
 						if(ecart<cut)
 						ao++;
 						else
 						ao+=max(1+cut-ecart,0.5);
 					}
-				}
+				
 	}
 	ao = ao/(numPass);
 	return ao;
@@ -97,20 +105,21 @@ float RADIUS = 1;
 
 void main()
 {
-vec4 position = texture(gPosition,UV);
 
-//float ao1= 1-doAO(NUMPASS,position,1*RADIUS);
-//float ao2= 1-doAO(NUMPASS,position,2*RADIUS);
-//float ao3= 1-doAO(NUMPASS,position,4*RADIUS);
-//
-//vec3 color1 = vec3(1,0,0);
-//vec3 color2 = vec3(1,0.5,0);
-//vec3 color3 = vec3(1,1,0);
-//
-//outColor =		vec4( color1*ao1 + color2*ao2+ color3*ao3 + max(0,ao1+ao2+ao3-0.3)*vec3(0,0,0.33) ,1);
+vec3 position_ViewSpace ;
+	position_ViewSpace.z = -texture(gPosition, UV).r ;
+	position_ViewSpace.x = -(UV.x*2-1)*position_ViewSpace.z*(aspect) *tanHalfFov ;
+	position_ViewSpace.y = -(UV.y*2-1)*position_ViewSpace.z *tanHalfFov ;
 
-float ao = doAO(NUMPASS,position,RADIUS);
-outColor =		vec4(vec3(1- ao)  ,1);
+vec3 normal = vec3(texture(gNormal, UV).rg,0);
+				normal.z= sqrt(1.0 - normal.x*normal.x - normal.y*normal.y); 
 
-//outColor = vec4(vec3(position.a)/10.0,1);
+
+float ao = doAO(NUMPASS,position_ViewSpace,normal,RADIUS);
+
+
+ao = 1-ao;
+ao = min(ao,0.8)/0.8;
+
+outColor =		pow(ao,3);
 }

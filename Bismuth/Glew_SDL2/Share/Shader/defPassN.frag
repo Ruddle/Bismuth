@@ -7,7 +7,6 @@ uniform sampler2D gNormal;
 uniform sampler2D gDiffuse;
 uniform sampler2D gPosition;
 uniform sampler2D aoSampler;
-uniform mat4 view;
 uniform float time;
 uniform vec2 resolution;
 uniform float aspect;
@@ -27,11 +26,11 @@ uniform bool keyF8;
 
 struct Light
 {
-  vec3 position_WorldSpace;
+  vec3 position_ViewSpace;
   vec3 intensity;
 };
 
-const Light lights[2] = Light[2](  Light(vec3(10,-2,10),vec3(1,0.9,0.8))  ,   Light(vec3(-10,-2,10),vec3(0.8,0.9,1))  );
+const Light lights[2] = Light[2](  Light(vec3(10,0,0),vec3(1,0.9,0.8))  ,   Light(vec3(-10,0,0),vec3(0.8,0.9,1))  );
 
 void main()
 {
@@ -50,7 +49,7 @@ vec3 diffuse = texture(gDiffuse, UV).xyz;
 float ao = texture(aoSampler,UV).x;
 
 for(int k=0;k<2;k++){
-	vec3 i = position_ViewSpace- (view* vec4(lights[k].position_WorldSpace,1)).xyz;
+	vec3 i = position_ViewSpace-lights[k].position_ViewSpace;
 	float dist = length(i) *length(i);
 	i=normalize(i);
 	float alpha = dot(-i,normal);
@@ -59,7 +58,7 @@ for(int k=0;k<2;k++){
 	
 	lighting += (attenuation+0.2) * (alpha+0.2)*diffuse*lights[k].intensity;
 }
-if(!keyF4) lighting=lighting*(ao*1.0);
+if(!keyF4) lighting=lighting*(ao*1.5);
 
 
 if(keyF1) lighting = normal;

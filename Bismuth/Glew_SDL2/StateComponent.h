@@ -18,6 +18,8 @@ public:
 	void friction(float coeff);
 	void update(int time);
 
+	glm::mat4 getModel() { return mModel; }
+	glm::mat4 getLastModel() { return mLastModel; }
 	glm::vec3 getPosition() { return mPosition; }
 	glm::vec3 getPositionDiff() { return mPositionDiff; }
 	glm::vec3 getRotation() { return mRotation; }
@@ -32,7 +34,7 @@ public:
 
 	void setPosition(glm::vec3 value) { mPosition = value; }
 	void setPositionDiff(glm::vec3 value) { mPositionDiff = value; }
-	void setRotation(glm::vec3 value) { mRotation = value; }
+	void setRotation(glm::vec3 value) { mRotation = value;}
 	void setRotationDiff(glm::vec3 value) { mRotationDiff = value; }
 
 private:
@@ -40,6 +42,8 @@ private:
 	float mMass;
 	glm::mat3 mInertia;
 
+	glm::mat4 mModel;
+	glm::mat4 mLastModel;
 	glm::vec3 mPosition;
 	glm::vec3 mPositionDiff;
 

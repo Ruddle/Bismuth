@@ -84,16 +84,10 @@
     <ClCompile Include="Entity.cpp">
       <Filter>Fichiers sources\Bis 3</Filter>
     </ClCompile>
-    <ClCompile Include="Texture.cpp">
-      <Filter>Fichiers sources\Bis 1</Filter>
-    </ClCompile>
     <ClCompile Include="Vao.cpp">
       <Filter>Fichiers sources\Bis 1</Filter>
     </ClCompile>
     <ClCompile Include="Shader.cpp">
-      <Filter>Fichiers sources\Bis 1</Filter>
-    </ClCompile>
-    <ClCompile Include="Fbo.cpp">
       <Filter>Fichiers sources\Bis 1</Filter>
     </ClCompile>
     <ClCompile Include="Input.cpp">
@@ -125,6 +119,12 @@
     </ClCompile>
     <ClCompile Include="Main_Bis2.cpp">
       <Filter>Fichiers sources\Temp_Test</Filter>
+    </ClCompile>
+    <ClCompile Include="Fbo.cpp">
+      <Filter>Fichiers sources\Bis 1</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Fichiers sources\Bis 1</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -207,15 +207,6 @@
     </Object>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Shader\test.vert">
-      <Filter>Fichiers de ressources\Shader</Filter>
-    </None>
-    <None Include="Shader\test.frag">
-      <Filter>Fichiers de ressources\Shader</Filter>
-    </None>
-    <None Include="config.ini">
-      <Filter>Fichiers de ressources</Filter>
-    </None>
     <None Include="Shader\defPass1.frag">
       <Filter>Fichiers de ressources\Shader</Filter>
     </None>
@@ -228,20 +219,26 @@
     <None Include="Shader\AO.frag">
       <Filter>Fichiers de ressources\Shader</Filter>
     </None>
-    <None Include="Shader\blurH_1ch.frag">
-      <Filter>Fichiers de ressources\Shader</Filter>
-    </None>
-    <None Include="Shader\blurV_1ch.frag">
-      <Filter>Fichiers de ressources\Shader</Filter>
-    </None>
-    <None Include="Shader\defPassNDebug.frag">
-      <Filter>Fichiers de ressources\Shader</Filter>
-    </None>
     <None Include="Shader\defPassN.frag">
+      <Filter>Fichiers de ressources\Shader</Filter>
+    </None>
+    <None Include="config.ini">
+      <Filter>Fichiers de ressources</Filter>
+    </None>
+    <None Include="Shader\blur_1ch.frag">
+      <Filter>Fichiers de ressources\Shader</Filter>
+    </None>
+    <None Include="Shader\blurBilateral_1ch.frag">
+      <Filter>Fichiers de ressources\Shader</Filter>
+    </None>
+    <None Include="Shader\blurDir_3ch.frag">
       <Filter>Fichiers de ressources\Shader</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Texture\checker2.png">
+      <Filter>Fichiers de ressources\Texture</Filter>
+    </Image>
     <Image Include="Texture\checker.png">
       <Filter>Fichiers de ressources\Texture</Filter>
     </Image>
