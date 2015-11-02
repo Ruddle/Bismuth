@@ -61,7 +61,7 @@ int main(int argc, char **argv)
 	while (!input.end()) {
 		input.updateEvents();
 
-		entity->getPhysicComponent()->getStateComponent()->force(vec3(0, 0, -0.001));
+		entity->getPhysicComponent()->getStateComponent()->force(vec3(0, 0, -0.01));
 		entityManager->update();
 
 
