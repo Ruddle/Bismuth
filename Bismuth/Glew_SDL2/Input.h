@@ -9,7 +9,7 @@ class Input
 public:
 	Input();
 	~Input();
-	void updateEvents();
+	void update();
 	bool end() const { return mEnd; }
 	bool getKey(const SDL_Scancode key) const { return mKeys[key]; }
 	bool getRisingKey(const SDL_Scancode key) const { return mRisingKeys[key]; }

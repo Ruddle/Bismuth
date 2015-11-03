@@ -182,10 +182,10 @@
     <ClInclude Include="Scene_SDL.h">
       <Filter>Fichiers d%27en-tête\Bis 1</Filter>
     </ClInclude>
-    <ClInclude Include="RenderSystem.h">
+    <ClInclude Include="Camera.h">
       <Filter>Fichiers d%27en-tête\Bis 2\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="Camera.h">
+    <ClInclude Include="RenderSystem.h">
       <Filter>Fichiers d%27en-tête\Bis 2\Graphics</Filter>
     </ClInclude>
   </ItemGroup>

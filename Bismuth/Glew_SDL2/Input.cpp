@@ -17,7 +17,7 @@ Input::Input() : mRx(0), mRy(0), mX(0), mY(0), mEnd(false)
 		mMouseButtons[i] = false;
 }
 
-void Input::updateEvents()
+void Input::update()
 {
 
 	for (int i(0); i < SDL_NUM_SCANCODES; i++)

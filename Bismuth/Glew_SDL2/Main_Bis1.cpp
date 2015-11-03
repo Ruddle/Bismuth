@@ -82,7 +82,7 @@ int main(int argc, char **argv)
 		frame++;
 		
 			
-			input.updateEvents();
+			input.update();
 
 			if (input.getRisingKey(SDL_SCANCODE_SPACE)) {
 				shaderSelected = (shaderSelected == &shaderDeferredDebug) ? &shaderDeferred : &shaderDeferredDebug;

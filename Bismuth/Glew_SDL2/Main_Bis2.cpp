@@ -25,7 +25,7 @@ int main(int argc, char **argv)
 {
 	Config cfg = readConfig(); // Misc.cpp
 	Scene_SDL* currentScene = new Scene_SDL(cfg.ResolutionX, cfg.ResolutionY);
-	Camera* cam = new Camera(70.0, 16.0 / 9.0, 0.01, 100.0);
+	Camera* cam = new Camera(70.0, (float) cfg.ResolutionX/cfg.ResolutionY, 0.01, 100.0);
 	ResourcesManager* rm = new ResourcesManager();
 	Entity* entityA = createSphere(rm);// Misc.cpp
 	Entity* entityB = createPlane(rm);// Misc.cpp
@@ -42,13 +42,13 @@ int main(int argc, char **argv)
 	while (!input.end()) {
 
 		entityC->getPhysicComponent()->getStateComponent()->setPosition(vec3(3+ cos(time / 10.0), 0, 2 + sin(time / 10.0)));
-
-		double elapsedTime = 1000.0/ currentScene->waitForFps(60);
-		input.updateEvents();
+		double fps = currentScene->waitForFps(30);
+		double elapsedTime = 1000.0/ fps;
+		if (time % 10 == 0)	cout << fps << endl;
+		input.update();
 		cam->update(input, elapsedTime);
-		if(time%10==0)	cout <<1000.0/elapsedTime<<endl;
 		entityManager->update(elapsedTime);
-		renderSystem->draw(entityManager->getEntities(), *cam,time++,input);
+		renderSystem->draw(entityManager->getEntities(), *cam,time++,input,fps);
 		currentScene->flip();
 	}
 
@@ -56,7 +56,6 @@ int main(int argc, char **argv)
 	delete renderSystem;
 	delete entityManager;
 	delete rm;
-
 	delete currentScene;
 	return 0;
 }

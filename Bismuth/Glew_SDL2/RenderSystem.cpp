@@ -94,7 +94,7 @@ RenderSystem::~RenderSystem()
 }
 
 
-void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float time,Input &input) {
+void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float time,Input &input,float fps) {
 	time = 0;
 	GLuint attachments[4] = { GL_COLOR_ATTACHMENT0 , GL_COLOR_ATTACHMENT1 ,GL_COLOR_ATTACHMENT2 ,GL_COLOR_ATTACHMENT3 };
 
@@ -261,7 +261,7 @@ void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float t
 	glBindFramebuffer(GL_FRAMEBUFFER, mFboShading2.getId());
 	glClear(GL_COLOR_BUFFER_BIT);
 	glUseProgram(mShaderBlur.getProgramID());
-	glUniform1i(glGetUniformLocation(mShaderBlur.getProgramID(), "active"), !input.getKey(SDL_SCANCODE_F6));
+	glUniform1f(glGetUniformLocation(mShaderBlur.getProgramID(), "factor"), (fps/60.0)*300*(float)(!input.getKey(SDL_SCANCODE_F6)));
 
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, mFboShading.getColorBufferId(0));

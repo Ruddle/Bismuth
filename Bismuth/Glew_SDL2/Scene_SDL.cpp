@@ -81,23 +81,13 @@ Scene_SDL::~Scene_SDL()
 
 double Scene_SDL::waitForFps(double fpsTarget)
 {
-	
 		Uint64 diff = (SDL_GetPerformanceCounter() - mLastTime);
-
-		double fps = (double)SDL_GetPerformanceFrequency() / ((double)diff);
-
-		double TimetoWait  =  (1000.0 / (double)fpsTarget) - (1000.0 / fps);
-
-		
-
 		mLastTime = SDL_GetPerformanceCounter();
-
-		if (TimetoWait > 0.0)
-		SDL_Delay(TimetoWait);
-		//std::this_thread::sleep_for(std::chrono::milliseconds((long)TimetoWait));
-		//SDL_Delay(1000);
+		double fps = (double)SDL_GetPerformanceFrequency() / ((double)diff);
+		double TimetoWait  = 1000.0* ( (1.0/fpsTarget) - (1.0 / fps) ) ;
 
 	
+
 		return fps>1.0? fps:1;
 }
 

@@ -7,6 +7,8 @@
 #include <chrono>
 #include <thread>
 
+#include <windows.h>
+
 class Scene_SDL
 {
 public:
