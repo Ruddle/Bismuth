@@ -37,7 +37,7 @@ void StateComponent::friction(float coeff)
 	mRotationDiff /= (1 + coeff);
 }
 
-void StateComponent::update(int time)
+void StateComponent::update(float time)
 {
 	mPosition += mPositionDiff*float(time);
 	mRotation += mRotationDiff*float(time);

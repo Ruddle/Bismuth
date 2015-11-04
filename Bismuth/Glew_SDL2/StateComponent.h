@@ -16,7 +16,7 @@ public:
 	void force(glm::vec3 force, glm::vec3 point);
 	void torque(glm::vec3 torque); // en O
 	void friction(float coeff);
-	void update(int time);
+	void update(float time);
 
 	glm::mat4 getModel() { return mModel; }
 	glm::mat4 getLastModel() { return mLastModel; }

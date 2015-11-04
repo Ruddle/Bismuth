@@ -58,7 +58,7 @@ Contact* SphereDetectionComponent::getCollisionOnSphere(glm::vec3 pos1, glm::vec
 	float r2 = sqrt(((SphereDetectionComponent*)detComp2)->mRadius2);
 
 	result->position = (r2*pos1 + r1*pos2) / (r1 + r2);
-	result->normal = pos2 - pos1;
+	result->normal = normalize(pos2 - pos1)*((r2+r1)-length(pos2-pos1));
 	
 	return result;
 }

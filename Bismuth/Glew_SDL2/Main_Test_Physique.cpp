@@ -10,7 +10,7 @@
 #include "SphereDetectionComponent.h"
 #include "StateComponent.h"
 #include <iostream>
-#define _USE_MATH_DEFINES
+//#define _USE_MATH_DEFINES
 #include <math.h>
 
 using namespace glm;

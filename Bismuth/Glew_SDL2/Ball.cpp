@@ -32,7 +32,7 @@ void Ball::update()
 	StateComponent* sc = mEntity->getPhysicComponent()->getStateComponent();
 
 	sc->force(vec3(0, 0, -0.00051));
-	sc->friction(0.01);
+	sc->friction(0.01f);
 
 
 	if (sc->getPosition().z < 1) {
@@ -46,7 +46,7 @@ void Ball::update()
 	for (std::set<Contact*>::iterator it = contact.begin(); it != contact.end(); it++)
 	{
 		
-		sc->force( -(*it)->normal *0.0011f);
+		sc->force( -(*it)->normal *0.01f);
 		sc->setPosition(sc->getPosition() - (*it)->normal/2.0f);
 
 

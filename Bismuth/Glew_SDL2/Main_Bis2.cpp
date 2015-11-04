@@ -23,6 +23,15 @@
 using namespace glm;
 using namespace std;
 
+
+FILE _iob[] = { *stdin, *stdout, *stderr };
+extern "C" FILE * __cdecl __iob_func(void)
+{
+	return _iob;
+}
+
+
+
 int main(int argc, char **argv)
 {
 	Config cfg = readConfig(); // Misc.cpp
@@ -48,17 +57,19 @@ int main(int argc, char **argv)
 
 
 	while (!input.end()) {
-
+		time++;
 		entityC->getPhysicComponent()->getStateComponent()->setPosition(vec3(3+ cos(time / 10.0), 0, 2 + sin(time / 10.0)));
 		double fps = currentScene->waitForFps(30);
 		double elapsedTime = 1000.0/ fps;
 		if (time % 10 == 0)	cout << fps << endl;
 		input.update();
 		cam->update(input, elapsedTime);
-		entityManager->update(elapsedTime);
+		entityManager->update(float(elapsedTime));
 		entityManager->collision();
-		renderSystem->draw(entityManager->getEntities(), *cam,time++,input,fps);
-		currentScene->flip();
+		if (time % 1 == 0) {
+			renderSystem->draw(entityManager->getEntities(), *cam, time, input, float(fps));
+			currentScene->flip();
+		}
 
 		if (input.getRisingKey(SDL_SCANCODE_K))
 		listBall.push_back(  new Ball(entityManager, rm, cam->getPosition(), 0.051f*cam->getRotation()) );
@@ -77,9 +88,3 @@ int main(int argc, char **argv)
 }
 
 
-
-FILE _iob[] = { *stdin, *stdout, *stderr };
-extern "C" FILE * __cdecl __iob_func(void)
-{
-	return _iob;
-}
