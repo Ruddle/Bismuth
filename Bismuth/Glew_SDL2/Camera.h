@@ -20,6 +20,7 @@ public:
 	double getFar()const { return mFar; }
 
 	glm::vec3 getPosition() { return mPosition; }
+	glm::vec3 getRotation() { return mRotation; }
 	void setPosition(glm::vec3 value) { mPosition = value; }
 	void setPositionDiff(glm::vec3 value) { mPositionDiff = value; }
 	void setRotation(glm::vec3 value) { mRotation = value; }

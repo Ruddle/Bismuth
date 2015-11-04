@@ -18,10 +18,6 @@ uniform float size;
 
 void main()
 {
-
-
-
-
 float blur = texture( image, vec2(gl_FragCoord)/resolution ).r * weight[0];
 
     for (int i=1; i<3; i++) {

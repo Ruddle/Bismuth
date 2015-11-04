@@ -58,6 +58,12 @@
     <Filter Include="Fichiers de ressources\Texture">
       <UniqueIdentifier>{84d520af-043a-4f65-94b0-2f3e17eb535d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\Bis 4">
+      <UniqueIdentifier>{b5fd0353-4b64-4430-853e-69c33dff84c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Bis 4">
+      <UniqueIdentifier>{bbc9e3cb-05dc-4351-b0ee-137e819be6ba}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="StateComponent.cpp">
@@ -126,6 +132,9 @@
     <ClCompile Include="Texture.cpp">
       <Filter>Fichiers sources\Bis 1</Filter>
     </ClCompile>
+    <ClCompile Include="Ball.cpp">
+      <Filter>Fichiers sources\Bis 4</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PhysicComponent.h">
@@ -187,6 +196,9 @@
     </ClInclude>
     <ClInclude Include="RenderSystem.h">
       <Filter>Fichiers d%27en-tête\Bis 2\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Ball.h">
+      <Filter>Fichiers d%27en-tête\Bis 4</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

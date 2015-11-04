@@ -95,7 +95,7 @@ RenderSystem::~RenderSystem()
 
 
 void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float time,Input &input,float fps) {
-	time = 0;
+	time = 0.0f;
 	GLuint attachments[4] = { GL_COLOR_ATTACHMENT0 , GL_COLOR_ATTACHMENT1 ,GL_COLOR_ATTACHMENT2 ,GL_COLOR_ATTACHMENT3 };
 
 	vec2 resolution = vec2(mCfg.ResolutionX, mCfg.ResolutionY);

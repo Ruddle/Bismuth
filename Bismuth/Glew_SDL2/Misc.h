@@ -33,7 +33,7 @@ Config readConfig(void);
 
 // Utile pour Main_Bis2
 Entity* createSphere(ResourcesManager* rm);
-Entity* createThing(ResourcesManager* rm);
+Entity* createThing(ResourcesManager* rm,glm::vec3 position);
 Entity* createPlane(ResourcesManager* rm);
 
 // Utile pour Main_Bis1

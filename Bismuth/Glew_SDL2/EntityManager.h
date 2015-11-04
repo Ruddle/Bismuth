@@ -2,7 +2,6 @@
 
 #include <vector>
 #include "Entity.h"
-#include "Camera.h"
 #include "GraphicComponent.h"
 #include "StateComponent.h"
 #include "Contact.h"

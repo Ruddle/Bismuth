@@ -17,6 +17,8 @@
 #include "DetectionComponent.h"
 #include "SphereDetectionComponent.h"
 #include "RenderSystem.h"
+#include "Ball.h"
+
 
 using namespace glm;
 using namespace std;
@@ -29,16 +31,22 @@ int main(int argc, char **argv)
 	ResourcesManager* rm = new ResourcesManager();
 	Entity* entityA = createSphere(rm);// Misc.cpp
 	Entity* entityB = createPlane(rm);// Misc.cpp
-	Entity* entityC = createThing(rm);// Misc.cpp
-	entityA->getPhysicComponent()->getStateComponent()->setRotationDiff(vec3(0, 0, 0.001));
+	Entity* entityC = createThing(rm, vec3(0, 0, 0.8));// Misc.cpp
+	entityA->getPhysicComponent()->getStateComponent()->setRotationDiff(vec3(0, 0, 0.01));
 	entityC->getPhysicComponent()->getStateComponent()->setPosition(vec3(2, 0, 1));
 	EntityManager* entityManager = new EntityManager();
 	entityManager->add(entityA);
 	entityManager->add(entityB);
 	entityManager->add(entityC);
+
 	RenderSystem *renderSystem = new RenderSystem(cfg, rm);
 	Input input;
 	int time = 0;
+
+
+	vector<Ball*> listBall = vector<Ball*>();
+
+
 	while (!input.end()) {
 
 		entityC->getPhysicComponent()->getStateComponent()->setPosition(vec3(3+ cos(time / 10.0), 0, 2 + sin(time / 10.0)));
@@ -48,8 +56,16 @@ int main(int argc, char **argv)
 		input.update();
 		cam->update(input, elapsedTime);
 		entityManager->update(elapsedTime);
+		entityManager->collision();
 		renderSystem->draw(entityManager->getEntities(), *cam,time++,input,fps);
 		currentScene->flip();
+
+		if (input.getRisingKey(SDL_SCANCODE_K))
+		listBall.push_back(  new Ball(entityManager, rm, cam->getPosition(), 0.051f*cam->getRotation()) );
+
+		for (int i = 0; i < listBall.size(); i++)
+			listBall[i]->update();
+
 	}
 
 	delete cam;

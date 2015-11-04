@@ -23,5 +23,5 @@ void main()
 	vec2 a = (varCurrPosition_Proj.xy / varCurrPosition_Proj.w) * 0.5 + 0.5;
     vec2 b = (varPrevPosition_Proj.xy / varPrevPosition_Proj.w) * 0.5 + 0.5;
   
-	gSpeed = (a-b);
+	gSpeed =   max(abs(a-b)-vec2(0.005),vec2(0)) ;
 }
