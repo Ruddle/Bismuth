@@ -232,7 +232,6 @@
     <None Include="Shader\blurBilateral_1ch.frag" />
     <None Include="Shader\blur_1ch.frag" />
     <None Include="Shader\blurDir_3ch.frag" />
-    <None Include="Shader\blur_1ch_norZ.frag" />
     <None Include="Shader\blur_3ch.frag" />
     <None Include="Shader\defPass1.frag" />
     <None Include="Shader\defPass1.vert" />
@@ -246,6 +245,7 @@
     <Image Include="Texture\checker.png" />
     <Image Include="Texture\checker2.png" />
     <Image Include="Texture\checker2C.png" />
+    <Image Include="Texture\cloud.png" />
     <Image Include="Texture\RED.png" />
     <Image Include="Texture\WHITE.png" />
   </ItemGroup>

@@ -51,6 +51,8 @@ void Texture::loadFromPath()
 	GLenum internFormat(0);
 	GLenum format(0);
 
+
+	
 	// Détermination du format et du format interne pour les images à 3 composantes
 	if (invertedSDL->format->BytesPerPixel == 3)
 	{

@@ -390,6 +390,7 @@ void RenderSystem::doStepShading(Camera const& cam,Input const& input)
 	glUniform1i(mShaderDeferredFinal.getLocation("keyF6"), input.getKey(SDL_SCANCODE_F6));
 	glUniform1i(mShaderDeferredFinal.getLocation("keyF7"), input.getKey(SDL_SCANCODE_F7));
 	glUniform1i(mShaderDeferredFinal.getLocation("keyF8"), input.getKey(SDL_SCANCODE_F8));
+	glUniform1i(mShaderDeferredFinal.getLocation("keyF9"), input.getKey(SDL_SCANCODE_F9));
 	glUniform2fv(mShaderDeferredFinal.getLocation("resolution"), 1, value_ptr(resolution));
 	mSupportFbo.draw();
 }
@@ -420,6 +421,10 @@ void RenderSystem::doStepGeometry(Camera const &cam, std::vector<Entity*> entiti
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, (mRm->getTexture(entity->getGraphicComponent()->getTextureDiffuseId())->getId()));
 		glUniform1i(mShaderGeometry.getLocation("texture_diffuse"), 0);
+
+		glActiveTexture(GL_TEXTURE2);
+		glBindTexture(GL_TEXTURE_2D, (mRm->getTexture(entity->getGraphicComponent()->getTextureSpecId())->getId()));
+		glUniform1i(mShaderGeometry.getLocation("texture_spec"), 2);
 
 		glActiveTexture(GL_TEXTURE3);
 		glBindTexture(GL_TEXTURE_2D, (mRm->getTexture(entity->getGraphicComponent()->getTextureEmitId())->getId()));

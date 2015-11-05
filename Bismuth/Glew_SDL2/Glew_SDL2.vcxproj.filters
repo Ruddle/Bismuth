@@ -246,9 +246,6 @@
     <None Include="Shader\blurDir_3ch.frag">
       <Filter>Fichiers de ressources\Shader</Filter>
     </None>
-    <None Include="Shader\blur_1ch_norZ.frag">
-      <Filter>Fichiers de ressources\Shader</Filter>
-    </None>
     <None Include="Shader\blur_3ch.frag">
       <Filter>Fichiers de ressources\Shader</Filter>
     </None>
@@ -276,6 +273,9 @@
       <Filter>Fichiers de ressources\Texture</Filter>
     </Image>
     <Image Include="Texture\WHITE.png">
+      <Filter>Fichiers de ressources\Texture</Filter>
+    </Image>
+    <Image Include="Texture\cloud.png">
       <Filter>Fichiers de ressources\Texture</Filter>
     </Image>
   </ItemGroup>

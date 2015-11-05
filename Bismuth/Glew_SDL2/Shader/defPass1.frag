@@ -6,6 +6,7 @@ in vec3 varPosition;
 in vec4 varPrevPosition_Proj;
 in vec4 varCurrPosition_Proj;
 uniform sampler2D texture_diffuse;
+uniform sampler2D texture_spec;
 uniform sampler2D texture_emit;
 uniform vec2 resolution;
 
@@ -17,7 +18,7 @@ layout (location = 3) out vec2 gSpeed;
 
 void main()
 {
-	gDiffuse= vec4(texture(texture_diffuse, varUV).xyz,1.0);
+	gDiffuse= vec4(texture(texture_diffuse, varUV).xyz,   texture(texture_spec, varUV).x        );
 	gNormal.xy =  varNormal.xy;
 	gNormal.z = texture(texture_emit, varUV).x;
 	gPosition = -varPosition.z;

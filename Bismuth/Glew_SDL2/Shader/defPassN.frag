@@ -23,7 +23,7 @@ uniform bool keyF5;
 uniform bool keyF6;
 uniform bool keyF7;
 uniform bool keyF8;
-
+uniform bool keyF9;
 
 
 struct Light
@@ -96,6 +96,7 @@ float emit = normal.z;
 vec3 diffuse = texture(gDiffuse, UV).xyz;
 float ao = texture(aoSampler,UV).x;
 
+float specFactor =texture(gDiffuse, UV).a;
 
 
 for(int k=0;k<2;k++){
@@ -106,7 +107,7 @@ for(int k=0;k<2;k++){
 	alpha = clamp(alpha,0,1);
 	float attenuation = 1/( 1 + pow( dist/300.0,2)  );
 	
-	lighting += 0.1*diffuse+    1*(attenuation) * (alpha)*diffuse*lights[k].intensity*(1+0.4*Cook_Torrance(-i,vec3(0,0,1),normal,0.3,0.5));
+	lighting += 0.1*diffuse+    1*(attenuation) * (alpha)*diffuse*lights[k].intensity*(1+specFactor*Cook_Torrance(-i,vec3(0,0,1),normal,0.25,0.5));
 }
 if(!keyF4) lighting=lighting*(ao*1.0);
 
@@ -126,5 +127,5 @@ float brightness = dot(outColor, vec3(0.2126, 0.7152, 0.0722));
 outBloom = (brightness >1) ? outColor:vec3(0) ;
 
 if(keyF8) outColor = outBloom;
-
+if(keyF9) outColor = vec3(specFactor);
 }
