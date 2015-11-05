@@ -107,7 +107,7 @@ for(int k=0;k<2;k++){
 	alpha = clamp(alpha,0,1);
 	float attenuation = 1/( 1 + pow( dist/300.0,2)  );
 	
-	lighting += 0.1*diffuse+    1*(attenuation) * (alpha)*diffuse*lights[k].intensity*(1+specFactor*Cook_Torrance(-i,vec3(0,0,1),normal,0.25,0.5));
+	lighting += 0.03*diffuse+    1*(attenuation) * (alpha)*diffuse*lights[k].intensity*(1+1.5*specFactor*Cook_Torrance(-i,vec3(0,0,1),normal,0.25,0.5));
 }
 if(!keyF4) lighting=lighting*(ao*1.0);
 
@@ -120,12 +120,15 @@ if(keyF7) lighting = vec3(emit);
 
 
 
-outColor = lighting + emit*5 * (diffuse + vec3(0.1));
+outColor = lighting + emit*5 * (diffuse + vec3(0.0));
 
 float brightness = dot(outColor, vec3(0.2126, 0.7152, 0.0722));
 
 outBloom = (brightness >1) ? outColor:vec3(0) ;
 
-if(keyF8) outColor = outBloom;
+if(keyF8) {
+outColor = outBloom;
+outBloom = vec3(0);
+}
 if(keyF9) outColor = vec3(specFactor);
 }

@@ -253,7 +253,7 @@ void RenderSystem::doStepBloom()
 
 	int nombreDePasseBlurBloom = 5;
 	for (int i = 1; i < nombreDePasseBlurBloom; i++) {
-		float size = 1 * float(i) / nombreDePasseBlurBloom;
+		float size = 0 * float(i) / nombreDePasseBlurBloom;
 
 		glBindFramebuffer(GL_FRAMEBUFFER, mFboBloom1.getId());
 		glDrawBuffers(1, mAttach);
