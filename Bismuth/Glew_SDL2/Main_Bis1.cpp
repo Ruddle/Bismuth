@@ -74,7 +74,7 @@ int main(int argc, char **argv)
 	projection = glm::perspective(70.0*M_PI/180.0, (double)cfg.ResolutionX / (double)cfg.ResolutionY, 0.01, 100.0);
 	view = glm::lookAt(glm::vec3(2,2,2), glm::vec3(0, 0, 0.5), glm::vec3(0, 0, 1));
 
-	GLuint attachments[3] = { GL_COLOR_ATTACHMENT0 , GL_COLOR_ATTACHMENT1 ,GL_COLOR_ATTACHMENT2 };
+	GLuint mAttach[3] = { GL_COLOR_ATTACHMENT0 , GL_COLOR_ATTACHMENT1 ,GL_COLOR_ATTACHMENT2 };
 	Input input;
 
 	int frame = 0;
@@ -91,7 +91,7 @@ int main(int argc, char **argv)
 
 			glViewport(0, 0, cfg.ResolutionX, cfg.ResolutionY);
 			glBindFramebuffer(GL_FRAMEBUFFER, fboGeometry->getId());
-				glDrawBuffers(3, attachments);
+				glDrawBuffers(3, mAttach);
 				glDisable(GL_BLEND);
 				glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 				glUseProgram(shaderGeometry.getProgramID());

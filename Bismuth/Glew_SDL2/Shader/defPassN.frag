@@ -1,13 +1,13 @@
 #version 330
 
 in vec2 UV;
-out vec4 outColor;
+layout (location = 0) out vec3 outColor;
+layout (location = 1) out vec3 outBloom;
 
 uniform sampler2D gNormal;
 uniform sampler2D gDiffuse;
 uniform sampler2D gPosition;
 uniform sampler2D aoSampler;
-uniform sampler2D bloomSampler;
 uniform mat4 view;
 uniform float time;
 uniform vec2 resolution;
@@ -95,7 +95,7 @@ float emit = normal.z;
 
 vec3 diffuse = texture(gDiffuse, UV).xyz;
 float ao = texture(aoSampler,UV).x;
-float bloom =  texture(bloomSampler,UV).x;
+
 
 
 for(int k=0;k<2;k++){
@@ -116,15 +116,15 @@ if(keyF2) lighting = position_ViewSpace*vec3(1,1,-1);
 if(keyF3) lighting = vec3(ao);
 
 if(keyF7) lighting = vec3(emit);
-else lighting = lighting+(diffuse+vec3(0.2))*(bloom*3) ;
-
-if(keyF8) lighting = vec3(bloom);
 
 
 
+outColor = lighting + emit*5 * (diffuse + vec3(0.1));
 
+float brightness = dot(outColor, vec3(0.2126, 0.7152, 0.0722));
 
-outColor =		vec4(lighting*1.0,1);
+outBloom = (brightness >1) ? outColor:vec3(0) ;
 
+if(keyF8) outColor = outBloom;
 
 }

@@ -5,6 +5,9 @@ using namespace glm;
 
 RenderSystem::RenderSystem(Config cfg, ResourcesManager* rm) : mCfg(cfg), mRm(rm), mLastViewProjection(0)
 {
+	for (int i = 0; i < 4; i++)
+		mAttach[i] = GL_COLOR_ATTACHMENT0 + i;  
+
 	TextureCfg texCfgNormal = { GL_RGB16F, GL_NEAREST, GL_CLAMP_TO_EDGE };
 	Texture* texNormal = new Texture(cfg.ResolutionX, cfg.ResolutionY, texCfgNormal);
 	texNormal->load();
@@ -26,11 +29,15 @@ RenderSystem::RenderSystem(Config cfg, ResourcesManager* rm) : mCfg(cfg), mRm(rm
 	mFboGeometry.load();
 
 
-	TextureCfg texCfgShading = { GL_RGB8, GL_LINEAR, GL_CLAMP_TO_EDGE };
+	TextureCfg texCfgShading = { GL_RGB16F, GL_LINEAR, GL_CLAMP_TO_EDGE };
 	Texture* texShading = new Texture(cfg.ResolutionX , cfg.ResolutionY, texCfgShading);
 	texShading->load();
+	TextureCfg texCfgShadingBloom = { GL_RGB16F, GL_LINEAR, GL_CLAMP_TO_EDGE };
+	Texture* texShadingBloom = new Texture(cfg.ResolutionX, cfg.ResolutionY, texCfgShadingBloom);
+	texShadingBloom->load();
 	textureArray = vector<Texture*>();
 	textureArray.push_back(texShading);
+	textureArray.push_back(texShadingBloom);
 	mFboShading = Fbo(textureArray, 0, 0);
 	mFboShading.load();
 
@@ -44,7 +51,6 @@ RenderSystem::RenderSystem(Config cfg, ResourcesManager* rm) : mCfg(cfg), mRm(rm
 	mFboShading2.load();
 
 
-
 	TextureCfg texCfgAo = { GL_R8, GL_LINEAR, GL_CLAMP_TO_EDGE };
 	Texture* texAo = new Texture(cfg.ResolutionX/(cfg.HalfAO ? 2.0:1.0) , cfg.ResolutionY/ (cfg.HalfAO ? 2.0 : 1.0), texCfgAo);
 	texAo->load();
@@ -53,7 +59,7 @@ RenderSystem::RenderSystem(Config cfg, ResourcesManager* rm) : mCfg(cfg), mRm(rm
 	mFboAo = Fbo(textureArray, 0, 0);
 	mFboAo.load();
 
-	TextureCfg texCfgBloom1 = { GL_R8, GL_LINEAR, GL_CLAMP_TO_EDGE };
+	TextureCfg texCfgBloom1 = { GL_RGB16F, GL_LINEAR, GL_CLAMP_TO_EDGE };
 	Texture* texBloom1 = new Texture(cfg.ResolutionX / 2.0, cfg.ResolutionY /  2.0, texCfgBloom1);
 	texBloom1->load();
 	textureArray = vector<Texture*>();
@@ -61,7 +67,7 @@ RenderSystem::RenderSystem(Config cfg, ResourcesManager* rm) : mCfg(cfg), mRm(rm
 	mFboBloom1 = Fbo(textureArray, 0, 0);
 	mFboBloom1.load();
 
-	TextureCfg texCfgBloom2 = { GL_R8, GL_LINEAR, GL_CLAMP_TO_EDGE };
+	TextureCfg texCfgBloom2 = { GL_RGB16F, GL_LINEAR, GL_CLAMP_TO_EDGE };
 	Texture* texBloom2 = new Texture(cfg.ResolutionX / 2.0, cfg.ResolutionY / 2.0, texCfgBloom2);
 	texBloom2->load();
 	textureArray = vector<Texture*>();
@@ -94,10 +100,7 @@ RenderSystem::RenderSystem(Config cfg, ResourcesManager* rm) : mCfg(cfg), mRm(rm
 	mShaderBlurDir = Shader("Shader/defPassN.vert", "Shader/blurDir_3ch.frag");
 	mShaderBlurDir.load();
 
-	mShaderBlur_NorZ = Shader("Shader/defPassN.vert", "Shader/blur_1ch_norZ.frag");
-	mShaderBlur_NorZ.load();
-
-	mShaderBlur = Shader("Shader/defPassN.vert", "Shader/blur_1ch.frag");
+	mShaderBlur = Shader("Shader/defPassN.vert", "Shader/blur_3ch.frag");
 	mShaderBlur.load();
 
 	mShaderBlurBilateral = Shader("Shader/defPassN.vert", "Shader/blurBilateral_1ch.frag");
@@ -105,6 +108,9 @@ RenderSystem::RenderSystem(Config cfg, ResourcesManager* rm) : mCfg(cfg), mRm(rm
 
 	mShaderDeferredFinal = Shader("Shader/defPassN.vert", "Shader/defPassN.frag");
 	mShaderDeferredFinal.load();
+
+	mShaderTone = Shader("Shader/defPassN.vert", "Shader/tone.frag");
+	mShaderTone.load();
 
 	mSupportFbo = Vao2D();
 	mSupportFbo.load();
@@ -118,134 +124,24 @@ RenderSystem::~RenderSystem()
 
 void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float time,Input &input,float fps) {
 	time = 0.0f;
-	GLuint attachments[4] = { GL_COLOR_ATTACHMENT0 , GL_COLOR_ATTACHMENT1 ,GL_COLOR_ATTACHMENT2 ,GL_COLOR_ATTACHMENT3 };
 
-	vec2 resolution = vec2(mCfg.ResolutionX, mCfg.ResolutionY);
-	vec2 resolution_2 = vec2(mCfg.ResolutionX/2.0f, mCfg.ResolutionY/2.0f);
-	mat4 projection = cam.getProjection();
-	mat4 view = cam.getView();
-	mat4 modelview;
-	mat4 lastModel;
+	doStepGeometry(cam,entities);
+	doStepAo(cam);
+	doStepBlurAo();
+	doStepShading(cam,input);
+	doStepBloom();
+	doStepToneMapping();
+	doStepMotionBlur(fps);
 
-	glViewport(0, 0, mCfg.ResolutionX, mCfg.ResolutionY);
-	glBindFramebuffer(GL_FRAMEBUFFER, mFboGeometry.getId());
-	glDrawBuffers(4, attachments);
-	glDisable(GL_BLEND);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glUseProgram(mShaderGeometry.getProgramID());
+	mLastViewProjection = cam.getProjection()*cam.getView();
+}
 
-	glUniformMatrix4fv(glGetUniformLocation(mShaderGeometry.getProgramID(), "projection"), 1, GL_FALSE, value_ptr(projection));
-	glUniformMatrix4fv(glGetUniformLocation(mShaderGeometry.getProgramID(), "lastViewProjection"), 1, GL_FALSE, value_ptr(mLastViewProjection));
-	glUniform2fv(glGetUniformLocation(mShaderGeometry.getProgramID(), "resolution"), 1, value_ptr(resolution));
-	
-	for (int i = 0; i < entities.size(); i++) {
-
-		Entity* entity = entities[i];
-		glActiveTexture(GL_TEXTURE0);
-		glBindTexture(GL_TEXTURE_2D, ( mRm->getTexture(       entity->getGraphicComponent()->getTextureDiffuseId()    )->getId()  )   );
-		glUniform1i(glGetUniformLocation(mShaderGeometry.getProgramID(), "texture_diffuse"), 0);
-
-		glActiveTexture(GL_TEXTURE3);
-		glBindTexture(GL_TEXTURE_2D, (mRm->getTexture(entity->getGraphicComponent()->getTextureEmitId())->getId()));
-		glUniform1i(glGetUniformLocation(mShaderGeometry.getProgramID(), "texture_emit"), 3);
-
-		modelview = view*entity->getPhysicComponent()->getStateComponent()->getModel();
-		lastModel = entity->getPhysicComponent()->getStateComponent()->getLastModel();
-		glUniformMatrix4fv(glGetUniformLocation(mShaderGeometry.getProgramID(), "modelview"), 1, GL_FALSE, value_ptr(modelview));
-		glUniformMatrix4fv(glGetUniformLocation(mShaderGeometry.getProgramID(), "lastModel"), 1, GL_FALSE, value_ptr(lastModel));
-		glUniformMatrix3fv(glGetUniformLocation(mShaderGeometry.getProgramID(), "normal"), 1, GL_FALSE, value_ptr(transpose(inverse(glm::mat3(modelview)))));
-		mRm->getVao( entity->getGraphicComponent()->getVaoId() )->draw();
-	}
-
-
-
-
-	//Dessin intermédiaire (effect : AO ,SHADOW, MOTION BLUR, BLUR, BLOOM )
-	
-
-	//BLOOM
-		//Passe 1 particuliere ou l'on récupere la composante a flouter dans normal.Z 
-	glBindFramebuffer(GL_FRAMEBUFFER, mFboBloom1.getId());
-	glViewport(0, 0, mCfg.ResolutionX / 2.0, mCfg.ResolutionY / 2.0);
-	glDrawBuffers(1, attachments);
-	glClear(GL_COLOR_BUFFER_BIT);
-	glUseProgram(mShaderBlur_NorZ.getProgramID());
-	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, mFboGeometry.getColorBufferId(0));
-	glUniform1i(glGetUniformLocation(mShaderBlur_NorZ.getProgramID(), "gNormal"), 0);
-
-	glUniform1i(glGetUniformLocation(mShaderBlur_NorZ.getProgramID(), "h"), 1);
-	glUniform1f(glGetUniformLocation(mShaderBlur_NorZ.getProgramID(), "size"), 0);
-	glUniform2fv(glGetUniformLocation(mShaderBlur_NorZ.getProgramID(), "resolution"), 1,
-	value_ptr(resolution_2));
-	mSupportFbo.draw();
-
-	glBindFramebuffer(GL_FRAMEBUFFER, mFboBloom2.getId());
-	glDrawBuffers(1, attachments);
-	glClear(GL_COLOR_BUFFER_BIT);
-	glUseProgram(mShaderBlur.getProgramID());
-	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, mFboBloom1.getColorBufferId(0));
-	glUniform1i(glGetUniformLocation(mShaderBlur.getProgramID(), "image"), 0);
-
-	glUniform1i(glGetUniformLocation(mShaderBlur.getProgramID(), "h"), 0);
-	glUniform1f(glGetUniformLocation(mShaderBlur.getProgramID(), "size"), 0);
-	glUniform2fv(glGetUniformLocation(mShaderBlur.getProgramID(), "resolution"), 1,
-		value_ptr(resolution_2));
-	mSupportFbo.draw();
-
-
-
-
-
-	int nombreDePasseBlurBloom = 5;
-	for (int i = 1; i < nombreDePasseBlurBloom; i++) {
-		float size = 0*float(i) / nombreDePasseBlurBloom;
-
-		glBindFramebuffer(GL_FRAMEBUFFER, mFboBloom1.getId());
-		glDrawBuffers(1, attachments);
-		glClear(GL_COLOR_BUFFER_BIT);
-		glUseProgram(mShaderBlur.getProgramID());
-		glActiveTexture(GL_TEXTURE0);
-		glBindTexture(GL_TEXTURE_2D, mFboBloom2.getColorBufferId(0));
-		glUniform1i(glGetUniformLocation(mShaderBlur.getProgramID(), "image"), 0);
-
-		glUniform1i(glGetUniformLocation(mShaderBlur.getProgramID(), "h"), 1);
-		glUniform1f(glGetUniformLocation(mShaderBlur.getProgramID(), "size"), size);
-		glUniform2fv(glGetUniformLocation(mShaderBlur.getProgramID(), "resolution"), 1,
-			value_ptr(resolution_2));
-		mSupportFbo.draw();
-
-
-		glBindFramebuffer(GL_FRAMEBUFFER, mFboBloom2.getId());
-		glDrawBuffers(1, attachments);
-		glClear(GL_COLOR_BUFFER_BIT);
-		glUseProgram(mShaderBlur.getProgramID());
-		glActiveTexture(GL_TEXTURE0);
-		glBindTexture(GL_TEXTURE_2D, mFboBloom1.getColorBufferId(0));
-		glUniform1i(glGetUniformLocation(mShaderBlur.getProgramID(), "image"), 0);
-
-		glUniform1i(glGetUniformLocation(mShaderBlur.getProgramID(), "h"), 0);
-		glUniform1f(glGetUniformLocation(mShaderBlur.getProgramID(), "size"), size);
-		glUniform2fv(glGetUniformLocation(mShaderBlur.getProgramID(), "resolution"), 1,
-			value_ptr(resolution_2));
-		mSupportFbo.draw();
-
-
-
-	}
-
-	
-
-
-
-
-	glViewport(0, 0, mCfg.ResolutionX , mCfg.ResolutionY );
-	//AO
+void RenderSystem::doStepAo(Camera const &cam)
+{
 	glBindFramebuffer(GL_FRAMEBUFFER, mFboAo.getId());
-	if(mCfg.HalfAO==1 )
-	glViewport(0, 0, mCfg.ResolutionX/2.0, mCfg.ResolutionY/2.0);
-	glDrawBuffers(1, attachments);
+	if (mCfg.HalfAO == 1)
+		glViewport(0, 0, mCfg.ResolutionX / 2.0, mCfg.ResolutionY / 2.0);
+	glDrawBuffers(1, mAttach);
 	glClear(GL_COLOR_BUFFER_BIT);
 	glUseProgram(mShaderAo.getProgramID());
 	glActiveTexture(GL_TEXTURE0);
@@ -254,18 +150,22 @@ void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float t
 	glActiveTexture(GL_TEXTURE1);
 	glBindTexture(GL_TEXTURE_2D, mFboGeometry.getColorBufferId(0));
 	glUniform1i(glGetUniformLocation(mShaderAo.getProgramID(), "gNormal"), 1);
-	glUniform1f(glGetUniformLocation(mShaderAo.getProgramID(), "time"), time);
-	glUniformMatrix4fv(glGetUniformLocation(mShaderAo.getProgramID(), "projection"), 1, GL_FALSE, value_ptr(projection));
+	glUniform1f(glGetUniformLocation(mShaderAo.getProgramID(), "time"), 0);
+	glUniformMatrix4fv(glGetUniformLocation(mShaderAo.getProgramID(), "projection"), 1, GL_FALSE, value_ptr(cam.getProjection()));
 	glUniform1f(glGetUniformLocation(mShaderAo.getProgramID(), "aspect"), cam.getAspect());
 	glUniform1f(glGetUniformLocation(mShaderAo.getProgramID(), "tanHalfFov"), cam.getTanHalfFov());
 	glUniform1f(glGetUniformLocation(mShaderAo.getProgramID(), "near"), cam.getNear());
 	glUniform1f(glGetUniformLocation(mShaderAo.getProgramID(), "far"), cam.getFar());
 	mSupportFbo.draw();
-
-	//Blur AO Horizontal
 	glViewport(0, 0, mCfg.ResolutionX, mCfg.ResolutionY);
+}
+
+void RenderSystem::doStepBlurAo()
+{
+	vec2 resolution = vec2(mCfg.ResolutionX, mCfg.ResolutionY);
+	//Blur AO Horizontal
 	glBindFramebuffer(GL_FRAMEBUFFER, mFboBlurH.getId());
-	glDrawBuffers(1, attachments);
+	glDrawBuffers(1, mAttach);
 	glClear(GL_COLOR_BUFFER_BIT);
 	glUseProgram(mShaderBlurBilateral.getProgramID());
 	glActiveTexture(GL_TEXTURE0);
@@ -284,7 +184,7 @@ void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float t
 
 	//Blur AO Vertical
 	glBindFramebuffer(GL_FRAMEBUFFER, mFboBlurV.getId());
-	glDrawBuffers(1, attachments);
+	glDrawBuffers(1, mAttach);
 	glClear(GL_COLOR_BUFFER_BIT);
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, mFboBlurH.getColorBufferId(0));
@@ -297,31 +197,164 @@ void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float t
 	for (int i = 1; i < nombreDePasseBlurAo; i++) {
 		//Blur AO Horizontal
 		glBindFramebuffer(GL_FRAMEBUFFER, mFboBlurH.getId());
-		glDrawBuffers(1, attachments);
+		glDrawBuffers(1, mAttach);
 		glClear(GL_COLOR_BUFFER_BIT);
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, mFboBlurV.getColorBufferId(0));
 		glUniform1i(glGetUniformLocation(mShaderBlurBilateral.getProgramID(), "h"), 1);
 		glUniform1i(glGetUniformLocation(mShaderBlurBilateral.getProgramID(), "image"), 0);
-		glUniform1f(glGetUniformLocation(mShaderBlurBilateral.getProgramID(), "size"),3.0* (float) i/ (float)nombreDePasseBlurAo);
+		glUniform1f(glGetUniformLocation(mShaderBlurBilateral.getProgramID(), "size"), 3.0* (float)i / (float)nombreDePasseBlurAo);
 		mSupportFbo.draw();
 
 		//Blur AO Vertical
 		glBindFramebuffer(GL_FRAMEBUFFER, mFboBlurV.getId());
-		glDrawBuffers(1, attachments);
+		glDrawBuffers(1, mAttach);
 		glClear(GL_COLOR_BUFFER_BIT);
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, mFboBlurH.getColorBufferId(0));
 		glUniform1i(glGetUniformLocation(mShaderBlurBilateral.getProgramID(), "h"), 0);
 		glUniform1i(glGetUniformLocation(mShaderBlurBilateral.getProgramID(), "image"), 0);
-		glUniform1f(glGetUniformLocation(mShaderBlurBilateral.getProgramID(), "size"),3.0* (float)i / (float)nombreDePasseBlurAo);
+		glUniform1f(glGetUniformLocation(mShaderBlurBilateral.getProgramID(), "size"), 3.0* (float)i / (float)nombreDePasseBlurAo);
 		mSupportFbo.draw();
 	}
+}
 
-	//Shading
-	
+void RenderSystem::doStepBloom()
+{
+	vec2 resolution_2 = vec2(mCfg.ResolutionX / 2.0f, mCfg.ResolutionY / 2.0f);
+	glBindFramebuffer(GL_FRAMEBUFFER, mFboBloom1.getId());
+	glViewport(0, 0, mCfg.ResolutionX / 2.0, mCfg.ResolutionY / 2.0);
+	glDrawBuffers(1, mAttach);
+	glClear(GL_COLOR_BUFFER_BIT);
+	glUseProgram(mShaderBlur.getProgramID());
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, mFboShading.getColorBufferId(1));
+	glUniform1i(glGetUniformLocation(mShaderBlur.getProgramID(), "image"), 0);
+
+	glUniform1i(glGetUniformLocation(mShaderBlur.getProgramID(), "h"), 1);
+	glUniform1f(glGetUniformLocation(mShaderBlur.getProgramID(), "size"), 0);
+	glUniform2fv(glGetUniformLocation(mShaderBlur.getProgramID(), "resolution"), 1,
+		value_ptr(resolution_2));
+	mSupportFbo.draw();
+
+	glBindFramebuffer(GL_FRAMEBUFFER, mFboBloom2.getId());
+	glDrawBuffers(1, mAttach);
+	glClear(GL_COLOR_BUFFER_BIT);
+	glUseProgram(mShaderBlur.getProgramID());
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, mFboBloom1.getColorBufferId(0));
+	glUniform1i(glGetUniformLocation(mShaderBlur.getProgramID(), "image"), 0);
+
+	glUniform1i(glGetUniformLocation(mShaderBlur.getProgramID(), "h"), 0);
+	glUniform1f(glGetUniformLocation(mShaderBlur.getProgramID(), "size"), 0);
+	glUniform2fv(glGetUniformLocation(mShaderBlur.getProgramID(), "resolution"), 1,
+		value_ptr(resolution_2));
+	mSupportFbo.draw();
+
+	int nombreDePasseBlurBloom = 5;
+	for (int i = 1; i < nombreDePasseBlurBloom; i++) {
+		float size = 0 * float(i) / nombreDePasseBlurBloom;
+
+		glBindFramebuffer(GL_FRAMEBUFFER, mFboBloom1.getId());
+		glDrawBuffers(1, mAttach);
+		glClear(GL_COLOR_BUFFER_BIT);
+		glUseProgram(mShaderBlur.getProgramID());
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, mFboBloom2.getColorBufferId(0));
+		glUniform1i(glGetUniformLocation(mShaderBlur.getProgramID(), "image"), 0);
+
+		glUniform1i(glGetUniformLocation(mShaderBlur.getProgramID(), "h"), 1);
+		glUniform1f(glGetUniformLocation(mShaderBlur.getProgramID(), "size"), size);
+		glUniform2fv(glGetUniformLocation(mShaderBlur.getProgramID(), "resolution"), 1,
+			value_ptr(resolution_2));
+		mSupportFbo.draw();
+
+
+		glBindFramebuffer(GL_FRAMEBUFFER, mFboBloom2.getId());
+		glDrawBuffers(1, mAttach);
+		glClear(GL_COLOR_BUFFER_BIT);
+		glUseProgram(mShaderBlur.getProgramID());
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, mFboBloom1.getColorBufferId(0));
+		glUniform1i(glGetUniformLocation(mShaderBlur.getProgramID(), "image"), 0);
+
+		glUniform1i(glGetUniformLocation(mShaderBlur.getProgramID(), "h"), 0);
+		glUniform1f(glGetUniformLocation(mShaderBlur.getProgramID(), "size"), size);
+		glUniform2fv(glGetUniformLocation(mShaderBlur.getProgramID(), "resolution"), 1,
+			value_ptr(resolution_2));
+		mSupportFbo.draw();
+	}
+	glViewport(0, 0, mCfg.ResolutionX, mCfg.ResolutionY);
+
+}
+
+void RenderSystem::doStepMotionBlur(float fps)
+{
+	vec2 resolution = vec2(mCfg.ResolutionX, mCfg.ResolutionY);
+
+	//Motion Blur 1
 	glBindFramebuffer(GL_FRAMEBUFFER, mFboShading.getId());
-	glDrawBuffers(1, attachments);
+	glClear(GL_COLOR_BUFFER_BIT);
+	glUseProgram(mShaderBlurDir.getProgramID());
+	glUniform1f(glGetUniformLocation(mShaderBlurDir.getProgramID(), "factor"), (fps / 60.0) * 300 );
+
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, mFboShading2.getColorBufferId(0));
+	glUniform1i(glGetUniformLocation(mShaderBlurDir.getProgramID(), "image"), 0);
+
+	glActiveTexture(GL_TEXTURE1);
+	glBindTexture(GL_TEXTURE_2D, mFboGeometry.getColorBufferId(3));
+	glUniform1i(glGetUniformLocation(mShaderBlurDir.getProgramID(), "speed"), 1);
+
+	glUniform2fv(glGetUniformLocation(mShaderBlurDir.getProgramID(), "resolution"), 1, value_ptr(resolution));
+	glUniform1f(glGetUniformLocation(mShaderBlurDir.getProgramID(), "size"), 0.0);
+	mSupportFbo.draw();
+
+
+	//Motion Blur 2
+	glBindFramebuffer(GL_FRAMEBUFFER, mFboShading2.getId());
+	glClear(GL_COLOR_BUFFER_BIT);
+	glUseProgram(mShaderBlurDir.getProgramID());
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, mFboShading.getColorBufferId(0));
+	glUniform1f(glGetUniformLocation(mShaderBlurDir.getProgramID(), "size"), 0.0);
+	mSupportFbo.draw();
+
+
+	//Motion Blur 3
+	glBindFramebuffer(GL_FRAMEBUFFER, 0);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glUseProgram(mShaderBlurDir.getProgramID());
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, mFboShading2.getColorBufferId(0));
+	glUniform1f(glGetUniformLocation(mShaderBlurDir.getProgramID(), "size"), 0.0);
+	mSupportFbo.draw();
+}
+
+void RenderSystem::doStepToneMapping()
+{
+	glBindFramebuffer(GL_FRAMEBUFFER, mFboShading2.getId());
+	glClear(GL_COLOR_BUFFER_BIT);
+	glUseProgram(mShaderTone.getProgramID());
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, mFboShading.getColorBufferId(0));
+	glUniform1i(glGetUniformLocation(mShaderTone.getProgramID(), "imageSampler"), 0);
+	glActiveTexture(GL_TEXTURE1);
+	glBindTexture(GL_TEXTURE_2D, mFboBloom2.getColorBufferId(0));
+	glUniform1i(glGetUniformLocation(mShaderTone.getProgramID(), "bloomSampler"), 1);
+	mSupportFbo.draw();
+}
+
+void RenderSystem::doStepShading(Camera const& cam,Input const& input)
+{
+
+	vec2 resolution = vec2(mCfg.ResolutionX, mCfg.ResolutionY);
+	vec2 resolution_2 = vec2(mCfg.ResolutionX / 2.0f, mCfg.ResolutionY / 2.0f);
+	mat4 projection = cam.getProjection();
+	mat4 view = cam.getView();
+
+	glBindFramebuffer(GL_FRAMEBUFFER, mFboShading.getId());
+	glDrawBuffers(2, mAttach);
 	glClear(GL_COLOR_BUFFER_BIT);
 	glUseProgram(mShaderDeferredFinal.getProgramID());
 
@@ -342,18 +375,13 @@ void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float t
 	glUniform1f(glGetUniformLocation(mShaderDeferredFinal.getProgramID(), "near"), cam.getNear());
 	glUniform1f(glGetUniformLocation(mShaderDeferredFinal.getProgramID(), "far"), cam.getFar());
 
-
 	glActiveTexture(GL_TEXTURE3);
 	glBindTexture(GL_TEXTURE_2D, !input.getKey(SDL_SCANCODE_F5) ? mFboBlurV.getColorBufferId(0) : mFboAo.getColorBufferId(0));
 	glUniform1i(glGetUniformLocation(mShaderDeferredFinal.getProgramID(), "aoSampler"), 3);
 
-	glActiveTexture(GL_TEXTURE4);
-	glBindTexture(GL_TEXTURE_2D, mFboBloom1.getColorBufferId(0));
-	glUniform1i(glGetUniformLocation(mShaderDeferredFinal.getProgramID(), "bloomSampler"), 4);
-
 	glUniformMatrix4fv(glGetUniformLocation(mShaderDeferredFinal.getProgramID(), "projection"), 1, GL_FALSE, value_ptr(projection));
 	glUniformMatrix4fv(glGetUniformLocation(mShaderDeferredFinal.getProgramID(), "view"), 1, GL_FALSE, value_ptr(view));
-	glUniform1f(glGetUniformLocation(mShaderDeferredFinal.getProgramID(), "time"), time);
+	glUniform1f(glGetUniformLocation(mShaderDeferredFinal.getProgramID(), "time"), 0);
 	glUniform1i(glGetUniformLocation(mShaderDeferredFinal.getProgramID(), "keyF1"), input.getKey(SDL_SCANCODE_F1));
 	glUniform1i(glGetUniformLocation(mShaderDeferredFinal.getProgramID(), "keyF2"), input.getKey(SDL_SCANCODE_F2));
 	glUniform1i(glGetUniformLocation(mShaderDeferredFinal.getProgramID(), "keyF3"), input.getKey(SDL_SCANCODE_F3));
@@ -363,60 +391,46 @@ void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float t
 	glUniform1i(glGetUniformLocation(mShaderDeferredFinal.getProgramID(), "keyF7"), input.getKey(SDL_SCANCODE_F7));
 	glUniform1i(glGetUniformLocation(mShaderDeferredFinal.getProgramID(), "keyF8"), input.getKey(SDL_SCANCODE_F8));
 	glUniform2fv(glGetUniformLocation(mShaderDeferredFinal.getProgramID(), "resolution"), 1, value_ptr(resolution));
-
 	mSupportFbo.draw();
+}
 
+void RenderSystem::doStepGeometry(Camera const &cam, std::vector<Entity*> entities)
+{
+	vec2 resolution = vec2(mCfg.ResolutionX, mCfg.ResolutionY);
+	vec2 resolution_2 = vec2(mCfg.ResolutionX / 2.0f, mCfg.ResolutionY / 2.0f);
+	mat4 projection = cam.getProjection();
+	mat4 view = cam.getView();
+	mat4 modelview;
+	mat4 lastModel;
 
-	//BLOOM-TONEMAPPING
-
-
-
-
-
-
-
-
-
-	//Motion Blur 1
-	glBindFramebuffer(GL_FRAMEBUFFER, mFboShading2.getId());
-	glClear(GL_COLOR_BUFFER_BIT);
-	glUseProgram(mShaderBlurDir.getProgramID());
-	glUniform1f(glGetUniformLocation(mShaderBlurDir.getProgramID(), "factor"), (fps/60.0)*300*(float)(!input.getKey(SDL_SCANCODE_F6)));
-
-	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, mFboShading.getColorBufferId(0));
-	glUniform1i(glGetUniformLocation(mShaderBlurDir.getProgramID(), "image"), 0);
-
-	glActiveTexture(GL_TEXTURE1);
-	glBindTexture(GL_TEXTURE_2D, mFboGeometry.getColorBufferId(3));
-	glUniform1i(glGetUniformLocation(mShaderBlurDir.getProgramID(), "speed"), 1);
-
-	glUniform2fv(glGetUniformLocation(mShaderBlurDir.getProgramID(), "resolution"), 1, value_ptr(resolution));
-	glUniform1f(glGetUniformLocation(mShaderBlurDir.getProgramID(), "size"), 0.0);
-	mSupportFbo.draw();
-
-
-	//Motion Blur 2
-	glBindFramebuffer(GL_FRAMEBUFFER, mFboShading.getId());
-	glClear(GL_COLOR_BUFFER_BIT);
-	glUseProgram(mShaderBlurDir.getProgramID());
-	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, mFboShading2.getColorBufferId(0));
-	glUniform1f(glGetUniformLocation(mShaderBlurDir.getProgramID(), "size"), 0.0);
-	mSupportFbo.draw();
-
-
-	//Motion Blur 3
-	glBindFramebuffer(GL_FRAMEBUFFER, 0);
+	glViewport(0, 0, mCfg.ResolutionX, mCfg.ResolutionY);
+	glBindFramebuffer(GL_FRAMEBUFFER, mFboGeometry.getId());
+	glDrawBuffers(4, mAttach);
+	glDisable(GL_BLEND);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glUseProgram(mShaderBlurDir.getProgramID());
-	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, mFboShading.getColorBufferId(0));
-	glUniform1f(glGetUniformLocation(mShaderBlurDir.getProgramID(), "size"), 0.0);
-	mSupportFbo.draw();
+	glUseProgram(mShaderGeometry.getProgramID());
 
+	glUniformMatrix4fv(glGetUniformLocation(mShaderGeometry.getProgramID(), "projection"), 1, GL_FALSE, value_ptr(projection));
+	glUniformMatrix4fv(glGetUniformLocation(mShaderGeometry.getProgramID(), "lastViewProjection"), 1, GL_FALSE, value_ptr(mLastViewProjection));
+	glUniform2fv(glGetUniformLocation(mShaderGeometry.getProgramID(), "resolution"), 1, value_ptr(resolution));
 
+	for (int i = 0; i < entities.size(); i++) {
 
+		Entity* entity = entities[i];
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, (mRm->getTexture(entity->getGraphicComponent()->getTextureDiffuseId())->getId()));
+		glUniform1i(glGetUniformLocation(mShaderGeometry.getProgramID(), "texture_diffuse"), 0);
 
-	mLastViewProjection = projection*view  ;
+		glActiveTexture(GL_TEXTURE3);
+		glBindTexture(GL_TEXTURE_2D, (mRm->getTexture(entity->getGraphicComponent()->getTextureEmitId())->getId()));
+		glUniform1i(glGetUniformLocation(mShaderGeometry.getProgramID(), "texture_emit"), 3);
+
+		modelview = view*entity->getPhysicComponent()->getStateComponent()->getModel();
+		lastModel = entity->getPhysicComponent()->getStateComponent()->getLastModel();
+		glUniformMatrix4fv(glGetUniformLocation(mShaderGeometry.getProgramID(), "modelview"), 1, GL_FALSE, value_ptr(modelview));
+		glUniformMatrix4fv(glGetUniformLocation(mShaderGeometry.getProgramID(), "lastModel"), 1, GL_FALSE, value_ptr(lastModel));
+		glUniformMatrix3fv(glGetUniformLocation(mShaderGeometry.getProgramID(), "normal"), 1, GL_FALSE, value_ptr(transpose(inverse(glm::mat3(modelview)))));
+		mRm->getVao(entity->getGraphicComponent()->getVaoId())->draw();
+	}
+
 }
