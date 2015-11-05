@@ -9,13 +9,14 @@ Fbo::Fbo() {
 
 
 Fbo::Fbo(std::vector<Texture*> colorBufferTexture, bool depthBuffer, bool stencilBuffer) : mColorBufferTexture(colorBufferTexture),
-mDepthBuffer(depthBuffer), mStencilBuffer(stencilBuffer)
+mDepthBuffer(depthBuffer), mStencilBuffer(stencilBuffer) ,mId(0)
 {
 	if (mColorBufferTexture.size() == 0)
 		cout << "Erreur : appel du constructeur de FBO avec un vector de taille nulle !" << endl;
 }
 
-Fbo::Fbo(int w, int h, bool depthBuffer, bool stencilBuffer) : mW(w),mH(h), mDepthBuffer(depthBuffer), mStencilBuffer(stencilBuffer)
+Fbo::Fbo(int w, int h, bool depthBuffer, bool stencilBuffer) : mW(w),mH(h),
+mDepthBuffer(depthBuffer), mStencilBuffer(stencilBuffer), mId(0)
 {
 }
 

@@ -1,10 +1,10 @@
 #include "Texture.h"
 
-Texture::Texture(std::string path, TextureCfg cfg) : mPath(path), mCfg(cfg), mW(0), mH(0)
+Texture::Texture(std::string path, TextureCfg cfg) : mPath(path), mCfg(cfg), mW(0), mH(0), mId(0)
 {
 }
 
-Texture::Texture(int w,int h, TextureCfg cfg) : mW(w), mH(h), mCfg(cfg) , mPath("")
+Texture::Texture(int w,int h, TextureCfg cfg) : mW(w), mH(h), mCfg(cfg) , mPath(""), mId(0)
 {
 }
 

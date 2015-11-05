@@ -73,7 +73,7 @@
     <RunCodeAnalysis>false</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <LinkIncremental>false</LinkIncremental>
+    <LinkIncremental>true</LinkIncremental>
     <GenerateManifest>false</GenerateManifest>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -123,15 +123,15 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
-      <FunctionLevelLinking>false</FunctionLevelLinking>
-      <IntrinsicFunctions>false</IntrinsicFunctions>
-      <SDLCheck>false</SDLCheck>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>.\SDL2-2.0.3\include;.\glew-1.13.0\include\GL;.\SDL2_image-2.0.0\include;.\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
       <BufferSecurityCheck>true</BufferSecurityCheck>
       <OmitDefaultLibName>false</OmitDefaultLibName>
-      <DebugInformationFormat>None</DebugInformationFormat>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
@@ -144,7 +144,7 @@
       </IgnoreSpecificDefaultLibraries>
       <SubSystem>Windows</SubSystem>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
-      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+      <LinkTimeCodeGeneration>UseFastLinkTimeCodeGeneration</LinkTimeCodeGeneration>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
