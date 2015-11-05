@@ -246,6 +246,9 @@
     <None Include="Shader\blurDir_3ch.frag">
       <Filter>Fichiers de ressources\Shader</Filter>
     </None>
+    <None Include="Shader\blur_1ch_norZ.frag">
+      <Filter>Fichiers de ressources\Shader</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Texture\checker2.png">

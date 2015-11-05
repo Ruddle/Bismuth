@@ -31,7 +31,7 @@ float depthDiff ;
 float weightDepth ;
 vec3 normalOffset;
 float totalWeight=0.2270270270;
-float epsilon = 7*10e-4 * depth*10;
+float epsilon = 1*10e-3 ;
 
 float blur = texture( image, UV ).r * weight[0];
 
