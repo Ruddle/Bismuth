@@ -26,8 +26,6 @@ public:
 
 	void draw(std::vector<Entity*> entities, Camera const& cam, float time, Input &input,float fps);
 
-
-
 private: 
 
 	void doStepGeometry(Camera const &cam, std::vector<Entity*> entities);
@@ -37,7 +35,6 @@ private:
 	void doStepMotionBlur(float fps);
 	void doStepToneMapping();
 	void doStepShading(Camera const& cam, Input const& input);
-	
 
 	Config mCfg;
 	Fbo mFboGeometry;
@@ -48,6 +45,7 @@ private:
 	Fbo mFboBlurV;
 	Fbo mFboShading;
 	Fbo mFboShading2;
+
 	Shader mShaderGeometry;
 	Shader mShaderAo;
 	Shader mShaderBlurDir;
@@ -56,11 +54,18 @@ private:
 	Shader mShaderDeferredFinal;
 	Shader mShaderTone;
 
+	
+
+
+
+
+
+
+
+
 	Vao2D mSupportFbo;
 	ResourcesManager* mRm;
 	glm::mat4 mLastViewProjection;
 	GLuint mAttach[4];
-
-
 };
 

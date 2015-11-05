@@ -52,7 +52,7 @@ Entity* createSphere(ResourcesManager* rm) {
 		rm->loadTexture("Texture/checker2.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
 		0,
 		0,
-		rm->loadTexture("Texture/BLACK.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
+		rm->loadTexture("Texture/band.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
 		rm->loadVao("Mesh/sphere.obj"));
 	SphereDetectionComponent* dc1 = new SphereDetectionComponent(1);
 	StateComponent* sc1 = new StateComponent();

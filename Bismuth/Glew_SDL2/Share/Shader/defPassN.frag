@@ -1,7 +1,8 @@
 #version 330
 
 in vec2 UV;
-out vec4 outColor;
+layout (location = 0) out vec3 outColor;
+layout (location = 1) out vec3 outBloom;
 
 uniform sampler2D gNormal;
 uniform sampler2D gDiffuse;
@@ -88,11 +89,14 @@ vec3 position_ViewSpace ;
 	position_ViewSpace.x = -(UV.x*2-1)*position_ViewSpace.z*(aspect) *tanHalfFov ;
 	position_ViewSpace.y = -(UV.y*2-1)*position_ViewSpace.z *tanHalfFov ;
 
-vec3 normal = vec3(texture(gNormal, UV).rg,0);
+vec3 normal = vec3(texture(gNormal, UV).rgb);
+float emit = normal.z;
     normal.z= sqrt(1.0 - normal.x*normal.x - normal.y*normal.y); 
 
 vec3 diffuse = texture(gDiffuse, UV).xyz;
 float ao = texture(aoSampler,UV).x;
+
+
 
 for(int k=0;k<2;k++){
 	vec3 i = position_ViewSpace- (view* vec4(lights[k].position_WorldSpace,1)).xyz;
@@ -111,9 +115,16 @@ if(keyF1) lighting = normal;
 if(keyF2) lighting = position_ViewSpace*vec3(1,1,-1);
 if(keyF3) lighting = vec3(ao);
 
+if(keyF7) lighting = vec3(emit);
 
 
-outColor =		vec4(lighting*1.2,1);
 
+outColor = lighting + emit*5 * (diffuse + vec3(0.1));
+
+float brightness = dot(outColor, vec3(0.2126, 0.7152, 0.0722));
+
+outBloom = (brightness >1) ? outColor:vec3(0) ;
+
+if(keyF8) outColor = outBloom;
 
 }

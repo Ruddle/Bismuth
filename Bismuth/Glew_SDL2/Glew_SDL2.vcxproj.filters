@@ -263,5 +263,20 @@
     <Image Include="Texture\checker.png">
       <Filter>Fichiers de ressources\Texture</Filter>
     </Image>
+    <Image Include="Texture\band.png">
+      <Filter>Fichiers de ressources\Texture</Filter>
+    </Image>
+    <Image Include="Texture\BLACK.png">
+      <Filter>Fichiers de ressources\Texture</Filter>
+    </Image>
+    <Image Include="Texture\checker2C.png">
+      <Filter>Fichiers de ressources\Texture</Filter>
+    </Image>
+    <Image Include="Texture\RED.png">
+      <Filter>Fichiers de ressources\Texture</Filter>
+    </Image>
+    <Image Include="Texture\WHITE.png">
+      <Filter>Fichiers de ressources\Texture</Filter>
+    </Image>
   </ItemGroup>
 </Project>

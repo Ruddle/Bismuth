@@ -146,16 +146,16 @@ void RenderSystem::doStepAo(Camera const &cam)
 	glUseProgram(mShaderAo.getProgramID());
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, mFboGeometry.getColorBufferId(2));
-	glUniform1i(glGetUniformLocation(mShaderAo.getProgramID(), "gPosition"), 0);
+	glUniform1i(mShaderAo.getLocation( "gPosition"), 0);
 	glActiveTexture(GL_TEXTURE1);
 	glBindTexture(GL_TEXTURE_2D, mFboGeometry.getColorBufferId(0));
-	glUniform1i(glGetUniformLocation(mShaderAo.getProgramID(), "gNormal"), 1);
-	glUniform1f(glGetUniformLocation(mShaderAo.getProgramID(), "time"), 0);
-	glUniformMatrix4fv(glGetUniformLocation(mShaderAo.getProgramID(), "projection"), 1, GL_FALSE, value_ptr(cam.getProjection()));
-	glUniform1f(glGetUniformLocation(mShaderAo.getProgramID(), "aspect"), cam.getAspect());
-	glUniform1f(glGetUniformLocation(mShaderAo.getProgramID(), "tanHalfFov"), cam.getTanHalfFov());
-	glUniform1f(glGetUniformLocation(mShaderAo.getProgramID(), "near"), cam.getNear());
-	glUniform1f(glGetUniformLocation(mShaderAo.getProgramID(), "far"), cam.getFar());
+	glUniform1i(mShaderAo.getLocation( "gNormal"), 1);
+	glUniform1f(mShaderAo.getLocation( "time"), 0);
+	glUniformMatrix4fv(mShaderAo.getLocation( "projection"), 1, GL_FALSE, value_ptr(cam.getProjection()));
+	glUniform1f(mShaderAo.getLocation( "aspect"), cam.getAspect());
+	glUniform1f(mShaderAo.getLocation( "tanHalfFov"), cam.getTanHalfFov());
+	glUniform1f(mShaderAo.getLocation( "near"), cam.getNear());
+	glUniform1f(mShaderAo.getLocation( "far"), cam.getFar());
 	mSupportFbo.draw();
 	glViewport(0, 0, mCfg.ResolutionX, mCfg.ResolutionY);
 }
@@ -170,16 +170,16 @@ void RenderSystem::doStepBlurAo()
 	glUseProgram(mShaderBlurBilateral.getProgramID());
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, mFboGeometry.getColorBufferId(2));
-	glUniform1i(glGetUniformLocation(mShaderBlurBilateral.getProgramID(), "gPosition"), 0);
+	glUniform1i(mShaderBlurBilateral.getLocation( "gPosition"), 0);
 	glActiveTexture(GL_TEXTURE1);
 	glBindTexture(GL_TEXTURE_2D, mFboGeometry.getColorBufferId(0));
-	glUniform1i(glGetUniformLocation(mShaderBlurBilateral.getProgramID(), "gNormal"), 1);
-	glUniform2fv(glGetUniformLocation(mShaderBlurBilateral.getProgramID(), "resolution"), 1, value_ptr(resolution));
+	glUniform1i(mShaderBlurBilateral.getLocation( "gNormal"), 1);
+	glUniform2fv(mShaderBlurBilateral.getLocation( "resolution"), 1, value_ptr(resolution));
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, mFboAo.getColorBufferId(0));
-	glUniform1i(glGetUniformLocation(mShaderBlurBilateral.getProgramID(), "image"), 0);
-	glUniform1i(glGetUniformLocation(mShaderBlurBilateral.getProgramID(), "h"), 1);
-	glUniform1f(glGetUniformLocation(mShaderBlurBilateral.getProgramID(), "size"), 0);
+	glUniform1i(mShaderBlurBilateral.getLocation( "image"), 0);
+	glUniform1i(mShaderBlurBilateral.getLocation( "h"), 1);
+	glUniform1f(mShaderBlurBilateral.getLocation( "size"), 0);
 	mSupportFbo.draw();
 
 	//Blur AO Vertical
@@ -188,9 +188,9 @@ void RenderSystem::doStepBlurAo()
 	glClear(GL_COLOR_BUFFER_BIT);
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, mFboBlurH.getColorBufferId(0));
-	glUniform1i(glGetUniformLocation(mShaderBlurBilateral.getProgramID(), "image"), 0);
-	glUniform1i(glGetUniformLocation(mShaderBlurBilateral.getProgramID(), "h"), 0);
-	glUniform1f(glGetUniformLocation(mShaderBlurBilateral.getProgramID(), "size"), 0);
+	glUniform1i(mShaderBlurBilateral.getLocation( "image"), 0);
+	glUniform1i(mShaderBlurBilateral.getLocation( "h"), 0);
+	glUniform1f(mShaderBlurBilateral.getLocation( "size"), 0);
 	mSupportFbo.draw();
 
 	int nombreDePasseBlurAo = 7;
@@ -201,9 +201,9 @@ void RenderSystem::doStepBlurAo()
 		glClear(GL_COLOR_BUFFER_BIT);
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, mFboBlurV.getColorBufferId(0));
-		glUniform1i(glGetUniformLocation(mShaderBlurBilateral.getProgramID(), "h"), 1);
-		glUniform1i(glGetUniformLocation(mShaderBlurBilateral.getProgramID(), "image"), 0);
-		glUniform1f(glGetUniformLocation(mShaderBlurBilateral.getProgramID(), "size"), 3.0* (float)i / (float)nombreDePasseBlurAo);
+		glUniform1i(mShaderBlurBilateral.getLocation( "h"), 1);
+		glUniform1i(mShaderBlurBilateral.getLocation( "image"), 0);
+		glUniform1f(mShaderBlurBilateral.getLocation( "size"), 3.0* (float)i / (float)nombreDePasseBlurAo);
 		mSupportFbo.draw();
 
 		//Blur AO Vertical
@@ -212,9 +212,9 @@ void RenderSystem::doStepBlurAo()
 		glClear(GL_COLOR_BUFFER_BIT);
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, mFboBlurH.getColorBufferId(0));
-		glUniform1i(glGetUniformLocation(mShaderBlurBilateral.getProgramID(), "h"), 0);
-		glUniform1i(glGetUniformLocation(mShaderBlurBilateral.getProgramID(), "image"), 0);
-		glUniform1f(glGetUniformLocation(mShaderBlurBilateral.getProgramID(), "size"), 3.0* (float)i / (float)nombreDePasseBlurAo);
+		glUniform1i(mShaderBlurBilateral.getLocation( "h"), 0);
+		glUniform1i(mShaderBlurBilateral.getLocation( "image"), 0);
+		glUniform1f(mShaderBlurBilateral.getLocation( "size"), 3.0* (float)i / (float)nombreDePasseBlurAo);
 		mSupportFbo.draw();
 	}
 }
@@ -229,11 +229,11 @@ void RenderSystem::doStepBloom()
 	glUseProgram(mShaderBlur.getProgramID());
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, mFboShading.getColorBufferId(1));
-	glUniform1i(glGetUniformLocation(mShaderBlur.getProgramID(), "image"), 0);
+	glUniform1i(mShaderBlur.getLocation("image"), 0);
 
-	glUniform1i(glGetUniformLocation(mShaderBlur.getProgramID(), "h"), 1);
-	glUniform1f(glGetUniformLocation(mShaderBlur.getProgramID(), "size"), 0);
-	glUniform2fv(glGetUniformLocation(mShaderBlur.getProgramID(), "resolution"), 1,
+	glUniform1i(mShaderBlur.getLocation( "h"), 1);
+	glUniform1f(mShaderBlur.getLocation( "size"), 0);
+	glUniform2fv(mShaderBlur.getLocation( "resolution"), 1,
 		value_ptr(resolution_2));
 	mSupportFbo.draw();
 
@@ -243,17 +243,17 @@ void RenderSystem::doStepBloom()
 	glUseProgram(mShaderBlur.getProgramID());
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, mFboBloom1.getColorBufferId(0));
-	glUniform1i(glGetUniformLocation(mShaderBlur.getProgramID(), "image"), 0);
+	glUniform1i(mShaderBlur.getLocation( "image"), 0);
 
-	glUniform1i(glGetUniformLocation(mShaderBlur.getProgramID(), "h"), 0);
-	glUniform1f(glGetUniformLocation(mShaderBlur.getProgramID(), "size"), 0);
-	glUniform2fv(glGetUniformLocation(mShaderBlur.getProgramID(), "resolution"), 1,
+	glUniform1i(mShaderBlur.getLocation( "h"), 0);
+	glUniform1f(mShaderBlur.getLocation( "size"), 0);
+	glUniform2fv(mShaderBlur.getLocation( "resolution"), 1,
 		value_ptr(resolution_2));
 	mSupportFbo.draw();
 
 	int nombreDePasseBlurBloom = 5;
 	for (int i = 1; i < nombreDePasseBlurBloom; i++) {
-		float size = 0 * float(i) / nombreDePasseBlurBloom;
+		float size = 1 * float(i) / nombreDePasseBlurBloom;
 
 		glBindFramebuffer(GL_FRAMEBUFFER, mFboBloom1.getId());
 		glDrawBuffers(1, mAttach);
@@ -261,11 +261,11 @@ void RenderSystem::doStepBloom()
 		glUseProgram(mShaderBlur.getProgramID());
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, mFboBloom2.getColorBufferId(0));
-		glUniform1i(glGetUniformLocation(mShaderBlur.getProgramID(), "image"), 0);
+		glUniform1i(mShaderBlur.getLocation( "image"), 0);
 
-		glUniform1i(glGetUniformLocation(mShaderBlur.getProgramID(), "h"), 1);
-		glUniform1f(glGetUniformLocation(mShaderBlur.getProgramID(), "size"), size);
-		glUniform2fv(glGetUniformLocation(mShaderBlur.getProgramID(), "resolution"), 1,
+		glUniform1i(mShaderBlur.getLocation( "h"), 1);
+		glUniform1f(mShaderBlur.getLocation( "size"), size);
+		glUniform2fv(mShaderBlur.getLocation( "resolution"), 1,
 			value_ptr(resolution_2));
 		mSupportFbo.draw();
 
@@ -276,11 +276,11 @@ void RenderSystem::doStepBloom()
 		glUseProgram(mShaderBlur.getProgramID());
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, mFboBloom1.getColorBufferId(0));
-		glUniform1i(glGetUniformLocation(mShaderBlur.getProgramID(), "image"), 0);
+		glUniform1i(mShaderBlur.getLocation( "image"), 0);
 
-		glUniform1i(glGetUniformLocation(mShaderBlur.getProgramID(), "h"), 0);
-		glUniform1f(glGetUniformLocation(mShaderBlur.getProgramID(), "size"), size);
-		glUniform2fv(glGetUniformLocation(mShaderBlur.getProgramID(), "resolution"), 1,
+		glUniform1i(mShaderBlur.getLocation( "h"), 0);
+		glUniform1f(mShaderBlur.getLocation( "size"), size);
+		glUniform2fv(mShaderBlur.getLocation( "resolution"), 1,
 			value_ptr(resolution_2));
 		mSupportFbo.draw();
 	}
@@ -296,18 +296,18 @@ void RenderSystem::doStepMotionBlur(float fps)
 	glBindFramebuffer(GL_FRAMEBUFFER, mFboShading.getId());
 	glClear(GL_COLOR_BUFFER_BIT);
 	glUseProgram(mShaderBlurDir.getProgramID());
-	glUniform1f(glGetUniformLocation(mShaderBlurDir.getProgramID(), "factor"), (fps / 60.0) * 300 );
+	glUniform1f(mShaderBlurDir.getLocation("factor"), (fps / 60.0) * 300 );
 
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, mFboShading2.getColorBufferId(0));
-	glUniform1i(glGetUniformLocation(mShaderBlurDir.getProgramID(), "image"), 0);
+	glUniform1i(mShaderBlurDir.getLocation("image"), 0);
 
 	glActiveTexture(GL_TEXTURE1);
 	glBindTexture(GL_TEXTURE_2D, mFboGeometry.getColorBufferId(3));
-	glUniform1i(glGetUniformLocation(mShaderBlurDir.getProgramID(), "speed"), 1);
+	glUniform1i(mShaderBlurDir.getLocation("speed"), 1);
 
-	glUniform2fv(glGetUniformLocation(mShaderBlurDir.getProgramID(), "resolution"), 1, value_ptr(resolution));
-	glUniform1f(glGetUniformLocation(mShaderBlurDir.getProgramID(), "size"), 0.0);
+	glUniform2fv(mShaderBlurDir.getLocation("resolution"), 1, value_ptr(resolution));
+	glUniform1f(mShaderBlurDir.getLocation("size"), 0.0);
 	mSupportFbo.draw();
 
 
@@ -317,7 +317,7 @@ void RenderSystem::doStepMotionBlur(float fps)
 	glUseProgram(mShaderBlurDir.getProgramID());
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, mFboShading.getColorBufferId(0));
-	glUniform1f(glGetUniformLocation(mShaderBlurDir.getProgramID(), "size"), 0.0);
+	glUniform1f(mShaderBlurDir.getLocation("size"), 0.0);
 	mSupportFbo.draw();
 
 
@@ -327,7 +327,7 @@ void RenderSystem::doStepMotionBlur(float fps)
 	glUseProgram(mShaderBlurDir.getProgramID());
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, mFboShading2.getColorBufferId(0));
-	glUniform1f(glGetUniformLocation(mShaderBlurDir.getProgramID(), "size"), 0.0);
+	glUniform1f(mShaderBlurDir.getLocation("size"), 0.0);
 	mSupportFbo.draw();
 }
 
@@ -338,10 +338,10 @@ void RenderSystem::doStepToneMapping()
 	glUseProgram(mShaderTone.getProgramID());
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, mFboShading.getColorBufferId(0));
-	glUniform1i(glGetUniformLocation(mShaderTone.getProgramID(), "imageSampler"), 0);
+	glUniform1i(mShaderTone.getLocation("imageSampler"),0);
 	glActiveTexture(GL_TEXTURE1);
 	glBindTexture(GL_TEXTURE_2D, mFboBloom2.getColorBufferId(0));
-	glUniform1i(glGetUniformLocation(mShaderTone.getProgramID(), "bloomSampler"), 1);
+	glUniform1i(mShaderTone.getLocation("bloomSampler"), 1);
 	mSupportFbo.draw();
 }
 
@@ -360,37 +360,37 @@ void RenderSystem::doStepShading(Camera const& cam,Input const& input)
 
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, mFboGeometry.getColorBufferId(0));
-	glUniform1i(glGetUniformLocation(mShaderDeferredFinal.getProgramID(), "gNormal"), 0);
+	glUniform1i(mShaderDeferredFinal.getLocation("gNormal"), 0);
 
 	glActiveTexture(GL_TEXTURE1);
 	glBindTexture(GL_TEXTURE_2D, mFboGeometry.getColorBufferId(1));
-	glUniform1i(glGetUniformLocation(mShaderDeferredFinal.getProgramID(), "gDiffuse"), 1);
+	glUniform1i(mShaderDeferredFinal.getLocation("gDiffuse"), 1);
 
 	glActiveTexture(GL_TEXTURE2);
 	glBindTexture(GL_TEXTURE_2D, mFboGeometry.getColorBufferId(2));
-	glUniform1i(glGetUniformLocation(mShaderDeferredFinal.getProgramID(), "gPosition"), 2);
+	glUniform1i(mShaderDeferredFinal.getLocation("gPosition"), 2);
 
-	glUniform1f(glGetUniformLocation(mShaderDeferredFinal.getProgramID(), "aspect"), cam.getAspect());
-	glUniform1f(glGetUniformLocation(mShaderDeferredFinal.getProgramID(), "tanHalfFov"), cam.getTanHalfFov());
-	glUniform1f(glGetUniformLocation(mShaderDeferredFinal.getProgramID(), "near"), cam.getNear());
-	glUniform1f(glGetUniformLocation(mShaderDeferredFinal.getProgramID(), "far"), cam.getFar());
+	glUniform1f(mShaderDeferredFinal.getLocation("aspect"), cam.getAspect());
+	glUniform1f(mShaderDeferredFinal.getLocation("tanHalfFov"), cam.getTanHalfFov());
+	glUniform1f(mShaderDeferredFinal.getLocation("near"), cam.getNear());
+	glUniform1f(mShaderDeferredFinal.getLocation("far"), cam.getFar());
 
 	glActiveTexture(GL_TEXTURE3);
 	glBindTexture(GL_TEXTURE_2D, !input.getKey(SDL_SCANCODE_F5) ? mFboBlurV.getColorBufferId(0) : mFboAo.getColorBufferId(0));
-	glUniform1i(glGetUniformLocation(mShaderDeferredFinal.getProgramID(), "aoSampler"), 3);
+	glUniform1i(mShaderDeferredFinal.getLocation("aoSampler"), 3);
 
-	glUniformMatrix4fv(glGetUniformLocation(mShaderDeferredFinal.getProgramID(), "projection"), 1, GL_FALSE, value_ptr(projection));
-	glUniformMatrix4fv(glGetUniformLocation(mShaderDeferredFinal.getProgramID(), "view"), 1, GL_FALSE, value_ptr(view));
-	glUniform1f(glGetUniformLocation(mShaderDeferredFinal.getProgramID(), "time"), 0);
-	glUniform1i(glGetUniformLocation(mShaderDeferredFinal.getProgramID(), "keyF1"), input.getKey(SDL_SCANCODE_F1));
-	glUniform1i(glGetUniformLocation(mShaderDeferredFinal.getProgramID(), "keyF2"), input.getKey(SDL_SCANCODE_F2));
-	glUniform1i(glGetUniformLocation(mShaderDeferredFinal.getProgramID(), "keyF3"), input.getKey(SDL_SCANCODE_F3));
-	glUniform1i(glGetUniformLocation(mShaderDeferredFinal.getProgramID(), "keyF4"), input.getKey(SDL_SCANCODE_F4));
-	glUniform1i(glGetUniformLocation(mShaderDeferredFinal.getProgramID(), "keyF5"), input.getKey(SDL_SCANCODE_F5));
-	glUniform1i(glGetUniformLocation(mShaderDeferredFinal.getProgramID(), "keyF6"), input.getKey(SDL_SCANCODE_F6));
-	glUniform1i(glGetUniformLocation(mShaderDeferredFinal.getProgramID(), "keyF7"), input.getKey(SDL_SCANCODE_F7));
-	glUniform1i(glGetUniformLocation(mShaderDeferredFinal.getProgramID(), "keyF8"), input.getKey(SDL_SCANCODE_F8));
-	glUniform2fv(glGetUniformLocation(mShaderDeferredFinal.getProgramID(), "resolution"), 1, value_ptr(resolution));
+	glUniformMatrix4fv(mShaderDeferredFinal.getLocation("projection"), 1, GL_FALSE, value_ptr(projection));
+	glUniformMatrix4fv(mShaderDeferredFinal.getLocation("view"), 1, GL_FALSE, value_ptr(view));
+	glUniform1f(mShaderDeferredFinal.getLocation("time"), 0);
+	glUniform1i(mShaderDeferredFinal.getLocation("keyF1"), input.getKey(SDL_SCANCODE_F1));
+	glUniform1i(mShaderDeferredFinal.getLocation("keyF2"), input.getKey(SDL_SCANCODE_F2));
+	glUniform1i(mShaderDeferredFinal.getLocation("keyF3"), input.getKey(SDL_SCANCODE_F3));
+	glUniform1i(mShaderDeferredFinal.getLocation("keyF4"), input.getKey(SDL_SCANCODE_F4));
+	glUniform1i(mShaderDeferredFinal.getLocation("keyF5"), input.getKey(SDL_SCANCODE_F5));
+	glUniform1i(mShaderDeferredFinal.getLocation("keyF6"), input.getKey(SDL_SCANCODE_F6));
+	glUniform1i(mShaderDeferredFinal.getLocation("keyF7"), input.getKey(SDL_SCANCODE_F7));
+	glUniform1i(mShaderDeferredFinal.getLocation("keyF8"), input.getKey(SDL_SCANCODE_F8));
+	glUniform2fv(mShaderDeferredFinal.getLocation("resolution"), 1, value_ptr(resolution));
 	mSupportFbo.draw();
 }
 
@@ -410,26 +410,26 @@ void RenderSystem::doStepGeometry(Camera const &cam, std::vector<Entity*> entiti
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glUseProgram(mShaderGeometry.getProgramID());
 
-	glUniformMatrix4fv(glGetUniformLocation(mShaderGeometry.getProgramID(), "projection"), 1, GL_FALSE, value_ptr(projection));
-	glUniformMatrix4fv(glGetUniformLocation(mShaderGeometry.getProgramID(), "lastViewProjection"), 1, GL_FALSE, value_ptr(mLastViewProjection));
-	glUniform2fv(glGetUniformLocation(mShaderGeometry.getProgramID(), "resolution"), 1, value_ptr(resolution));
+	glUniformMatrix4fv(mShaderGeometry.getLocation("projection"), 1, GL_FALSE, value_ptr(projection));
+	glUniformMatrix4fv(mShaderGeometry.getLocation("lastViewProjection"), 1, GL_FALSE, value_ptr(mLastViewProjection));
+	glUniform2fv(mShaderGeometry.getLocation("resolution"), 1, value_ptr(resolution));
 
 	for (int i = 0; i < entities.size(); i++) {
 
 		Entity* entity = entities[i];
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, (mRm->getTexture(entity->getGraphicComponent()->getTextureDiffuseId())->getId()));
-		glUniform1i(glGetUniformLocation(mShaderGeometry.getProgramID(), "texture_diffuse"), 0);
+		glUniform1i(mShaderGeometry.getLocation("texture_diffuse"), 0);
 
 		glActiveTexture(GL_TEXTURE3);
 		glBindTexture(GL_TEXTURE_2D, (mRm->getTexture(entity->getGraphicComponent()->getTextureEmitId())->getId()));
-		glUniform1i(glGetUniformLocation(mShaderGeometry.getProgramID(), "texture_emit"), 3);
+		glUniform1i(mShaderGeometry.getLocation("texture_emit"), 3);
 
 		modelview = view*entity->getPhysicComponent()->getStateComponent()->getModel();
 		lastModel = entity->getPhysicComponent()->getStateComponent()->getLastModel();
-		glUniformMatrix4fv(glGetUniformLocation(mShaderGeometry.getProgramID(), "modelview"), 1, GL_FALSE, value_ptr(modelview));
-		glUniformMatrix4fv(glGetUniformLocation(mShaderGeometry.getProgramID(), "lastModel"), 1, GL_FALSE, value_ptr(lastModel));
-		glUniformMatrix3fv(glGetUniformLocation(mShaderGeometry.getProgramID(), "normal"), 1, GL_FALSE, value_ptr(transpose(inverse(glm::mat3(modelview)))));
+		glUniformMatrix4fv(mShaderGeometry.getLocation("modelview"), 1, GL_FALSE, value_ptr(modelview));
+		glUniformMatrix4fv(mShaderGeometry.getLocation("lastModel"), 1, GL_FALSE, value_ptr(lastModel));
+		glUniformMatrix3fv(mShaderGeometry.getLocation("normal"), 1, GL_FALSE, value_ptr(transpose(inverse(glm::mat3(modelview)))));
 		mRm->getVao(entity->getGraphicComponent()->getVaoId())->draw();
 	}
 
