@@ -1,291 +1,258 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Fichiers sources">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Fichiers d%27en-tête">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="Fichiers de ressources">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="Fichiers sources\Bis 2">
-      <UniqueIdentifier>{ce28cf34-eb03-49a9-a8dc-483c6b8db129}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\Bis 2\Graphics">
-      <UniqueIdentifier>{6ab5d841-1269-4036-80bd-c448b8880594}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\Bis 2\Physics">
-      <UniqueIdentifier>{29a751ba-e6fb-4250-b4ac-ee508e580d5e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers d%27en-tête\Bis 2">
-      <UniqueIdentifier>{50870328-12a6-477e-8c41-c89b1617184d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers d%27en-tête\Bis 2\Physics">
-      <UniqueIdentifier>{b7b6fd28-3a67-46df-a274-1ddfcba67a7c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers d%27en-tête\Bis 2\Graphics">
-      <UniqueIdentifier>{471101d7-a935-4f0c-ae48-5621cee73fcc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers d%27en-tête\Bis 3">
-      <UniqueIdentifier>{d13642e0-09c2-4632-8574-aa1d93105a2a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\Bis 3">
-      <UniqueIdentifier>{548fc59e-6b4b-48b7-b330-bd7fd76a1869}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers d%27en-tête\Bis 1">
-      <UniqueIdentifier>{8eb9521c-e0a1-440a-9351-82c452875285}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\Bis 1">
-      <UniqueIdentifier>{5207d0db-3dd7-48f3-9ce0-c89e235c70e2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers d%27en-tête\Temp_Test">
-      <UniqueIdentifier>{954eb4b6-3167-4a72-9a7a-6d6b0e09f3a6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\Temp_Test">
-      <UniqueIdentifier>{6e98b4ef-cc82-4909-9ddb-788a39d26142}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers de ressources\Mesh">
-      <UniqueIdentifier>{f0bf3526-8140-4279-8402-80abd9c25e15}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers de ressources\Shader">
-      <UniqueIdentifier>{8cb5aa30-f8cd-4ce8-941a-40946f6d6ef1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers de ressources\Texture">
-      <UniqueIdentifier>{84d520af-043a-4f65-94b0-2f3e17eb535d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers d%27en-tête\Bis 4">
-      <UniqueIdentifier>{b5fd0353-4b64-4430-853e-69c33dff84c0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\Bis 4">
-      <UniqueIdentifier>{bbc9e3cb-05dc-4351-b0ee-137e819be6ba}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="StateComponent.cpp">
-      <Filter>Fichiers sources\Bis 2\Physics</Filter>
-    </ClCompile>
-    <ClCompile Include="SphereDetectionComponent.cpp">
-      <Filter>Fichiers sources\Bis 2\Physics</Filter>
-    </ClCompile>
-    <ClCompile Include="RayDetectionComponent.cpp">
-      <Filter>Fichiers sources\Bis 2\Physics</Filter>
-    </ClCompile>
-    <ClCompile Include="DetectionComponent.cpp">
-      <Filter>Fichiers sources\Bis 2\Physics</Filter>
-    </ClCompile>
-    <ClCompile Include="PhysicComponent.cpp">
-      <Filter>Fichiers sources\Bis 2\Physics</Filter>
-    </ClCompile>
-    <ClCompile Include="GraphicComponent.cpp">
-      <Filter>Fichiers sources\Bis 2\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="EntityManager.cpp">
-      <Filter>Fichiers sources\Bis 3</Filter>
-    </ClCompile>
-    <ClCompile Include="Entity.cpp">
-      <Filter>Fichiers sources\Bis 3</Filter>
-    </ClCompile>
-    <ClCompile Include="Vao.cpp">
-      <Filter>Fichiers sources\Bis 1</Filter>
-    </ClCompile>
-    <ClCompile Include="Shader.cpp">
-      <Filter>Fichiers sources\Bis 1</Filter>
-    </ClCompile>
-    <ClCompile Include="Input.cpp">
-      <Filter>Fichiers sources\Bis 1</Filter>
-    </ClCompile>
-    <ClCompile Include="Main_Test_Physique.cpp">
-      <Filter>Fichiers sources\Temp_Test</Filter>
-    </ClCompile>
-    <ClCompile Include="Main_Bis1.cpp">
-      <Filter>Fichiers sources\Temp_Test</Filter>
-    </ClCompile>
-<<<<<<< HEAD
-=======
-    <ClCompile Include="Vao2D.cpp">
-      <Filter>Fichiers sources\Bis 1</Filter>
-    </ClCompile>
-    <ClCompile Include="ResourcesManager.cpp">
-      <Filter>Fichiers sources\Bis 1</Filter>
-    </ClCompile>
-    <ClCompile Include="Misc.cpp">
-      <Filter>Fichiers sources\Temp_Test</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene_SDL.cpp">
-      <Filter>Fichiers sources\Bis 1</Filter>
-    </ClCompile>
-    <ClCompile Include="RenderSystem.cpp">
-      <Filter>Fichiers sources\Bis 2\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Camera.cpp">
-      <Filter>Fichiers sources\Bis 2\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Main_Bis2.cpp">
-      <Filter>Fichiers sources\Temp_Test</Filter>
-    </ClCompile>
-    <ClCompile Include="Fbo.cpp">
-      <Filter>Fichiers sources\Bis 1</Filter>
-    </ClCompile>
-    <ClCompile Include="Texture.cpp">
-      <Filter>Fichiers sources\Bis 1</Filter>
-    </ClCompile>
-    <ClCompile Include="Ball.cpp">
-      <Filter>Fichiers sources\Bis 4</Filter>
-    </ClCompile>
->>>>>>> f32a40e33683872677995ec44364e71dbf9e7ad6
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="PhysicComponent.h">
-      <Filter>Fichiers d%27en-tête\Bis 2\Physics</Filter>
-    </ClInclude>
-    <ClInclude Include="RayDetectionComponent.h">
-      <Filter>Fichiers d%27en-tête\Bis 2\Physics</Filter>
-    </ClInclude>
-    <ClInclude Include="SphereDetectionComponent.h">
-      <Filter>Fichiers d%27en-tête\Bis 2\Physics</Filter>
-    </ClInclude>
-    <ClInclude Include="DetectionComponent.h">
-      <Filter>Fichiers d%27en-tête\Bis 2\Physics</Filter>
-    </ClInclude>
-    <ClInclude Include="StateComponent.h">
-      <Filter>Fichiers d%27en-tête\Bis 2\Physics</Filter>
-    </ClInclude>
-    <ClInclude Include="GraphicComponent.h">
-      <Filter>Fichiers d%27en-tête\Bis 2\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Entity.h">
-      <Filter>Fichiers d%27en-tête\Bis 3</Filter>
-    </ClInclude>
-    <ClInclude Include="EntityManager.h">
-      <Filter>Fichiers d%27en-tête\Bis 3</Filter>
-    </ClInclude>
-    <ClInclude Include="Contact.h">
-      <Filter>Fichiers d%27en-tête\Bis 2\Physics</Filter>
-    </ClInclude>
-    <ClInclude Include="Texture.h">
-      <Filter>Fichiers d%27en-tête\Bis 1</Filter>
-    </ClInclude>
-    <ClInclude Include="Vao.h">
-      <Filter>Fichiers d%27en-tête\Bis 1</Filter>
-    </ClInclude>
-    <ClInclude Include="Shader.h">
-      <Filter>Fichiers d%27en-tête\Bis 1</Filter>
-    </ClInclude>
-    <ClInclude Include="Fbo.h">
-      <Filter>Fichiers d%27en-tête\Bis 1</Filter>
-    </ClInclude>
-    <ClInclude Include="Input.h">
-      <Filter>Fichiers d%27en-tête\Bis 1</Filter>
-    </ClInclude>
-    <ClInclude Include="ResourcesManager.h">
-      <Filter>Fichiers d%27en-tête\Bis 1</Filter>
-    </ClInclude>
-    <ClInclude Include="Vao2D.h">
-      <Filter>Fichiers d%27en-tête\Bis 1</Filter>
-    </ClInclude>
-    <ClInclude Include="Misc.h">
-      <Filter>Fichiers d%27en-tête\Temp_Test</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene_SDL.h">
-      <Filter>Fichiers d%27en-tête\Bis 1</Filter>
-    </ClInclude>
-    <ClInclude Include="Camera.h">
-      <Filter>Fichiers d%27en-tête\Bis 2\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="RenderSystem.h">
-      <Filter>Fichiers d%27en-tête\Bis 2\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Ball.h">
-      <Filter>Fichiers d%27en-tête\Bis 4</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
     <Object Include="Mesh\cube.obj">
-      <Filter>Fichiers de ressources\Mesh</Filter>
-    </Object>
-    <Object Include="Mesh\sphere.obj">
-      <Filter>Fichiers de ressources\Mesh</Filter>
-    </Object>
-    <Object Include="Mesh\ray.obj">
-      <Filter>Fichiers de ressources\Mesh</Filter>
+      <Filter>Resources\Mesh</Filter>
     </Object>
     <Object Include="Mesh\plane.obj">
-      <Filter>Fichiers de ressources\Mesh</Filter>
+      <Filter>Resources\Mesh</Filter>
+    </Object>
+    <Object Include="Mesh\ray.obj">
+      <Filter>Resources\Mesh</Filter>
+    </Object>
+    <Object Include="Mesh\sphere.obj">
+      <Filter>Resources\Mesh</Filter>
     </Object>
     <Object Include="Mesh\thing.obj">
-      <Filter>Fichiers de ressources\Mesh</Filter>
+      <Filter>Resources\Mesh</Filter>
     </Object>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Shader\defPass1.frag">
-      <Filter>Fichiers de ressources\Shader</Filter>
-    </None>
-    <None Include="Shader\defPass1.vert">
-      <Filter>Fichiers de ressources\Shader</Filter>
-    </None>
-    <None Include="Shader\defPassN.vert">
-      <Filter>Fichiers de ressources\Shader</Filter>
-    </None>
-    <None Include="Shader\AO.frag">
-      <Filter>Fichiers de ressources\Shader</Filter>
-    </None>
-    <None Include="Shader\defPassN.frag">
-      <Filter>Fichiers de ressources\Shader</Filter>
-    </None>
+    <ClCompile Include="Ball.cpp">
+      <Filter>Bis 4</Filter>
+    </ClCompile>
+    <ClCompile Include="Fbo.cpp">
+      <Filter>Bis 1</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>Bis 1</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>Bis 1</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Bis 1</Filter>
+    </ClCompile>
+    <ClCompile Include="Vao.cpp">
+      <Filter>Bis 1</Filter>
+    </ClCompile>
+    <ClCompile Include="Vao2D.cpp">
+      <Filter>Bis 1</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Bis 3</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityManager.cpp">
+      <Filter>Bis 3</Filter>
+    </ClCompile>
+    <ClCompile Include="Main_Bis1.cpp">
+      <Filter>Temp</Filter>
+    </ClCompile>
+    <ClCompile Include="Main_Bis2.cpp">
+      <Filter>Temp</Filter>
+    </ClCompile>
+    <ClCompile Include="Main_Test_Physique.cpp">
+      <Filter>Temp</Filter>
+    </ClCompile>
+    <ClCompile Include="RayDetectionComponent.cpp">
+      <Filter>Bis 2\Physic</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicComponent.cpp">
+      <Filter>Bis 2\Physic</Filter>
+    </ClCompile>
+    <ClCompile Include="DetectionComponent.cpp">
+      <Filter>Bis 2\Physic</Filter>
+    </ClCompile>
+    <ClCompile Include="SphereDetectionComponent.cpp">
+      <Filter>Bis 2\Physic</Filter>
+    </ClCompile>
+    <ClCompile Include="StateComponent.cpp">
+      <Filter>Bis 2\Physic</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicComponent.cpp">
+      <Filter>Bis 2\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderSystem.cpp">
+      <Filter>Bis 2\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourcesManager.cpp">
+      <Filter>Bis 2\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene_SDL.cpp">
+      <Filter>Bis 2\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="Misc.cpp">
+      <Filter>Temp</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Bis 3</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Ball.h">
+      <Filter>Bis 4</Filter>
+    </ClInclude>
+    <ClInclude Include="Fbo.h">
+      <Filter>Bis 1</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>Bis 1</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>Bis 1</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Bis 1</Filter>
+    </ClInclude>
+    <ClInclude Include="Vao.h">
+      <Filter>Bis 1</Filter>
+    </ClInclude>
+    <ClInclude Include="Vao2D.h">
+      <Filter>Bis 1</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Bis 3</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityManager.h">
+      <Filter>Bis 3</Filter>
+    </ClInclude>
+    <ClInclude Include="RayDetectionComponent.h">
+      <Filter>Bis 2\Physic</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicComponent.h">
+      <Filter>Bis 2\Physic</Filter>
+    </ClInclude>
+    <ClInclude Include="DetectionComponent.h">
+      <Filter>Bis 2\Physic</Filter>
+    </ClInclude>
+    <ClInclude Include="SphereDetectionComponent.h">
+      <Filter>Bis 2\Physic</Filter>
+    </ClInclude>
+    <ClInclude Include="StateComponent.h">
+      <Filter>Bis 2\Physic</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicComponent.h">
+      <Filter>Bis 2\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderSystem.h">
+      <Filter>Bis 2\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourcesManager.h">
+      <Filter>Bis 2\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene_SDL.h">
+      <Filter>Bis 2\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="Misc.h">
+      <Filter>Temp</Filter>
+    </ClInclude>
+    <ClInclude Include="Contact.h">
+      <Filter>Bis 2\Physic</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Bis 3</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Texture\cloud.png">
+      <Filter>Resources\Texture</Filter>
+    </Image>
+    <Image Include="Texture\band.png">
+      <Filter>Resources\Texture</Filter>
+    </Image>
+    <Image Include="Texture\BLACK.png">
+      <Filter>Resources\Texture</Filter>
+    </Image>
+    <Image Include="Texture\checker.png">
+      <Filter>Resources\Texture</Filter>
+    </Image>
+    <Image Include="Texture\checker2.png">
+      <Filter>Resources\Texture</Filter>
+    </Image>
+    <Image Include="Texture\checker2C.png">
+      <Filter>Resources\Texture</Filter>
+    </Image>
+    <Image Include="Texture\circle.png">
+      <Filter>Resources\Texture</Filter>
+    </Image>
+    <Image Include="Texture\circleColor.png">
+      <Filter>Resources\Texture</Filter>
+    </Image>
+    <Image Include="Texture\WHITE.png">
+      <Filter>Resources\Texture</Filter>
+    </Image>
+    <Image Include="Texture\RED.png">
+      <Filter>Resources\Texture</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
     <None Include="config.ini">
-      <Filter>Fichiers de ressources</Filter>
+      <Filter>Resources</Filter>
     </None>
     <None Include="Shader\blur_1ch.frag">
-      <Filter>Fichiers de ressources\Shader</Filter>
-    </None>
-    <None Include="Shader\blurBilateral_1ch.frag">
-      <Filter>Fichiers de ressources\Shader</Filter>
-    </None>
-    <None Include="Shader\blurDir_3ch.frag">
-      <Filter>Fichiers de ressources\Shader</Filter>
+      <Filter>Shader</Filter>
     </None>
     <None Include="Shader\blur_3ch.frag">
-      <Filter>Fichiers de ressources\Shader</Filter>
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="Shader\blurBilateral_1ch.frag">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="Shader\blurDir_3ch.frag">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="Shader\defPass1.frag">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="Shader\defPass1.vert">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="Shader\defPassN.frag">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="Shader\defPassN.vert">
+      <Filter>Shader</Filter>
     </None>
     <None Include="Shader\tone.frag">
-      <Filter>Fichiers de ressources\Shader</Filter>
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="Shader\AO.frag">
+      <Filter>Shader</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Texture\checker2.png">
-      <Filter>Fichiers de ressources\Texture</Filter>
-    </Image>
-    <Image Include="Texture\checker.png">
-      <Filter>Fichiers de ressources\Texture</Filter>
-    </Image>
-    <Image Include="Texture\band.png">
-      <Filter>Fichiers de ressources\Texture</Filter>
-    </Image>
-    <Image Include="Texture\BLACK.png">
-      <Filter>Fichiers de ressources\Texture</Filter>
-    </Image>
-    <Image Include="Texture\checker2C.png">
-      <Filter>Fichiers de ressources\Texture</Filter>
-    </Image>
-    <Image Include="Texture\RED.png">
-      <Filter>Fichiers de ressources\Texture</Filter>
-    </Image>
-    <Image Include="Texture\WHITE.png">
-      <Filter>Fichiers de ressources\Texture</Filter>
-    </Image>
-    <Image Include="Texture\cloud.png">
-      <Filter>Fichiers de ressources\Texture</Filter>
-    </Image>
-    <Image Include="Texture\circle.png">
-      <Filter>Fichiers de ressources\Texture</Filter>
-    </Image>
-    <Image Include="Texture\circleColor.png">
-      <Filter>Fichiers de ressources\Texture</Filter>
-    </Image>
+    <Filter Include="Bis 1">
+      <UniqueIdentifier>{b4058dd0-e6ba-47e4-a8b2-bd533c94796e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{35a4073e-1820-4748-a7a3-36e61a3bff0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bis 2">
+      <UniqueIdentifier>{ad51cecf-6a7f-4907-ae57-09e5b75a7645}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bis 3">
+      <UniqueIdentifier>{ab96f998-ccbf-4c2d-a18d-cc1e95f28ef7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bis 4">
+      <UniqueIdentifier>{ad950016-b0ed-4793-9a1f-18043074f3d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shader">
+      <UniqueIdentifier>{20cfd83b-7b4c-4d88-a7b8-5bba095137b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Temp">
+      <UniqueIdentifier>{2f06b753-c037-4b14-869d-617caffe5271}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bis 2\Graphic">
+      <UniqueIdentifier>{32941774-f49b-4ca0-bb9d-b652872bb5f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bis 2\Physic">
+      <UniqueIdentifier>{d5e7915b-c4e6-446d-a24c-442bf7f4e653}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Texture">
+      <UniqueIdentifier>{a3e92e1d-c790-4c01-a0cf-2b9ef1a1af3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Mesh">
+      <UniqueIdentifier>{8a2a77a9-d88b-4f2e-a1b7-763916faed40}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
