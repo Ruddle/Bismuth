@@ -219,6 +219,12 @@
     <None Include="Shader\AO.frag">
       <Filter>Shader</Filter>
     </None>
+    <None Include="Shader\AO2.frag">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="Shader\AO3.frag">
+      <Filter>Shader</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Bis 1">

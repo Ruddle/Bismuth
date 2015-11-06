@@ -94,7 +94,7 @@ RenderSystem::RenderSystem(Config cfg, ResourcesManager* rm) : mCfg(cfg), mRm(rm
 	mShaderGeometry = Shader("Shader/defPass1.vert", "Shader/defPass1.frag") ;
 	mShaderGeometry.load();
 
-	mShaderAo       = Shader("Shader/defPassN.vert", "Shader/AO.frag");
+	mShaderAo       = Shader("Shader/defPassN.vert", "Shader/AO2.frag");
 	mShaderAo.load();
 
 	mShaderBlurDir = Shader("Shader/defPassN.vert", "Shader/blurDir_3ch.frag");
@@ -114,6 +114,43 @@ RenderSystem::RenderSystem(Config cfg, ResourcesManager* rm) : mCfg(cfg), mRm(rm
 
 	mSupportFbo = Vao2D();
 	mSupportFbo.load();
+
+
+	//Texture de bruit pour l'occlusion ambiante
+
+	std::uniform_real_distribution<GLfloat> randomFloats(-1.0, 1.0);
+	std::default_random_engine generator;
+	std::vector<glm::vec4> noiseKernel;
+	for (GLuint i = 0; i < cfg.ResolutionX*cfg.ResolutionY/16.0 ;  ++i)
+	{
+		glm::vec4 sample(
+			randomFloats(generator) ,
+			randomFloats(generator) ,
+			randomFloats(generator) / 2.0 + 0.5,
+			randomFloats(generator)
+			);
+		noiseKernel.push_back(sample);
+	}
+
+	glGenTextures(1, &mTextureNoiseId);
+	glBindTexture(GL_TEXTURE_2D, mTextureNoiseId);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA16F, cfg.ResolutionX/4.0, cfg.ResolutionY / 4.0, 0, GL_RGBA, GL_FLOAT, &noiseKernel[0]);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_MIRRORED_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_MIRRORED_REPEAT);
+	
+	
+	for (GLuint i = 0; i < 64; ++i)
+	{
+		glm::vec3 sample(
+			randomFloats(generator),
+			randomFloats(generator),
+			randomFloats(generator)
+			);
+		mKernel.push_back(sample);
+	}
+
 }
 
 
@@ -138,6 +175,7 @@ void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float t
 
 void RenderSystem::doStepAo(Camera const &cam)
 {
+	vec2 resolution = vec2(mCfg.ResolutionX, mCfg.ResolutionY);
 	glBindFramebuffer(GL_FRAMEBUFFER, mFboAo.getId());
 	if (mCfg.HalfAO == 1)
 		glViewport(0, 0, mCfg.ResolutionX / 2.0, mCfg.ResolutionY / 2.0);
@@ -150,6 +188,17 @@ void RenderSystem::doStepAo(Camera const &cam)
 	glActiveTexture(GL_TEXTURE1);
 	glBindTexture(GL_TEXTURE_2D, mFboGeometry.getColorBufferId(0));
 	glUniform1i(mShaderAo.getLocation( "gNormal"), 1);
+	glActiveTexture(GL_TEXTURE2);
+	glBindTexture(GL_TEXTURE_2D, mTextureNoiseId);
+	glUniform1i(mShaderAo.getLocation("noiseSampler"), 2);
+	glUniform2fv(mShaderAo.getLocation("resolution"), 1, value_ptr(resolution));
+
+	for (GLuint i = 0; i < 64; ++i)
+		glUniform3fv(mShaderAo.getLocation("samples[" + std::to_string(i) + "]"), 1, &mKernel[i][0]);
+
+
+	
+
 	glUniform1f(mShaderAo.getLocation( "time"), 0);
 	glUniformMatrix4fv(mShaderAo.getLocation( "projection"), 1, GL_FALSE, value_ptr(cam.getProjection()));
 	glUniform1f(mShaderAo.getLocation( "aspect"), cam.getAspect());

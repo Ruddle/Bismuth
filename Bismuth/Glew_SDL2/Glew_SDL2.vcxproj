@@ -156,13 +156,11 @@
     <ClCompile Include="Fbo.cpp" />
     <ClCompile Include="GraphicComponent.cpp" />
     <ClCompile Include="Input.cpp" />
-
     <ClCompile Include="Main_Bis1.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Main_Bis2.cpp" />
-
     <ClCompile Include="Main_Test_Physique.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
@@ -231,6 +229,8 @@
   <ItemGroup>
     <None Include="config.ini" />
     <None Include="Shader\AO.frag" />
+    <None Include="Shader\AO2.frag" />
+    <None Include="Shader\AO3.frag" />
     <None Include="Shader\blurBilateral_1ch.frag" />
     <None Include="Shader\blur_1ch.frag" />
     <None Include="Shader\blurDir_3ch.frag" />

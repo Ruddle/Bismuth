@@ -6,8 +6,6 @@ out float outColor;
 
 uniform sampler2D gPosition;
 uniform sampler2D gNormal;
-uniform sampler2D noiseSampler;
-uniform vec3 samples[64];
 uniform mat4 projection;
 uniform float time;
 uniform vec2 resolution;
@@ -15,11 +13,6 @@ uniform float aspect;
 uniform float tanHalfFov;
 uniform float near;
 uniform float far;
-
-
-
-
-
 
 uint hash( uint x ) {
     x += ( x << 10u );
@@ -58,54 +51,41 @@ float random( vec2 f ) {
     return r2 - 1.0;
 }
 
+
 float doAO(int numPass,vec3 position,vec3 normal,float radius) {
 
 	float ao=0;
-	vec4 randwi = texture(noiseSampler,UV*4.0).rgba;
+	for(float i =1;i<numPass+1;i++){
 
-	for(int i =0;i<numPass;i++){
+		float index = 1001*i+(pow(time,1.334))*0.348484657;
+		float rand1 =	random(gl_FragCoord.xy*0.3153548679861*pow(index,2.3513));
+		float rand2 =	random(gl_FragCoord.xy*0.1461276795721*pow(index,3.545));
+		float rand3 =	random(gl_FragCoord.xy*0.9876543598998*index);
 
-		vec4 rand = vec4(0);
+		vec2 offset = vec2(rand1,rand2)-vec2(0.5) ;
+		offset = float(i)/10.0*normalize(offset)*radius/position.z;
 
-		rand.xyz = reflect(samples[i],randwi.xyz);
-		rand.a = randwi.a;
 
-		vec3 random3 = rand.xyz ;
-	
-		random3 = normalize(random3);
-			
-			//	if(dot(normal,random3)<0)
-			//	random3 = -random3;
-			//  Equivaut à : 
-		random3 = -faceforward(random3,normal,random3);
+		vec3 position2 ;
+		position2.z = -texture(gPosition, UV + offset ).r ;
+		position2.x = -(UV.x*2-1)*position2.z*(aspect) *tanHalfFov ;
+		position2.y = -(UV.y*2-1)*position2.z *tanHalfFov ;
+		
+		vec3 diff = position2 - position;
+		vec3 v = normalize(diff);
+		float d = length(diff)*1;
+		ao+=   max(0.0,dot(normal,v)-0.0)*2;//*(1.0/(1.0+d))*2.0
 
-		float length = rand.a;
-		length = pow(length,2);
 
-		vec3 ray = length*radius*random3 + position.xyz;
-		vec4 depthRay = projection*vec4(ray,1.0);
-		depthRay.xy /= depthRay.w;
-		depthRay.xy = depthRay.xy * 0.5 + vec2(0.5);
-
-		float cut = radius*1;
-		float ecart = -position.z -  texture(gPosition, depthRay.xy ).r;
-
-			//if(ecart>0){
-			//if(ecart<cut)
-			//ao+= 1-normal.z*0.8; 
-			//else
-			//ao+=max(2*cut-ecart,0);
-			//}	
-			// Equivaut à :
-		ao+= (ecart>0)? ((ecart<cut)? (1-normal.z*0.8) : max(2*cut-ecart,0)*(1-normal.z*0.8) ):0.0 ;	
+						
 	}
 	ao = ao/(numPass);
 	return ao;
 }
 
 
-int NUMPASS=10;
-float RADIUS = 1;
+int NUMPASS=32;
+float RADIUS =0.1;
 
 void main()
 {
@@ -128,6 +108,4 @@ float lost = 0.3;
 //ao = (max(ao,lost)-lost)/(1-lost);
 
 outColor =		pow(ao,1);
-
-//outColor = texture(noiseSampler,UV*vec2(4.0)).r/2.0+0.5;
 }

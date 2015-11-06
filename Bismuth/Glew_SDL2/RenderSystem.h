@@ -17,6 +17,7 @@
 #include "Entity.h"
 #include <vector>
 #include "ResourcesManager.h"
+#include <random>
 
 class RenderSystem
 {
@@ -54,14 +55,8 @@ private:
 	Shader mShaderDeferredFinal;
 	Shader mShaderTone;
 
-	
-
-
-
-
-
-
-
+	GLuint mTextureNoiseId;
+	std::vector<glm::vec3> mKernel;
 
 	Vao2D mSupportFbo;
 	ResourcesManager* mRm;
