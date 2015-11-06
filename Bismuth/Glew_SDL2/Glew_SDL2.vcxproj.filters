@@ -184,6 +184,15 @@
     <Image Include="Texture\RED.png">
       <Filter>Resources\Texture</Filter>
     </Image>
+    <Image Include="Texture\BLUE.png">
+      <Filter>Resources\Texture</Filter>
+    </Image>
+    <Image Include="Texture\rock.png">
+      <Filter>Resources\Texture</Filter>
+    </Image>
+    <Image Include="Texture\rock_N.png">
+      <Filter>Resources\Texture</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <None Include="config.ini">
