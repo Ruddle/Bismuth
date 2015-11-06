@@ -107,11 +107,10 @@ for(int k=0;k<2;k++){
 	alpha = clamp(alpha,0,1);
 	float attenuation = 1/( 1 + pow( dist/300.0,2)  );
 	
-	//lighting += vec3(Cook_Torrance(-i,normalize(-position_ViewSpace),normal,0.25,0.8));
 	lighting += 0.03*diffuse+    1*(attenuation) * (alpha)*diffuse*lights[k].intensity*(1+1*specFactor*Cook_Torrance(-i,normalize(-position_ViewSpace),normal,0.25,0.8));
 }
 
-if(!keyF4) lighting=lighting*(ao*1.2-0.2);
+if(!keyF4) lighting=lighting*(ao*2-1);
 
 
 if(keyF1) lighting = normal;

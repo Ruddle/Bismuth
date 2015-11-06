@@ -36,7 +36,7 @@ int main(int argc, char **argv)
 {
 	Config cfg = readConfig(); // Misc.cpp
 	Scene_SDL* currentScene = new Scene_SDL(cfg.ResolutionX, cfg.ResolutionY);
-	Camera* cam = new Camera(70.0, (float) cfg.ResolutionX/cfg.ResolutionY, 0.01, 100.0);
+	Camera* cam = new Camera(70.0, (float) cfg.ResolutionX/cfg.ResolutionY, 0.3, 100.0);
 	ResourcesManager* rm = new ResourcesManager();
 	Entity* entityA = createSphere(rm);// Misc.cpp
 	Entity* entityB = createPlane(rm);// Misc.cpp

@@ -63,31 +63,35 @@ float doAO(int numPass,vec3 position,vec3 normal,float radius) {
 		float rand3 =	random(gl_FragCoord.xy*1.5364988515456*pow(index,4.9875));
 		float rand4 =	random(gl_FragCoord.xy*0.9876543598998*index);
 
-				vec3 random3 = vec3(rand1,rand2,rand3) ;
-				random3 = random3-vec3(0.5);
-				random3 = normalize(random3);
-				
-				if(dot(normal,random3)<0)
-				random3 = -random3;
+		vec3 random3 = vec3(rand1,rand2,rand3) ;
+		random3 = random3-vec3(0.5);
+		random3 = normalize(random3);
+			
+			//	if(dot(normal,random3)<0)
+			//	random3 = -random3;
+			//  Equivaut à : 
+		random3 = -faceforward(random3,normal,random3);
+
+		float length = rand4;
+		length = pow(length,2);
+
+		vec3 ray = length*radius*random3 + position.xyz;
+		vec4 depthRay = projection*vec4(ray,1.0);
+		depthRay.xy /= depthRay.w;
+		depthRay.xy = depthRay.xy * 0.5 + vec2(0.5);
+
+		float cut = radius*1;
+		float ecart = -position.z -  texture(gPosition, depthRay.xy ).r;
 
 
-				float length = rand4;
-				length = pow(length,2);
-
-				vec3 ray = length*radius*random3 + position.xyz;
-				vec4 depthRay = projection*vec4(ray,1.0);
-				depthRay.xy /= depthRay.w;
-				depthRay.xy = depthRay.xy * 0.5 + vec2(0.5);
-
-					float cut = radius*1;
-					float ecart = -position.z -  texture(gPosition, depthRay.xy ).r;
-					if(ecart>0){
-						if(ecart<cut)
-						ao+= 1-normal.z*0.8; 
-						else
-						ao+=max(1+cut-ecart,0);
-					}
-				
+			//if(ecart>0){
+			//if(ecart<cut)
+			//ao+= 1-normal.z*0.8; 
+			//else
+			//ao+=max(2*cut-ecart,0);
+			//}	
+			// Equivaut à :
+		ao+= (ecart>0)? ((ecart<cut)? (1-normal.z*0.8) : max(2*cut-ecart,0) ):0.0 ;	
 	}
 	ao = ao/(numPass);
 	return ao;
@@ -113,7 +117,9 @@ float ao = doAO(NUMPASS,position_ViewSpace,normal,RADIUS);
 
 
 ao = 1-ao;
-//ao = min(ao,0.8)/0.8;
 
-outColor =		pow(ao,2);
+float lost = 0.3;
+//ao = (max(ao,lost)-lost)/(1-lost);
+
+outColor =		pow(ao,1);
 }

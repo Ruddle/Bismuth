@@ -51,7 +51,7 @@ Entity* createSphere(ResourcesManager* rm) {
 	GraphicComponent* gc1 = new GraphicComponent(
 		rm->loadTexture("Texture/checker2.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
 		0,
-		rm->loadTexture("Texture/WHITE.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
+		rm->loadTexture("Texture/checker2C.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
 		rm->loadTexture("Texture/band.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
 		rm->loadVao("Mesh/sphere.obj"));
 	SphereDetectionComponent* dc1 = new SphereDetectionComponent(1);
@@ -81,7 +81,7 @@ Entity* createThing(ResourcesManager* rm,vec3 position) {
 	GraphicComponent* gc1 = new GraphicComponent(
 		rm->loadTexture("Texture/checker2.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
 		0,
-		rm->loadTexture("Texture/WHITE.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
+		rm->loadTexture("Texture/checker2C.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
 		rm->loadTexture("Texture/BLACK.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
 		rm->loadVao("Mesh/cube.obj"));
 	SphereDetectionComponent* dc1 = new SphereDetectionComponent(1);
