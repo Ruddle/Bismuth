@@ -2,6 +2,9 @@
 
 in vec2 UV;
 in vec3 varNormal;
+in vec3 varBitangent;
+in vec3 varTangent;
+
 in vec3 varPosition;
 in vec4 varPrevPosition_Proj;
 in vec4 varCurrPosition_Proj;
@@ -23,8 +26,16 @@ void main()
 	gDiffuse= vec4(texture(texture_diffuse, UV).xyz,   texture(texture_spec, UV).x        );
 
 	gNormal    =  normalize(varNormal);
-	
+//	vec3 B = normalize(varBitangent);
+	vec3 T = normalize(varTangent);
+	vec3 texture_n = normalize(texture(texture_normal, UV).xyz*2.0-1.0);
 
+	T = normalize(T - dot(T, gNormal) * gNormal);
+	vec3 B = cross(T, gNormal);
+
+	mat3 TBN = mat3(T,B,gNormal);
+
+	gNormal = normalize(TBN*texture_n +0*varNormal );
 	gNormal.z = texture(texture_emit, UV).x;
 	gPosition = -varPosition.z;
 

@@ -39,6 +39,8 @@ private:
 	//Vertex
 	std::vector<glm::vec3> mPosition;
 	std::vector<glm::vec3> mNormal;
+	std::vector<glm::vec3> mTangent;
+	std::vector<glm::vec3> mBitangent;
 	std::vector<glm::vec2> mUv;
 };
 

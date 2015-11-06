@@ -4,7 +4,7 @@ using namespace std;
 using namespace glm;
 
 Vao::Vao(std::string path) :mPath(path), mVaoID(0), mVboVertexID(0),
-mPosition(0), mUv(0), mNormal(0)
+mPosition(0), mUv(0), mNormal(0), mTangent(0),mBitangent(0)
 {
 
 	loadFile();
@@ -36,10 +36,12 @@ void Vao::load(vec4 color)
 	//mVboVertex
 	glGenBuffers(1, &mVboVertexID);
 	glBindBuffer(GL_ARRAY_BUFFER, mVboVertexID);
-	glBufferData(GL_ARRAY_BUFFER, mPosition.size()*(sizeof(vec3) * 2 + sizeof(vec2)), 0, GL_STATIC_DRAW);  // Position + normal + uv
+	glBufferData(GL_ARRAY_BUFFER, mPosition.size()*(sizeof(vec3) * 4 + sizeof(vec2)), 0, GL_STATIC_DRAW);  // Position + normal + uv
 	glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(vec3)*mPosition.size(), &mPosition[0]);
 	glBufferSubData(GL_ARRAY_BUFFER, sizeof(vec3)*mPosition.size(), sizeof(vec3)*mNormal.size(), &mNormal[0]);
 	glBufferSubData(GL_ARRAY_BUFFER, 2 * sizeof(vec3)*mPosition.size(), sizeof(vec2)*mUv.size(), &mUv[0]);
+	glBufferSubData(GL_ARRAY_BUFFER, 2 * sizeof(vec3)*mPosition.size()+ sizeof(vec2)*mUv.size(), sizeof(vec3)*mPosition.size(), &mTangent[0]);
+	glBufferSubData(GL_ARRAY_BUFFER, 3 * sizeof(vec3)*mPosition.size() + sizeof(vec2)*mUv.size(), sizeof(vec3)*mPosition.size(), &mBitangent[0]);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 
 	//mVao
@@ -56,6 +58,13 @@ void Vao::load(vec4 color)
 
 	glVertexAttribPointer(3, 2, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(2 * sizeof(vec3)*mPosition.size())); // uv
 	glEnableVertexAttribArray(3);
+
+	glVertexAttribPointer(4, 3, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(2 * sizeof(vec3)*mPosition.size() + sizeof(vec2)*mUv.size())); // uv
+	glEnableVertexAttribArray(4);
+
+	glVertexAttribPointer(5, 3, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(3 * sizeof(vec3)*mPosition.size() + sizeof(vec2)*mUv.size())); // uv
+	glEnableVertexAttribArray(5);
+
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 
 	//mVboInstance
@@ -176,4 +185,52 @@ void Vao::loadFile()
 		cout << "Normal " << " x : " << mNormal[i].x << " y : " << mNormal[i].y << " z : " << mNormal[i].z << endl;
 		cout << "UV     " << " x : " << mUv[i].x << " y : " << mUv[i].y << endl;
 	}*/
+
+
+
+	for (int i = 0; i < mNormal.size(); i+=3)
+	{
+		// Shortcuts for vertices
+		glm::vec3 & v0 = mPosition[i + 0];
+		glm::vec3 & v1 = mPosition[i + 1];
+		glm::vec3 & v2 = mPosition[i + 2];
+
+		// Shortcuts for UVs
+		glm::vec2 & uv0 = mUv[i + 0];
+		glm::vec2 & uv1 = mUv[i + 1];
+		glm::vec2 & uv2 = mUv[i + 2];
+
+		// Edges of the triangle : postion delta
+		glm::vec3 deltaPos1 = v1 - v0;
+		glm::vec3 deltaPos2 = v2 - v0;
+
+		// UV delta
+		glm::vec2 deltaUV1 = uv1 - uv0;
+		glm::vec2 deltaUV2 = uv2 - uv0;
+
+		float r = 1.0f / (deltaUV1.x * deltaUV2.y - deltaUV1.y * deltaUV2.x);
+		glm::vec3 tangent = (deltaPos1 * deltaUV2.y - deltaPos2 * deltaUV1.y)*r;
+		glm::vec3 bitangent = (deltaPos2 * deltaUV1.x - deltaPos1 * deltaUV2.x)*r;
+
+
+		mTangent.push_back(tangent);
+		mTangent.push_back(tangent);
+		mTangent.push_back(tangent);
+
+		
+		mBitangent.push_back(bitangent);
+		mBitangent.push_back(bitangent);
+		mBitangent.push_back(bitangent);
+
+	}
+
+
+
+
+
+
+
+
+
+
 }

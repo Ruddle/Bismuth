@@ -32,7 +32,7 @@ struct Light
   vec3 intensity;
 };
 
-const Light lights[2] = Light[2](  Light(vec3(10,-4,3),vec3(1,0.9,0.8))  ,   Light(vec3(-10,-4,10),vec3(0.8,0.9,1))  );
+const Light lights[2] = Light[2](  Light(vec3(10,-4,1),vec3(1,0.9,0.8))  ,   Light(vec3(-10,-4,10),vec3(0.8,0.9,1))  );
 
 
 
