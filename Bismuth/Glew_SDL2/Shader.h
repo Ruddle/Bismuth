@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <glew.h>
+#include <map>
 
 class Shader
 {
@@ -18,12 +19,16 @@ public:
 	bool compileShader(GLuint &shader, GLenum type, std::string const &sourceFile);
 	GLuint getProgramID() const;
 
+	GLuint getLocation(std::string name);
+
 
 private:
 
 	GLuint mVertexID;
 	GLuint mFragmentID;
 	GLuint mProgramID;
+
+	std::map<std::string, GLuint> mLocation;
 
 	std::string mVertexSource;
 	std::string mFragmentSource;

@@ -2,7 +2,7 @@
 
 
 using namespace std;
-Scene_SDL::Scene_SDL(int w, int h)
+Scene_SDL::Scene_SDL(int w, int h) : mLastTime(0)
 {
 	cout << "Creation    : Scene_SDL" << endl;
 	
@@ -33,12 +33,12 @@ Scene_SDL::Scene_SDL(int w, int h)
 	//	SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1);
 	//	SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 8);
 	mWindow = SDL_CreateWindow(
-		"Ma premiere application SDL2",
-		300,
-		50,
+		"Bismuth Engine",
+		10,
+		30,
 		w,
 		h,
-		SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL);
+		SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL );
 
 	if (mWindow)
 	mEvent = new SDL_Event();
@@ -78,6 +78,28 @@ Scene_SDL::~Scene_SDL()
 	SDL_Quit();
 }
 
+
+double Scene_SDL::waitForFps(double fpsTarget)
+{
+		Uint64 diff = (SDL_GetPerformanceCounter() - mLastTime);
+		
+		double diffDouble = double(diff);
+		double freqDouble = double(SDL_GetPerformanceFrequency());
+
+		double ecart = diffDouble / freqDouble;
+	
+		double fps = 1.0 / ecart;
+		double TimetoWait = 1000.0 / fpsTarget - 1000.0*ecart;
+
+	//	cout << 1000*ecart << endl;
+
+		mLastTime = SDL_GetPerformanceCounter();
+	//	if(TimetoWait >0)
+	//	Sleep(TimetoWait);
+		
+		
+		return fps>1.0? fps:1;
+}
 
 void Scene_SDL::flip() {
 	SDL_GL_SwapWindow(mWindow);

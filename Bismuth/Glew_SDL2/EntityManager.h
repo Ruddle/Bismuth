@@ -2,7 +2,6 @@
 
 #include <vector>
 #include "Entity.h"
-#include "Camera.h"
 #include "GraphicComponent.h"
 #include "StateComponent.h"
 #include "Contact.h"
@@ -16,8 +15,7 @@ public:
 	EntityManager();
 	~EntityManager();
 
-	void draw(Camera* camera);
-	void update();
+	void update(float elapsedTime);
 	void collision();
 
 	void add(Entity* entity);

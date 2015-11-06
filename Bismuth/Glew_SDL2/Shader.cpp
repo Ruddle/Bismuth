@@ -2,6 +2,8 @@
 #include <fstream>
 #include <string>
 
+using namespace std;
+
 // Constructeurs et Destructeur
 
 Shader::Shader() : mVertexID(0), mFragmentID(0), mProgramID(0), mVertexSource(), mFragmentSource()
@@ -273,4 +275,16 @@ bool Shader::compileShader(GLuint &shader, GLenum type, std::string const &sourc
 GLuint Shader::getProgramID() const
 {
 	return mProgramID;
+}
+
+GLuint Shader::getLocation(string name)
+{
+	if (mLocation.count(name) > 0)
+		return mLocation[name];
+
+	else
+		mLocation.insert(
+			pair<string, GLuint>(name, glGetUniformLocation(mProgramID, name.c_str())));
+
+	return mLocation[name];
 }

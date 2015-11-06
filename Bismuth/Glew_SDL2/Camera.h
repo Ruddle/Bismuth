@@ -2,18 +2,54 @@
 
 #include "glm.hpp"
 #include "PhysicComponent.h"
+#include "Input.h"
 
 class Camera
 {
 public:
-	Camera(glm::mat4 &projection, PhysicComponent* physicComponent);
+	Camera(double fov, double aspect, double near,double far);
 	~Camera();
+	
+	void update(Input &input, double elapsedTime);
+	
+	glm::mat4 getProjection() const { return mProjection; }
+	glm::mat4 getView() const;
+	double getTanHalfFov()const { return mTanHalfFov; }
+	double getAspect()const { return mAspect; }
+	double getNear()const { return mNear; }
+	double getFar()const { return mFar; }
 
-	PhysicComponent*  getPhysicComponent(void) { return mPhysicComponent; }
+	glm::vec3 getPosition() { return mPosition; }
+	glm::vec3 getRotation() { return mRotation; }
+	void setPosition(glm::vec3 value) { mPosition = value; }
+	void setPositionDiff(glm::vec3 value) { mPositionDiff = value; }
+	void setRotation(glm::vec3 value) { mRotation = value; }
+	void setRotationDiff(glm::vec3 value) { mRotationDiff = value; }
+
+
+
+
 
 private:
-	PhysicComponent* mPhysicComponent;
+
 	glm::mat4 mProjection;
-	glm::mat4 mView;
+	
+
+	double mTanHalfFov;
+	double mAspect;
+	double mNear;
+	double mFar;
+
+	glm::vec3 mPosition;
+	glm::vec3 mPositionDiff;
+
+	glm::vec3 mRotation;
+	glm::vec3 mRotationDiff;
+
+	glm::vec3 mUp;
+
+	int mode;
+
+
 
 };
