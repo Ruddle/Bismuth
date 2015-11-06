@@ -77,9 +77,10 @@ float doAO(int numPass,vec3 position,vec3 normal,float radius) {
 				depthRay.xy /= depthRay.w;
 				depthRay.xy = depthRay.xy * 0.5 + vec2(0.5);
 
-					float cut = radius*1;
-					float ecart = -position.z -  texture(gPosition, depthRay.xy ).r;
-					ao+= (ecart>0)? ((ecart<cut)? (1-normal.z*0.6) : max(2*cut-ecart,0)*(1-normal.z*0.6) ):0.0 ;	
+				float cut = radius*1;
+				float ecart = -position.z -  texture(gPosition, depthRay.xy ).r;
+				ao+= (ecart>0)? ((ecart<cut)? (1-normal.z*0.6) : max(2*cut-ecart,0)*(1-normal.z*0.6) ):0.0 ;	
+			
 				
 	}
 	ao = ao/(numPass);

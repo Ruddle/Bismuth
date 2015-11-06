@@ -7,10 +7,13 @@ Ball::Ball(EntityManager* em,ResourcesManager* rm,glm::vec3 position, glm::vec3 
 {
 	GraphicComponent* gc1 = new GraphicComponent(
 		rm->loadTexture("Texture/circleColor.png", GL_RGB8, GL_LINEAR, GL_REPEAT),
-		0,
+		rm->loadTexture("Texture/BLUE.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
 		rm->loadTexture("Texture/checker2C.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
 		rm->loadTexture("Texture/circle.png", GL_RGB8, GL_LINEAR, GL_REPEAT),
 		rm->loadVao("Mesh/cube.obj"));
+
+
+		
 
 	SphereDetectionComponent* dc1 = new SphereDetectionComponent(1);
 	StateComponent* sc1 = new StateComponent();

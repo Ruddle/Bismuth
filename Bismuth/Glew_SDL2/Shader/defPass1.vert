@@ -10,7 +10,7 @@ uniform mat4 modelview;
 uniform mat4 lastModel;
 uniform mat3 normal;
 
-out vec2 varUV;
+out vec2 UV;
 out vec3 varNormal;
 out vec3 varPosition;
 out vec4 varCurrPosition_Proj;
@@ -20,7 +20,7 @@ void main()
 {
    
 	varPosition = (modelview* vec4(inPosition, 1.0)).xyz;
-	varUV = inUV;
+	UV = inUV;
 	varNormal = normal * inNormal;
 
 	varCurrPosition_Proj =  projection * modelview * vec4(inPosition, 1.0);
