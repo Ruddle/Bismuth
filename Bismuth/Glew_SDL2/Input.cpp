@@ -7,12 +7,22 @@ Input::Input() : mRx(0), mRy(0), mX(0), mY(0), mEnd(false)
 	for (int i(0); i < SDL_NUM_SCANCODES; i++)
 		mKeys[i] = false;
 
+	for (int i(0); i < SDL_NUM_SCANCODES; i++)
+		mRisingKeys[i] = false;
+
+	for (int i(0); i < SDL_NUM_SCANCODES; i++)
+		mRisingKeysAble[i] = true;
+
 	for (int i = 0; i < NB_MOUSE_BUTTONS; i++)
 		mMouseButtons[i] = false;
 }
 
-void Input::updateEvents()
+void Input::update()
 {
+
+	for (int i(0); i < SDL_NUM_SCANCODES; i++)
+		mRisingKeys[i] = false;
+
 	mRx = 0;
 	mRy = 0;
 
@@ -22,11 +32,19 @@ void Input::updateEvents()
 		{
 
 		case SDL_KEYDOWN:
+			
 			mKeys[mEvent.key.keysym.scancode] = true;
+			if (mRisingKeysAble[mEvent.key.keysym.scancode] == true) {
+				mRisingKeys[mEvent.key.keysym.scancode] = true;
+				mRisingKeysAble[mEvent.key.keysym.scancode] = false;
+			}
+
 			break;
 
 		case SDL_KEYUP:
 			mKeys[mEvent.key.keysym.scancode] = false;
+			mRisingKeysAble[mEvent.key.keysym.scancode] = true;
+			
 			break;
 
 		case SDL_MOUSEBUTTONDOWN:

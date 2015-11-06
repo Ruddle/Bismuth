@@ -23,6 +23,14 @@ public:
 	void load();
 	void loadFromPath();
 	void loadFromVoid();
+	
+
+	GLuint getId() { return mId; }
+	int getW() { return mW; }
+	int getH() { return mH; }
+	std::string getPath() const { return mPath; }
+	TextureCfg getCfg() const { return mCfg; }
+
 
 	SDL_Surface* invertPixels(SDL_Surface *src) const;
 

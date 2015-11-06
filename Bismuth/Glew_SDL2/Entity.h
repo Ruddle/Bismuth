@@ -6,6 +6,7 @@
 class Entity
 {
 public:
+	Entity();
 	Entity(GraphicComponent* graphicComponent, PhysicComponent* physicComponent);
 	~Entity();
 

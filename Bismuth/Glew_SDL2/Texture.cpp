@@ -1,10 +1,10 @@
 #include "Texture.h"
 
-Texture::Texture(std::string path, TextureCfg cfg) : mPath(path), mCfg(cfg), mW(0), mH(0)
+Texture::Texture(std::string path, TextureCfg cfg) : mPath(path), mCfg(cfg), mW(0), mH(0), mId(0)
 {
 }
 
-Texture::Texture(int w,int h, TextureCfg cfg) : mW(w), mH(h), mCfg(cfg) , mPath("")
+Texture::Texture(int w,int h, TextureCfg cfg) : mW(w), mH(h), mCfg(cfg) , mPath(""), mId(0)
 {
 }
 
@@ -16,7 +16,7 @@ Texture::~Texture()
 
 void Texture::load() {
 
-	if (mPath.length == 0)
+	if (mPath.length() == 0)
 		loadFromVoid();
 	else 
 		loadFromPath();
@@ -51,6 +51,8 @@ void Texture::loadFromPath()
 	GLenum internFormat(0);
 	GLenum format(0);
 
+
+	
 	// Détermination du format et du format interne pour les images à 3 composantes
 	if (invertedSDL->format->BytesPerPixel == 3)
 	{

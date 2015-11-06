@@ -20,8 +20,19 @@ Vao::~Vao()
 
 }
 
-void Vao::load()
+void Vao::load() {
+	load(vec4(1, 0, 1,0.5));
+}
+
+void Vao::load(vec4 color)
 {
+	//mVboInstance
+	glGenBuffers(1, &mVboInstanceID);
+	glBindBuffer(GL_ARRAY_BUFFER, mVboInstanceID);
+	glBufferData(GL_ARRAY_BUFFER, 1 * (sizeof(vec4)), 0, GL_DYNAMIC_DRAW);
+	glBufferSubData(GL_ARRAY_BUFFER, 0, 1*sizeof(vec4), &color[0]);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+
 	//mVboVertex
 	glGenBuffers(1, &mVboVertexID);
 	glBindBuffer(GL_ARRAY_BUFFER, mVboVertexID);
@@ -40,13 +51,19 @@ void Vao::load()
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(0)); //position
 	glEnableVertexAttribArray(0);
 
-	glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(sizeof(vec3)*mPosition.size())); //normal
-	glEnableVertexAttribArray(2);
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(sizeof(vec3)*mPosition.size())); //normal
+	glEnableVertexAttribArray(1);
 
 	glVertexAttribPointer(3, 2, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(2 * sizeof(vec3)*mPosition.size())); // uv
 	glEnableVertexAttribArray(3);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 
+	//mVboInstance
+	glBindBuffer(GL_ARRAY_BUFFER, mVboInstanceID);
+	glVertexAttribPointer(2, 4, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(0)); 
+	glEnableVertexAttribArray(2);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glVertexAttribDivisor(2, 1);
 
 	glBindVertexArray(0);
 	//Vao LOADED
@@ -61,13 +78,13 @@ void Vao::draw()
 
 void Vao::loadFile()
 {
-	vector<vec3> vertex;
+	vector<vec3> position;
 	vector<vec3> normal;
 	vector<vec2> uv;
 
-	vector<int> indexV;
-	vector<int> indexN;
-	vector<int> indexT;
+	vector<int> indexPosition;
+	vector<int> indexNormal;
+	vector<int> indexUv;
 
 	ifstream flux(mPath.c_str());
 
@@ -88,10 +105,10 @@ void Vao::loadFile()
 
 		if (word == ("v"))
 		{
-			vertex.push_back(vec3(0));
-			lineStream >> vertex.back().x;
-			lineStream >> vertex.back().y;
-			lineStream >> vertex.back().z;
+			position.push_back(vec3(0));
+			lineStream >> position.back().x;
+			lineStream >> position.back().y;
+			lineStream >> position.back().z;
 		}
 		else if (word == ("vt"))
 		{
@@ -124,39 +141,39 @@ void Vao::loadFile()
 				float num;
 
 				iv >> num;
-				indexV.push_back(num);
+				indexPosition.push_back(num);
 
 				it >> num;
-				indexT.push_back(num);
+				indexUv.push_back(num);
 
 				in >> num;
-				indexN.push_back(num);
+				indexNormal.push_back(num);
 			}
 		}
 	}
 	flux.close();
 
-	for (int i = 0; i < indexV.size(); i++)
+	for (int i = 0; i < indexPosition.size(); i++)
 	{
-		int index = indexN[i] - 1;
+		int index = indexNormal[i] - 1;
 		mNormal.push_back(normal[index]);
 
-		index = indexV[i] - 1;
-		mPosition.push_back(vertex[index]);
+		index = indexPosition[i] - 1;
+		mPosition.push_back(position[index]);
 	}
 
-	for (int k = 0; k <indexV.size(); k++)
+	for (int k = 0; k <indexPosition.size(); k++)
 	{
-		int index = indexT[k] - 1;
+		int index = indexUv[k] - 1;
 		mUv.push_back(uv[index]);
 	}
 
-	cout << "numVertex : " << indexV.size() << endl;
-	for (int i = 0; i < indexV.size() * 1; i++)
+/*	cout << "numVertex : " << indexPosition.size() << endl;
+	for (int i = 0; i < indexPosition.size() * 1; i++)
 	{
 		cout << "n : " << i << endl;
-		cout << "Vertex " << " x : " << mPosition[i].x << " y : " << mPosition[i].y << " z : " << mPosition[i].z << endl;
+		cout << "Position " << " x : " << mPosition[i].x << " y : " << mPosition[i].y << " z : " << mPosition[i].z << endl;
 		cout << "Normal " << " x : " << mNormal[i].x << " y : " << mNormal[i].y << " z : " << mNormal[i].z << endl;
-		cout << "uv     " << " x : " << mUv[i].x << " y : " << mUv[i].y << endl;
-	}
+		cout << "UV     " << " x : " << mUv[i].x << " y : " << mUv[i].y << endl;
+	}*/
 }

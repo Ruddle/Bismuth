@@ -7,11 +7,10 @@
 #include "GraphicComponent.h"
 #include "PhysicComponent.h"
 #include "RayDetectionComponent.h"
-#include "RessourceManager.h"
 #include "SphereDetectionComponent.h"
 #include "StateComponent.h"
 #include <iostream>
-#define _USE_MATH_DEFINES
+//#define _USE_MATH_DEFINES
 #include <math.h>
 
 using namespace glm;

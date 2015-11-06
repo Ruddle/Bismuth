@@ -55,6 +55,15 @@
     <Filter Include="Fichiers de ressources\Shader">
       <UniqueIdentifier>{8cb5aa30-f8cd-4ce8-941a-40946f6d6ef1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers de ressources\Texture">
+      <UniqueIdentifier>{84d520af-043a-4f65-94b0-2f3e17eb535d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Bis 4">
+      <UniqueIdentifier>{b5fd0353-4b64-4430-853e-69c33dff84c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Bis 4">
+      <UniqueIdentifier>{bbc9e3cb-05dc-4351-b0ee-137e819be6ba}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="StateComponent.cpp">
@@ -75,20 +84,11 @@
     <ClCompile Include="GraphicComponent.cpp">
       <Filter>Fichiers sources\Bis 2\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="RessourceManager.cpp">
-      <Filter>Fichiers sources\Bis 2\Graphics</Filter>
-    </ClCompile>
     <ClCompile Include="EntityManager.cpp">
       <Filter>Fichiers sources\Bis 3</Filter>
     </ClCompile>
     <ClCompile Include="Entity.cpp">
       <Filter>Fichiers sources\Bis 3</Filter>
-    </ClCompile>
-    <ClCompile Include="Camera.cpp">
-      <Filter>Fichiers sources\Bis 3</Filter>
-    </ClCompile>
-    <ClCompile Include="Texture.cpp">
-      <Filter>Fichiers sources\Bis 1</Filter>
     </ClCompile>
     <ClCompile Include="Vao.cpp">
       <Filter>Fichiers sources\Bis 1</Filter>
@@ -96,14 +96,8 @@
     <ClCompile Include="Shader.cpp">
       <Filter>Fichiers sources\Bis 1</Filter>
     </ClCompile>
-    <ClCompile Include="Fbo.cpp">
-      <Filter>Fichiers sources\Bis 1</Filter>
-    </ClCompile>
     <ClCompile Include="Input.cpp">
       <Filter>Fichiers sources\Bis 1</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene_SDL.cpp">
-      <Filter>Fichiers sources\Temp_Test</Filter>
     </ClCompile>
     <ClCompile Include="Main_Test_Physique.cpp">
       <Filter>Fichiers sources\Temp_Test</Filter>
@@ -111,11 +105,38 @@
     <ClCompile Include="Main_Bis1.cpp">
       <Filter>Fichiers sources\Temp_Test</Filter>
     </ClCompile>
+    <ClCompile Include="Vao2D.cpp">
+      <Filter>Fichiers sources\Bis 1</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourcesManager.cpp">
+      <Filter>Fichiers sources\Bis 1</Filter>
+    </ClCompile>
+    <ClCompile Include="Misc.cpp">
+      <Filter>Fichiers sources\Temp_Test</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene_SDL.cpp">
+      <Filter>Fichiers sources\Bis 1</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderSystem.cpp">
+      <Filter>Fichiers sources\Bis 2\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Fichiers sources\Bis 2\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Main_Bis2.cpp">
+      <Filter>Fichiers sources\Temp_Test</Filter>
+    </ClCompile>
+    <ClCompile Include="Fbo.cpp">
+      <Filter>Fichiers sources\Bis 1</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Fichiers sources\Bis 1</Filter>
+    </ClCompile>
+    <ClCompile Include="Ball.cpp">
+      <Filter>Fichiers sources\Bis 4</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Const.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
     <ClInclude Include="PhysicComponent.h">
       <Filter>Fichiers d%27en-tête\Bis 2\Physics</Filter>
     </ClInclude>
@@ -133,12 +154,6 @@
     </ClInclude>
     <ClInclude Include="GraphicComponent.h">
       <Filter>Fichiers d%27en-tête\Bis 2\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="RessourceManager.h">
-      <Filter>Fichiers d%27en-tête\Bis 2\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Camera.h">
-      <Filter>Fichiers d%27en-tête\Bis 3</Filter>
     </ClInclude>
     <ClInclude Include="Entity.h">
       <Filter>Fichiers d%27en-tête\Bis 3</Filter>
@@ -164,21 +179,110 @@
     <ClInclude Include="Input.h">
       <Filter>Fichiers d%27en-tête\Bis 1</Filter>
     </ClInclude>
-    <ClInclude Include="Scene_SDL.h">
+    <ClInclude Include="ResourcesManager.h">
+      <Filter>Fichiers d%27en-tête\Bis 1</Filter>
+    </ClInclude>
+    <ClInclude Include="Vao2D.h">
+      <Filter>Fichiers d%27en-tête\Bis 1</Filter>
+    </ClInclude>
+    <ClInclude Include="Misc.h">
       <Filter>Fichiers d%27en-tête\Temp_Test</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene_SDL.h">
+      <Filter>Fichiers d%27en-tête\Bis 1</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Fichiers d%27en-tête\Bis 2\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderSystem.h">
+      <Filter>Fichiers d%27en-tête\Bis 2\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Ball.h">
+      <Filter>Fichiers d%27en-tête\Bis 4</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Object Include="Mesh\cube.obj">
       <Filter>Fichiers de ressources\Mesh</Filter>
     </Object>
+    <Object Include="Mesh\sphere.obj">
+      <Filter>Fichiers de ressources\Mesh</Filter>
+    </Object>
+    <Object Include="Mesh\ray.obj">
+      <Filter>Fichiers de ressources\Mesh</Filter>
+    </Object>
+    <Object Include="Mesh\plane.obj">
+      <Filter>Fichiers de ressources\Mesh</Filter>
+    </Object>
+    <Object Include="Mesh\thing.obj">
+      <Filter>Fichiers de ressources\Mesh</Filter>
+    </Object>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Shader\test.vert">
+    <None Include="Shader\defPass1.frag">
       <Filter>Fichiers de ressources\Shader</Filter>
     </None>
-    <None Include="Shader\test.frag">
+    <None Include="Shader\defPass1.vert">
       <Filter>Fichiers de ressources\Shader</Filter>
     </None>
+    <None Include="Shader\defPassN.vert">
+      <Filter>Fichiers de ressources\Shader</Filter>
+    </None>
+    <None Include="Shader\AO.frag">
+      <Filter>Fichiers de ressources\Shader</Filter>
+    </None>
+    <None Include="Shader\defPassN.frag">
+      <Filter>Fichiers de ressources\Shader</Filter>
+    </None>
+    <None Include="config.ini">
+      <Filter>Fichiers de ressources</Filter>
+    </None>
+    <None Include="Shader\blur_1ch.frag">
+      <Filter>Fichiers de ressources\Shader</Filter>
+    </None>
+    <None Include="Shader\blurBilateral_1ch.frag">
+      <Filter>Fichiers de ressources\Shader</Filter>
+    </None>
+    <None Include="Shader\blurDir_3ch.frag">
+      <Filter>Fichiers de ressources\Shader</Filter>
+    </None>
+    <None Include="Shader\blur_3ch.frag">
+      <Filter>Fichiers de ressources\Shader</Filter>
+    </None>
+    <None Include="Shader\tone.frag">
+      <Filter>Fichiers de ressources\Shader</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Texture\checker2.png">
+      <Filter>Fichiers de ressources\Texture</Filter>
+    </Image>
+    <Image Include="Texture\checker.png">
+      <Filter>Fichiers de ressources\Texture</Filter>
+    </Image>
+    <Image Include="Texture\band.png">
+      <Filter>Fichiers de ressources\Texture</Filter>
+    </Image>
+    <Image Include="Texture\BLACK.png">
+      <Filter>Fichiers de ressources\Texture</Filter>
+    </Image>
+    <Image Include="Texture\checker2C.png">
+      <Filter>Fichiers de ressources\Texture</Filter>
+    </Image>
+    <Image Include="Texture\RED.png">
+      <Filter>Fichiers de ressources\Texture</Filter>
+    </Image>
+    <Image Include="Texture\WHITE.png">
+      <Filter>Fichiers de ressources\Texture</Filter>
+    </Image>
+    <Image Include="Texture\cloud.png">
+      <Filter>Fichiers de ressources\Texture</Filter>
+    </Image>
+    <Image Include="Texture\circle.png">
+      <Filter>Fichiers de ressources\Texture</Filter>
+    </Image>
+    <Image Include="Texture\circleColor.png">
+      <Filter>Fichiers de ressources\Texture</Filter>
+    </Image>
   </ItemGroup>
 </Project>
