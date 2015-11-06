@@ -53,10 +53,6 @@ float random( vec2 f ) {
 
 float doAO(int numPass,vec3 position,vec3 normal,float radius) {
 
-
-				
-
-
 	float ao=0;
 	for(float i =1;i<numPass+1;i++){
 
@@ -84,7 +80,6 @@ float doAO(int numPass,vec3 position,vec3 normal,float radius) {
 				depthRay.xy /= depthRay.w;
 				depthRay.xy = depthRay.xy * 0.5 + vec2(0.5);
 
-				
 					float cut = radius*1;
 					float ecart = -position.z -  texture(gPosition, depthRay.xy ).r;
 					if(ecart>0){

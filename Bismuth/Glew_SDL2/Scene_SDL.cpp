@@ -38,7 +38,7 @@ Scene_SDL::Scene_SDL(int w, int h) : mLastTime(0)
 		30,
 		w,
 		h,
-		SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL);
+		SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL );
 
 	if (mWindow)
 	mEvent = new SDL_Event();

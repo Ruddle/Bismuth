@@ -31,10 +31,10 @@ void Camera::update(Input &input, double elapsedTime)
 
 	//FRICTION
 	mPositionDiff *= 0.94f;
-	mRotationDiff *= 0.94f;
+	mRotationDiff *= 0.10f;
 	//TRAJECTOIRE
 	mPosition += mPositionDiff*float(elapsedTime);
-	mRotation += length(mRotation)*mRotationDiff*float(elapsedTime);
+	mRotation += 30*length(mRotation)*mRotationDiff*float(elapsedTime);
 
 	if(length(mRotation)>1)
 	mRotation = (mRotation)*0.5f;

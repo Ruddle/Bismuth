@@ -64,6 +64,8 @@ int main(int argc, char **argv)
 		if (time % 10 == 0)	cout << fps << endl;
 		input.update();
 		cam->update(input, elapsedTime);
+		
+		if(!input.getKey(SDL_SCANCODE_F11))
 		entityManager->update(float(elapsedTime));
 		entityManager->collision();
 		if (time % 1 == 0) {
