@@ -74,7 +74,7 @@ int main(int argc, char **argv)
 		}
 
 		if (input.getRisingKey(SDL_SCANCODE_K))
-		listBall.push_back(  new Ball(entityManager, rm, cam->getPosition(), 0.051f*cam->getRotation()) );
+		listBall.push_back(  new Ball(entityManager, rm, cam->getPosition(), 0.0051f*cam->getRotation()) );
 
 		for (int i = 0; i < listBall.size(); i++)
 			listBall[i]->update();

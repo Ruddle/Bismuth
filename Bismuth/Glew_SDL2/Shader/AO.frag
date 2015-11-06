@@ -67,10 +67,9 @@ float doAO(int numPass,vec3 position,vec3 normal,float radius) {
 				random3 = random3-vec3(0.5);
 				random3 = normalize(random3);
 				
-
-				if(dot(normal,random3)<0){
+				if(dot(normal,random3)<0)
 				random3 = -random3;
-				}
+
 
 				float length = rand4;
 				length = pow(length,2);
@@ -84,9 +83,9 @@ float doAO(int numPass,vec3 position,vec3 normal,float radius) {
 					float ecart = -position.z -  texture(gPosition, depthRay.xy ).r;
 					if(ecart>0){
 						if(ecart<cut)
-						ao++;
+						ao+= 1-normal.z*0.8; 
 						else
-						ao+=max(1+cut-ecart,0.5);
+						ao+=max(1+cut-ecart,0);
 					}
 				
 	}
@@ -95,7 +94,7 @@ float doAO(int numPass,vec3 position,vec3 normal,float radius) {
 }
 
 
-int NUMPASS=16;
+int NUMPASS=10;
 float RADIUS = 1;
 
 void main()
@@ -114,7 +113,7 @@ float ao = doAO(NUMPASS,position_ViewSpace,normal,RADIUS);
 
 
 ao = 1-ao;
-ao = min(ao,0.8)/0.8;
+//ao = min(ao,0.8)/0.8;
 
-outColor =		pow(ao,3);
+outColor =		pow(ao,2);
 }

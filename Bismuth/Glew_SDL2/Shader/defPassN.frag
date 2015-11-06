@@ -111,7 +111,7 @@ for(int k=0;k<2;k++){
 	lighting += 0.03*diffuse+    1*(attenuation) * (alpha)*diffuse*lights[k].intensity*(1+1*specFactor*Cook_Torrance(-i,normalize(-position_ViewSpace),normal,0.25,0.8));
 }
 
-if(!keyF4) lighting=lighting*(ao*1.0);
+if(!keyF4) lighting=lighting*(ao*1.2-0.2);
 
 
 if(keyF1) lighting = normal;
@@ -128,7 +128,14 @@ outBloom = (brightness >1) ? outColor:vec3(0) ;
 
 if(keyF8) {
 outColor = outBloom;
-outBloom = vec3(0);
 }
 if(keyF9) outColor = vec3(specFactor);
+
+
+if(keyF1 || keyF2|| keyF3|| keyF6|| keyF7|| keyF8 ||keyF9)
+outBloom = vec3(0);
+
+
+
+
 }

@@ -31,28 +31,32 @@ float depthDiff ;
 float weightDepth ;
 vec3 normalOffset;
 float totalWeight=0.2270270270;
-float epsilon = 1*10e-3 ;
+float epsilon = 10*10e-3 ;
 
 float blur = texture( image, UV ).r * weight[0];
 
     for (int i=1; i<3; i++) {
+
+		vec2 offsetVec = vec2(offset[i]*(1-h), h*offset[i]) /resolution;
 		
-		depthDiff = depth - texture(gPosition,UV+ ( vec2(offset[i]*(1-h), h*offset[i]) )/resolution).r ;
+		depthDiff = depth - texture(gPosition,UV+ offsetVec).r ;
 		weightDepth = 1 / (epsilon + abs(depthDiff*depthDiff)); 
-		normalOffset = vec3(texture(gNormal, UV+ ( vec2(offset[i]*(1-h), h*offset[i]) )/resolution).rg,0);
+		normalOffset = vec3(texture(gNormal,  UV+ offsetVec).rg,0);
 		normalOffset.z= sqrt(1.0 - normalOffset.x*normalOffset.x - normalOffset.y*normalOffset.y); 
 		weightNormal = dot(normal, normalize(normalOffset));
-		weightNormal = pow(weightNormal,2);
-        blur +=   texture( image,UV+ ( vec2(offset[i]*(1-h), h*offset[i]) )/resolution ).r * weight[i] * weightDepth* weightNormal;
+		weightNormal = pow(weightNormal,8);
+		weightNormal = max(0.1,weightNormal);
+        blur +=				texture(image,    UV+ offsetVec).r * weight[i] * weightDepth* weightNormal;
 		totalWeight += weight[i] * weightDepth * weightNormal;
 
-		depthDiff = depth - texture(gPosition, UV-(vec2(offset[i]*(1-h), h*offset[i]) )/resolution).r ;
+		depthDiff = depth - texture(gPosition, UV- offsetVec).r ;
 		weightDepth = 1 / (epsilon + abs(depthDiff*depthDiff)); 
-		normalOffset = vec3(texture(gNormal, UV+ ( vec2(offset[i]*(1-h), h*offset[i]) )/resolution).rg,0);
+		normalOffset = vec3(texture(gNormal,   UV- offsetVec).rg,0);
 		normalOffset.z= sqrt(1.0 - normalOffset.x*normalOffset.x - normalOffset.y*normalOffset.y); 
 		weightNormal = dot(normal, normalize(normalOffset));
-		weightNormal = pow(weightNormal,2);
-        blur +=   texture( image,UV-( vec2(offset[i]*(1-h), h*offset[i]) )/resolution ).r * weight[i] * weightDepth * weightNormal;
+		weightNormal = pow(weightNormal,8);
+		weightNormal = max(0.1,weightNormal);
+        blur +=				texture(image,     UV- offsetVec).r * weight[i] * weightDepth * weightNormal;
 		totalWeight += weight[i] * weightDepth * weightNormal;
     }
 

@@ -278,5 +278,11 @@
     <Image Include="Texture\cloud.png">
       <Filter>Fichiers de ressources\Texture</Filter>
     </Image>
+    <Image Include="Texture\circle.png">
+      <Filter>Fichiers de ressources\Texture</Filter>
+    </Image>
+    <Image Include="Texture\circleColor.png">
+      <Filter>Fichiers de ressources\Texture</Filter>
+    </Image>
   </ItemGroup>
 </Project>

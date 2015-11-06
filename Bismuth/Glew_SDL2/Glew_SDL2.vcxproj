@@ -245,6 +245,8 @@
     <Image Include="Texture\checker.png" />
     <Image Include="Texture\checker2.png" />
     <Image Include="Texture\checker2C.png" />
+    <Image Include="Texture\circle.png" />
+    <Image Include="Texture\circleColor.png" />
     <Image Include="Texture\cloud.png" />
     <Image Include="Texture\RED.png" />
     <Image Include="Texture\WHITE.png" />
