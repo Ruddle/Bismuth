@@ -30,12 +30,13 @@ public:
 private: 
 
 	void doStepGeometry(Camera const &cam, std::vector<Entity*> entities);
+	void doStepLight(Camera const &cam, std::vector<Entity*> entities);
 	void doStepAo(Camera const &cam);
 	void doStepBlurAo();
 	void doStepBloom();
 	void doStepMotionBlur(float fps);
 	void doStepToneMapping();
-	void doStepShading(Camera const& cam, Input const& input);
+	void doStepShading(Camera const& cam, Camera const &camLight, Input const& input);
 
 	Config mCfg;
 	Fbo mFboGeometry;
@@ -46,9 +47,11 @@ private:
 	Fbo mFboBlurV;
 	Fbo mFboShading;
 	Fbo mFboShading2;
+	Fbo mFboLight;
 
 	Shader mShaderGeometry;
 	Shader mShaderAo;
+	Shader mShaderLight;
 	Shader mShaderBlurDir;
 	Shader mShaderBlur;
 	Shader mShaderBlurBilateral;

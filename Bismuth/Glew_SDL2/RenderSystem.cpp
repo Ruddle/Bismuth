@@ -59,6 +59,16 @@ RenderSystem::RenderSystem(Config cfg, ResourcesManager* rm) : mCfg(cfg), mRm(rm
 	mFboAo = Fbo(textureArray, 0, 0);
 	mFboAo.load();
 
+
+	TextureCfg texCfgLight = { GL_R32F, GL_LINEAR, GL_CLAMP_TO_EDGE };
+	Texture* texLight = new Texture(1024*4, 1024*4, texCfgLight);
+	texLight->load();
+	textureArray = vector<Texture*>();
+	textureArray.push_back(texLight);
+	mFboLight = Fbo(textureArray, 1, 0);
+	mFboLight.load();
+
+
 	TextureCfg texCfgBloom1 = { GL_RGB16F, GL_LINEAR, GL_CLAMP_TO_EDGE };
 	Texture* texBloom1 = new Texture(cfg.ResolutionX / 2.0, cfg.ResolutionY /  2.0, texCfgBloom1);
 	texBloom1->load();
@@ -96,6 +106,9 @@ RenderSystem::RenderSystem(Config cfg, ResourcesManager* rm) : mCfg(cfg), mRm(rm
 
 	mShaderAo       = Shader("Shader/defPassN.vert", "Shader/AO2.frag");
 	mShaderAo.load();
+
+	mShaderLight = Shader("Shader/light.vert", "Shader/light.frag");
+	mShaderLight.load();
 
 	mShaderBlurDir = Shader("Shader/defPassN.vert", "Shader/blurDir_3ch.frag");
 	mShaderBlurDir.load();
@@ -162,10 +175,18 @@ RenderSystem::~RenderSystem()
 void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float time,Input &input,float fps) {
 	time = 0.0f;
 
+	Camera cam2 = Camera(70, 1.0, 100, 300);
+	cam2.setPosition(vec3(-100, -40, 100));
+	cam2.setRotation(-cam2.getPosition());
+
+
 	doStepGeometry(cam,entities);
-	doStepAo(cam);
-	doStepBlurAo();
-	doStepShading(cam,input);
+	doStepLight(cam2, entities);
+	if (mCfg.AO == 1) {
+		doStepAo(cam);
+		doStepBlurAo();
+	}
+	doStepShading(cam,cam2,input);
 	doStepBloom();
 	doStepToneMapping();
 	doStepMotionBlur(fps);
@@ -394,13 +415,15 @@ void RenderSystem::doStepToneMapping()
 	mSupportFbo.draw();
 }
 
-void RenderSystem::doStepShading(Camera const& cam,Input const& input)
+void RenderSystem::doStepShading(Camera const& cam, Camera const &camLight,Input const& input)
 {
 
 	vec2 resolution = vec2(mCfg.ResolutionX, mCfg.ResolutionY);
 	vec2 resolution_2 = vec2(mCfg.ResolutionX / 2.0f, mCfg.ResolutionY / 2.0f);
 	mat4 projection = cam.getProjection();
 	mat4 view = cam.getView();
+	mat4 invView = inverse(view);
+	mat4 viewLight= (camLight.getView());
 
 	glBindFramebuffer(GL_FRAMEBUFFER, mFboShading.getId());
 	glDrawBuffers(2, mAttach);
@@ -428,7 +451,14 @@ void RenderSystem::doStepShading(Camera const& cam,Input const& input)
 	glBindTexture(GL_TEXTURE_2D, !input.getKey(SDL_SCANCODE_F5) ? mFboBlurV.getColorBufferId(0) : mFboAo.getColorBufferId(0));
 	glUniform1i(mShaderDeferredFinal.getLocation("aoSampler"), 3);
 
+	glActiveTexture(GL_TEXTURE4);
+	glBindTexture(GL_TEXTURE_2D, mFboLight.getColorBufferId(0));
+	glUniform1i(mShaderDeferredFinal.getLocation("shadowSampler"), 4);
+
 	glUniformMatrix4fv(mShaderDeferredFinal.getLocation("projection"), 1, GL_FALSE, value_ptr(projection));
+	glUniformMatrix4fv(mShaderDeferredFinal.getLocation("projectionLight"), 1, GL_FALSE, value_ptr(camLight.getProjection()));
+	glUniformMatrix4fv(mShaderDeferredFinal.getLocation("viewLight"), 1, GL_FALSE, value_ptr(viewLight));
+	glUniformMatrix4fv(mShaderDeferredFinal.getLocation("invView"), 1, GL_FALSE, value_ptr(invView));
 	glUniformMatrix4fv(mShaderDeferredFinal.getLocation("view"), 1, GL_FALSE, value_ptr(view));
 	glUniform1f(mShaderDeferredFinal.getLocation("time"), 0);
 	glUniform1i(mShaderDeferredFinal.getLocation("keyF1"), input.getKey(SDL_SCANCODE_F1));
@@ -440,6 +470,8 @@ void RenderSystem::doStepShading(Camera const& cam,Input const& input)
 	glUniform1i(mShaderDeferredFinal.getLocation("keyF7"), input.getKey(SDL_SCANCODE_F7));
 	glUniform1i(mShaderDeferredFinal.getLocation("keyF8"), input.getKey(SDL_SCANCODE_F8));
 	glUniform1i(mShaderDeferredFinal.getLocation("keyF9"), input.getKey(SDL_SCANCODE_F9));
+	glUniform1i(mShaderDeferredFinal.getLocation("keyF10"), input.getKey(SDL_SCANCODE_F10));
+	glUniform1i(mShaderDeferredFinal.getLocation("AO"), mCfg.AO);
 	glUniform2fv(mShaderDeferredFinal.getLocation("resolution"), 1, value_ptr(resolution));
 	mSupportFbo.draw();
 }
@@ -491,4 +523,29 @@ void RenderSystem::doStepGeometry(Camera const &cam, std::vector<Entity*> entiti
 		mRm->getVao(entity->getGraphicComponent()->getVaoId())->draw();
 	}
 
+}
+
+void RenderSystem::doStepLight(Camera const &cam, std::vector<Entity*> entities)
+{
+
+	glBindFramebuffer(GL_FRAMEBUFFER, mFboLight.getId());
+	glViewport(0, 0, 1024*4, 1024*4);
+	glDrawBuffers(1, mAttach);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glUseProgram(mShaderLight.getProgramID());
+	glDisable(GL_BLEND);
+	
+	glUniformMatrix4fv(mShaderLight.getLocation("projection"), 1, GL_FALSE, value_ptr(cam.getProjection()));
+
+	mat4 view = cam.getView();
+	mat4 modelview;
+	for (int i = 0; i < entities.size(); i++) {
+		Entity* entity = entities[i];
+		modelview = view*entity->getPhysicComponent()->getStateComponent()->getModel();
+		glUniformMatrix4fv(mShaderLight.getLocation("modelview"), 1, GL_FALSE, value_ptr(modelview));
+		mRm->getVao(entity->getGraphicComponent()->getVaoId())->draw();
+	}
+
+	mSupportFbo.draw();
+	glViewport(0, 0, mCfg.ResolutionX, mCfg.ResolutionY);
 }

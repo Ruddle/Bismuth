@@ -24,8 +24,10 @@
 
 struct Config
 {
+	int FullScreen;
 	int ResolutionX;
 	int ResolutionY;
+	int AO;
 	int HalfAO;
 };
 

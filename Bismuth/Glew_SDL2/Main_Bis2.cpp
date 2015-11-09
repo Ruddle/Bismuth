@@ -1,3 +1,4 @@
+#pragma once
 #include "SDL.h"
 #include <iostream>
 #include "glew.h"
@@ -24,18 +25,18 @@ using namespace glm;
 using namespace std;
 
 
-FILE _iob[] = { *stdin, *stdout, *stderr };
-extern "C" FILE * __cdecl __iob_func(void)
-{
-	return _iob;
-}
+//FILE _iob[] = { *stdin, *stdout, *stderr };
+//extern "C" FILE * __cdecl __iob_func(void)
+//{
+//	return _iob;
+//}
 
 
 
 int main(int argc, char **argv)
 {
 	Config cfg = readConfig(); // Misc.cpp
-	Scene_SDL* currentScene = new Scene_SDL(cfg.ResolutionX, cfg.ResolutionY);
+	Scene_SDL* currentScene = new Scene_SDL(cfg.ResolutionX,cfg.ResolutionY,cfg.FullScreen);
 	Camera* cam = new Camera(70.0, (float) cfg.ResolutionX/cfg.ResolutionY, 0.3, 100.0);
 	ResourcesManager* rm = new ResourcesManager();
 	Entity* entityA = createSphere(rm);// Misc.cpp

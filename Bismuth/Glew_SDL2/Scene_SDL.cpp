@@ -2,7 +2,7 @@
 
 
 using namespace std;
-Scene_SDL::Scene_SDL(int w, int h) : mLastTime(0)
+Scene_SDL::Scene_SDL(int w, int h, int fullscreen) : mLastTime(0)
 {
 	cout << "Creation    : Scene_SDL" << endl;
 	
@@ -32,13 +32,24 @@ Scene_SDL::Scene_SDL(int w, int h) : mLastTime(0)
 
 	//	SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1);
 	//	SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 8);
+
+	if(fullscreen)
 	mWindow = SDL_CreateWindow(
 		"Bismuth Engine",
 		10,
 		30,
 		w,
 		h,
-		SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL );
+		SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN);
+	else
+		mWindow = SDL_CreateWindow(
+			"Bismuth Engine",
+			10,
+			30,
+			w,
+			h,
+			SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL);
+
 
 	if (mWindow)
 	mEvent = new SDL_Event();

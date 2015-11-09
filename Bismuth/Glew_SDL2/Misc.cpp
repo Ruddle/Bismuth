@@ -40,6 +40,13 @@ Config readConfig(void) {
 		if (word1 == "HalfAO")
 			cfg.HalfAO = stoi(word2);
 
+		if (word1 == "FullScreen")
+			cfg.FullScreen = stoi(word2);
+
+		if (word1 == "AO")
+			cfg.AO = stoi(word2);
+		
+
 	}
 	return cfg;
 }

@@ -1,4 +1,6 @@
 #pragma once
+#include "Misc.h"
+
 #include "SDL.h"
 #include <stdio.h>
 #include <iostream>
@@ -12,7 +14,7 @@
 class Scene_SDL
 {
 public:
-	Scene_SDL(int w,int h);
+	Scene_SDL(int w,int h,int fullscreen);
 	~Scene_SDL();
 
 	double waitForFps(double fpsTarget);

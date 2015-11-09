@@ -8,7 +8,11 @@ uniform sampler2D gNormal;
 uniform sampler2D gDiffuse;
 uniform sampler2D gPosition;
 uniform sampler2D aoSampler;
+uniform sampler2D shadowSampler;
 uniform mat4 view;
+uniform mat4 invView;
+uniform mat4 viewLight;
+uniform mat4 projectionLight;
 uniform float time;
 uniform vec2 resolution;
 uniform float aspect;
@@ -24,6 +28,8 @@ uniform bool keyF6;
 uniform bool keyF7;
 uniform bool keyF8;
 uniform bool keyF9;
+uniform bool keyF10;
+uniform int AO;
 
 
 struct Light
@@ -75,10 +81,6 @@ float Cook_Torrance(vec3 lightDirection, vec3 eyeDir, vec3 normal, float roughne
 	return specular;
 }
 
-
-
-
-
 void main()
 {
 
@@ -96,7 +98,35 @@ float emit = normal.z;
 vec3 diffuse = texture(gDiffuse, UV).xyz;
 float ao = texture(aoSampler,UV).x;
 
+if(AO!=1) 
+ao=1;
+
 float specFactor =texture(gDiffuse, UV).a;
+
+//SHADOW
+vec4 positionFromCam_WorldSpace = invView*vec4(position_ViewSpace,1);
+vec4 positionFromCam_ViewLightSpace = viewLight *positionFromCam_WorldSpace;
+vec4 positionFromCam_ScreenLightSpace = projectionLight*positionFromCam_ViewLightSpace;
+positionFromCam_ScreenLightSpace /= positionFromCam_ScreenLightSpace.w; 
+vec2 offset  = (positionFromCam_ScreenLightSpace).xy;
+offset = (offset*0.5) +0.5;
+
+
+//float depth = -texture(shadowSampler,offset).x ;
+float depth= 0 ;
+float shadows=0;
+float scale = -0.0001;
+float shadow=0;
+
+
+for(float xAxis=-3;xAxis<4;xAxis++){
+	for(float yAxis=-3;yAxis<4;yAxis++){
+	depth= -texture(shadowSampler,offset+ vec2(xAxis,yAxis)*scale ).x;
+	shadow =   depth - positionFromCam_ViewLightSpace.z -0.1 ;
+	shadows += (shadow>0 )? 1:0;
+}}
+
+shadows/= 7*7;
 
 
 for(int k=0;k<2;k++){
@@ -107,11 +137,10 @@ for(int k=0;k<2;k++){
 	alpha = clamp(alpha,0,1);
 	float attenuation = 1/( 1 + pow( dist/300.0,2)  );
 	
-	lighting += 0.03*diffuse+    1*(attenuation) * (alpha)*diffuse*lights[k].intensity*(1+1*specFactor*Cook_Torrance(-i,normalize(-position_ViewSpace),normal,0.25,0.8));
+	lighting += 0.03*diffuse+    (1-shadows*0.5)*(attenuation) * (alpha)*diffuse*lights[k].intensity*(1+1*specFactor*Cook_Torrance(-i,normalize(-position_ViewSpace),normal,0.25,0.8));
 }
 
 if(!keyF4) lighting=lighting*(ao*2-1);
-
 
 if(keyF1) lighting = normal;
 if(keyF2) lighting = position_ViewSpace*vec3(1,1,-1);
@@ -130,11 +159,9 @@ outColor = outBloom;
 }
 if(keyF9) outColor = vec3(specFactor);
 
-
-if(keyF1 || keyF2|| keyF3|| keyF6|| keyF7|| keyF8 ||keyF9)
+if(keyF1 || keyF2|| keyF3|| keyF6|| keyF7|| keyF8 ||keyF9 ||keyF10)
 outBloom = vec3(0);
 
-
-
-
+if(keyF10) outColor = vec3(pow(texture(shadowSampler,UV).x,1)/50.0);
+if(keyF10) outColor = vec3(shadows);
 }
