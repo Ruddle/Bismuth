@@ -239,6 +239,7 @@
     <None Include="Shader\defPass1.vert" />
     <None Include="Shader\defPassN.frag" />
     <None Include="Shader\defPassN.vert" />
+    <None Include="Shader\FXAA.frag" />
     <None Include="Shader\light.frag" />
     <None Include="Shader\light.vert" />
     <None Include="Shader\tone.frag" />

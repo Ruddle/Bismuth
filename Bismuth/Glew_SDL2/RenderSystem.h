@@ -37,6 +37,7 @@ private:
 	void doStepMotionBlur(float fps);
 	void doStepToneMapping();
 	void doStepShading(Camera const& cam, Camera const &camLight, Input const& input);
+	void doStepFXAA();
 
 	Config mCfg;
 	Fbo mFboGeometry;
@@ -57,6 +58,7 @@ private:
 	Shader mShaderBlurBilateral;
 	Shader mShaderDeferredFinal;
 	Shader mShaderTone;
+	Shader mShaderFXAA;
 
 	GLuint mTextureNoiseId;
 	std::vector<glm::vec3> mKernel;

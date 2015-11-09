@@ -125,8 +125,13 @@ RenderSystem::RenderSystem(Config cfg, ResourcesManager* rm) : mCfg(cfg), mRm(rm
 	mShaderTone = Shader("Shader/defPassN.vert", "Shader/tone.frag");
 	mShaderTone.load();
 
+	mShaderFXAA = Shader("Shader/defPassN.vert", "Shader/FXAA.frag");
+	mShaderFXAA.load();
+
 	mSupportFbo = Vao2D();
 	mSupportFbo.load();
+
+
 
 
 	//Texture de bruit pour l'occlusion ambiante
@@ -190,6 +195,7 @@ void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float t
 	doStepBloom();
 	doStepToneMapping();
 	doStepMotionBlur(fps);
+	doStepFXAA();
 
 	mLastViewProjection = cam.getProjection()*cam.getView();
 }
@@ -392,13 +398,14 @@ void RenderSystem::doStepMotionBlur(float fps)
 
 
 	//Motion Blur 3
-	glBindFramebuffer(GL_FRAMEBUFFER, 0);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glBindFramebuffer(GL_FRAMEBUFFER, mFboShading.getId());
+	glClear(GL_COLOR_BUFFER_BIT );
 	glUseProgram(mShaderBlurDir.getProgramID());
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, mFboShading2.getColorBufferId(0));
 	glUniform1f(mShaderBlurDir.getLocation("size"), 0.0);
 	mSupportFbo.draw();
+
 }
 
 void RenderSystem::doStepToneMapping()
@@ -548,4 +555,18 @@ void RenderSystem::doStepLight(Camera const &cam, std::vector<Entity*> entities)
 
 	mSupportFbo.draw();
 	glViewport(0, 0, mCfg.ResolutionX, mCfg.ResolutionY);
+}
+
+void RenderSystem::doStepFXAA() {
+
+	//Motion Blur 3
+	glBindFramebuffer(GL_FRAMEBUFFER,0);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glUseProgram(mShaderFXAA.getProgramID());
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, mFboShading.getColorBufferId(0));
+	glUniform1i(mShaderBlurDir.getLocation("image"), 0);
+	mSupportFbo.draw();
+
+
 }
