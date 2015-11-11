@@ -95,6 +95,7 @@ vec3 normal = vec3(texture(gNormal, UV).rgb);
 float emit = normal.z;
     normal.z= sqrt(1.0 - normal.x*normal.x - normal.y*normal.y); 
 
+
 vec3 diffuse = texture(gDiffuse, UV).xyz;
 float ao = texture(aoSampler,UV).x;
 

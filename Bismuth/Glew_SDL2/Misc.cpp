@@ -71,10 +71,10 @@ Entity* createSphere(ResourcesManager* rm) {
 
 Entity* createPlane(ResourcesManager* rm) {
 	GraphicComponent* gc1 = new GraphicComponent(
-		rm->loadTexture("Texture/rock.png", GL_RGB8, GL_NEAREST, GL_REPEAT), 
-		rm->loadTexture("Texture/rock_N.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
-		rm->loadTexture("Texture/rock.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
-		rm->loadTexture("Texture/BLACK.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
+		rm->loadTexture("Texture/rock.png", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),
+		rm->loadTexture("Texture/rock_N.png", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),
+		rm->loadTexture("Texture/rock.png", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),
+		rm->loadTexture("Texture/BLACK.png", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),
 		rm->loadVao("Mesh/plane.obj"));
 	SphereDetectionComponent* dc1 = new SphereDetectionComponent(1);
 	StateComponent* sc1 = new StateComponent();

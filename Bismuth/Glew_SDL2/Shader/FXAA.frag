@@ -18,8 +18,6 @@ uniform vec2 resolution;
     #define FXAA_SPAN_MAX     8.0
 #endif
 
-//optimized version for mobile, where dependent 
-//texture reads can be a bottleneck
 vec4 fxaa(sampler2D tex, vec2 fragCoord, vec2 resolution,
             vec2 v_rgbNW, vec2 v_rgbNE, 
             vec2 v_rgbSW, vec2 v_rgbSE, 
