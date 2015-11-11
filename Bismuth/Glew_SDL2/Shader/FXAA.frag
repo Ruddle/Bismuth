@@ -75,9 +75,12 @@ void main()
 
 
 vec3 blur = texture( image, UV ).rgb ;
-outColor =		fxaa(image,gl_FragCoord.xy, vec2(1600,900),   vec2(-1,1), vec2(1,1), vec2(-1,-1), vec2(1,-1), vec2(0,0) );
 
-if (gl_FragCoord.x>800)
+vec2 resolution = vec2(1600,900);
+
+outColor =		fxaa(image,gl_FragCoord.xy,resolution, UV+  vec2(-1,1)/resolution,UV+ vec2(1,1)/resolution,UV+ vec2(-1,-1)/resolution,UV+ vec2(1,-1)/resolution,UV );
+
+if (gl_FragCoord.x>8000)
 outColor = vec4(blur,1);
 
 }
