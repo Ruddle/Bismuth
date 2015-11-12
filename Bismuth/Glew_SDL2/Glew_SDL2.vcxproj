@@ -175,6 +175,8 @@
     <ClCompile Include="SphereDetectionComponent.cpp" />
     <ClCompile Include="StateComponent.cpp" />
     <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="Texture_Abs.cpp" />
+    <ClCompile Include="Texture_Cube.cpp" />
     <ClCompile Include="Vao.cpp" />
     <ClCompile Include="Vao2D.cpp" />
   </ItemGroup>
@@ -200,6 +202,8 @@
     <ClInclude Include="SphereDetectionComponent.h" />
     <ClInclude Include="StateComponent.h" />
     <ClInclude Include="Texture.h" />
+    <ClInclude Include="Texture_Abs.h" />
+    <ClInclude Include="Texture_Cube.h" />
     <ClInclude Include="Vao.h" />
     <ClInclude Include="Vao2D.h" />
   </ItemGroup>
@@ -227,6 +231,7 @@
     </Object>
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram.cd" />
     <None Include="config.ini" />
     <None Include="Shader\AO.frag" />
     <None Include="Shader\AO2.frag" />

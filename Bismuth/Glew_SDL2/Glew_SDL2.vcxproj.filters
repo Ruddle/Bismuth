@@ -30,9 +30,6 @@
     <ClCompile Include="Shader.cpp">
       <Filter>Bis 1</Filter>
     </ClCompile>
-    <ClCompile Include="Texture.cpp">
-      <Filter>Bis 1</Filter>
-    </ClCompile>
     <ClCompile Include="Vao.cpp">
       <Filter>Bis 1</Filter>
     </ClCompile>
@@ -87,6 +84,15 @@
     <ClCompile Include="Camera.cpp">
       <Filter>Bis 3</Filter>
     </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Bis 1\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture_Abs.cpp">
+      <Filter>Bis 1\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture_Cube.cpp">
+      <Filter>Bis 1\Texture</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h">
@@ -99,9 +105,6 @@
       <Filter>Bis 1</Filter>
     </ClInclude>
     <ClInclude Include="Shader.h">
-      <Filter>Bis 1</Filter>
-    </ClInclude>
-    <ClInclude Include="Texture.h">
       <Filter>Bis 1</Filter>
     </ClInclude>
     <ClInclude Include="Vao.h">
@@ -151,6 +154,15 @@
     </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>Bis 3</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture_Cube.h">
+      <Filter>Bis 1\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Bis 1\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture_Abs.h">
+      <Filter>Bis 1\Texture</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -243,6 +255,7 @@
     <None Include="Shader\FXAA.frag">
       <Filter>Shader</Filter>
     </None>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Bis 1">
@@ -277,6 +290,9 @@
     </Filter>
     <Filter Include="Resources\Mesh">
       <UniqueIdentifier>{8a2a77a9-d88b-4f2e-a1b7-763916faed40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bis 1\Texture">
+      <UniqueIdentifier>{69ae750b-2c55-4aa7-9b56-87549bf4de8d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

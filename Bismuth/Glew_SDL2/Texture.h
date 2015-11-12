@@ -4,16 +4,11 @@
 #include <iostream>
 #include "SDL.h"
 #include "SDL_image.h"
-
-struct TextureCfg
-{
-	GLenum format;
-	GLenum filter;
-	GLenum wrap;
-};
+#include "Texture_Abs.h"
 
 
-class Texture
+
+class Texture : public Texture_Abs
 {
 public:
 	Texture(std::string path, TextureCfg cfg);
@@ -23,23 +18,5 @@ public:
 	void load();
 	void loadFromPath();
 	void loadFromVoid();
-	
-
-	GLuint getId() { return mId; }
-	int getW() { return mW; }
-	int getH() { return mH; }
-	std::string getPath() const { return mPath; }
-	TextureCfg getCfg() const { return mCfg; }
-
-
-	SDL_Surface* invertPixels(SDL_Surface *src) const;
-
-private:
-
-	GLuint mId;
-	std::string mPath;
-	TextureCfg mCfg;
-	int mW;
-	int mH;
 };
 

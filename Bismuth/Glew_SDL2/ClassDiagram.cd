@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Fbo" Collapsed="true">
+    <Position X="16.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AhAAEAgAAIAAAiAAQAAAAgAAAAAAAABAAAQAAAhAAAA=</HashCode>
+      <FileName>Fbo.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Input" Collapsed="true">
+    <Position X="11.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CBAAQAAHABAAAAgAjAAAAAAAEAAAAAgRoBAAAGAEAAA=</HashCode>
+      <FileName>Input.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Shader" Collapsed="true">
+    <Position X="11.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAIAAAAIAIAAAQAgAAABAAAAIAAAAAAIBAAgGAAAAAA=</HashCode>
+      <FileName>Shader.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Texture" Collapsed="true">
+    <Position X="11.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIIAAgAAAAAAAAAAAAAAAABAAAAIAAAAAAAA=</HashCode>
+      <FileName>Texture.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Vao" Collapsed="true">
+    <Position X="9.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAACIKAAAAAAAIICQMAEAAAAAAAAAAAAABCAkA=</HashCode>
+      <FileName>Vao.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Vao2D" Collapsed="true">
+    <Position X="11.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAgAIAAAAAAIAAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>Vao2D.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Texture_Cube" Collapsed="true">
+    <Position X="14.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAIAEAAAA=</HashCode>
+      <FileName>Texture_Cube.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GraphicComponent" Collapsed="true">
+    <Position X="9.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAACCAAAAAAAAAACAABEAAIAAAAEAIAAAAAgQAABA=</HashCode>
+      <FileName>GraphicComponent.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RenderSystem" Collapsed="true">
+    <Position X="14.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAABUggBAAAAiUAIAAIgMECIiIABgAgCoAAGAAAQQAA=</HashCode>
+      <FileName>RenderSystem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ResourcesManager" Collapsed="true">
+    <Position X="16.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAIAABACAAgBAAAAAACBAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ResourcesManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Scene_SDL" Collapsed="true">
+    <Position X="9.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAgAAAAAAAAYAAAAQAAAAAAAAAEAAgAIAAAAAAAABA=</HashCode>
+      <FileName>Scene_SDL.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DetectionComponent" Collapsed="true">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAEAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAQCAAA=</HashCode>
+      <FileName>DetectionComponent.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PhysicComponent" Collapsed="true">
+    <Position X="13" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAICCAABAAAAAABAQAAAAAAAAACCAIAgAAAAAAAAAAA=</HashCode>
+      <FileName>PhysicComponent.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RayDetectionComponent" Collapsed="true">
+    <Position X="4.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAABAAAACAAAAAAAAAAAAAAAAAQCAAA=</HashCode>
+      <FileName>RayDetectionComponent.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SphereDetectionComponent" Collapsed="true">
+    <Position X="7" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACABAAEAAAAAAAAIAAAACAAAAAAAAAAAAAAAAAQCAAA=</HashCode>
+      <FileName>SphereDetectionComponent.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StateComponent" Collapsed="true">
+    <Position X="13" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgEKIAAhACIIQBAAAAAABICGYkBCCACAAQCwIQEEgA=</HashCode>
+      <FileName>StateComponent.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Camera" Collapsed="true">
+    <Position X="11.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAGIMAAhgEAAgCAQAAAAQACCAEAAAECABCAQBAEQgA=</HashCode>
+      <FileName>Camera.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entity" Collapsed="true">
+    <Position X="13" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EggAUAAAAAAAAAAAACAAAAAAACAIAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Entity.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EntityManager" Collapsed="true">
+    <Position X="14.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABgAAAAAAAAAAAABEAAAAAAAAAQAAAAAAAAAAGAAA=</HashCode>
+      <FileName>EntityManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ball" Collapsed="true">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAEAIA=</HashCode>
+      <FileName>Ball.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Texture_Abs" Collapsed="true">
+    <Position X="13" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAEAAAAIACAgAAAAAIAEIACAAAAABBAAAAAAAIQAA=</HashCode>
+      <FileName>Texture_Abs.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="Contact" Collapsed="true">
+    <Position X="11.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAgAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Contact.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Config" Collapsed="true">
+    <Position X="9.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAYAIAAAAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Misc.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="TextureCfg" Collapsed="true">
+    <Position X="13" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAGAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Texture_Abs.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
