@@ -559,13 +559,15 @@ void RenderSystem::doStepLight(Camera const &cam, std::vector<Entity*> entities)
 
 void RenderSystem::doStepFXAA() {
 
-	//Motion Blur 3
+	vec2 resolution = vec2(mCfg.ResolutionX, mCfg.ResolutionY);
+
 	glBindFramebuffer(GL_FRAMEBUFFER,0);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glUseProgram(mShaderFXAA.getProgramID());
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, mFboShading.getColorBufferId(0));
-	glUniform1i(mShaderBlurDir.getLocation("image"), 0);
+	glUniform1i(mShaderFXAA.getLocation("image"), 0);
+	glUniform2fv(mShaderFXAA.getLocation("resolution"), 1, value_ptr(resolution));
 	mSupportFbo.draw();
 
 

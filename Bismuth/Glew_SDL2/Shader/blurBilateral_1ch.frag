@@ -16,13 +16,27 @@ uniform float size;
  float offset[3] = float[]( 0.0, 1.3846153846+size, 3.2307692308+size*2 );
  float weight[3] = float[]( 0.2270270270, 0.3162162162, 0.0702702703 );
 
+ 
+vec3 decodeNormal(vec2 enc){
+	vec3 normal;
+	 vec2 fenc = enc.xy*4.0;
+    float f = dot(fenc,fenc);
+    float g = sqrt(1-f/4);
+    normal.xy = fenc*g;
+    normal.z = 1-f/2;
+	normal = normalize(normal);
+	return normal;
+}
+
 
 void main()
 {
 
 vec3 normal = vec3(texture(gNormal, UV).rg,0);
-normal.z= sqrt(1.0 - normal.x*normal.x - normal.y*normal.y); 
-normal = normalize(normal);
+normal = decodeNormal(normal.xy);
+
+//normal.z= sqrt(1.0 - normal.x*normal.x - normal.y*normal.y); 
+//normal = normalize(normal);
 
 float depth = texture(gPosition, UV).r ;
 
@@ -42,7 +56,8 @@ float blur = texture( image, UV ).r * weight[0];
 		depthDiff = depth - texture(gPosition,UV+ offsetVec).r ;
 		weightDepth = 1 / (epsilon + abs(depthDiff*depthDiff)); 
 		normalOffset = vec3(texture(gNormal,  UV+ offsetVec).rg,0);
-		normalOffset.z= sqrt(1.0 - normalOffset.x*normalOffset.x - normalOffset.y*normalOffset.y); 
+		normalOffset = decodeNormal(normalOffset.xy);
+		//normalOffset.z= sqrt(1.0 - normalOffset.x*normalOffset.x - normalOffset.y*normalOffset.y); 
 		weightNormal = dot(normal, normalize(normalOffset));
 		weightNormal = pow(weightNormal,8);
 		weightNormal = max(0.1,weightNormal);
@@ -52,7 +67,8 @@ float blur = texture( image, UV ).r * weight[0];
 		depthDiff = depth - texture(gPosition, UV- offsetVec).r ;
 		weightDepth = 1 / (epsilon + abs(depthDiff*depthDiff)); 
 		normalOffset = vec3(texture(gNormal,   UV- offsetVec).rg,0);
-		normalOffset.z= sqrt(1.0 - normalOffset.x*normalOffset.x - normalOffset.y*normalOffset.y); 
+		normalOffset = decodeNormal(normalOffset.xy);
+		//normalOffset.z= sqrt(1.0 - normalOffset.x*normalOffset.x - normalOffset.y*normalOffset.y); 
 		weightNormal = dot(normal, normalize(normalOffset));
 		weightNormal = pow(weightNormal,8);
 		weightNormal = max(0.1,weightNormal);

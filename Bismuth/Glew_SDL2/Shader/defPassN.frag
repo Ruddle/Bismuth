@@ -40,6 +40,16 @@ struct Light
 
 const Light lights[2] = Light[2](  Light(vec3(10,-4,1),vec3(1,0.9,0.8))  ,   Light(vec3(-10,-4,10),vec3(0.8,0.9,1))  );
 
+vec3 decodeNormal(vec2 enc){
+	vec3 normal;
+	 vec2 fenc = enc.xy*4.0;
+    float f = dot(fenc,fenc);
+    float g = sqrt(1-f/4);
+    normal.xy = fenc*g;
+    normal.z = 1-f/2;
+	normal = normalize(normal);
+	return normal;
+}
 
 
 float Cook_Torrance(vec3 lightDirection, vec3 eyeDir, vec3 normal, float roughnessValue , float F0){
@@ -93,7 +103,10 @@ vec3 position_ViewSpace ;
 
 vec3 normal = vec3(texture(gNormal, UV).rgb);
 float emit = normal.z;
-    normal.z= sqrt(1.0 - normal.x*normal.x - normal.y*normal.y); 
+
+normal = decodeNormal(normal.xy);
+
+  //  normal.z= sqrt(1.0 - normal.x*normal.x - normal.y*normal.y); 
 
 
 vec3 diffuse = texture(gDiffuse, UV).xyz;

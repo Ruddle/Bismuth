@@ -35,7 +35,12 @@ void main()
 
 	mat3 TBN = mat3(T,B,gNormal);
 
-	gNormal = normalize(TBN*texture_n +0*varNormal );
+	gNormal = normalize(TBN*texture_n +1*varNormal );
+
+	//TEST ENCODAGE
+	float p = sqrt(gNormal.z*8+8);
+    gNormal = vec3(gNormal.xy/p,0);
+	//TEST ENCODAGE FIN
 	gNormal.z = texture(texture_emit, UV).x;
 	gPosition = -varPosition.z;
 

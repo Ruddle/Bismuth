@@ -51,6 +51,19 @@ float random( vec2 f ) {
     return r2 - 1.0;
 }
 
+vec3 decodeNormal(vec2 enc){
+	vec3 normal;
+	 vec2 fenc = enc.xy*4.0;
+    float f = dot(fenc,fenc);
+    float g = sqrt(1-f/4);
+    normal.xy = fenc*g;
+    normal.z = 1-f/2;
+	normal = normalize(normal);
+	return normal;
+}
+
+
+
 float doAO(int numPass,vec3 position,vec3 normal,float radius) {
 
 	float ao=0;
@@ -100,7 +113,8 @@ vec3 position_ViewSpace ;
 	position_ViewSpace.y = -(UV.y*2-1)*position_ViewSpace.z *tanHalfFov ;
 
 vec3 normal = vec3(texture(gNormal, UV).rg,0);
-				normal.z= sqrt(1.0 - normal.x*normal.x - normal.y*normal.y); 
+	normal = decodeNormal(normal.xy);
+	//normal.z= sqrt(1.0 - normal.x*normal.x - normal.y*normal.y); 
 
 
 float ao = doAO(NUMPASS,position_ViewSpace,normal,RADIUS);
