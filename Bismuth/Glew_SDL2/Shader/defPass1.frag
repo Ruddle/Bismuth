@@ -35,7 +35,7 @@ void main()
 
 	mat3 TBN = mat3(T,B,gNormal);
 
-	gNormal = normalize(TBN*texture_n +1*varNormal );
+	gNormal = normalize(TBN*texture_n +1.5*varNormal );
 
 	//TEST ENCODAGE
 	float p = sqrt(gNormal.z*8+8);

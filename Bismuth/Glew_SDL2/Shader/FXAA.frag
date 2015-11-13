@@ -3,7 +3,7 @@
 in vec2 UV;
 out vec4 outColor;
 
-
+uniform float time;
 uniform sampler2D image;
 uniform vec2 resolution;
 

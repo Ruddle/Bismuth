@@ -12,7 +12,7 @@ Texture_Cube::~Texture_Cube()
 }
 
 
-Texture_Cube::load()
+void Texture_Cube::load()
 {
 	// Chargement de l'image dans une surface SDL
 

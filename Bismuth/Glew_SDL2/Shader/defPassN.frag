@@ -168,6 +168,9 @@ float brightness = dot(outColor, vec3(0.2126, 0.7152, 0.0722));
 
 outBloom = (brightness >1) ? outColor:vec3(0) ;
 
+outColor =  (brightness >0) ? outColor:vec3(0);
+
+
 if(keyF8) {
 outColor = outBloom;
 }

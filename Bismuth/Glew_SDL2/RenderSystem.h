@@ -37,7 +37,7 @@ private:
 	void doStepMotionBlur(float fps);
 	void doStepToneMapping();
 	void doStepShading(Camera const& cam, Camera const &camLight, Input const& input);
-	void doStepFXAA();
+	void doStepFXAA(float time);
 
 	Config mCfg;
 	Fbo mFboGeometry;

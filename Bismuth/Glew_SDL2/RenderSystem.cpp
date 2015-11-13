@@ -178,7 +178,7 @@ RenderSystem::~RenderSystem()
 
 
 void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float time,Input &input,float fps) {
-	time = 0.0f;
+
 
 	Camera cam2 = Camera(70, 1.0, 100, 300);
 	cam2.setPosition(vec3(-100, -40, 100));
@@ -195,7 +195,7 @@ void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float t
 	doStepBloom();
 	doStepToneMapping();
 	doStepMotionBlur(fps);
-	doStepFXAA();
+	doStepFXAA(time);
 
 	mLastViewProjection = cam.getProjection()*cam.getView();
 }
@@ -557,7 +557,7 @@ void RenderSystem::doStepLight(Camera const &cam, std::vector<Entity*> entities)
 	glViewport(0, 0, mCfg.ResolutionX, mCfg.ResolutionY);
 }
 
-void RenderSystem::doStepFXAA() {
+void RenderSystem::doStepFXAA(float time) {
 
 	vec2 resolution = vec2(mCfg.ResolutionX, mCfg.ResolutionY);
 
@@ -567,6 +567,7 @@ void RenderSystem::doStepFXAA() {
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, mFboShading.getColorBufferId(0));
 	glUniform1i(mShaderFXAA.getLocation("image"), 0);
+	glUniform1f(mShaderFXAA.getLocation("time"), time);
 	glUniform2fv(mShaderFXAA.getLocation("resolution"), 1, value_ptr(resolution));
 	mSupportFbo.draw();
 
