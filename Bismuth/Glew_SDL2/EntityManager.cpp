@@ -46,9 +46,12 @@ void EntityManager::collision()
 	}
 }
 
-void EntityManager::collisionResponse()
+void EntityManager::collisionResponse(float timestep)
 {
-
+	for (int i = 0; i < mEntity.size(); i++)
+	{
+		mEntity[i]->getPhysicComponent()->collisionResponse(timestep);
+	}
 }
 
 
