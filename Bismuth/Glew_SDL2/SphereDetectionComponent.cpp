@@ -49,13 +49,17 @@ Contact* SphereDetectionComponent::getCollisionOnRay(glm::vec3 pos1, glm::vec3 r
 
 Contact* SphereDetectionComponent::getCollisionOnSphere(glm::vec3 pos1, glm::vec3 rot1, glm::vec3 pos2, glm::vec3 rot2, DetectionComponent *detComp2)
 {
-	if (mRadius2 + ((SphereDetectionComponent*)detComp2)->mRadius2 <= dot(pos1-pos2,pos1-pos2))
+	float radius2_2 = ((SphereDetectionComponent*)detComp2)->mRadius2;
+
+	float r1 = sqrt(mRadius2);
+	float r2 = sqrt(radius2_2);
+
+	if (r1 + r2 <= length(pos1-pos2))
 	return nullptr;
 	
 	Contact* result = new Contact;
 
-	float r1 = sqrt(mRadius2);
-	float r2 = sqrt(((SphereDetectionComponent*)detComp2)->mRadius2);
+	
 
 	result->position = (r2*pos1 + r1*pos2) / (r1 + r2);
 	result->normal = normalize(pos2 - pos1)*((r2+r1)-length(pos2-pos1));

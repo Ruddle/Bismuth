@@ -14,7 +14,7 @@ Ball::Ball(EntityManager* em,ResourcesManager* rm,glm::vec3 position, glm::vec3 
 		rm->loadTexture("Texture/rock_n.png", GL_RGB8, GL_LINEAR, GL_REPEAT),
 		rm->loadTexture("Texture/rock.png", GL_RGB8, GL_LINEAR, GL_REPEAT),
 		rm->loadTexture("Texture/BLACK.png", GL_RGB8, GL_LINEAR, GL_REPEAT),*/
-		rm->loadVao("Mesh/cube.obj"));
+		rm->loadVao("Mesh/sphere.obj"));
 
 
 		
@@ -52,20 +52,8 @@ void Ball::update()
 	std::set<Contact*> contact = mEntity->getPhysicComponent()->getContact();
 
 	for (std::set<Contact*>::iterator it = contact.begin(); it != contact.end(); it++)
-	{
-		
+	{	
 		sc->force( -(*it)->normal *0.01f);
 		sc->setPosition(sc->getPosition() - (*it)->normal/2.0f);
-
-
 	}
-
-
-	
-		
-
-
-
-
-
 }
