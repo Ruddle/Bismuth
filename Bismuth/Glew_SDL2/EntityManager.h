@@ -17,6 +17,7 @@ public:
 
 	void update(float elapsedTime);
 	void collision();
+	void collisionResponse();
 
 	void add(Entity* entity);
 	std::vector<Entity*> getEntities() { return mEntity; }

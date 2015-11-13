@@ -46,6 +46,11 @@ void EntityManager::collision()
 	}
 }
 
+void EntityManager::collisionResponse()
+{
+
+}
+
 
 void EntityManager::add(Entity* entity)
 {

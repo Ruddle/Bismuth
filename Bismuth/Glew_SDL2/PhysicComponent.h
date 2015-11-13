@@ -14,6 +14,8 @@ public :
     PhysicComponent(DetectionComponent* detectionComponent, StateComponent* stateComponent);
     ~PhysicComponent();
     void getCollision(PhysicComponent* phyComp2);
+	void collisionResponse(float timestep);
+	void responseToContact(Contact *contact);
 
 	DetectionComponent* getDetectionComponent(){ return mDetectionComponent; }
 	StateComponent* getStateComponent(){ return mStateComponent; }
