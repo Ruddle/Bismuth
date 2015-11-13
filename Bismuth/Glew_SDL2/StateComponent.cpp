@@ -3,7 +3,8 @@
 using namespace glm;
 
 
-StateComponent::StateComponent() : mHasCollision(true), mHasForce(true), mHasGravity(true), mHasTorque(true), mHasUpdate(true), mIsSleeping(false),
+StateComponent::StateComponent() : mHasDetection(true),mHasResponse(true), mHasForce(true), mHasGravity(true), mHasTorque(true),
+									mHasUpdate(true), mIsSleeping(false),
 									mPosition(0), mPositionDiff(0), mRotation(0), mRotationDiff(0),
 									mMass(1),mInertia(1), mModel(0), mLastModel(0)
 {

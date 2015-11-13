@@ -31,7 +31,8 @@ public:
 	glm::vec3 getPositionPast(float ms) { return mPosition - mPositionDiff*ms; }
 	glm::vec3 getRotationPast(float ms) { return mRotation - mRotationDiff*ms; }
 
-	bool hasCollision() { return mHasCollision; }
+	bool hasDetection() { return mHasDetection; }
+	bool hasResponse() { return mHasResponse; }
 	bool hasGravity() { return mHasGravity; }
 	bool hasUpdate() { return mHasUpdate; }
 	bool hasTorque() { return mHasTorque; }
@@ -56,7 +57,8 @@ private:
 	glm::vec3 mRotation;
 	glm::vec3 mRotationDiff;
 
-	bool mHasCollision;
+	bool mHasDetection;
+	bool mHasResponse;
 	bool mHasGravity;
 	bool mHasUpdate;
 	bool mHasTorque;

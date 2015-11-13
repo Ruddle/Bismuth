@@ -69,6 +69,7 @@ int main(int argc, char **argv)
 		if(!input.getKey(SDL_SCANCODE_F11))
 		entityManager->update(float(elapsedTime));
 		entityManager->collision();
+		entityManager->collisionResponse();
 		if (time % 1 == 0) {
 			renderSystem->draw(entityManager->getEntities(), *cam, time, input, float(fps));
 			currentScene->flip();
