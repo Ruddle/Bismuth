@@ -14,7 +14,7 @@ PhysicComponent::~PhysicComponent()
 
 void PhysicComponent::getCollision(PhysicComponent* phyComp2)
 {
-	if (mStateComponent->hasCollision() && phyComp2->getStateComponent()->hasCollision())
+	if (mStateComponent->hasDetection() && phyComp2->getStateComponent()->hasDetection())
 	{
 
 		Contact* contact = mDetectionComponent->getCollision(mStateComponent->getPosition(), mStateComponent->getRotation(),
@@ -66,6 +66,8 @@ void PhysicComponent::responseToContact(Contact *contact)
 
 	sc1->setPositionDiff(sc1->getPositionDiff() - (jr / sc1->getMass())*contact->normal);
 	sc1->setRotationDiff(sc1->getRotationDiff() - jr*invI1*cross(sc1->getPosition(), contact->normal));
+
+	sc1->setPosition(sc1->getPosition() - (sc2->getMass() / (sc1->getMass() + sc2->getMass()))*contact->normal);
 }
 
 void PhysicComponent::collisionResponse(float timestep)
@@ -79,5 +81,6 @@ void PhysicComponent::collisionResponse(float timestep)
 	else
 	{
 		// Fuck it
+		responseToContact(*mContact.begin());
 	}
 }

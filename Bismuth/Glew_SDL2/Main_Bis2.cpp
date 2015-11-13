@@ -45,9 +45,9 @@ int main(int argc, char **argv)
 	entityA->getPhysicComponent()->getStateComponent()->setRotationDiff(vec3(0, 0, 0.01));
 	entityC->getPhysicComponent()->getStateComponent()->setPosition(vec3(2, 0, 1));
 	EntityManager* entityManager = new EntityManager();
-	entityManager->add(entityA);
+	//entityManager->add(entityA);
 	entityManager->add(entityB);
-	entityManager->add(entityC);
+	//entityManager->add(entityC);
 
 	RenderSystem *renderSystem = new RenderSystem(cfg, rm);
 	Input input;
@@ -69,7 +69,7 @@ int main(int argc, char **argv)
 		if(!input.getKey(SDL_SCANCODE_F11))
 		entityManager->update(float(elapsedTime));
 		entityManager->collision();
-		entityManager->collisionResponse();
+		entityManager->collisionResponse(elapsedTime);
 		if (time % 1 == 0) {
 			renderSystem->draw(entityManager->getEntities(), *cam, time, input, float(fps));
 			currentScene->flip();
