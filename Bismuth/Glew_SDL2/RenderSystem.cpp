@@ -187,7 +187,8 @@ void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float t
 
 	doStepGeometry(cam,entities);
 	doStepLight(cam2, entities);
-	if (mCfg.AO == 1) {
+	if (mCfg.AO == 1) 
+	{
 		doStepAo(cam);
 		doStepBlurAo();
 	}

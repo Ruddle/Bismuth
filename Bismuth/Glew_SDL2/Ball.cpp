@@ -52,20 +52,8 @@ void Ball::update()
 	std::set<Contact*> contact = mEntity->getPhysicComponent()->getContact();
 
 	for (std::set<Contact*>::iterator it = contact.begin(); it != contact.end(); it++)
-	{
-		
+	{	
 		sc->force( -(*it)->normal *0.01f);
 		sc->setPosition(sc->getPosition() - (*it)->normal/2.0f);
-
-
 	}
-
-
-	
-		
-
-
-
-
-
 }

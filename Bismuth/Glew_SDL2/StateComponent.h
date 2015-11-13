@@ -25,11 +25,17 @@ public:
 	glm::vec3 getRotation() { return mRotation; }
 	glm::vec3 getRotationDiff() { return mRotationDiff; }
 
+	float getMass() { return mMass; }
+	glm::mat3 getInertia() { return mInertia; }
+
+	glm::vec3 getPositionPast(float ms) { return mPosition - mPositionDiff*ms; }
+	glm::vec3 getRotationPast(float ms) { return mRotation - mRotationDiff*ms; }
+
 	bool hasCollision() { return mHasCollision; }
 	bool hasGravity() { return mHasGravity; }
 	bool hasUpdate() { return mHasUpdate; }
 	bool hasTorque() { return mHasTorque; }
-	bool hasForc() { return mHasForce; }
+	bool hasForce() { return mHasForce; }
 	bool isSleeping() { return mIsSleeping; }
 
 	void setPosition(glm::vec3 value) { mPosition = value; }
