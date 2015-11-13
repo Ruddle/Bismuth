@@ -51,16 +51,10 @@
     <ClCompile Include="Main_Test_Physique.cpp">
       <Filter>Temp</Filter>
     </ClCompile>
-    <ClCompile Include="RayDetectionComponent.cpp">
-      <Filter>Bis 2\Physic</Filter>
-    </ClCompile>
     <ClCompile Include="PhysicComponent.cpp">
       <Filter>Bis 2\Physic</Filter>
     </ClCompile>
     <ClCompile Include="DetectionComponent.cpp">
-      <Filter>Bis 2\Physic</Filter>
-    </ClCompile>
-    <ClCompile Include="SphereDetectionComponent.cpp">
       <Filter>Bis 2\Physic</Filter>
     </ClCompile>
     <ClCompile Include="StateComponent.cpp">
@@ -93,6 +87,15 @@
     <ClCompile Include="Texture_Cube.cpp">
       <Filter>Bis 1\Texture</Filter>
     </ClCompile>
+    <ClCompile Include="CubeDetectionComponent.cpp">
+      <Filter>Bis 2\Physic\DetectionComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="RayDetectionComponent.cpp">
+      <Filter>Bis 2\Physic\DetectionComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="SphereDetectionComponent.cpp">
+      <Filter>Bis 2\Physic\DetectionComponent</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h">
@@ -119,16 +122,10 @@
     <ClInclude Include="EntityManager.h">
       <Filter>Bis 3</Filter>
     </ClInclude>
-    <ClInclude Include="RayDetectionComponent.h">
-      <Filter>Bis 2\Physic</Filter>
-    </ClInclude>
     <ClInclude Include="PhysicComponent.h">
       <Filter>Bis 2\Physic</Filter>
     </ClInclude>
     <ClInclude Include="DetectionComponent.h">
-      <Filter>Bis 2\Physic</Filter>
-    </ClInclude>
-    <ClInclude Include="SphereDetectionComponent.h">
       <Filter>Bis 2\Physic</Filter>
     </ClInclude>
     <ClInclude Include="StateComponent.h">
@@ -163,6 +160,15 @@
     </ClInclude>
     <ClInclude Include="Texture_Abs.h">
       <Filter>Bis 1\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="CubeDetectionComponent.h">
+      <Filter>Bis 2\Physic\DetectionComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="SphereDetectionComponent.h">
+      <Filter>Bis 2\Physic\DetectionComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="RayDetectionComponent.h">
+      <Filter>Bis 2\Physic\DetectionComponent</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -293,6 +299,9 @@
     </Filter>
     <Filter Include="Bis 1\Texture">
       <UniqueIdentifier>{69ae750b-2c55-4aa7-9b56-87549bf4de8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bis 2\Physic\DetectionComponent">
+      <UniqueIdentifier>{7a2e8313-059b-4b86-9107-98c8750ef6c0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

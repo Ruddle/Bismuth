@@ -91,11 +91,12 @@
       <FileName>PhysicComponent.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="RayDetectionComponent" Collapsed="true">
+  <Class Name="CubeDetectionComponent" Collapsed="true">
     <Position X="4.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAEAAAAAAAABAAAACAAAAAAAAAAAAAAAAAQCAAA=</HashCode>
-      <FileName>RayDetectionComponent.h</FileName>
+      <HashCode>AYAAAAEAAAAAAAAAAAAACAAAAAAAAAAAAQAAAAQCAAA=</HashCode>
+      <FileName>CubeDetectionComponent.h</FileName>
+      <NewMemberFileName>RayDetectionComponent.h</NewMemberFileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SphereDetectionComponent" Collapsed="true">
@@ -108,7 +109,7 @@
   <Class Name="StateComponent" Collapsed="true">
     <Position X="13" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAgEKIAAhACIIQBAAAAAABICGYkBCCACAAQCwIQEEgA=</HashCode>
+      <HashCode>AAgEqMAAhACIIQhAAAAAABICGYkBCCACAEQCQIQEEgA=</HashCode>
       <FileName>StateComponent.h</FileName>
     </TypeIdentifier>
   </Class>
