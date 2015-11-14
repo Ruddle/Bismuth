@@ -20,6 +20,7 @@ public:
 
 	int getShape() { return CUBE; }
 
+	glm::vec3 getSize() { return glm::vec3(mSizeX, mSizeY, mSizeZ); }
 
 
 private:
