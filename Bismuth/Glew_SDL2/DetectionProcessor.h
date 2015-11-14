@@ -52,7 +52,7 @@ public:
 
 private :
 
-	static Contact* reverse(Contact* c) { c->normal = -c->normal; return c; }
+	static Contact* reverse(Contact* c) { if (c == nullptr) return nullptr; c->normal = -c->normal; return c; }
 
 };
 
