@@ -11,6 +11,6 @@ class DetectionComponent
 public :
     enum Shape {CUBE, SPHERE, RAY, PLANE};
    
-	virtual int getShape() = 0;
+	virtual Shape getShape() const = 0;
 
 };

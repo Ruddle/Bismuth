@@ -11,7 +11,7 @@ public:
 	DetectionProcessor();
 	~DetectionProcessor();
 
-	Contact* detection(DetectionComponent::Shape const& a, DetectionComponent::Shape const& b,
+	Contact* detection(DetectionComponent const& a, DetectionComponent const& b,
 	    glm::vec3 pos1, glm::vec3 rot1,
 		glm::vec3 pos2, glm::vec3 rot2);
 

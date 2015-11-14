@@ -2,6 +2,7 @@
 
 using namespace glm;
 
+
 DetectionProcessor::DetectionProcessor()
 {
 }
@@ -11,9 +12,122 @@ DetectionProcessor::~DetectionProcessor()
 {
 }
 
-Contact * DetectionProcessor::detection(DetectionComponent::Shape const& a, DetectionComponent::Shape const& b,
+Contact * DetectionProcessor::detection(DetectionComponent const& a, DetectionComponent const& b,
 	glm::vec3 pos1, glm::vec3 rot1, glm::vec3 pos2, glm::vec3 rot2)
 {
+	
+
+	switch (a.getShape()) {
+
+	case DetectionComponent::CUBE:
+		
+		switch (b.getShape()) {
+		case DetectionComponent::CUBE:
+			return cubeToCube(a, b, pos1, rot1, pos2, rot2);
+			break;
+
+		case DetectionComponent::PLANE:
+			// Code
+			break;
+
+		case DetectionComponent::SPHERE:
+			// Code
+			break;
+
+		case DetectionComponent::RAY:
+			// Code
+			break;
+
+		default:
+			// Code
+			break;
+		}
+		break;
+
+	case DetectionComponent::PLANE:
+		
+
+		switch (b.getShape()) {
+		case DetectionComponent::CUBE:
+			// Code
+			break;
+
+		case DetectionComponent::PLANE:
+			// Code
+			break;
+
+		case DetectionComponent::SPHERE:
+			// Code
+			break;
+
+		case DetectionComponent::RAY:
+			// Code
+			break;
+
+		default:
+			// Code
+			break;
+		}
+
+		break;
+
+	case DetectionComponent::SPHERE:
+		switch (b.getShape()) {
+		case DetectionComponent::CUBE:
+			// Code
+			break;
+
+		case DetectionComponent::PLANE:
+			// Code
+			break;
+
+		case DetectionComponent::SPHERE:
+			// Code
+			break;
+
+		case DetectionComponent::RAY:
+			// Code
+			break;
+
+		default:
+			// Code
+			break;
+		}
+		break;
+
+	case DetectionComponent::RAY:
+		switch (b.getShape()) {
+		case DetectionComponent::CUBE:
+			// Code
+			break;
+
+		case DetectionComponent::PLANE:
+			// Code
+			break;
+
+		case DetectionComponent::SPHERE:
+			// Code
+			break;
+
+		case DetectionComponent::RAY:
+			// Code
+			break;
+
+		default:
+			// Code
+			break;
+		}
+		break;
+
+
+	default:
+		// Code
+		break;
+	}
+	
+	
+	
+	
 	return nullptr;
 }
 

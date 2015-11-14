@@ -12,7 +12,7 @@ public:
 	PlaneDetectionComponent(float sizeX, float sizeY);
 	~PlaneDetectionComponent();
 
-	int getShape() const { return PLANE; }
+	Shape getShape() const { return PLANE; }
 	float getSizeX() const { return mSizeX; }
 	float getSizeY() const { return mSizeY; }
 
