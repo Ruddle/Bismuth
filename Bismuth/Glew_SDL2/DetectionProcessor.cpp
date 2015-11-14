@@ -49,7 +49,7 @@ Contact * DetectionProcessor::detection(DetectionComponent * a, DetectionCompone
 
 		switch (b->getShape()) {
 		case DetectionComponent::CUBE:
-			return  reverse(cubeToPlane((CubeDetectionComponent*)b, (PlaneDetectionComponent*)a, pos1, rot1, pos2, rot2));
+			return  reverse(cubeToPlane((CubeDetectionComponent*)b, (PlaneDetectionComponent*)a, pos2, rot2, pos1, rot1));
 			break;
 
 		case DetectionComponent::PLANE:
@@ -74,11 +74,11 @@ Contact * DetectionProcessor::detection(DetectionComponent * a, DetectionCompone
 	case DetectionComponent::SPHERE:
 		switch (b->getShape()) {
 		case DetectionComponent::CUBE:
-			return  reverse(cubeToSphere((CubeDetectionComponent*)b, (SphereDetectionComponent*)a, pos1, rot1, pos2, rot2));
+			return  reverse(cubeToSphere((CubeDetectionComponent*)b, (SphereDetectionComponent*)a, pos2, rot2, pos1, rot1));
 			break;
 
 		case DetectionComponent::PLANE:
-			return  reverse(planeToSphere((PlaneDetectionComponent*)b, (SphereDetectionComponent*)a, pos1, rot1, pos2, rot2));
+			return  reverse(planeToSphere((PlaneDetectionComponent*)b, (SphereDetectionComponent*)a, pos2, rot2, pos1, rot1));
 			break;
 
 		case DetectionComponent::SPHERE:
@@ -98,15 +98,15 @@ Contact * DetectionProcessor::detection(DetectionComponent * a, DetectionCompone
 	case DetectionComponent::RAY:
 		switch (b->getShape()) {
 		case DetectionComponent::CUBE:
-			return  reverse(cubeToRay((CubeDetectionComponent*)b, (RayDetectionComponent*)a, pos1, rot1, pos2, rot2));
+			return  reverse(cubeToRay((CubeDetectionComponent*)b, (RayDetectionComponent*)a, pos2, rot2, pos1, rot1));
 			break;
 
 		case DetectionComponent::PLANE:
-			return  reverse(planeToRay((PlaneDetectionComponent*)b, (RayDetectionComponent*)a, pos1, rot1, pos2, rot2));
+			return  reverse(planeToRay((PlaneDetectionComponent*)b, (RayDetectionComponent*)a, pos2, rot2, pos1, rot1));
 			break;
 
 		case DetectionComponent::SPHERE:
-			return  reverse(cubeToSphere((CubeDetectionComponent*)b, (SphereDetectionComponent*)a, pos1, rot1, pos2, rot2));
+			return  reverse(cubeToSphere((CubeDetectionComponent*)b, (SphereDetectionComponent*)a, pos2, rot2, pos1, rot1));
 			break;
 
 		case DetectionComponent::RAY:
@@ -170,18 +170,27 @@ Contact * DetectionProcessor::cubeToSphere(CubeDetectionComponent * cube, Sphere
 		closestPoint.z = -half.z;
 
 
-	vec3 relativePosSphereTOclosestPoint = normalize(relativePosSphere - closestPoint);
-	relativePosSphereTOclosestPoint *= radius;
 
-	vec3 pointMaxDepth = relativePosSphere + relativePosSphereTOclosestPoint;
 
 	if (radius - length(relativePosSphere - closestPoint)>0)
 	{
-		vec3 p_CubeSpace = (pointMaxDepth + closestPoint) / 2.0f;
+		vec3 relativePosSphereTOclosestPoint = -normalize(relativePosSphere - closestPoint);
+		relativePosSphereTOclosestPoint *= radius;
+
+		vec3 pointMaxDepth = relativePosSphere + relativePosSphereTOclosestPoint;
+
+		/*vec3 p_CubeSpace = (pointMaxDepth + closestPoint) / 2.0f;
 		vec3 n_CubeSpace = closestPoint - pointMaxDepth;
 
 		vec3 p_WorldSpace = vec3(toWorldSpace*vec4(p_CubeSpace, 1.0));
-		vec3 n_WorldSpace = vec3(toWorldSpace*vec4(n_CubeSpace, 1.0));
+		vec3 n_WorldSpace = vec3(toWorldSpace*vec4(n_CubeSpace, 1.0));*/
+
+		vec3 closestPoint_WorldSpace = vec3(toWorldSpace*vec4(closestPoint, 1.0));
+		vec3 pointMaxDepth_WorldSpace = vec3(toWorldSpace*vec4(pointMaxDepth, 1.0));
+
+
+		vec3 p_WorldSpace = (pointMaxDepth + closestPoint) / 2.0f;
+		vec3 n_WorldSpace = closestPoint - pointMaxDepth;
 
 		result = new Contact();
 		result->normal = n_WorldSpace;
