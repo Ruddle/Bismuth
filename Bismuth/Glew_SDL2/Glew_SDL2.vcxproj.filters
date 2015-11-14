@@ -99,6 +99,9 @@
     <ClCompile Include="PlaneDetectionComponent.cpp">
       <Filter>Bis 2\Physic\DetectionComponent</Filter>
     </ClCompile>
+    <ClCompile Include="Cube.cpp">
+      <Filter>Bis 4</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h">
@@ -175,6 +178,9 @@
     </ClInclude>
     <ClInclude Include="PlaneDetectionComponent.h">
       <Filter>Bis 2\Physic\DetectionComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="Cube.h">
+      <Filter>Bis 4</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

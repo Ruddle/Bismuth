@@ -19,6 +19,7 @@
 #include "SphereDetectionComponent.h"
 #include "RenderSystem.h"
 #include "Ball.h"
+#include "Cube.h"
 
 
 using namespace glm;
@@ -55,6 +56,7 @@ int main(int argc, char **argv)
 
 
 	vector<Ball*> listBall = vector<Ball*>();
+	vector<Cube*> listCube = vector<Cube*>();
 	double fps = 60;
 
 	while (!input.end()) {
@@ -67,7 +69,16 @@ int main(int argc, char **argv)
 		cam->update(input, elapsedTime);
 		
 		if(!input.getKey(SDL_SCANCODE_F11))
-		entityManager->update(float(elapsedTime));
+		{
+			entityManager->update(float(elapsedTime));
+
+			for (int i = 0; i < listBall.size(); i++)
+				listBall[i]->update();
+
+			for (int i = 0; i < listCube.size(); i++)
+				listCube[i]->update();
+		}
+		
 
 		for (int i = 0; i < 10; i++) {
 			entityManager->collision();
@@ -84,9 +95,9 @@ int main(int argc, char **argv)
 		if (input.getRisingKey(SDL_SCANCODE_K))
 		listBall.push_back(  new Ball(entityManager, rm, cam->getPosition(), 0.00951f*cam->getRotation()) );
 
-		for (int i = 0; i < listBall.size(); i++)
-			listBall[i]->update();
-
+		if (input.getRisingKey(SDL_SCANCODE_L))
+		listCube.push_back(  new Cube(entityManager, rm, cam->getPosition(), 0.00951f*cam->getRotation()));
+	
 	}
 
 	delete cam;

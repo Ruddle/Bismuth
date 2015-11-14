@@ -1,25 +1,25 @@
-#include "Ball.h"
+#include "Cube.h"
 
 using namespace glm;
 
 
-Ball::Ball(EntityManager* em,ResourcesManager* rm,glm::vec3 position, glm::vec3 speed)
+Cube::Cube(EntityManager* em, ResourcesManager* rm, glm::vec3 position, glm::vec3 speed)
 {
 	GraphicComponent* gc1 = new GraphicComponent(
 		rm->loadTexture("Texture/circleColor.png", GL_RGB8, GL_LINEAR, GL_REPEAT),
 		rm->loadTexture("Texture/BLUE.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
 		rm->loadTexture("Texture/checker2C.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
 		rm->loadTexture("Texture/circle.png", GL_RGB8, GL_LINEAR, GL_REPEAT),
-	/*	rm->loadTexture("Texture/rock.png", GL_RGB8, GL_LINEAR, GL_REPEAT),
+		/*	rm->loadTexture("Texture/rock.png", GL_RGB8, GL_LINEAR, GL_REPEAT),
 		rm->loadTexture("Texture/rock_n.png", GL_RGB8, GL_LINEAR, GL_REPEAT),
 		rm->loadTexture("Texture/rock.png", GL_RGB8, GL_LINEAR, GL_REPEAT),
 		rm->loadTexture("Texture/BLACK.png", GL_RGB8, GL_LINEAR, GL_REPEAT),*/
-		rm->loadVao("Mesh/sphere.obj"));
+		rm->loadVao("Mesh/cube.obj"));
 
 
-		
 
-	SphereDetectionComponent* dc1 = new SphereDetectionComponent(1);
+
+	CubeDetectionComponent* dc1 = new CubeDetectionComponent(2,2,2);
 	StateComponent* sc1 = new StateComponent();
 	sc1->setPosition(position);
 	sc1->setPositionDiff(speed);
@@ -31,11 +31,11 @@ Ball::Ball(EntityManager* em,ResourcesManager* rm,glm::vec3 position, glm::vec3 
 	em->add(mEntity);
 }
 
-Ball::~Ball()
+Cube::~Cube()
 {
 }
 
-void Ball::update()
+void Cube::update()
 {
 	StateComponent* sc = mEntity->getPhysicComponent()->getStateComponent();
 

@@ -5,20 +5,19 @@
 #include "Contact.h"
 #include "PhysicComponent.h"
 #include "ResourcesManager.h"
-#include "SphereDetectionComponent.h"
 #include "CubeDetectionComponent.h"
 #include "EntityManager.h"
 
 
-class Ball
+class Cube
 {
 public:
-	Ball(EntityManager* em,ResourcesManager* rm, glm::vec3 position, glm::vec3 speed);
-	~Ball();
+	Cube(EntityManager* em, ResourcesManager* rm, glm::vec3 position, glm::vec3 speed);
+	~Cube();
 
 	void update();
 
-private: 
+private:
 	Entity* mEntity;
 };
 

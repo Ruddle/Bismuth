@@ -12,7 +12,7 @@ SphereDetectionComponent::~SphereDetectionComponent()
 
 }
 
-Contact* SphereDetectionComponent::getCollisionOnRay(glm::vec3 pos1, glm::vec3 rot1, glm::vec3 pos2, glm::vec3 rot2, DetectionComponent *detComp2)
+Contact* SphereDetectionComponent::getCollision(glm::vec3 pos1, glm::vec3 rot1, glm::vec3 pos2, glm::vec3 rot2, RayDetectionComponent *detComp2)
 {
 	vec3 &s = pos1;
 	vec3 L1 = pos2;
@@ -47,9 +47,9 @@ Contact* SphereDetectionComponent::getCollisionOnRay(glm::vec3 pos1, glm::vec3 r
 
 }
 
-Contact* SphereDetectionComponent::getCollisionOnSphere(glm::vec3 pos1, glm::vec3 rot1, glm::vec3 pos2, glm::vec3 rot2, DetectionComponent *detComp2)
+Contact* SphereDetectionComponent::getCollision(glm::vec3 pos1, glm::vec3 rot1, glm::vec3 pos2, glm::vec3 rot2, SphereDetectionComponent *detComp2)
 {
-	float radius2_2 = ((SphereDetectionComponent*)detComp2)->mRadius2;
+	float radius2_2 = (detComp2)->mRadius2;
 
 	float r1 = sqrt(mRadius2);
 	float r2 = sqrt(radius2_2);
@@ -67,18 +67,18 @@ Contact* SphereDetectionComponent::getCollisionOnSphere(glm::vec3 pos1, glm::vec
 	return result;
 }
 
-Contact* SphereDetectionComponent::getCollisionOnPlane(glm::vec3 pos1, glm::vec3 rot1, glm::vec3 pos2, glm::vec3 rot2, DetectionComponent *detComp2)
+Contact* SphereDetectionComponent::getCollision(glm::vec3 pos1, glm::vec3 rot1, glm::vec3 pos2, glm::vec3 rot2, PlaneDetectionComponent *detComp2)
 {
-	Contact* result = detComp2->getCollisionOnRay(pos2, rot2, pos1, rot1, this);
+	Contact* result = detComp2->getCollision(pos2, rot2, pos1, rot1, this);
 	result->normal = -result->normal;
 	return result;
 }
 
 
 
-Contact* SphereDetectionComponent::getCollisionOnCube(glm::vec3 pos1, glm::vec3 rot1, glm::vec3 pos2, glm::vec3 rot2, DetectionComponent *detComp2)
+Contact* SphereDetectionComponent::getCollision(glm::vec3 pos1, glm::vec3 rot1, glm::vec3 pos2, glm::vec3 rot2, CubeDetectionComponent *detComp2)
 {
-	Contact* result = detComp2->getCollisionOnRay(pos2, rot2, pos1, rot1, this);
+	Contact* result = ((CubeDetectionComponent*)detComp2)->getCollision(pos2, rot2, pos1, rot1, this);
 	result->normal = -result->normal;
 	return result;
 }
