@@ -102,6 +102,9 @@
     <ClCompile Include="Cube.cpp">
       <Filter>Bis 4</Filter>
     </ClCompile>
+    <ClCompile Include="DetectionProcessor.cpp">
+      <Filter>Bis 2\Physic</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h">
@@ -181,6 +184,9 @@
     </ClInclude>
     <ClInclude Include="Cube.h">
       <Filter>Bis 4</Filter>
+    </ClInclude>
+    <ClInclude Include="DetectionProcessor.h">
+      <Filter>Bis 2\Physic</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

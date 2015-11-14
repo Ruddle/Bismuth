@@ -153,6 +153,7 @@
     <ClCompile Include="Cube.cpp" />
     <ClCompile Include="CubeDetectionComponent.cpp" />
     <ClCompile Include="DetectionComponent.cpp" />
+    <ClCompile Include="DetectionProcessor.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="EntityManager.cpp" />
     <ClCompile Include="Fbo.cpp" />
@@ -190,6 +191,7 @@
     <ClInclude Include="Cube.h" />
     <ClInclude Include="CubeDetectionComponent.h" />
     <ClInclude Include="DetectionComponent.h" />
+    <ClInclude Include="DetectionProcessor.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="EntityManager.h" />
     <ClInclude Include="Fbo.h" />

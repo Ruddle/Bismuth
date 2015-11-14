@@ -4,8 +4,7 @@
 #include "Contact.h"
 #include "glm\gtx\rotate_vector.hpp"
 #include "glm.hpp"
-#include "SphereDetectionComponent.h"
-#include "RayDetectionComponent.h"
+
 
 class CubeDetectionComponent : public DetectionComponent
 {
@@ -25,6 +24,4 @@ private:
 	float mSizeX;
 	float mSizeY;
 	float mSizeZ;
-
-
 };

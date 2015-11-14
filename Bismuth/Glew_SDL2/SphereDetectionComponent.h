@@ -3,9 +3,7 @@
 #include "DetectionComponent.h"
 #include "Contact.h"
 #include "glm\gtx\rotate_vector.hpp"
-#include "CubeDetectionComponent.h"
-#include "SphereDetectionComponent.h"
-#include "PlaneDetectionComponent.h"
+
 
 class SphereDetectionComponent : public DetectionComponent
 {
