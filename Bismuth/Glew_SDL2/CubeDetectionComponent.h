@@ -4,7 +4,6 @@
 #include "glm\gtx\rotate_vector.hpp"
 #include "glm.hpp"
 
-
 class CubeDetectionComponent : public DetectionComponent
 {
 

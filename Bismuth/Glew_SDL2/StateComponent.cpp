@@ -1,4 +1,6 @@
 #include "StateComponent.h"
+#include "glm.hpp"
+#include "glm\gtx\rotate_vector.hpp"
 
 using namespace glm;
 
