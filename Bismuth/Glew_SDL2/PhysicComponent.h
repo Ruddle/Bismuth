@@ -2,13 +2,19 @@
 #include "DetectionComponent.h"
 #include "StateComponent.h"
 #include "DetectionProcessor.h"
-#include "Contact.h"
+
 #include <set>
 #include "glm.hpp"
 
 class DetectionComponent;
 class StateComponent;
-struct Contact;
+
+struct Contact
+{
+	glm::vec3 position;
+	glm::vec3 normal;
+	PhysicComponent* who;
+};
 
 class PhysicComponent
 {

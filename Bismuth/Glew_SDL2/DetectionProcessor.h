@@ -4,6 +4,7 @@
 #include "SphereDetectionComponent.h"
 #include "PlaneDetectionComponent.h"
 #include "CubeDetectionComponent.h"
+#include "PhysicComponent.h"
 #include "glm.hpp"
 
 class DetectionProcessor

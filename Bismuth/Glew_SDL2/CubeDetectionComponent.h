@@ -1,7 +1,6 @@
 #pragma once
 
 #include "DetectionComponent.h"
-#include "Contact.h"
 #include "glm\gtx\rotate_vector.hpp"
 #include "glm.hpp"
 
