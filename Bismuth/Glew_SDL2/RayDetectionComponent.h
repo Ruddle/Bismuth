@@ -10,7 +10,7 @@ class RayDetectionComponent : public DetectionComponent
 public:
 	RayDetectionComponent();
 	~RayDetectionComponent();
-	int getShape() const { return RAY; }
+	Shape getShape() const { return RAY; }
 
 private:
 

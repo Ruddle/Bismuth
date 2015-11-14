@@ -13,7 +13,7 @@ public:
 	CubeDetectionComponent(float sizeX, float sizeY, float sizeZ);
 	~CubeDetectionComponent();
 
-	int getShape() const { return CUBE; }
+	Shape getShape() const { return CUBE; }
 
 	glm::vec3 getSize() const {return glm::vec3(mSizeX, mSizeY, mSizeZ); }
 

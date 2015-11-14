@@ -13,7 +13,7 @@ public:
 	~SphereDetectionComponent();
 	
 
-	int getShape() const {return SPHERE;}
+	Shape getShape() const {return SPHERE;}
 	float getRadius2() const { return mRadius2; }
 
 private:
