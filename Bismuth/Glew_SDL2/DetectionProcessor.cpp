@@ -190,9 +190,8 @@ Contact * DetectionProcessor::cubeToSphere(CubeDetectionComponent * cube, Sphere
 		vec3 closestPoint_WorldSpace = vec3(toWorldSpace*vec4(closestPoint, 1.0));
 		vec3 pointMaxDepth_WorldSpace = vec3(toWorldSpace*vec4(pointMaxDepth, 1.0));
 
-
-		vec3 p_WorldSpace = (pointMaxDepth + closestPoint) / 2.0f;
-		vec3 n_WorldSpace = closestPoint - pointMaxDepth;
+		vec3 p_WorldSpace = (pointMaxDepth_WorldSpace + closestPoint_WorldSpace) / 2.0f;
+		vec3 n_WorldSpace = closestPoint_WorldSpace - pointMaxDepth_WorldSpace;
 
 		result = new Contact();
 		result->normal = n_WorldSpace;
