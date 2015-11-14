@@ -13,14 +13,9 @@ public:
 	CubeDetectionComponent(float sizeX, float sizeY, float sizeZ);
 	~CubeDetectionComponent();
 
-	Contact* getCollision(glm::vec3 pos1, glm::vec3 rot1, glm::vec3 pos2, glm::vec3 rot2, RayDetectionComponent *detComp2);
-	Contact* getCollision(glm::vec3 pos1, glm::vec3 rot1, glm::vec3 pos2, glm::vec3 rot2, SphereDetectionComponent *detComp2);
-	Contact* getCollision(glm::vec3 pos1, glm::vec3 rot1, glm::vec3 pos2, glm::vec3 rot2, PlaneDetectionComponent *detComp2);
-	Contact* getCollision(glm::vec3 pos1, glm::vec3 rot1, glm::vec3 pos2, glm::vec3 rot2, CubeDetectionComponent *detComp2);
+	int getShape() const { return CUBE; }
 
-	int getShape() { return CUBE; }
-
-	glm::vec3 getSize() { return glm::vec3(mSizeX, mSizeY, mSizeZ); }
+	glm::vec3 getSize() const {return glm::vec3(mSizeX, mSizeY, mSizeZ); }
 
 
 private:
