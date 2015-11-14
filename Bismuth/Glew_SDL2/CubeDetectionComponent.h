@@ -20,6 +20,8 @@ public:
 
 	int getShape() { return CUBE; }
 
+
+
 private:
 	float mSizeX;
 	float mSizeY;
