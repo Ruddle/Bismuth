@@ -243,18 +243,13 @@ Contact * DetectionProcessor::cubeToPlane(CubeDetectionComponent * cube, PlaneDe
 
 		// Projete orthogonal de v sur le plan
 		vec3 pv = dot(v, planeVX)*planeVX + dot(v, planeVY)*planeVY;
-		normal = pv - v;
+		normal = v - pv;
 		vec3 pvPlaneRef = vec3(invRotMatPlane*rotMatCube*vec4(pv, 1.0f));
 
-		/*if (dot(normal, vertices[i]) > 0)
-			std::cout << "Ok" << std::endl;*/
+		float w = plane->getSizeX(), h = plane->getSizeY();
 
-		if(i == 0)
-			std::cout << dot(normal, vec3(planeNorm)) << " " << pvPlaneRef.x << " " << pvPlaneRef.y << std::endl;
-
-		if (dot(normal, vec3(planeNorm)) < 0 && pvPlaneRef.x > -s.x / 2 && pvPlaneRef.x < s.x / 2
-			&& pvPlaneRef.y > -s.y / 2 && pvPlaneRef.y < s.y / 2
-			&& pvPlaneRef.z > -s.z / 2 && pvPlaneRef.z < s.z / 2)
+		if (dot(normal, vec3(planeNorm)) < 0 && pvPlaneRef.x > -w/2 / 2 && pvPlaneRef.x < w / 2
+			&& pvPlaneRef.y > -h / 2 && pvPlaneRef.y < h / 2)
 		{
 			Contact *contact = new Contact;
 			contact->normal = vec3(rotMatCube*vec4(normal, 1.0f));
