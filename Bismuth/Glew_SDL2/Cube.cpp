@@ -23,6 +23,9 @@ Cube::Cube(EntityManager* em, ResourcesManager* rm, glm::vec3 position, glm::vec
 	StateComponent* sc1 = new StateComponent();
 	sc1->setPosition(position);
 	sc1->setPositionDiff(speed);
+
+	sc1->setRotation(vec3(10.0f, 10.0f, 0.0f));
+
 	PhysicComponent* pc1 = new PhysicComponent(dc1, sc1);
 
 	mEntity = new Entity(gc1, pc1);
