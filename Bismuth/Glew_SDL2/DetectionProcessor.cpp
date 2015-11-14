@@ -214,11 +214,11 @@ Contact * DetectionProcessor::cubeToPlane(CubeDetectionComponent * cube, PlaneDe
 
 	mat4 rotMatCube = rotate(rot1.x, vec3(1, 0, 0)) *rotate(rot1.y, vec3(0, 1, 0))*rotate(rot1.z, vec3(0, 0, 1));
 	mat4 transMatCube = translate(pos1);
-	mat4 invRotMatCube = rotate(-rot1.z, vec3(0, 0, 0)) * rotate(-rot1.y, vec3(0, 1, 0))*rotate(-rot1.x, vec3(1, 0, 0));
+	mat4 invRotMatCube = rotate(-rot1.z, vec3(0, 0, 1)) * rotate(-rot1.y, vec3(0, 1, 0))*rotate(-rot1.x, vec3(1, 0, 0));
 	mat4 invTransMatCube = translate(-pos1);
 
 	mat4 rotMatPlane = rotate(rot2.x, vec3(1, 0, 0)) *rotate(rot2.y, vec3(0, 1, 0))*rotate(rot2.z, vec3(0, 0, 1));
-	mat4 invRotMatPlane = rotate(-rot2.z, vec3(0, 0, 0)) * rotate(-rot2.y, vec3(0, 1, 0))*rotate(-rot2.x, vec3(1, 0, 0));
+	mat4 invRotMatPlane = rotate(-rot2.z, vec3(0, 0, 1)) * rotate(-rot2.y, vec3(0, 1, 0))*rotate(-rot2.x, vec3(1, 0, 0));
 
 	// Normale du plan
 	vec4 planeNorm = rotMatPlane*vec4(0.0f, 0.0f, 1.0f, 1.0f);
@@ -235,18 +235,19 @@ Contact * DetectionProcessor::cubeToPlane(CubeDetectionComponent * cube, PlaneDe
 
 	vec3 normal;
 
-	//std::cout << "-----" << std::endl;
 
 	for (int i = 0; i < 8; i++)
 	{
 		vec3 v = vertices[i] - vec3(pos2CubeRef);
+
 
 		// Projete orthogonal de v sur le plan
 		vec3 pv = dot(v, planeVX)*planeVX + dot(v, planeVY)*planeVY;
 		normal = pv - v;
 		vec3 pvPlaneRef = vec3(invRotMatPlane*rotMatCube*vec4(pv, 1.0f));
 
-		//std::cout << i << " : " << dot(normal, vertices[i]) << std::endl;
+		if (dot(normal, vertices[i]) > 0)
+			std::cout << "Ok" << std::endl;
 
 		if (dot(normal, vertices[i]) > 0 && pvPlaneRef.x > -s.x / 2 && pvPlaneRef.x < s.x / 2
 			&& pvPlaneRef.y > -s.y / 2 && pvPlaneRef.y < s.y / 2
