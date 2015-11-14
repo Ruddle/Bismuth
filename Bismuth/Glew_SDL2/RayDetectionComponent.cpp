@@ -26,3 +26,9 @@ Contact* RayDetectionComponent::getCollisionOnCube(glm::vec3 pos1, glm::vec3 rot
 	result->normal = -result->normal;
 	return result;
 }
+Contact* RayDetectionComponent::getCollisionOnPlane(glm::vec3 pos1, glm::vec3 rot1, glm::vec3 pos2, glm::vec3 rot2, DetectionComponent *detComp2)
+{
+	Contact* result = detComp2->getCollisionOnRay(pos2, rot2, pos1, rot1, this);
+	result->normal = -result->normal;
+	return result;
+}
