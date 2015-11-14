@@ -25,3 +25,8 @@ Contact* CubeDetectionComponent::getCollisionOnCube(glm::vec3 pos1, glm::vec3 ro
 {
 	return nullptr;
 }
+
+Contact * CubeDetectionComponent::getCollisionOnPlane(glm::vec3 pos1, glm::vec3 rot1, glm::vec3 pos2, glm::vec3 rot2, DetectionComponent * detComp2)
+{
+	return nullptr;
+}
