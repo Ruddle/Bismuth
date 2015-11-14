@@ -305,7 +305,7 @@ Contact * DetectionProcessor::planeToSphere(PlaneDetectionComponent * plane, Sph
 
 		result->position = (H_WorldSpace + maxDepth)/2.0f;
 		result->normal = H_WorldSpace - maxDepth;
-
+		result->normal = result->normal * 1.01f;
 	}
 
 
