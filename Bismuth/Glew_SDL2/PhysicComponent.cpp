@@ -58,7 +58,9 @@ void PhysicComponent::responseToContact(Contact *contact)
 
 	mat3x3 invI1 = inverse(sc1->getInertia()), invI2 = inverse(sc2->getInertia());
 
-	float numJr = -dot(vr, contact->normal);
+	float e = (sc2->getRestitution() + sc1->getRestitution()) / 2;
+
+	float numJr = -(1+e)*dot(vr, contact->normal);
 
 	vec3 denJr_1 = cross(invI1 * cross(r1, contact->normal), r1),
 		denJr_2 = cross(invI2 * cross(r2, contact->normal), r2);
