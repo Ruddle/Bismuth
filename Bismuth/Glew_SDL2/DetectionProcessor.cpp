@@ -285,7 +285,34 @@ Contact * DetectionProcessor::planeToSphere(PlaneDetectionComponent * plane, Sph
 	glm::vec3 const& pos1, glm::vec3 const& rot1,
 	glm::vec3 const& pos2, glm::vec3 const& rot2)
 {
-	return nullptr;
+	Contact* result = nullptr;
+	vec2 size = vec2(plane->getSizeX(), plane->getSizeY())/2.0f;
+
+	mat4 toWorldSpace = translate(pos1)*rotate(rot1.x, vec3(1, 0, 0)) *rotate(rot1.y, vec3(0, 1, 0))*rotate(rot1.z, vec3(0, 0, 1));
+	mat4 toPlaneSpace = inverse(toWorldSpace);
+
+	vec3 posSphere_PlaneSpace = vec3(toPlaneSpace * vec4(pos2, 1.0));
+	float radius = sqrt(sphere->getRadius2());
+	if (posSphere_PlaneSpace.z - radius < 0) 
+	{
+		result = new Contact();
+		
+		vec3 H_PlaneSpace = vec3(vec2(posSphere_PlaneSpace), 0);
+		vec3 H_WorldSpace = vec3(toWorldSpace* vec4(H_PlaneSpace, 1));
+
+
+		vec3 toMaxDepth = -radius*vec3(toWorldSpace*vec4(0, 0, 1, 1));
+		vec3 maxDepth = pos2 + toMaxDepth;
+
+
+
+		result->position = (H_WorldSpace + maxDepth)/2.0f;
+		result->normal = H_WorldSpace - maxDepth;
+
+	}
+
+
+	return result;
 }
 
 Contact * DetectionProcessor::planeToPlane(PlaneDetectionComponent * plane, PlaneDetectionComponent * plane2,
