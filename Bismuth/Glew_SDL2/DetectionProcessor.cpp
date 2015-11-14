@@ -1,5 +1,7 @@
 #include "DetectionProcessor.h"
 
+#include <iostream>
+
 using namespace glm;
 
 
@@ -222,8 +224,8 @@ Contact * DetectionProcessor::cubeToPlane(CubeDetectionComponent * cube, PlaneDe
 	vec4 planeNorm = rotMatPlane*vec4(0.0f, 0.0f, 1.0f, 1.0f);
 
 	// vecteurs orthogonaux quelconques du plan
-	vec3 planeVX = vec3(rotMatPlane*vec4(1.0f, 0.0f, 0.0f, 1.0f));
-	vec3 planeVY = vec3(rotMatPlane*vec4(0.0f, 1.0f, 0.0f, 1.0f));
+	vec3 planeVX = vec3(invRotMatCube*rotMatPlane*vec4(1.0f, 0.0f, 0.0f, 1.0f));
+	vec3 planeVY = vec3(invRotMatCube*rotMatPlane*vec4(0.0f, 1.0f, 0.0f, 1.0f));
 
 
 
@@ -233,6 +235,7 @@ Contact * DetectionProcessor::cubeToPlane(CubeDetectionComponent * cube, PlaneDe
 
 	vec3 normal;
 
+	//std::cout << "-----" << std::endl;
 
 	for (int i = 0; i < 8; i++)
 	{
@@ -242,6 +245,8 @@ Contact * DetectionProcessor::cubeToPlane(CubeDetectionComponent * cube, PlaneDe
 		vec3 pv = dot(v, planeVX)*planeVX + dot(v, planeVY)*planeVY;
 		normal = pv - v;
 		vec3 pvPlaneRef = vec3(invRotMatPlane*rotMatCube*vec4(pv, 1.0f));
+
+		//std::cout << i << " : " << dot(normal, vertices[i]) << std::endl;
 
 		if (dot(normal, vertices[i]) > 0 && pvPlaneRef.x > -s.x / 2 && pvPlaneRef.x < s.x / 2
 			&& pvPlaneRef.y > -s.y / 2 && pvPlaneRef.y < s.y / 2
@@ -254,12 +259,8 @@ Contact * DetectionProcessor::cubeToPlane(CubeDetectionComponent * cube, PlaneDe
 
 			return contact;
 		}
-		else
-		{
-			return nullptr;
-		}
-
 	}
+	return nullptr;
 }
 
 Contact * DetectionProcessor::cubeToCube(CubeDetectionComponent * cube, CubeDetectionComponent * cube2,
