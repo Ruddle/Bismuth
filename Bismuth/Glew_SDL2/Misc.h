@@ -17,7 +17,8 @@
 #include "PhysicComponent.h"
 #include "GraphicComponent.h"
 #include "SphereDetectionComponent.h"
-
+#include "CubeDetectionComponent.h"
+#include "PlaneDetectionComponent.h"
 #define CONFIGPATH  "config.ini"
 
 

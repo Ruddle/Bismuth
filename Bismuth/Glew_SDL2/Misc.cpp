@@ -76,7 +76,7 @@ Entity* createPlane(ResourcesManager* rm) {
 		rm->loadTexture("Texture/rock.png", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),
 		rm->loadTexture("Texture/BLACK.png", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),
 		rm->loadVao("Mesh/plane.obj"));
-	SphereDetectionComponent* dc1 = new SphereDetectionComponent(0);
+	PlaneDetectionComponent* dc1 = new PlaneDetectionComponent(0,0);
 	StateComponent* sc1 = new StateComponent();
 	PhysicComponent* pc1 = new PhysicComponent(dc1, sc1);
 	Entity* entity = new Entity(gc1, pc1);
