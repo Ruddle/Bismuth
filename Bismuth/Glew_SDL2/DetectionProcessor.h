@@ -11,42 +11,42 @@ public:
 	DetectionProcessor();
 	~DetectionProcessor();
 
-	static Contact* detection(DetectionComponent const& a, DetectionComponent const& b,
+	static Contact* detection(DetectionComponent * a, DetectionComponent * b,
 	    glm::vec3 pos1, glm::vec3 rot1,
 		glm::vec3 pos2, glm::vec3 rot2);
 
-	static Contact* cubeToRay(CubeDetectionComponent const& cube, RayDetectionComponent const& ray,
+	static Contact* cubeToRay(CubeDetectionComponent * cube, RayDetectionComponent * ray,
 		glm::vec3 pos1, glm::vec3 rot1,
 		glm::vec3 pos2, glm::vec3 rot2);
 
-	static Contact* cubeToSphere(CubeDetectionComponent const& cube, SphereDetectionComponent const& sphere,
+	static Contact* cubeToSphere(CubeDetectionComponent * cube, SphereDetectionComponent * sphere,
 		glm::vec3 pos1, glm::vec3 rot1,
 		glm::vec3 pos2, glm::vec3 rot2);
-	static Contact* cubeToPlane(CubeDetectionComponent const& cube, PlaneDetectionComponent const& plane,
+	static Contact* cubeToPlane(CubeDetectionComponent * cube, PlaneDetectionComponent * plane,
 		glm::vec3 pos1, glm::vec3 rot1,
 		glm::vec3 pos2, glm::vec3 rot2);
-	static Contact* cubeToCube(CubeDetectionComponent const& cube, CubeDetectionComponent const& cube2,
+	static Contact* cubeToCube(CubeDetectionComponent * cube, CubeDetectionComponent * cube2,
 		glm::vec3 pos1, glm::vec3 rot1,
 		glm::vec3 pos2, glm::vec3 rot2) ;
 
-	static Contact* planeToRay(PlaneDetectionComponent const& plane, RayDetectionComponent const& ray,
+	static Contact* planeToRay(PlaneDetectionComponent * plane, RayDetectionComponent * ray,
 		glm::vec3 pos1, glm::vec3 rot1,
 		glm::vec3 pos2, glm::vec3 rot2);
-	static Contact* planeToSphere(PlaneDetectionComponent const& plane, SphereDetectionComponent const& sphere,
+	static Contact* planeToSphere(PlaneDetectionComponent * plane, SphereDetectionComponent * sphere,
 		glm::vec3 pos1, glm::vec3 rot1,
 		glm::vec3 pos2, glm::vec3 rot2);
-	static Contact* planeToPlane(PlaneDetectionComponent const& plane, PlaneDetectionComponent const& plane2,
-		glm::vec3 pos1, glm::vec3 rot1,
-		glm::vec3 pos2, glm::vec3 rot2);
-
-	static Contact* sphereToRay(SphereDetectionComponent const& sphere, RayDetectionComponent const& ray,
-		glm::vec3 pos1, glm::vec3 rot1,
-		glm::vec3 pos2, glm::vec3 rot2);
-	static Contact* sphereToSphere(SphereDetectionComponent const& sphere, SphereDetectionComponent const& sphere2,
+	static Contact* planeToPlane(PlaneDetectionComponent * plane, PlaneDetectionComponent * plane2,
 		glm::vec3 pos1, glm::vec3 rot1,
 		glm::vec3 pos2, glm::vec3 rot2);
 
-	static Contact* rayToRay(RayDetectionComponent const& ray, RayDetectionComponent const& ray2,
+	static Contact* sphereToRay(SphereDetectionComponent * sphere, RayDetectionComponent * ray,
+		glm::vec3 pos1, glm::vec3 rot1,
+		glm::vec3 pos2, glm::vec3 rot2);
+	static Contact* sphereToSphere(SphereDetectionComponent * sphere, SphereDetectionComponent * sphere2,
+		glm::vec3 pos1, glm::vec3 rot1,
+		glm::vec3 pos2, glm::vec3 rot2);
+
+	static Contact* rayToRay(RayDetectionComponent * ray, RayDetectionComponent * ray2,
 		glm::vec3 pos1, glm::vec3 rot1,
 		glm::vec3 pos2, glm::vec3 rot2);
 

@@ -12,18 +12,18 @@ DetectionProcessor::~DetectionProcessor()
 {
 }
 
-Contact * DetectionProcessor::detection(DetectionComponent const& a, DetectionComponent const& b,
+Contact * DetectionProcessor::detection(DetectionComponent * a, DetectionComponent * b,
 	glm::vec3 pos1, glm::vec3 rot1, glm::vec3 pos2, glm::vec3 rot2)
 {
 	
 
-	switch (a.getShape()) {
+	switch (a->getShape()) {
 
 	case DetectionComponent::CUBE:
 		
-		switch (b.getShape()) {
+		switch (b->getShape()) {
 		case DetectionComponent::CUBE:
-			return cubeToCube(a, b, pos1, rot1, pos2, rot2);
+			return cubeToCube((CubeDetectionComponent*)a, (CubeDetectionComponent*)b, pos1, rot1, pos2, rot2);
 			break;
 
 		case DetectionComponent::PLANE:
@@ -47,7 +47,7 @@ Contact * DetectionProcessor::detection(DetectionComponent const& a, DetectionCo
 	case DetectionComponent::PLANE:
 		
 
-		switch (b.getShape()) {
+		switch (b->getShape()) {
 		case DetectionComponent::CUBE:
 			// Code
 			break;
@@ -72,7 +72,7 @@ Contact * DetectionProcessor::detection(DetectionComponent const& a, DetectionCo
 		break;
 
 	case DetectionComponent::SPHERE:
-		switch (b.getShape()) {
+		switch (b->getShape()) {
 		case DetectionComponent::CUBE:
 			// Code
 			break;
@@ -96,7 +96,7 @@ Contact * DetectionProcessor::detection(DetectionComponent const& a, DetectionCo
 		break;
 
 	case DetectionComponent::RAY:
-		switch (b.getShape()) {
+		switch (b->getShape()) {
 		case DetectionComponent::CUBE:
 			// Code
 			break;
@@ -131,24 +131,24 @@ Contact * DetectionProcessor::detection(DetectionComponent const& a, DetectionCo
 	return nullptr;
 }
 
-Contact * DetectionProcessor::cubeToRay(CubeDetectionComponent const& cube, RayDetectionComponent const& ray,
+Contact * DetectionProcessor::cubeToRay(CubeDetectionComponent * cube, RayDetectionComponent * ray,
 	glm::vec3 pos1, glm::vec3 rot1,
 	glm::vec3 pos2, glm::vec3 rot2)
 {
 	return nullptr;
 }
 
-Contact * DetectionProcessor::cubeToSphere(CubeDetectionComponent const& cube, SphereDetectionComponent const& sphere,
+Contact * DetectionProcessor::cubeToSphere(CubeDetectionComponent * cube, SphereDetectionComponent * sphere,
 	glm::vec3 pos1, glm::vec3 rot1,
 	glm::vec3 pos2, glm::vec3 rot2)
 {
 	Contact* result = nullptr;
-	vec3 half = cube.getSize()/2.0f;
+	vec3 half = cube->getSize()/2.0f;
 	mat4 toWorldSpace = rotate(rot1.x, vec3(1, 0, 0)) *rotate(rot1.y, vec3(0, 1, 0))*rotate(rot1.z, vec3(0, 0, 1));
 	mat4 toCubeSpace = inverse(toWorldSpace);
 
 	vec3 relativePosSphere = vec3(toCubeSpace*vec4(pos2, 1));
-	float radius = sqrt(sphere.getRadius2());
+	float radius = sqrt(sphere->getRadius2());
 
 	vec3 closestPoint = vec3(0);
 
@@ -191,11 +191,11 @@ Contact * DetectionProcessor::cubeToSphere(CubeDetectionComponent const& cube, S
 	return result;
 }
 
-Contact * DetectionProcessor::cubeToPlane(CubeDetectionComponent const& cube, PlaneDetectionComponent const& plane,
+Contact * DetectionProcessor::cubeToPlane(CubeDetectionComponent * cube, PlaneDetectionComponent * plane,
 	glm::vec3 pos1, glm::vec3 rot1,
 	glm::vec3 pos2, glm::vec3 rot2)
 {
-	vec3 s = cube.getSize();
+	vec3 s = cube->getSize();
 
 	vec3 vertices[8] = { vec3(-s.x / 2, -s.y / 2, -s.z / 2), vec3(s.x / 2, -s.y / 2, -s.z / 2),
 		vec3(s.x / 2, s.y / 2, -s.z / 2), vec3(-s.x / 2, s.y / 2, -s.z / 2),
@@ -254,35 +254,35 @@ Contact * DetectionProcessor::cubeToPlane(CubeDetectionComponent const& cube, Pl
 	}
 }
 
-Contact * DetectionProcessor::cubeToCube(CubeDetectionComponent const& cube, CubeDetectionComponent const& cube2,
+Contact * DetectionProcessor::cubeToCube(CubeDetectionComponent * cube, CubeDetectionComponent * cube2,
 	glm::vec3 pos1, glm::vec3 rot1,
 	glm::vec3 pos2, glm::vec3 rot2)
 {
 	return nullptr;
 }
 
-Contact * DetectionProcessor::planeToRay(PlaneDetectionComponent const& plane, RayDetectionComponent const& ray,
+Contact * DetectionProcessor::planeToRay(PlaneDetectionComponent * plane, RayDetectionComponent * ray,
 	glm::vec3 pos1, glm::vec3 rot1,
 	glm::vec3 pos2, glm::vec3 rot2)
 {
 	return nullptr;
 }
 
-Contact * DetectionProcessor::planeToSphere(PlaneDetectionComponent const& plane, SphereDetectionComponent const& sphere,
+Contact * DetectionProcessor::planeToSphere(PlaneDetectionComponent * plane, SphereDetectionComponent * sphere,
 	glm::vec3 pos1, glm::vec3 rot1,
 	glm::vec3 pos2, glm::vec3 rot2)
 {
 	return nullptr;
 }
 
-Contact * DetectionProcessor::planeToPlane(PlaneDetectionComponent const& plane, PlaneDetectionComponent const& plane2,
+Contact * DetectionProcessor::planeToPlane(PlaneDetectionComponent * plane, PlaneDetectionComponent * plane2,
 	glm::vec3 pos1, glm::vec3 rot1,
 	glm::vec3 pos2, glm::vec3 rot2)
 {
 	return nullptr;
 }
 
-Contact * DetectionProcessor::sphereToRay(SphereDetectionComponent const& sphere, RayDetectionComponent const& ray,
+Contact * DetectionProcessor::sphereToRay(SphereDetectionComponent * sphere, RayDetectionComponent * ray,
 	glm::vec3 pos1, glm::vec3 rot1,
 	glm::vec3 pos2, glm::vec3 rot2)
 {
@@ -291,7 +291,7 @@ Contact * DetectionProcessor::sphereToRay(SphereDetectionComponent const& sphere
 	vec3 L1L2 = normalize(vec3(rotate(rot2.x, vec3(1, 0, 0)) *rotate(rot2.y, vec3(0, 1, 0))*rotate(rot2.z, vec3(0, 0, 1)) * vec4(1, 0, 0, 1)));
 	vec3 sL1 = L1 - s;
 
-	float u = dot(sL1, sL1) - sphere.getRadius2();
+	float u = dot(sL1, sL1) - sphere->getRadius2();
 	float v = 2 * dot(sL1, L1L2);
 	float w = dot(L1L2, L1L2);
 
@@ -319,13 +319,13 @@ Contact * DetectionProcessor::sphereToRay(SphereDetectionComponent const& sphere
 
 }
 
-Contact * DetectionProcessor::sphereToSphere(SphereDetectionComponent const& sphere, SphereDetectionComponent const& sphere2,
+Contact * DetectionProcessor::sphereToSphere(SphereDetectionComponent * sphere, SphereDetectionComponent * sphere2,
 	glm::vec3 pos1, glm::vec3 rot1,
 	glm::vec3 pos2, glm::vec3 rot2)
 {
-	float radius2_2 = sphere2.getRadius2;
+	float radius2_2 = sphere2->getRadius2;
 
-	float r1 = sqrt(sphere.getRadius2);
+	float r1 = sqrt(sphere->getRadius2);
 	float r2 = sqrt(radius2_2);
 
 	if (r1 + r2 <= length(pos1 - pos2))
@@ -341,7 +341,7 @@ Contact * DetectionProcessor::sphereToSphere(SphereDetectionComponent const& sph
 	return result;
 }
 
-Contact * DetectionProcessor::rayToRay(RayDetectionComponent const& ray, RayDetectionComponent const& ray2,
+Contact * DetectionProcessor::rayToRay(RayDetectionComponent * ray, RayDetectionComponent * ray2,
 	glm::vec3 pos1, glm::vec3 rot1,
 	glm::vec3 pos2, glm::vec3 rot2)
 {
