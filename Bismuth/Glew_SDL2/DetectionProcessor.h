@@ -50,7 +50,9 @@ public:
 		glm::vec3 pos1, glm::vec3 rot1,
 		glm::vec3 pos2, glm::vec3 rot2);
 
-	
+private :
+
+	static Contact* reverse(Contact* c) { c->normal = -c->normal; return c; }
 
 };
 

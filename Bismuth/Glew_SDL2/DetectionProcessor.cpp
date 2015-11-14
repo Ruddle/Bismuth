@@ -27,15 +27,15 @@ Contact * DetectionProcessor::detection(DetectionComponent * a, DetectionCompone
 			break;
 
 		case DetectionComponent::PLANE:
-			// Code
+			return cubeToPlane((CubeDetectionComponent*)a, (PlaneDetectionComponent*)b, pos1, rot1, pos2, rot2);
 			break;
 
 		case DetectionComponent::SPHERE:
-			// Code
+			return cubeToSphere((CubeDetectionComponent*)a, (SphereDetectionComponent*)b, pos1, rot1, pos2, rot2);
 			break;
 
 		case DetectionComponent::RAY:
-			// Code
+			return cubeToRay((CubeDetectionComponent*)a, (RayDetectionComponent*)b, pos1, rot1, pos2, rot2);
 			break;
 
 		default:
@@ -49,19 +49,19 @@ Contact * DetectionProcessor::detection(DetectionComponent * a, DetectionCompone
 
 		switch (b->getShape()) {
 		case DetectionComponent::CUBE:
-			// Code
+			return  reverse(cubeToPlane((CubeDetectionComponent*)b, (PlaneDetectionComponent*)a, pos1, rot1, pos2, rot2));
 			break;
 
 		case DetectionComponent::PLANE:
-			// Code
+			return planeToPlane((PlaneDetectionComponent*)a, (PlaneDetectionComponent*)b, pos1, rot1, pos2, rot2);
 			break;
 
 		case DetectionComponent::SPHERE:
-			// Code
+			return planeToSphere((PlaneDetectionComponent*)a, (SphereDetectionComponent*)b, pos1, rot1, pos2, rot2);
 			break;
 
 		case DetectionComponent::RAY:
-			// Code
+			return planeToRay((PlaneDetectionComponent*)a, (RayDetectionComponent*)b, pos1, rot1, pos2, rot2);
 			break;
 
 		default:
@@ -74,19 +74,19 @@ Contact * DetectionProcessor::detection(DetectionComponent * a, DetectionCompone
 	case DetectionComponent::SPHERE:
 		switch (b->getShape()) {
 		case DetectionComponent::CUBE:
-			// Code
+			return  reverse(cubeToSphere((CubeDetectionComponent*)b, (SphereDetectionComponent*)a, pos1, rot1, pos2, rot2));
 			break;
 
 		case DetectionComponent::PLANE:
-			// Code
+			return  reverse(planeToSphere((PlaneDetectionComponent*)b, (SphereDetectionComponent*)a, pos1, rot1, pos2, rot2));
 			break;
 
 		case DetectionComponent::SPHERE:
-			// Code
+			return sphereToSphere((SphereDetectionComponent*)a, (SphereDetectionComponent*)b, pos1, rot1, pos2, rot2);
 			break;
 
 		case DetectionComponent::RAY:
-			// Code
+			return sphereToRay((SphereDetectionComponent*)a, (RayDetectionComponent*)b, pos1, rot1, pos2, rot2);
 			break;
 
 		default:
@@ -98,19 +98,19 @@ Contact * DetectionProcessor::detection(DetectionComponent * a, DetectionCompone
 	case DetectionComponent::RAY:
 		switch (b->getShape()) {
 		case DetectionComponent::CUBE:
-			// Code
+			return  reverse(cubeToRay((CubeDetectionComponent*)b, (RayDetectionComponent*)a, pos1, rot1, pos2, rot2));
 			break;
 
 		case DetectionComponent::PLANE:
-			// Code
+			return  reverse(planeToRay((PlaneDetectionComponent*)b, (RayDetectionComponent*)a, pos1, rot1, pos2, rot2));
 			break;
 
 		case DetectionComponent::SPHERE:
-			// Code
+			return  reverse(cubeToSphere((CubeDetectionComponent*)b, (SphereDetectionComponent*)a, pos1, rot1, pos2, rot2));
 			break;
 
 		case DetectionComponent::RAY:
-			// Code
+			return rayToRay((RayDetectionComponent*)a, (RayDetectionComponent*)b, pos1, rot1, pos2, rot2);
 			break;
 
 		default:
