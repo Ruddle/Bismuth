@@ -1,4 +1,5 @@
 #include "PhysicComponent.h"
+#include "DetectionProcessor.h"
 
 using namespace glm;
 
@@ -17,8 +18,9 @@ void PhysicComponent::getCollision(PhysicComponent* phyComp2)
 	if (mStateComponent->hasDetection() && phyComp2->getStateComponent()->hasDetection())
 	{
 
-		Contact* contact = mDetectionComponent->getCollision(mStateComponent->getPosition(), mStateComponent->getRotation(),
-			phyComp2->getStateComponent()->getPosition(), phyComp2->getStateComponent()->getRotation(), phyComp2->getDetectionComponent());
+		Contact* contact = DetectionProcessor::detection(mDetectionComponent, phyComp2->getDetectionComponent(),
+														mStateComponent->getPosition(), mStateComponent->getRotation(),
+														phyComp2->getStateComponent()->getPosition(), phyComp2->getStateComponent()->getRotation());
 
 		if (contact != nullptr)
 		{
