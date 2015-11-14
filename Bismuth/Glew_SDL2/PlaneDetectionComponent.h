@@ -18,6 +18,9 @@ public:
 	Contact* getCollisionOnPlane(glm::vec3 pos1, glm::vec3 rot1, glm::vec3 pos2, glm::vec3 rot2, DetectionComponent *detComp2);
 
 	int getShape() { return PLANE; }
+	float getSizeX() { return mSizeX; }
+	float getSizeY() { return mSizeY; }
+
 
 private:
 
