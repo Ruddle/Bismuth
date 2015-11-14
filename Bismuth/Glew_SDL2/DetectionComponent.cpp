@@ -2,3 +2,11 @@
 
 
 
+DetectionComponent::DetectionComponent()
+{
+}
+
+
+DetectionComponent::~DetectionComponent()
+{
+}
