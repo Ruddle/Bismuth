@@ -28,7 +28,7 @@ Contact * DetectionProcessor::cubeToSphere(CubeDetectionComponent cube, SphereDe
 	glm::vec3 pos2, glm::vec3 rot2)
 {
 	Contact* result = nullptr;
-	vec3 half = vec3(mSizeX / 2.0, mSizeY / 2.0, mSizeZ / 2.0);
+	vec3 half = vec3(s.x / 2.0, s.y / 2.0, s.z / 2.0);
 	mat4 toWorldSpace = rotate(rot1.x, vec3(1, 0, 0)) *rotate(rot1.y, vec3(0, 1, 0))*rotate(rot1.z, vec3(0, 0, 1));
 	mat4 toCubeSpace = inverse(toWorldSpace);
 
@@ -80,15 +80,17 @@ Contact * DetectionProcessor::cubeToPlane(CubeDetectionComponent cube, PlaneDete
 	glm::vec3 pos1, glm::vec3 rot1,
 	glm::vec3 pos2, glm::vec3 rot2)
 {
-	vec3 vertices[8] = { vec3(-mSizeX / 2, -mSizeY / 2, -mSizeZ / 2), vec3(mSizeX / 2, -mSizeY / 2, -mSizeZ / 2),
-		vec3(mSizeX / 2, mSizeY / 2, -mSizeZ / 2), vec3(-mSizeX / 2, mSizeY / 2, -mSizeZ / 2),
-		vec3(-mSizeX / 2, -mSizeY / 2, mSizeZ / 2), vec3(mSizeX / 2, -mSizeY / 2, mSizeZ / 2),
-		vec3(mSizeX / 2, mSizeY / 2, mSizeZ / 2), vec3(-mSizeX / 2, mSizeY / 2, mSizeZ / 2) };
+	vec3 s = cube.getSize();
 
-	mat4 rotMat = rotate(rot1.x, vec3(1, 0, 0)) *rotate(rot1.y, vec3(0, 1, 0))*rotate(rot1.z, vec3(0, 0, 1));
-	mat4 transMat = translate(pos1);
-	mat4 invRotMat = rotate(-rot1.z, vec3(0, 0, 0)) * rotate(-rot1.y, vec3(0, 1, 0))*rotate(-rot1.x, vec3(1, 0, 0));
-	mat4 invTransMat = translate(-pos1);
+	vec3 vertices[8] = { vec3(-s.x / 2, -s.y / 2, -s.z / 2), vec3(s.x / 2, -s.y / 2, -s.z / 2),
+		vec3(s.x / 2, s.y / 2, -s.z / 2), vec3(-s.x / 2, s.y / 2, -s.z / 2),
+		vec3(-s.x / 2, -s.y / 2, s.z / 2), vec3(s.x / 2, -s.y / 2, s.z / 2),
+		vec3(s.x / 2, s.y / 2, s.z / 2), vec3(-s.x / 2, s.y / 2, s.z / 2) };
+
+	mat4 rotMatCube = rotate(rot1.x, vec3(1, 0, 0)) *rotate(rot1.y, vec3(0, 1, 0))*rotate(rot1.z, vec3(0, 0, 1));
+	mat4 transMatCube = translate(pos1);
+	mat4 invRotMatCube = rotate(-rot1.z, vec3(0, 0, 0)) * rotate(-rot1.y, vec3(0, 1, 0))*rotate(-rot1.x, vec3(1, 0, 0));
+	mat4 invTransMatCube = translate(-pos1);
 
 	mat4 rotMatPlane = rotate(rot2.x, vec3(1, 0, 0)) *rotate(rot2.y, vec3(0, 1, 0))*rotate(rot2.z, vec3(0, 0, 1));
 	mat4 invRotMatPlane = rotate(-rot2.z, vec3(0, 0, 0)) * rotate(-rot2.y, vec3(0, 1, 0))*rotate(-rot2.x, vec3(1, 0, 0));
@@ -102,9 +104,9 @@ Contact * DetectionProcessor::cubeToPlane(CubeDetectionComponent cube, PlaneDete
 
 
 
-	planeNorm *= invRotMat * planeNorm;
+	planeNorm *= invRotMatCube * planeNorm;
 
-	vec4 pos2CubeRef = invRotMat*invTransMat*vec4(pos2, 1.0f);
+	vec4 pos2CubeRef = invRotMatCube*invTransMatCube*vec4(pos2, 1.0f);
 
 	vec3 normal;
 
@@ -116,15 +118,15 @@ Contact * DetectionProcessor::cubeToPlane(CubeDetectionComponent cube, PlaneDete
 		// Projete orthogonal de v sur le plan
 		vec3 pv = dot(v, planeVX)*planeVX + dot(v, planeVY)*planeVY;
 		normal = pv - v;
-		vec3 pvPlaneRef = vec3(invRotMatPlane*rotMat*vec4(pv, 1.0f));
+		vec3 pvPlaneRef = vec3(invRotMatPlane*rotMatCube*vec4(pv, 1.0f));
 
-		if (dot(normal, vertices[i]) > 0 && pvPlaneRef.x > -mSizeX / 2 && pvPlaneRef.x < mSizeX / 2
-			&& pvPlaneRef.y > -mSizeY / 2 && pvPlaneRef.y < mSizeY / 2
-			&& pvPlaneRef.z > -mSizeZ / 2 && pvPlaneRef.z < mSizeZ / 2)
+		if (dot(normal, vertices[i]) > 0 && pvPlaneRef.x > -s.x / 2 && pvPlaneRef.x < s.x / 2
+			&& pvPlaneRef.y > -s.y / 2 && pvPlaneRef.y < s.y / 2
+			&& pvPlaneRef.z > -s.z / 2 && pvPlaneRef.z < s.z / 2)
 		{
 			Contact *contact = new Contact;
-			contact->normal = vec3(rotMat*vec4(normal, 1.0f));
-			contact->position = vec3(transMat*rotMat*vec4(vertices[i], 1.0f));
+			contact->normal = vec3(rotMatCube*vec4(normal, 1.0f));
+			contact->position = vec3(transMatCube*rotMatCube*vec4(vertices[i], 1.0f));
 			contact->who = nullptr;
 
 			return contact;
