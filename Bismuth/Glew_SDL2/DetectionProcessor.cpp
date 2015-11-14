@@ -323,9 +323,9 @@ Contact * DetectionProcessor::sphereToSphere(SphereDetectionComponent * sphere, 
 	glm::vec3 pos1, glm::vec3 rot1,
 	glm::vec3 pos2, glm::vec3 rot2)
 {
-	float radius2_2 = sphere2->getRadius2;
+	float radius2_2 = sphere2->getRadius2();
 
-	float r1 = sqrt(sphere->getRadius2);
+	float r1 = sqrt(sphere->getRadius2());
 	float r2 = sqrt(radius2_2);
 
 	if (r1 + r2 <= length(pos1 - pos2))
