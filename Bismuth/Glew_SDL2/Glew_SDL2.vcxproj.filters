@@ -96,6 +96,9 @@
     <ClCompile Include="SphereDetectionComponent.cpp">
       <Filter>Bis 2\Physic\DetectionComponent</Filter>
     </ClCompile>
+    <ClCompile Include="PlaneDetectionComponent.cpp">
+      <Filter>Bis 2\Physic\DetectionComponent</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h">
@@ -168,6 +171,9 @@
       <Filter>Bis 2\Physic\DetectionComponent</Filter>
     </ClInclude>
     <ClInclude Include="RayDetectionComponent.h">
+      <Filter>Bis 2\Physic\DetectionComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="PlaneDetectionComponent.h">
       <Filter>Bis 2\Physic\DetectionComponent</Filter>
     </ClInclude>
   </ItemGroup>

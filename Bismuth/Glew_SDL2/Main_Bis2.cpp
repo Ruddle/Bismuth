@@ -25,11 +25,11 @@ using namespace glm;
 using namespace std;
 
 
-FILE _iob[] = { *stdin, *stdout, *stderr };
-extern "C" FILE * __cdecl __iob_func(void)
-{
-	return _iob;
-}
+//FILE _iob[] = { *stdin, *stdout, *stderr };
+//extern "C" FILE * __cdecl __iob_func(void)
+//{
+//	return _iob;
+//}
 
 
 
@@ -68,15 +68,21 @@ int main(int argc, char **argv)
 		
 		if(!input.getKey(SDL_SCANCODE_F11))
 		entityManager->update(float(elapsedTime));
-		entityManager->collision();
-		entityManager->collisionResponse(elapsedTime);
+
+		for (int i = 0; i < 10; i++) {
+			entityManager->collision();
+			entityManager->collisionResponse(elapsedTime);
+		}
+		
+
+
 		if (time % 1 == 0) {
 			renderSystem->draw(entityManager->getEntities(), *cam, time, input, float(fps));
 			currentScene->flip();
 		}
 
 		if (input.getRisingKey(SDL_SCANCODE_K))
-		listBall.push_back(  new Ball(entityManager, rm, cam->getPosition(), 0.0051f*cam->getRotation()) );
+		listBall.push_back(  new Ball(entityManager, rm, cam->getPosition(), 0.00951f*cam->getRotation()) );
 
 		for (int i = 0; i < listBall.size(); i++)
 			listBall[i]->update();

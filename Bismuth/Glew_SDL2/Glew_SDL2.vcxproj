@@ -168,6 +168,7 @@
     </ClCompile>
     <ClCompile Include="Misc.cpp" />
     <ClCompile Include="PhysicComponent.cpp" />
+    <ClCompile Include="PlaneDetectionComponent.cpp" />
     <ClCompile Include="RayDetectionComponent.cpp" />
     <ClCompile Include="RenderSystem.cpp" />
     <ClCompile Include="ResourcesManager.cpp" />
@@ -194,6 +195,7 @@
     <ClInclude Include="Input.h" />
     <ClInclude Include="Misc.h" />
     <ClInclude Include="PhysicComponent.h" />
+    <ClInclude Include="PlaneDetectionComponent.h" />
     <ClInclude Include="RayDetectionComponent.h" />
     <ClInclude Include="RenderSystem.h" />
     <ClInclude Include="ResourcesManager.h">
