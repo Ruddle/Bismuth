@@ -42,7 +42,7 @@ void Cube::update()
 {
 	StateComponent* sc = mEntity->getPhysicComponent()->getStateComponent();
 
-	//sc->force(vec3(0, 0, -0.00051));
+	sc->force(vec3(0, 0, -0.00051));
 	sc->friction(0.01f);
 
 
