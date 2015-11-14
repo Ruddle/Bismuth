@@ -1,8 +1,10 @@
 #pragma once
 #include "DetectionComponent.h"
 #include "StateComponent.h"
+#include "DetectionProcessor.h"
 #include "Contact.h"
 #include <set>
+#include "glm.hpp"
 
 class DetectionComponent;
 class StateComponent;
