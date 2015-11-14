@@ -9,12 +9,6 @@
 class DetectionComponent;
 class StateComponent;
 
-struct Contact
-{
-	glm::vec3 position;
-	glm::vec3 normal;
-	PhysicComponent* who;
-};
 
 class PhysicComponent
 {

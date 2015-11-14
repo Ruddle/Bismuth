@@ -162,12 +162,5 @@
       <FileName>Texture_Abs.h</FileName>
     </TypeIdentifier>
   </Struct>
-  <Struct Name="Contact" Collapsed="true">
-    <Position X="11.25" Y="4.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAIAgAAAAAAAgAAAAAAAAAAAA=</HashCode>
-      <FileName>PhysicComponent.h</FileName>
-    </TypeIdentifier>
-  </Struct>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
