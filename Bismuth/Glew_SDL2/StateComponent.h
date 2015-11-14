@@ -29,6 +29,10 @@ public:
 	float getMass() { return mMass; }
 	glm::mat3 getInertia() { return mInertia; }
 
+	void setMass(float mass) { mMass = mass; }
+	void setInertia(glm::mat3 inertia) { mInertia = inertia; }
+	void setInertia(float inertia) { setInertia(glm::mat3(inertia)); }
+
 	glm::vec3 getPositionPast(float ms) { return mPosition - mPositionDiff*ms; }
 	glm::vec3 getRotationPast(float ms) { return mRotation - mRotationDiff*ms; }
 

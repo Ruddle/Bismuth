@@ -79,6 +79,8 @@ Entity* createPlane(ResourcesManager* rm) {
 	PlaneDetectionComponent* dc1 = new PlaneDetectionComponent(1000,1000);
 	StateComponent* sc1 = new StateComponent();
 	PhysicComponent* pc1 = new PhysicComponent(dc1, sc1);
+	sc1->setMass(1E15);
+	sc1->setInertia(1E15);
 	Entity* entity = new Entity(gc1, pc1);
 	return entity;
 }

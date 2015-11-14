@@ -37,7 +37,7 @@ public:
 		glm::vec3 const&pos2, glm::vec3 const&rot2);//TODO
 	static Contact* planeToSphere(PlaneDetectionComponent * plane, SphereDetectionComponent * sphere,
 		glm::vec3 const&pos1, glm::vec3 const&rot1,
-		glm::vec3 const&pos2, glm::vec3 const&rot2);//TODO
+		glm::vec3 const&pos2, glm::vec3 const&rot2);//TOCHECK
 	static Contact* planeToPlane(PlaneDetectionComponent * plane, PlaneDetectionComponent * plane2,
 		glm::vec3 const&pos1, glm::vec3 const&rot1,
 		glm::vec3 const&pos2, glm::vec3 const&rot2);//TODO
@@ -51,7 +51,7 @@ public:
 
 	static Contact* rayToRay(RayDetectionComponent * ray, RayDetectionComponent * ray2,
 		glm::vec3 const&pos1, glm::vec3 const&rot1,
-		glm::vec3 const&pos2, glm::vec3 const&rot2);//TODO
+		glm::vec3 const&pos2, glm::vec3 const&rot2);
 
 private :
 
