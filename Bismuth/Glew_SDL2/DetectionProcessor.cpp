@@ -229,7 +229,7 @@ Contact * DetectionProcessor::cubeToPlane(CubeDetectionComponent * cube, PlaneDe
 
 
 
-	planeNorm *= invRotMatCube * planeNorm;
+	planeNorm = invRotMatCube*planeNorm;
 
 	vec4 pos2CubeRef = invRotMatCube*invTransMatCube*vec4(pos2, 1.0f);
 
@@ -246,10 +246,13 @@ Contact * DetectionProcessor::cubeToPlane(CubeDetectionComponent * cube, PlaneDe
 		normal = pv - v;
 		vec3 pvPlaneRef = vec3(invRotMatPlane*rotMatCube*vec4(pv, 1.0f));
 
-		if (dot(normal, vertices[i]) > 0)
-			std::cout << "Ok" << std::endl;
+		/*if (dot(normal, vertices[i]) > 0)
+			std::cout << "Ok" << std::endl;*/
 
-		if (dot(normal, vertices[i]) > 0 && pvPlaneRef.x > -s.x / 2 && pvPlaneRef.x < s.x / 2
+		if(i == 0)
+			std::cout << dot(normal, vec3(planeNorm)) << " " << pvPlaneRef.x << " " << pvPlaneRef.y << std::endl;
+
+		if (dot(normal, vec3(planeNorm)) < 0 && pvPlaneRef.x > -s.x / 2 && pvPlaneRef.x < s.x / 2
 			&& pvPlaneRef.y > -s.y / 2 && pvPlaneRef.y < s.y / 2
 			&& pvPlaneRef.z > -s.z / 2 && pvPlaneRef.z < s.z / 2)
 		{
