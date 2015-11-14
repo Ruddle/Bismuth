@@ -43,8 +43,8 @@ void Cube::update()
 	sc->friction(0.01f);
 
 
-	if (sc->getPosition().z < 1) {
+	/*if (sc->getPosition().z < 1) {
 		sc->setPosition(vec3(sc->getPosition().x, sc->getPosition().y, 1));
 		sc->setPositionDiff(vec3(sc->getPositionDiff().x, sc->getPositionDiff().y, -0.2*sc->getPositionDiff().z));
-	}
+	}*/
 }
