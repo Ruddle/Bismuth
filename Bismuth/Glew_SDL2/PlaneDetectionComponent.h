@@ -12,14 +12,9 @@ public:
 	PlaneDetectionComponent(float sizeX, float sizeY);
 	~PlaneDetectionComponent();
 
-	Contact* getCollision(glm::vec3 pos1, glm::vec3 rot1, glm::vec3 pos2, glm::vec3 rot2, RayDetectionComponent *detComp2);
-	Contact* getCollision(glm::vec3 pos1, glm::vec3 rot1, glm::vec3 pos2, glm::vec3 rot2, SphereDetectionComponent *detComp2);
-	Contact* getCollision(glm::vec3 pos1, glm::vec3 rot1, glm::vec3 pos2, glm::vec3 rot2, PlaneDetectionComponent *detComp2);
-	Contact* getCollision(glm::vec3 pos1, glm::vec3 rot1, glm::vec3 pos2, glm::vec3 rot2, CubeDetectionComponent *detComp2);
-
-	int getShape() { return PLANE; }
-	float getSizeX() { return mSizeX; }
-	float getSizeY() { return mSizeY; }
+	int getShape() const { return PLANE; }
+	float getSizeX() const { return mSizeX; }
+	float getSizeY() const { return mSizeY; }
 
 
 private:
