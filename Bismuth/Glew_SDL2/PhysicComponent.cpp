@@ -82,7 +82,6 @@ void PhysicComponent::collisionResponse(float timestep)
 	}
 	else
 	{
-		// Fuck it
 		responseToContact(*mContact.begin());
 	}
 }
