@@ -1,4 +1,5 @@
 #pragma once
+#include "Contact.h"
 #include "DetectionComponent.h"
 #include "RayDetectionComponent.h"
 #include "SphereDetectionComponent.h"

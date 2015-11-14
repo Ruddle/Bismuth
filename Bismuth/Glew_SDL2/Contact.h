@@ -1,6 +1,6 @@
 #pragma once
-#include "PhysicComponent.h"
 #include "glm.hpp"
+
 
 class PhysicComponent;
 
