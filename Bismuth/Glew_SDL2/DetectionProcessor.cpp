@@ -221,36 +221,29 @@ Contact * DetectionProcessor::cubeToPlane(CubeDetectionComponent * cube, PlaneDe
 	mat4 invTransMatPlane = translate(-pos2);
 
 
-	float min = 0;
-	vec3 normal, position;
-	bool atLeastOne = false;
+	vec3 normalsSum(0), positionsSum(0);
+	int count = 0;
 
 	for (int i = 0; i < 8; i++)
 	{
 		vec4 verticeWorldRef = transMatCube*rotMatCube*vec4(vertices[i], 1.0f);
 		vec4 verticePlaneRef = invRotMatPlane*invTransMatPlane*verticeWorldRef;
 
-		
-
 		if (verticePlaneRef.z < 0 && verticePlaneRef.x > -w/2 / 2 && verticePlaneRef.x < w / 2
 			&& verticePlaneRef.y > -h / 2 && verticePlaneRef.y < h / 2)
 		{
-			atLeastOne = true;
+			count++;
 
-			if (verticePlaneRef.z < min)
-			{
-				min = verticePlaneRef.z;
-				normal = -vec3(rotMatPlane*vec4(0.0f, 0.0f, -verticePlaneRef.z, 1.0f));
-				position = vec3(verticeWorldRef);
-			}
+			normalsSum += vec3(rotMatPlane*vec4(0.0f, 0.0f, verticePlaneRef.z, 1.0f));
+			positionsSum += vec3(verticeWorldRef);
 		}
 	}
 
-	if (atLeastOne)
+	if (count > 0)
 	{
 		Contact *contact = new Contact;
-		contact->normal = normal;
-		contact->position = position;
+		contact->normal = normalsSum/float(count);
+		contact->position = positionsSum/float(count);
 		contact->who = nullptr;
 
 		return contact;
