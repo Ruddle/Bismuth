@@ -64,7 +64,7 @@ int main(int argc, char **argv)
 		entityC->getPhysicComponent()->getStateComponent()->setPosition(vec3(3+ cos(time / 10.0), 0, 2 + sin(time / 10.0)));
 		fps = (currentScene->waitForFps(30) + 2*fps)/3.0;
 		double elapsedTime = 1000.0/ fps;
-		//if (time % 10 == 0)	cout << fps << endl;
+		if (time % 10 == 0)	cout << fps << endl;
 		input.update();
 		cam->update(input, elapsedTime);
 		
@@ -88,8 +88,6 @@ int main(int argc, char **argv)
 			entityManager->collision();
 			entityManager->collisionResponse(elapsedTime / numIterPhys);
 
-			entityManager->collision();
-			entityManager->collisionResponse(elapsedTime / numIterPhys);
 		}
 		
 

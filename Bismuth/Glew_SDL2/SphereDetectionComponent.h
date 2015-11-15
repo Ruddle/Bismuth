@@ -14,10 +14,12 @@ public:
 
 	Shape getShape() const {return SPHERE;}
 	float getRadius2() const { return mRadius2; }
+	float getRadius() const { return mRadius; }
 
 private:
 
 	float mRadius2;
+	float mRadius;
 
 
 

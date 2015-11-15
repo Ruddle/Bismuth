@@ -14,10 +14,11 @@ public:
 	Shape getShape() const { return PLANE; }
 	float getSizeX() const { return mSizeX; }
 	float getSizeY() const { return mSizeY; }
-
+	float getRadius() const { return mRadius; }
 
 private:
 
 	float mSizeX;
 	float mSizeY;
+	float mRadius;
 };

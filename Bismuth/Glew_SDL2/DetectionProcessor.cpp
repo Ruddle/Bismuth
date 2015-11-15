@@ -19,6 +19,9 @@ Contact * DetectionProcessor::detection(DetectionComponent * a, DetectionCompone
 {
 	
 
+	if (length(pos2 - pos1) > a->getRadius() + b->getRadius())	
+		return nullptr;
+
 	switch (a->getShape()) {
 
 	case DetectionComponent::CUBE:

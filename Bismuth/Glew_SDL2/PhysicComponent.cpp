@@ -53,16 +53,20 @@ void PhysicComponent::responseToContact(Contact *contact)
 {
 
 	StateComponent *sc1 = mStateComponent, *sc2 = contact->who->getStateComponent();
-	vec3 vr = sc2->getPositionDiff() - sc1->getPositionDiff();
 
 	vec3 r1 = contact->position - sc1->getPosition(), r2 = contact->position - sc2->getPosition();
 
-	mat3x3 invI1 = inverse(sc1->getInertia()), invI2 = inverse(sc2->getInertia());
+	vec3 vp1 = sc1->getPositionDiff() + cross(sc1->getRotationDiff(), r1);
+	vec3 vp2 = sc2->getPositionDiff() + cross(sc2->getRotationDiff(), r2);
+
+	vec3 vr = vp2 - vp1;
+
+	mat3 invI1 = sc1->getInertiaInverse(), invI2 = sc2->getInertiaInverse();
 
 	float e = (sc2->getRestitution() + sc1->getRestitution()) / 2;
 
 	vec3 normalized = normalize(contact->normal);
-
+	
 	float numJr = -(1+e)*dot(vr, normalized);
 
 	vec3 denJr_1 = cross(invI1 * cross(r1, normalized), r1),
