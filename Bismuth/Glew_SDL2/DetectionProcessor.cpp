@@ -240,7 +240,7 @@ Contact * DetectionProcessor::cubeToPlane(CubeDetectionComponent * cube, PlaneDe
 			if (verticePlaneRef.z < min)
 			{
 				min = verticePlaneRef.z;
-				normal = vec3(rotMatPlane*vec4(0.0f, 0.0f, -verticePlaneRef.z, 1.0f));
+				normal = -vec3(rotMatPlane*vec4(0.0f, 0.0f, -verticePlaneRef.z, 1.0f));
 				position = vec3(verticeWorldRef);
 			}
 		}
