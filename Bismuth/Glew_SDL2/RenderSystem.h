@@ -26,6 +26,7 @@ public:
 	~RenderSystem();
 
 	void draw(std::vector<Entity*> entities, Camera const& cam, float time, Input &input,float fps);
+	void draw2D();
 
 private: 
 
