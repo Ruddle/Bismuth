@@ -35,12 +35,12 @@ Ball::~Ball()
 {
 }
 
-void Ball::update()
+void Ball::update(float elapsedTime)
 {
 	StateComponent* sc = mEntity->getPhysicComponent()->getStateComponent();
 
-	sc->force(vec3(0, 0, -0.00051));
-	sc->friction(0.01f);
+	sc->force(vec3(0, 0, -0.000051*elapsedTime));
+	sc->friction(0.001f*elapsedTime);
 
 
 	/*if (sc->getPosition().z < 1) {

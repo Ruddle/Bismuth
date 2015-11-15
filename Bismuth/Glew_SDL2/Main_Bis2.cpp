@@ -68,21 +68,28 @@ int main(int argc, char **argv)
 		input.update();
 		cam->update(input, elapsedTime);
 		
-		if(!input.getKey(SDL_SCANCODE_F11))
-		{
-			entityManager->update(float(elapsedTime));
 
-			for (int i = 0; i < listBall.size(); i++)
-				listBall[i]->update();
-
-			for (int i = 0; i < listCube.size(); i++)
-				listCube[i]->update();
-		}
 		
+		float numIterPhys = 10;
+		for (int i = 0; i < numIterPhys; i++) {
 
-		for (int i = 0; i < 10; i++) {
+			if (!input.getKey(SDL_SCANCODE_F11))
+			{
+				entityManager->update(float(elapsedTime/ numIterPhys));
+
+				for (int i = 0; i < listBall.size(); i++)
+					listBall[i]->update(elapsedTime / numIterPhys);
+
+				for (int i = 0; i < listCube.size(); i++)
+					listCube[i]->update(elapsedTime / numIterPhys);
+			}
+
+
 			entityManager->collision();
-			entityManager->collisionResponse(elapsedTime);
+			entityManager->collisionResponse(elapsedTime / numIterPhys);
+
+			entityManager->collision();
+			entityManager->collisionResponse(elapsedTime / numIterPhys);
 		}
 		
 

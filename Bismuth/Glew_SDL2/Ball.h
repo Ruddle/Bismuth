@@ -16,7 +16,7 @@ public:
 	Ball(EntityManager* em,ResourcesManager* rm, glm::vec3 position, glm::vec3 speed);
 	~Ball();
 
-	void update();
+	void update(float elapsedTime);
 
 private: 
 	Entity* mEntity;
