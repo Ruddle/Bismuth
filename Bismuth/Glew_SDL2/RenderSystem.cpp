@@ -201,6 +201,20 @@ void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float t
 	mLastViewProjection = cam.getProjection()*cam.getView();
 }
 
+void RenderSystem::draw2D()
+{
+
+	glBindFramebuffer(GL_FRAMEBUFFER, 0);
+	glClear(GL_DEPTH_BUFFER_BIT);
+
+
+
+
+}
+
+
+
+
 void RenderSystem::doStepAo(Camera const &cam)
 {
 	vec2 resolution = vec2(mCfg.ResolutionX, mCfg.ResolutionY);
