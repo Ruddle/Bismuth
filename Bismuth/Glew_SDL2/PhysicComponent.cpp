@@ -73,7 +73,7 @@ void PhysicComponent::responseToContact(Contact *contact)
 	sc1->setPositionDiff(sc1->getPositionDiff() - (jr / sc1->getMass())*contact->normal);
 	sc1->setRotationDiff(sc1->getRotationDiff() - jr*invI1*cross(r1, contact->normal));
 
-	sc1->setPosition(sc1->getPosition() - (sc2->getMass() / (sc1->getMass() + sc2->getMass()))*contact->normal);
+	sc1->setPosition(sc1->getPosition() - (sc2->getMass() / (sc1->getMass() + sc2->getMass()))*contact->normal*1.01f);
 }
 
 void PhysicComponent::collisionResponse(float timestep)
