@@ -73,6 +73,8 @@ void PhysicComponent::responseToContact(Contact *contact)
 	float jr = numJr / denJr;
 
 	sc1->setPositionDiff(sc1->getPositionDiff() - (jr / sc1->getMass())*normalized);
+
+	vec3 diffdiff = jr*invI1*cross(r1, normalized);
 	sc1->setRotationDiff(sc1->getRotationDiff() - jr*invI1*cross(r1, normalized));
 
 	sc1->setPosition(sc1->getPosition() - (sc2->getMass() / (sc1->getMass() + sc2->getMass()))*contact->normal*1.01f);

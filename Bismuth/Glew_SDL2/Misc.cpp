@@ -83,6 +83,7 @@ Entity* createPlane(ResourcesManager* rm) {
 	sc1->setMass(1E15);
 	sc1->setInertia(1E15);
 	Entity* entity = new Entity(gc1, pc1);
+
 	return entity;
 }
 

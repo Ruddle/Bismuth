@@ -103,7 +103,9 @@ int main(int argc, char **argv)
 		listBall.push_back(  new Ball(entityManager, rm, cam->getPosition(), 0.00951f*cam->getRotation()) );
 
 		if (input.getRisingKey(SDL_SCANCODE_L))
-		listCube.push_back(  new Cube(entityManager, rm, cam->getPosition(), 0.00951f*cam->getRotation()));
+			listCube.push_back(new Cube(entityManager, rm, vec3(0.0, 0.0, 2.0), vec3(0)));
+
+		//listCube.push_back(  new Cube(entityManager, rm, cam->getPosition(), 0.00951f*cam->getRotation()));
 	
 	}
 

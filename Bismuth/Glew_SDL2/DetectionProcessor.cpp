@@ -237,6 +237,7 @@ Contact * DetectionProcessor::cubeToPlane(CubeDetectionComponent * cube, PlaneDe
 			normalsSum += vec3(rotMatPlane*vec4(0.0f, 0.0f, verticePlaneRef.z, 1.0f));
 			positionsSum += vec3(verticeWorldRef);
 		}
+
 	}
 
 	if (count > 0)
