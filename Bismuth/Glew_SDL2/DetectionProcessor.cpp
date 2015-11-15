@@ -206,6 +206,7 @@ Contact * DetectionProcessor::cubeToPlane(CubeDetectionComponent * cube, PlaneDe
 	glm::vec3 const& pos2, glm::vec3 const& rot2)
 {
 	vec3 s = cube->getSize();
+	float w = plane->getSizeX(), h = plane->getSizeY();
 
 	vec3 vertices[8] = { vec3(-s.x / 2, -s.y / 2, -s.z / 2), vec3(s.x / 2, -s.y / 2, -s.z / 2),
 		vec3(s.x / 2, s.y / 2, -s.z / 2), vec3(-s.x / 2, s.y / 2, -s.z / 2),
@@ -214,52 +215,51 @@ Contact * DetectionProcessor::cubeToPlane(CubeDetectionComponent * cube, PlaneDe
 
 	mat4 rotMatCube = rotate(rot1.x, vec3(1, 0, 0)) *rotate(rot1.y, vec3(0, 1, 0))*rotate(rot1.z, vec3(0, 0, 1));
 	mat4 transMatCube = translate(pos1);
-	mat4 invRotMatCube = rotate(-rot1.z, vec3(0, 0, 1)) * rotate(-rot1.y, vec3(0, 1, 0))*rotate(-rot1.x, vec3(1, 0, 0));
-	mat4 invTransMatCube = translate(-pos1);
 
 	mat4 rotMatPlane = rotate(rot2.x, vec3(1, 0, 0)) *rotate(rot2.y, vec3(0, 1, 0))*rotate(rot2.z, vec3(0, 0, 1));
 	mat4 invRotMatPlane = rotate(-rot2.z, vec3(0, 0, 1)) * rotate(-rot2.y, vec3(0, 1, 0))*rotate(-rot2.x, vec3(1, 0, 0));
-
-	// Normale du plan
-	vec4 planeNorm = rotMatPlane*vec4(0.0f, 0.0f, 1.0f, 1.0f);
-
-	// vecteurs orthogonaux quelconques du plan
-	vec3 planeVX = vec3(invRotMatCube*rotMatPlane*vec4(1.0f, 0.0f, 0.0f, 1.0f));
-	vec3 planeVY = vec3(invRotMatCube*rotMatPlane*vec4(0.0f, 1.0f, 0.0f, 1.0f));
+	mat4 invTransMatPlane = translate(-pos2);
 
 
-
-	planeNorm = invRotMatCube*planeNorm;
-
-	vec4 pos2CubeRef = invRotMatCube*invTransMatCube*vec4(pos2, 1.0f);
-
-	vec3 normal;
-
+	float min = 0;
+	vec3 normal, position;
+	bool atLeastOne = false;
 
 	for (int i = 0; i < 8; i++)
 	{
-		vec3 v = vertices[i] - vec3(pos2CubeRef);
+		vec4 verticeWorldRef = transMatCube*rotMatCube*vec4(vertices[i], 1.0f);
+		vec4 verticePlaneRef = invRotMatPlane*invTransMatPlane*verticeWorldRef;
 
+		
 
-		// Projete orthogonal de v sur le plan
-		vec3 pv = dot(v, planeVX)*planeVX + dot(v, planeVY)*planeVY;
-		normal = v - pv;
-		vec3 pvPlaneRef = vec3(invRotMatPlane*rotMatCube*vec4(pv, 1.0f));
-
-		float w = plane->getSizeX(), h = plane->getSizeY();
-
-		if (dot(normal, vec3(planeNorm)) < 0 && pvPlaneRef.x > -w/2 / 2 && pvPlaneRef.x < w / 2
-			&& pvPlaneRef.y > -h / 2 && pvPlaneRef.y < h / 2)
+		if (verticePlaneRef.z < 0 && verticePlaneRef.x > -w/2 / 2 && verticePlaneRef.x < w / 2
+			&& verticePlaneRef.y > -h / 2 && verticePlaneRef.y < h / 2)
 		{
-			Contact *contact = new Contact;
-			contact->normal = vec3(rotMatCube*vec4(normal, 1.0f));
-			contact->position = vec3(transMatCube*rotMatCube*vec4(vertices[i], 1.0f));
-			contact->who = nullptr;
+			atLeastOne = true;
 
-			return contact;
+			if (verticePlaneRef.z < min)
+			{
+				min = verticePlaneRef.z;
+				normal = vec3(rotMatPlane*vec4(0.0f, 0.0f, -verticePlaneRef.z, 1.0f));
+				position = vec3(verticeWorldRef);
+			}
 		}
 	}
-	return nullptr;
+
+	if (atLeastOne)
+	{
+		Contact *contact = new Contact;
+		contact->normal = normal;
+		contact->position = position;
+		contact->who = nullptr;
+
+		return contact;
+	}
+	else
+	{
+		return nullptr;
+
+	}
 }
 
 Contact * DetectionProcessor::cubeToCube(CubeDetectionComponent * cube, CubeDetectionComponent * cube2,
