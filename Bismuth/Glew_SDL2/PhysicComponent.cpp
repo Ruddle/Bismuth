@@ -61,17 +61,19 @@ void PhysicComponent::responseToContact(Contact *contact)
 
 	float e = (sc2->getRestitution() + sc1->getRestitution()) / 2;
 
-	float numJr = -(1+e)*dot(vr, contact->normal);
+	vec3 normalized = normalize(contact->normal);
 
-	vec3 denJr_1 = cross(invI1 * cross(r1, contact->normal), r1),
-		denJr_2 = cross(invI2 * cross(r2, contact->normal), r2);
-	float denJr_3 = dot(denJr_1 + denJr_2, contact->normal),
+	float numJr = -(1+e)*dot(vr, normalized);
+
+	vec3 denJr_1 = cross(invI1 * cross(r1, normalized), r1),
+		denJr_2 = cross(invI2 * cross(r2, normalized), r2);
+	float denJr_3 = dot(denJr_1 + denJr_2, normalized),
 		denJr = 1 / sc1->getMass() + 1 / sc2->getMass() + denJr_3;
 
 	float jr = numJr / denJr;
 
-	sc1->setPositionDiff(sc1->getPositionDiff() - (jr / sc1->getMass())*contact->normal);
-	sc1->setRotationDiff(sc1->getRotationDiff() - jr*invI1*cross(r1, contact->normal));
+	sc1->setPositionDiff(sc1->getPositionDiff() - (jr / sc1->getMass())*normalized);
+	sc1->setRotationDiff(sc1->getRotationDiff() - jr*invI1*cross(r1, normalized));
 
 	sc1->setPosition(sc1->getPosition() - (sc2->getMass() / (sc1->getMass() + sc2->getMass()))*contact->normal*1.01f);
 }
