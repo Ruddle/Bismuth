@@ -1,5 +1,6 @@
 #include "PhysicComponent.h"
 
+#include <iostream>
 
 using namespace glm;
 
@@ -68,7 +69,6 @@ void PhysicComponent::responseToContact(Contact *contact)
 		denJr = 1 / sc1->getMass() + 1 / sc2->getMass() + denJr_3;
 
 	float jr = numJr / denJr;
-
 
 	sc1->setPositionDiff(sc1->getPositionDiff() - (jr / sc1->getMass())*contact->normal);
 	sc1->setRotationDiff(sc1->getRotationDiff() - jr*invI1*cross(r1, contact->normal));
