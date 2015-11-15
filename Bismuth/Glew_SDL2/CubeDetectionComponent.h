@@ -14,10 +14,12 @@ public:
 	Shape getShape() const { return CUBE; }
 
 	glm::vec3 getSize() const {return glm::vec3(mSizeX, mSizeY, mSizeZ); }
+	float getRadius() const { return mRadius; }
 
 
 private:
 	float mSizeX;
 	float mSizeY;
 	float mSizeZ;
+	float mRadius;
 };

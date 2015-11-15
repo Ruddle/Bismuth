@@ -71,8 +71,8 @@ Entity* createSphere(ResourcesManager* rm) {
 
 Entity* createPlane(ResourcesManager* rm) {
 	GraphicComponent* gc1 = new GraphicComponent(
-		//rm->loadTexture("Texture/rock.png", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),
-		rm->loadTexture("Texture/checker2.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
+		rm->loadTexture("Texture/rock.png", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),
+	//	rm->loadTexture("Texture/checker2.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
 		rm->loadTexture("Texture/rock_N.png", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),
 		rm->loadTexture("Texture/rock.png", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),
 		rm->loadTexture("Texture/BLACK.png", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),
@@ -82,6 +82,7 @@ Entity* createPlane(ResourcesManager* rm) {
 	PhysicComponent* pc1 = new PhysicComponent(dc1, sc1);
 	sc1->setMass(1E15);
 	sc1->setInertia(1E15);
+	sc1->setRotation(vec3(0.0, 0, 0));
 	Entity* entity = new Entity(gc1, pc1);
 	return entity;
 }

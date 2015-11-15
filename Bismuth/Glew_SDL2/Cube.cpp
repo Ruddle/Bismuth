@@ -24,7 +24,7 @@ Cube::Cube(EntityManager* em, ResourcesManager* rm, glm::vec3 position, glm::vec
 	sc1->setPosition(position);
 	sc1->setPositionDiff(speed);
 
-	//sc1->setRotation(vec3(1.0f, 1.0f, 0.0f));
+	sc1->setRotation(vec3(1.0f, 1.0f, 0.0f));
 
 	PhysicComponent* pc1 = new PhysicComponent(dc1, sc1);
 

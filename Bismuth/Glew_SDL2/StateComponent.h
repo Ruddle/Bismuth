@@ -28,10 +28,11 @@ public:
 
 	float getMass() { return mMass; }
 	glm::mat3 getInertia() { return mInertia; }
+	glm::mat3 getInertiaInverse() { return mInertiaInverse; }
 
 	void setMass(float mass) { mMass = mass; }
-	void setInertia(glm::mat3 inertia) { mInertia = inertia; }
-	void setInertia(float inertia) { setInertia(glm::mat3(inertia)); }
+	void setInertia(glm::mat3 inertia) { mInertia = inertia; mInertiaInverse = inverse(inertia);}
+	void setInertia(float inertia) { setInertia(glm::mat3(inertia)); mInertiaInverse = inverse(mInertia);}
 	float getRestitution() { return mRestitution; }
 
 	glm::vec3 getPositionPast(float ms) { return mPosition - mPositionDiff*ms; }
@@ -54,6 +55,7 @@ private:
 
 	float mMass;
 	glm::mat3 mInertia;
+	glm::mat3 mInertiaInverse;
 	float mRestitution;
 
 	glm::mat4 mModel;

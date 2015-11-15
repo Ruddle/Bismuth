@@ -10,6 +10,7 @@ public:
 	RayDetectionComponent();
 	~RayDetectionComponent();
 	Shape getShape() const { return RAY; }
+	float getRadius() const { return 0; }
 
 private:
 
