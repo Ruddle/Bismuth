@@ -57,6 +57,7 @@ int main(int argc, char **argv)
 
 	vector<Ball*> listBall = vector<Ball*>();
 	vector<Cube*> listCube = vector<Cube*>();
+	
 	double fps = 60;
 
 	while (!input.end()) {
@@ -68,11 +69,11 @@ int main(int argc, char **argv)
 		input.update();
 		cam->update(input, elapsedTime);
 		
-
+		vector<vec2> a;
+		float numIterPhys = 5;
+		for (int i = 0; i < numIterPhys; i++)
 		
-		float numIterPhys = 10;
-		for (int i = 0; i < numIterPhys; i++) {
-
+		{
 			if (!input.getKey(SDL_SCANCODE_F11))
 			{
 				entityManager->update(float(elapsedTime/ numIterPhys));
@@ -83,17 +84,33 @@ int main(int argc, char **argv)
 				for (int i = 0; i < listCube.size(); i++)
 					listCube[i]->update(elapsedTime / numIterPhys);
 			}
-
-
 			entityManager->collision();
 			entityManager->collisionResponse(elapsedTime / numIterPhys);
 
+
+			vector<Entity*> entities = entityManager->getEntities();
+		for (auto it1 = entities.begin(); it1 != entities.end(); it1++)
+			{
+				set<Contact*> contacts = (*it1)->getPhysicComponent()->getContact();
+				for (auto it = contacts.begin(); it != contacts.end(); it++)
+				{
+					vec4 worldSpace = vec4((*it)->position, 1);
+					vec4 screenSpace = cam->getProjection() * cam->getView() * worldSpace;
+					screenSpace /= screenSpace.w;
+					a.push_back(vec2(screenSpace));
+				}
+			}
 		}
+		
+		
 		
 
 
+		
+
 		if (time % 1 == 0) {
 			renderSystem->draw(entityManager->getEntities(), *cam, time, input, float(fps));
+			renderSystem->draw2D(*cam,a);
 			currentScene->flip();
 		}
 
@@ -101,9 +118,9 @@ int main(int argc, char **argv)
 		listBall.push_back(  new Ball(entityManager, rm, cam->getPosition(), 0.00951f*cam->getRotation()) );
 
 		if (input.getRisingKey(SDL_SCANCODE_L))
-			listCube.push_back(new Cube(entityManager, rm, vec3(0.0, 0.0, 2.0), vec3(0)));
+		listCube.push_back(new Cube(entityManager, rm, cam->getPosition(), 0.00951f*cam->getRotation()));
 
-		//listCube.push_back(  new Cube(entityManager, rm, cam->getPosition(), 0.00951f*cam->getRotation()));
+		
 	
 	}
 

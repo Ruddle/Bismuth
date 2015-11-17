@@ -31,55 +31,24 @@ void Vao2D::load()
 
 	if (glIsBuffer(mVboId) == GL_TRUE)
 		glDeleteBuffers(1, &mVboId);
-
 	// Génération de l'ID
 	glGenBuffers(1, &mVboId);
-
 	// Verrouillage du VBO
 	glBindBuffer(GL_ARRAY_BUFFER, mVboId);
-
-
 	// Allocation de la mémoire vidéo
-	glBufferData(GL_ARRAY_BUFFER, 6 * 3 * sizeof(float) + 6 * 2 * sizeof(float), 0, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, 6 * 2 * sizeof(float), 0, GL_STATIC_DRAW);
 
 	// Transfert des données
-	
-
-	float m_vertex[18] = {
-		0,0,0,
-		1,0,0,
-		1,1,0,
-
-		0,0,0,
-		1,1,0,
-		0,1,0
+	float m_vertex[12] = {
+		-1,-1,
+		1,-1,
+		1,1,
+		-1,-1,
+		1,1,
+		-1,1
 	};
 
-	for (int i = 0; i < 18; i++)
-	{
-		if (i % 3 == 2)
-			i++;
-
-		m_vertex[i] -= 0.5;
-	}
-
-
-	for (int i = 0; i < 18; i++)
-	m_vertex[i] *= 2;
-
-	float m_coords[12] = {
-		0, 0,
-		1, 0,
-		1, 1,
-
-		0, 0,
-		1, 1,
-		0, 1,
-	};
-
-	glBufferSubData(GL_ARRAY_BUFFER, 0, 18 * sizeof(float), m_vertex);
-	glBufferSubData(GL_ARRAY_BUFFER, 18 * sizeof(float), 12 * sizeof(float), m_coords);
-
+	glBufferSubData(GL_ARRAY_BUFFER, 0, 12 * sizeof(float), m_vertex);
 
 	// Déverrouillage de l'objet
 
@@ -92,42 +61,18 @@ void Vao2D::load()
 	if (glIsVertexArray(mVaoId) == GL_TRUE)
 		glDeleteVertexArrays(1, &mVaoId);
 
-
 	// Génération de l'identifiant du VAO
-
 	glGenVertexArrays(1, &mVaoId);
-
-
 	// Verrouillage du VAO
-
 	glBindVertexArray(mVaoId);
-
-
 	// Verrouillage du VBO
-
 	glBindBuffer(GL_ARRAY_BUFFER, mVboId);
-
-
 	// Accès aux vertices dans la mémoire vidéo
-
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(0));
+	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(0));
 	glEnableVertexAttribArray(0);
-
-
-	// Accès aux couleurs dans la mémoire vidéo
-
-	glVertexAttribPointer(3, 2, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(18 * sizeof(float)));
-	glEnableVertexAttribArray(3);
-
-
-
-
 	// Déverrouillage du VBO
-
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
-
 	// Déverrouillage du VAO
-
 	glBindVertexArray(0);
 	//VAO LOADED
 }

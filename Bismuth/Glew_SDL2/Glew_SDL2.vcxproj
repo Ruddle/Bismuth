@@ -241,6 +241,8 @@
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
     <None Include="config.ini" />
+    <None Include="Shader\2D.frag" />
+    <None Include="Shader\2D.vert" />
     <None Include="Shader\AO.frag" />
     <None Include="Shader\AO2.frag" />
     <None Include="Shader\AO3.frag" />

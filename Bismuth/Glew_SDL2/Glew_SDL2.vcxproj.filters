@@ -280,6 +280,12 @@
       <Filter>Shader</Filter>
     </None>
     <None Include="ClassDiagram.cd" />
+    <None Include="Shader\2D.frag">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="Shader\2D.vert">
+      <Filter>Shader</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Bis 1">
