@@ -89,6 +89,10 @@ int main(int argc, char **argv)
 
 
 			vector<Entity*> entities = entityManager->getEntities();
+
+			entities.clear();
+			entities.push_back(entityB);
+
 		for (auto it1 = entities.begin(); it1 != entities.end(); it1++)
 			{
 				set<Contact*> contacts = (*it1)->getPhysicComponent()->getContact();
@@ -98,13 +102,19 @@ int main(int argc, char **argv)
 					vec4 screenSpace = cam->getProjection() * cam->getView() * worldSpace;
 					screenSpace /= screenSpace.w;
 					a.push_back(vec2(screenSpace));
+
+					for (int i = 0; i < 10; i++)
+					{
+						vec4 worldSpace = vec4((*it)->position + i*10.0f*(*it)->normal, 1);
+						vec4 screenSpace = cam->getProjection() * cam->getView() * worldSpace;
+						screenSpace /= screenSpace.w;
+						a.push_back(vec2(screenSpace));
+
+					}
+
 				}
 			}
 		}
-		
-		
-		
-
 
 		
 
