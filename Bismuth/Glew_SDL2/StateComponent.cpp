@@ -8,7 +8,8 @@ using namespace glm;
 StateComponent::StateComponent() : mHasDetection(true),mHasResponse(true), mHasForce(true), mHasGravity(true), mHasTorque(true),
 									mHasUpdate(true), mIsSleeping(false),
 									mPosition(0), mPositionDiff(0), mRotation(0.0, 0.0, 1.0), mRotationDiff(0),
-									mMass(1),mInertia(1), mModel(0), mModelInv(0), mLastModel(0),mRestitution(0.3)
+									mMass(1),mInertia(1.0/6.0), mModel(0), mModelInv(0), mLastModel(0),mRestitution(0.3)
+									, mInertiaInverse(1)
 {
 	mInertiaInverse = inverse(mat3(1));
 }
@@ -31,7 +32,7 @@ void StateComponent::force(float time, glm::vec3 force, glm::vec3 pt)
 }
 void StateComponent::torque(float time, glm::vec3 torque)
 {
-	mRotationDiff += time*mInertia*torque;
+	mRotationDiff += time*mInertiaInverse*torque;
 }
 
 void StateComponent::friction(float coeff)
