@@ -8,7 +8,7 @@ using namespace glm;
 StateComponent::StateComponent() : mHasDetection(true),mHasResponse(true), mHasForce(true), mHasGravity(true), mHasTorque(true),
 									mHasUpdate(true), mIsSleeping(false),
 									mPosition(0), mPositionDiff(0), mRotation(0), mRotationDiff(0),
-									mMass(1),mInertia(1), mModel(0), mLastModel(0),mRestitution(0.3)
+									mMass(1),mInertia(1), mModel(0), mModelInv(0), mLastModel(0),mRestitution(0.3)
 {
 	mInertiaInverse = inverse(mat3(1));
 }
@@ -61,6 +61,11 @@ void StateComponent::update(float time)
 	mRotation.z -= (float)M_PI;
 
 	mLastModel = mModel;
-	mModel = translate(mPosition)* rotate(mRotation.x, vec3(1, 0, 0)) *rotate(mRotation.y, vec3(0, 1, 0))*rotate(mRotation.z, vec3(0, 0, 1));
+	//mModel = translate(mPosition)* rotate(mRotation.x, vec3(1, 0, 0)) *rotate(mRotation.y, vec3(0, 1, 0))*rotate(mRotation.z, vec3(0, 0, 1));
+	mModel = translate(mPosition)* eulerAngleYXZ(mRotation.y, mRotation.x, mRotation.z);
+	
+	
+	mModelInv = inverse(mModel);
+
 }
 

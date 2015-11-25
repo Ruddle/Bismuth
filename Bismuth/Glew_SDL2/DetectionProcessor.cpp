@@ -149,7 +149,7 @@ Contact * DetectionProcessor::cubeToSphere(CubeDetectionComponent * cube, Sphere
 {
 	Contact* result = nullptr;
 	vec3 half = cube->getSize()/2.0f;
-	mat4 toWorldSpace = translate(pos1)*rotate(rot1.x, vec3(1, 0, 0)) *rotate(rot1.y, vec3(0, 1, 0))*rotate(rot1.z, vec3(0, 0, 1));
+	mat4 toWorldSpace = translate(pos1)*eulerAngleYXZ(rot1.y, rot1.x, rot1.z);
 	mat4 toCubeSpace = inverse(toWorldSpace);
 
 	vec3 relativePosSphere = vec3(toCubeSpace*vec4(pos2, 1));
@@ -216,11 +216,11 @@ Contact * DetectionProcessor::cubeToPlane(CubeDetectionComponent * cube, PlaneDe
 		vec3(-s.x / 2, -s.y / 2, s.z / 2), vec3(s.x / 2, -s.y / 2, s.z / 2),
 		vec3(s.x / 2, s.y / 2, s.z / 2), vec3(-s.x / 2, s.y / 2, s.z / 2) };
 
-	mat4 rotMatCube = rotate(rot1.x, vec3(1, 0, 0)) *rotate(rot1.y, vec3(0, 1, 0))*rotate(rot1.z, vec3(0, 0, 1));
+	mat4 rotMatCube = eulerAngleYXZ(rot1.y, rot1.x, rot1.z);
 	mat4 transMatCube = translate(pos1);
 
-	mat4 rotMatPlane = rotate(rot2.x, vec3(1, 0, 0)) *rotate(rot2.y, vec3(0, 1, 0))*rotate(rot2.z, vec3(0, 0, 1));
-	mat4 invRotMatPlane = rotate(-rot2.z, vec3(0, 0, 1)) * rotate(-rot2.y, vec3(0, 1, 0))*rotate(-rot2.x, vec3(1, 0, 0));
+	mat4 rotMatPlane = eulerAngleYXZ(rot2.y, rot2.x, rot2.z);
+	mat4 invRotMatPlane = eulerAngleYXZ(-rot2.y, -rot2.x, -rot2.z);
 	mat4 invTransMatPlane = translate(-pos2);
 
 
@@ -280,7 +280,7 @@ Contact * DetectionProcessor::planeToSphere(PlaneDetectionComponent * plane, Sph
 	Contact* result = nullptr;
 	vec2 size = vec2(plane->getSizeX(), plane->getSizeY())/2.0f;
 
-	mat4 toWorldSpace = translate(pos1)*rotate(rot1.x, vec3(1, 0, 0)) *rotate(rot1.y, vec3(0, 1, 0))*rotate(rot1.z, vec3(0, 0, 1));
+	mat4 toWorldSpace = translate(pos1)* eulerAngleYXZ(rot1.y, rot1.x, rot1.z);
 	mat4 toPlaneSpace = inverse(toWorldSpace);
 
 	vec3 posSphere_PlaneSpace = vec3(toPlaneSpace * vec4(pos2, 1.0));

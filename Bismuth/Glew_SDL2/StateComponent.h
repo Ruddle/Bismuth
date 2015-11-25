@@ -3,6 +3,7 @@
 #include "DetectionComponent.h"
 #include "Contact.h"
 #include "glm.hpp"
+#include "glm\gtx\euler_angles.hpp"
 #include "glm\gtx\rotate_vector.hpp"
 #define _USE_MATH_DEFINES
 #include <math.h>
@@ -20,6 +21,7 @@ public:
 	void update(float time);
 
 	glm::mat4 getModel() { return mModel; }
+	glm::mat4 getModelInv() { return mModelInv; }
 	glm::mat4 getLastModel() { return mLastModel; }
 	glm::vec3 getPosition() { return mPosition; }
 	glm::vec3 getPositionDiff() { return mPositionDiff; }
@@ -59,6 +61,7 @@ private:
 	float mRestitution;
 
 	glm::mat4 mModel;
+	glm::mat4 mModelInv;
 	glm::mat4 mLastModel;
 	glm::vec3 mPosition;
 	glm::vec3 mPositionDiff;
