@@ -89,8 +89,8 @@ int main(int argc, char **argv)
 
 			vector<Entity*> entities = entityManager->getEntities();
 
-			entities.clear();
-			entities.push_back(entityB);
+	/*		entities.clear();
+			entities.push_back(entityB);*/
 
 		for (auto it1 = entities.begin(); it1 != entities.end(); it1++)
 			{

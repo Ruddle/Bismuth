@@ -149,7 +149,7 @@ Contact * DetectionProcessor::cubeToSphere(CubeDetectionComponent * cube, Sphere
 {
 	Contact* result = nullptr;
 	vec3 half = cube->getSize()/2.0f;
-	mat4 toWorldSpace = translate(pos1)*eulerAngleYXZ(rot1.y, rot1.x, rot1.z);
+	mat4 toWorldSpace = translate(pos1)*rotate(length(rot1), normalize(rot1));
 	mat4 toCubeSpace = inverse(toWorldSpace);
 
 	vec3 relativePosSphere = vec3(toCubeSpace*vec4(pos2, 1));

@@ -44,7 +44,7 @@ void Cube::update(float elapsedTime)
 {
 	StateComponent* sc = mEntity->getPhysicComponent()->getStateComponent();
 
-	sc->force(elapsedTime,vec3(0, 0, -0.000021f*elapsedTime));
+//	sc->force(elapsedTime,vec3(0, 0, -0.000021f*elapsedTime));
 	sc->friction(0.001f*elapsedTime);
 
 
