@@ -82,7 +82,7 @@ Entity* createPlane(ResourcesManager* rm) {
 	PhysicComponent* pc1 = new PhysicComponent(dc1, sc1);
 	sc1->setMass(1E15);
 	sc1->setInertia(1E15);
-	sc1->setRotation(vec3(0.0, 0, 0));
+	//sc1->setRotation(vec3(0.0, 0, 0));
 	Entity* entity = new Entity(gc1, pc1);
 
 	return entity;

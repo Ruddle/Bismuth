@@ -216,11 +216,17 @@ Contact * DetectionProcessor::cubeToPlane(CubeDetectionComponent * cube, PlaneDe
 		vec3(-s.x / 2, -s.y / 2, s.z / 2), vec3(s.x / 2, -s.y / 2, s.z / 2),
 		vec3(s.x / 2, s.y / 2, s.z / 2), vec3(-s.x / 2, s.y / 2, s.z / 2) };
 
-	mat4 rotMatCube = eulerAngleYXZ(rot1.y, rot1.x, rot1.z);
+	//mat4 rotMatCube = eulerAngleYXZ(rot1.y, rot1.x, rot1.z);
+	mat4 rotMatCube = rotate(length(rot1), normalize(rot1));
+
 	mat4 transMatCube = translate(pos1);
 
-	mat4 rotMatPlane = eulerAngleYXZ(rot2.y, rot2.x, rot2.z);
-	mat4 invRotMatPlane = eulerAngleYXZ(-rot2.y, -rot2.x, -rot2.z);
+	//mat4 rotMatPlane = eulerAngleYXZ(rot2.y, rot2.x, rot2.z);
+	mat4 rotMatPlane = rotate(length(rot2), normalize(rot2));
+
+	//mat4 invRotMatPlane = eulerAngleYXZ(-rot2.y, -rot2.x, -rot2.z);
+	mat4 invRotMatPlane = rotate(-length(rot2), normalize(rot2));
+
 	mat4 invTransMatPlane = translate(-pos2);
 
 
