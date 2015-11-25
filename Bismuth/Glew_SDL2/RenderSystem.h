@@ -26,7 +26,7 @@ public:
 	~RenderSystem();
 
 	void draw(std::vector<Entity*> entities, Camera const& cam, float time, Input &input,float fps);
-	void draw2D();
+	void draw2D(Camera const& cam, std::vector<glm::vec2> dot);
 
 private: 
 
@@ -60,6 +60,7 @@ private:
 	Shader mShaderDeferredFinal;
 	Shader mShaderTone;
 	Shader mShaderFXAA;
+	Shader mShader2D;
 
 	GLuint mTextureNoiseId;
 	std::vector<glm::vec3> mKernel;
