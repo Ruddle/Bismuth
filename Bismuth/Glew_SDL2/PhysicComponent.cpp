@@ -69,8 +69,8 @@ void PhysicComponent::responseToContact(Contact *contact)
 	
 	float numJr = -(1+e)*dot(vr, normalized);
 
-	vec3 denJr_1 = cross(invI1 * cross(r1, normalized), r1),
-		denJr_2 = cross(invI2 * cross(r2, normalized), r2);
+	vec3 denJr_1 = invI1 * cross(cross(r1, normalized), r1),
+		denJr_2 = invI2 * cross(cross(r2, normalized), r2);
 	float denJr_3 = dot(denJr_1 + denJr_2, normalized),
 		denJr = 1 / sc1->getMass() + 1 / sc2->getMass() + denJr_3;
 

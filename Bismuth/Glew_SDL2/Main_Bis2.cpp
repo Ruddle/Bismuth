@@ -64,7 +64,8 @@ int main(int argc, char **argv)
 		entityC->getPhysicComponent()->getStateComponent()->setPosition(vec3(3+ cos(time / 10.0), 0, 2 + sin(time / 10.0)));
 		fps = (currentScene->waitForFps(30) + 2*fps)/3.0;
 		double elapsedTime = 1000.0/ fps;
-		if (time % 10 == 0)	cout << fps << endl;
+
+		//if (time % 10 == 0)	cout << fps << endl;
 		input.update();
 		cam->update(input, elapsedTime);
 		
@@ -101,7 +102,7 @@ int main(int argc, char **argv)
 		listBall.push_back(  new Ball(entityManager, rm, cam->getPosition(), 0.00951f*cam->getRotation()) );
 
 		if (input.getRisingKey(SDL_SCANCODE_L))
-			listCube.push_back(new Cube(entityManager, rm, vec3(0.0, 0.0, 2.0), vec3(0)));
+			listCube.push_back(new Cube(entityManager, rm, vec3(0.0, 0.0, 4.0), vec3(0)));
 
 		//listCube.push_back(  new Cube(entityManager, rm, cam->getPosition(), 0.00951f*cam->getRotation()));
 	
