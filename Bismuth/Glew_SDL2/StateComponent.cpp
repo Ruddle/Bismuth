@@ -8,9 +8,9 @@ using namespace glm;
 StateComponent::StateComponent() : mHasDetection(true),mHasResponse(true), mHasForce(true), mHasGravity(true), mHasTorque(true),
 									mHasUpdate(true), mIsSleeping(false),
 									mPosition(0), mPositionDiff(0), mRotation(0), mRotationDiff(0),
-									mMass(1),mInertia(1), mModel(0), mLastModel(0),mRestitution(0.7)
+									mMass(1),mInertia(1.0/6.0), mModel(0), mLastModel(0),mRestitution(0.7)
 {
-	mInertiaInverse = inverse(mat3(1));
+	mInertiaInverse = mat3(1);
 }
 
 StateComponent::~StateComponent()
@@ -19,19 +19,19 @@ StateComponent::~StateComponent()
 }
 
 
-void StateComponent::force(glm::vec3 force)
+void StateComponent::force(float time,glm::vec3 force)
 {
-	mPositionDiff += force / mMass;
+	mPositionDiff += time*force / mMass;
 }
-void StateComponent::force(glm::vec3 force, glm::vec3 pt)
+void StateComponent::force(float time,glm::vec3 force, glm::vec3 pt)
 {
-	this->force(force);
+	this->force(time,force);
 	vec3 OM = pt - mPosition;
-	this->torque(cross(OM, force));
+	this->torque(time,cross(OM, force));
 }
-void StateComponent::torque(glm::vec3 torque)
+void StateComponent::torque(float time,glm::vec3 torque)
 {
-	mRotationDiff += mInertia*torque;
+	mRotationDiff += time*mInertiaInverse*torque;
 }
 
 void StateComponent::friction(float coeff)
@@ -46,13 +46,6 @@ void StateComponent::update(float time)
 	mRotation += mRotationDiff*float(time);
 
 	mRotation = mod(mRotation + vec3((float)M_PI), vec3(2 * (float)M_PI));
-
-	if (mRotation.x < 0)
-		mRotation.x += 2 * (float)M_PI;
-	if (mRotation.y < 0)
-		mRotation.y += 2 * (float)M_PI;
-	if (mRotation.z < 0)
-		mRotation.z += 2 * (float)M_PI;
 
 	mRotation.x -= (float)M_PI;
 
