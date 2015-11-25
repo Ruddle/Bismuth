@@ -19,19 +19,19 @@ StateComponent::~StateComponent()
 }
 
 
-void StateComponent::force(glm::vec3 force)
+void StateComponent::force(float time, glm::vec3 force)
 {
-	mPositionDiff += force / mMass;
+	mPositionDiff += time*force / mMass;
 }
-void StateComponent::force(glm::vec3 force, glm::vec3 pt)
+void StateComponent::force(float time, glm::vec3 force, glm::vec3 pt)
 {
-	this->force(force);
+	this->force(time,force);
 	vec3 OM = pt - mPosition;
-	this->torque(cross(OM, force));
+	this->torque(time,cross(OM, force));
 }
-void StateComponent::torque(glm::vec3 torque)
+void StateComponent::torque(float time, glm::vec3 torque)
 {
-	mRotationDiff += mInertia*torque;
+	mRotationDiff += time*mInertia*torque;
 }
 
 void StateComponent::friction(float coeff)

@@ -24,8 +24,8 @@ Cube::Cube(EntityManager* em, ResourcesManager* rm, glm::vec3 position, glm::vec
 	sc1->setPosition(position);
 	sc1->setPositionDiff(speed);
 
-	sc1->setRotationDiff(vec3(0.01f, 0.01f, 0.0f));
-	sc1->setRotation(vec3(1.0f, 1.0f, 1.0f));
+//	sc1->setRotationDiff(vec3(0.01f, 0.01f, 0.0f));
+	sc1->setRotation(vec3(1.0f, 1.0f, 0.0f));
 
 
 	PhysicComponent* pc1 = new PhysicComponent(dc1, sc1);
@@ -44,7 +44,7 @@ void Cube::update(float elapsedTime)
 {
 	StateComponent* sc = mEntity->getPhysicComponent()->getStateComponent();
 
-	sc->force(vec3(0, 0, -0.000051f*elapsedTime));
+	sc->force(elapsedTime,vec3(0, 0, -0.000021f*elapsedTime));
 	sc->friction(0.001f*elapsedTime);
 
 
