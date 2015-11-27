@@ -47,8 +47,8 @@ void StateComponent::update(float time)
 
 	if (mRotationDiff == vec3(0))
 		mRotationDiff = vec3(0.0000001f);
-
-	mRotation = rotate(mRotation,  (float)(M_PI/180.0f)*length( mRotationDiff*float(time))   ,normalize(mRotationDiff)) ;
+	
+	mRotation = rotate(mRotation,  (float)(180.0f/M_PI)*length( mRotationDiff*float(time))   ,normalize(mRotationDiff)) ;
 
 	mRotation = normalize(mRotation);
 
