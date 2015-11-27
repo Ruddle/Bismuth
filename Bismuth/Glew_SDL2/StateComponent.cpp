@@ -45,13 +45,19 @@ void StateComponent::update(float time)
 {
 	mPosition += mPositionDiff*float(time);
 
-	if (mRotationDiff == vec3(0))
-		mRotationDiff = vec3(0.0000001f);
+
+
+	if (mRotationDiff != vec3(0))
+	{
+
+
+		quat q = quat(0, mRotationDiff*float(time));
+
+		mRotation = mRotation + 0.5f * q * mRotation;
+	}
 	
-	mRotation = rotate(mRotation,  (float)(180.0f/M_PI)*length( mRotationDiff*float(time))   ,normalize(mRotationDiff)) ;
 
 	mRotation = normalize(mRotation);
-
 
 	mLastModel = mModel;
 	

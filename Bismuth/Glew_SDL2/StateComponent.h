@@ -8,6 +8,7 @@
 #include "glm\gtx\quaternion.hpp"
 #define _USE_MATH_DEFINES
 #include <math.h>
+//#define GLM_FORCE_RADIANS
 
 class StateComponent
 {

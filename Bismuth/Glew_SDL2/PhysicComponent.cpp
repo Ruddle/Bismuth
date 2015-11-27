@@ -79,7 +79,7 @@ void PhysicComponent::responseToContact(float elapsedTime,Contact *contact)
 
 
 	StateComponent *sc1 = mStateComponent, *sc2 = contact->who->getStateComponent();
-	sc1->force(elapsedTime ,-contact->normal*0.01f, contact->position);
+	sc1->force(elapsedTime ,-contact->normal*0.005f, contact->position);
 
 
 
