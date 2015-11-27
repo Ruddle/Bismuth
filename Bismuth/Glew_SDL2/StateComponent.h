@@ -14,9 +14,9 @@ public:
 	StateComponent();
 	~StateComponent();
 
-	void force(float time, glm::vec3 force);
-	void force(float time, glm::vec3 force, glm::vec3 point);
-	void torque(float time, glm::vec3 torque); // en O
+	void force(float time, glm::vec3 const&  force);
+	void force(float time, glm::vec3 const&  force, glm::vec3 const&  point);
+	void torque(float time, glm::vec3 const&  torque); // en O
 	void friction(float coeff);
 	void update(float time);
 

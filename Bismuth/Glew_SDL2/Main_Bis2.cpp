@@ -48,7 +48,7 @@ int main(int argc, char **argv)
 	EntityManager* entityManager = new EntityManager();
 	//entityManager->add(entityA);
 	entityManager->add(entityB);
-	//entityManager->add(entityC);
+	entityManager->add(entityC);
 
 	RenderSystem *renderSystem = new RenderSystem(cfg, rm);
 	Input input;
@@ -130,16 +130,16 @@ int main(int argc, char **argv)
 		listCube.push_back(new Cube(entityManager, rm, cam->getPosition(), 0.00951f*cam->getRotation()));
 
 		if (input.getRisingKey(SDL_SCANCODE_F))
-			entityC->getPhysicComponent()->getStateComponent()->torque(elapsedTime,vec3(0.0001, 0, 0));
+			entityC->getPhysicComponent()->getStateComponent()->torque(elapsedTime,vec3(0.001, 0, 0));
 		
 		if (input.getRisingKey(SDL_SCANCODE_H))
-			entityC->getPhysicComponent()->getStateComponent()->torque(elapsedTime,vec3(-0.0001, 0, 0));
+			entityC->getPhysicComponent()->getStateComponent()->torque(elapsedTime,vec3(-0.001, 0, 0));
 
 		if (input.getRisingKey(SDL_SCANCODE_T))
-			entityC->getPhysicComponent()->getStateComponent()->torque(elapsedTime,vec3(0, 0.0001, 0));
+			entityC->getPhysicComponent()->getStateComponent()->torque(elapsedTime,vec3(0, 0.001, 0));
 	
 		if (input.getRisingKey(SDL_SCANCODE_G))
-			entityC->getPhysicComponent()->getStateComponent()->torque(elapsedTime,vec3(0, -0.0001, 0));
+			entityC->getPhysicComponent()->getStateComponent()->torque(elapsedTime,vec3(0, -0.001, 0));
 	}
 
 	delete cam;
