@@ -44,7 +44,8 @@ void StateComponent::friction(float coeff)
 void StateComponent::update(float time)
 {
 	mPosition += mPositionDiff*float(time);
-	mRotation += mRotationDiff*float(time);
+
+	mRotation = rotate(mRotation,length( mRotationDiff*float(time)),normalize(mRotationDiff)) ;
 
 	//mRotation = mod(mRotation + vec3((float)M_PI), vec3(2 * (float)M_PI));
 	//if (mRotation.x < 0)
@@ -60,7 +61,7 @@ void StateComponent::update(float time)
 	mLastModel = mModel;
 	//mModel = translate(mPosition)* rotate(mRotation.x, vec3(1, 0, 0)) *rotate(mRotation.y, vec3(0, 1, 0))*rotate(mRotation.z, vec3(0, 0, 1));
 	//mModel = translate(mPosition)* eulerAngleYXZ(mRotation.y, mRotation.x, mRotation.z);
-	mModel = translate(mPosition)* rotate(length(mRotation), normalize(mRotation));
+	mModel = translate(mPosition)* mat4_cast(mRotation);
 	
 	
 	mModelInv = inverse(mModel);
