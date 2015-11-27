@@ -45,7 +45,7 @@ void StateComponent::update(float time)
 {
 	mPosition += mPositionDiff*float(time);
 
-	mRotation = rotate(mRotation,length( mRotationDiff*float(time)),normalize(mRotationDiff)) ;
+	mRotation = rotate(mRotation,  (float)(M_PI/180.0f)*length( mRotationDiff*float(time))   ,normalize(mRotationDiff)) ;
 
 	mRotation = normalize(mRotation);
 
