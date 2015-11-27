@@ -24,7 +24,7 @@ Cube::Cube(EntityManager* em, ResourcesManager* rm, glm::vec3 position, glm::vec
 	sc1->setPosition(position+speed*1000.0f);
 	sc1->setPositionDiff(vec3(0,0,-0.002));
 
-	sc1->setRotationDiff(vec3(0.0001f, 0.0000f, 0.0f));
+	sc1->setRotationDiff(vec3(0.01f, 0.00100f, 0.0f));
 	sc1->setRotation(quat(1,0,0,0));
 
 
