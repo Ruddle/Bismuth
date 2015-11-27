@@ -38,9 +38,6 @@ public:
 	void setInertia(float inertia) { setInertia(glm::mat3(inertia)); mInertiaInverse = inverse(mInertia);}
 	float getRestitution() { return mRestitution; }
 
-	glm::vec3 getPositionPast(float ms) { return mPosition - mPositionDiff*ms; }
-	glm::vec3 getRotationPast(float ms) { return mRotation - mRotationDiff*ms; }
-
 	bool hasDetection() { return mHasDetection; }
 	bool hasResponse() { return mHasResponse; }
 	bool hasGravity() { return mHasGravity; }

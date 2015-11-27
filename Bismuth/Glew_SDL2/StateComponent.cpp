@@ -47,23 +47,12 @@ void StateComponent::update(float time)
 
 	mRotation = rotate(mRotation,length( mRotationDiff*float(time)),normalize(mRotationDiff)) ;
 
-	//mRotation = mod(mRotation + vec3((float)M_PI), vec3(2 * (float)M_PI));
-	//if (mRotation.x < 0)
-	//	mRotation.x += 2 * (float)M_PI;
-	//if (mRotation.y < 0)
-	//	mRotation.y += 2 * (float)M_PI;
-	//if (mRotation.z < 0)
-	//	mRotation.z += 2 * (float)M_PI;
-	//mRotation.x -= (float)M_PI;
-	//mRotation.y -= (float)M_PI;
-	//mRotation.z -= (float)M_PI;
+	mRotation = normalize(mRotation);
+
 
 	mLastModel = mModel;
-	//mModel = translate(mPosition)* rotate(mRotation.x, vec3(1, 0, 0)) *rotate(mRotation.y, vec3(0, 1, 0))*rotate(mRotation.z, vec3(0, 0, 1));
-	//mModel = translate(mPosition)* eulerAngleYXZ(mRotation.y, mRotation.x, mRotation.z);
+	
 	mModel = translate(mPosition)* mat4_cast(mRotation);
-	
-	
 	mModelInv = inverse(mModel);
 
 }
