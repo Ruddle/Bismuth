@@ -22,10 +22,10 @@ Cube::Cube(EntityManager* em, ResourcesManager* rm, glm::vec3 position, glm::vec
 	CubeDetectionComponent* dc1 = new CubeDetectionComponent(2,2,2);
 	StateComponent* sc1 = new StateComponent();
 	sc1->setPosition(position+speed*1000.0f);
-	sc1->setPositionDiff(vec3(0,0,-0.002));
+	//sc1->setPositionDiff(vec3(0,0,-0.002));
 
-	sc1->setRotationDiff(vec3(0.0f, 0.0f, 0.0f));
-	sc1->setRotation(vec3(0.0f, 3.141592f / 4.0, -10.0f));
+	//sc1->setRotationDiff(vec3(0.0f, 0.0f, 0.0f));
+	sc1->setRotation(2*3.141592f*normalize(vec3(1.0f, 1.0f, 1.0f)));
 
 
 	PhysicComponent* pc1 = new PhysicComponent(dc1, sc1);

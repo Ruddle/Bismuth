@@ -15,7 +15,7 @@ DetectionProcessor::~DetectionProcessor()
 }
 
 Contact * DetectionProcessor::detection(DetectionComponent * a, DetectionComponent * b,
-	glm::vec3 const& pos1, glm::vec3 const& rot1, glm::vec3 const& pos2, glm::vec3 const& rot2)
+	glm::vec3 const& pos1, glm::quat const& rot1, glm::vec3 const& pos2, glm::quat const& rot2)
 {
 	
 
@@ -137,19 +137,19 @@ Contact * DetectionProcessor::detection(DetectionComponent * a, DetectionCompone
 }
 
 Contact * DetectionProcessor::cubeToRay(CubeDetectionComponent * cube, RayDetectionComponent * ray,
-	glm::vec3 const& pos1, glm::vec3 const& rot1,
-	glm::vec3 const& pos2, glm::vec3 const& rot2)
+	glm::vec3 const& pos1, glm::quat const& rot1,
+	glm::vec3 const& pos2, glm::quat const& rot2)
 {
 	return nullptr;
 }
 
 Contact * DetectionProcessor::cubeToSphere(CubeDetectionComponent * cube, SphereDetectionComponent * sphere,
-	glm::vec3 const& pos1, glm::vec3 const& rot1,
-	glm::vec3 const& pos2, glm::vec3 const& rot2)
+	glm::vec3 const& pos1, glm::quat const& rot1,
+	glm::vec3 const& pos2, glm::quat const& rot2)
 {
 	Contact* result = nullptr;
 	vec3 half = cube->getSize()/2.0f;
-	mat4 toWorldSpace = translate(pos1)*rotate(length(rot1), normalize(rot1));
+	mat4 toWorldSpace = translate(pos1)*mat4_cast(rot1);
 	mat4 toCubeSpace = inverse(toWorldSpace);
 
 	vec3 relativePosSphere = vec3(toCubeSpace*vec4(pos2, 1));
@@ -205,8 +205,8 @@ Contact * DetectionProcessor::cubeToSphere(CubeDetectionComponent * cube, Sphere
 }
 
 Contact * DetectionProcessor::cubeToPlane(CubeDetectionComponent * cube, PlaneDetectionComponent * plane,
-	glm::vec3 const& pos1, glm::vec3 const& rot1,
-	glm::vec3 const& pos2, glm::vec3 const& rot2)
+	glm::vec3 const& pos1, glm::quat const& rot1,
+	glm::vec3 const& pos2, glm::quat const& rot2)
 {
 	vec3 s = cube->getSize();
 	float w = plane->getSizeX(), h = plane->getSizeY();
@@ -217,15 +217,15 @@ Contact * DetectionProcessor::cubeToPlane(CubeDetectionComponent * cube, PlaneDe
 		vec3(s.x / 2, s.y / 2, s.z / 2), vec3(-s.x / 2, s.y / 2, s.z / 2) };
 
 	//mat4 rotMatCube = eulerAngleYXZ(rot1.y, rot1.x, rot1.z);
-	mat4 rotMatCube = rotate(length(rot1), normalize(rot1));
+	mat4 rotMatCube = mat4_cast(rot1);
 
 	mat4 transMatCube = translate(pos1);
 
 	//mat4 rotMatPlane = eulerAngleYXZ(rot2.y, rot2.x, rot2.z);
-	mat4 rotMatPlane = rotate(length(rot2), normalize(rot2));
+	mat4 rotMatPlane = mat4_cast(rot2);
 
 	//mat4 invRotMatPlane = eulerAngleYXZ(-rot2.y, -rot2.x, -rot2.z);
-	mat4 invRotMatPlane = rotate(-length(rot2), normalize(rot2));
+	mat4 invRotMatPlane = inverse(mat4_cast(rot2));
 
 	mat4 invTransMatPlane = translate(-pos2);
 
@@ -266,27 +266,27 @@ Contact * DetectionProcessor::cubeToPlane(CubeDetectionComponent * cube, PlaneDe
 }
 
 Contact * DetectionProcessor::cubeToCube(CubeDetectionComponent * cube, CubeDetectionComponent * cube2,
-	glm::vec3 const& pos1, glm::vec3 const& rot1,
-	glm::vec3 const& pos2, glm::vec3 const& rot2)
+	glm::vec3 const& pos1, glm::quat const& rot1,
+	glm::vec3 const& pos2, glm::quat const& rot2)
 {
 	return nullptr;
 }
 
 Contact * DetectionProcessor::planeToRay(PlaneDetectionComponent * plane, RayDetectionComponent * ray,
-	glm::vec3 const& pos1, glm::vec3 const& rot1,
-	glm::vec3 const& pos2, glm::vec3 const& rot2)
+	glm::vec3 const& pos1, glm::quat const& rot1,
+	glm::vec3 const& pos2, glm::quat const& rot2)
 {
 	return nullptr;
 }
 
 Contact * DetectionProcessor::planeToSphere(PlaneDetectionComponent * plane, SphereDetectionComponent * sphere,
-	glm::vec3 const& pos1, glm::vec3 const& rot1,
-	glm::vec3 const& pos2, glm::vec3 const& rot2)
+	glm::vec3 const& pos1, glm::quat const& rot1,
+	glm::vec3 const& pos2, glm::quat const& rot2)
 {
 	Contact* result = nullptr;
 	vec2 size = vec2(plane->getSizeX(), plane->getSizeY())/2.0f;
 
-	mat4 toWorldSpace = translate(pos1)* eulerAngleYXZ(rot1.y, rot1.x, rot1.z);
+	mat4 toWorldSpace = translate(pos1)* mat4_cast(rot1);
 	mat4 toPlaneSpace = inverse(toWorldSpace);
 
 	vec3 posSphere_PlaneSpace = vec3(toPlaneSpace * vec4(pos2, 1.0));
@@ -314,19 +314,19 @@ Contact * DetectionProcessor::planeToSphere(PlaneDetectionComponent * plane, Sph
 }
 
 Contact * DetectionProcessor::planeToPlane(PlaneDetectionComponent * plane, PlaneDetectionComponent * plane2,
-	glm::vec3 const& pos1, glm::vec3 const& rot1,
-	glm::vec3 const& pos2, glm::vec3 const& rot2)
+	glm::vec3 const& pos1, glm::quat const& rot1,
+	glm::vec3 const& pos2, glm::quat const& rot2)
 {
 	return nullptr;
 }
 
 Contact * DetectionProcessor::sphereToRay(SphereDetectionComponent * sphere, RayDetectionComponent * ray,
-	glm::vec3 const& pos1, glm::vec3 const& rot1,
-	glm::vec3 const& pos2, glm::vec3 const& rot2)
+	glm::vec3 const& pos1, glm::quat const& rot1,
+	glm::vec3 const& pos2, glm::quat const& rot2)
 {
 	vec3 s = pos1;
 	vec3 L1 = pos2;
-	vec3 L1L2 = normalize(vec3(rotate(rot2.x, vec3(1, 0, 0)) *rotate(rot2.y, vec3(0, 1, 0))*rotate(rot2.z, vec3(0, 0, 1)) * vec4(1, 0, 0, 1)));
+	vec3 L1L2 = normalize(vec3(mat4_cast(rot2) * vec4(1, 0, 0, 1)));
 	vec3 sL1 = L1 - s;
 
 	float u = dot(sL1, sL1) - sphere->getRadius2();
@@ -358,8 +358,8 @@ Contact * DetectionProcessor::sphereToRay(SphereDetectionComponent * sphere, Ray
 }
 
 Contact * DetectionProcessor::sphereToSphere(SphereDetectionComponent * sphere, SphereDetectionComponent * sphere2,
-	glm::vec3 const& pos1, glm::vec3 const& rot1,
-	glm::vec3 const& pos2, glm::vec3 const& rot2)
+	glm::vec3 const& pos1, glm::quat const& rot1,
+	glm::vec3 const& pos2, glm::quat const& rot2)
 {
 	float radius2_2 = sphere2->getRadius2();
 
@@ -380,8 +380,8 @@ Contact * DetectionProcessor::sphereToSphere(SphereDetectionComponent * sphere, 
 }
 
 Contact * DetectionProcessor::rayToRay(RayDetectionComponent * ray, RayDetectionComponent * ray2,
-	glm::vec3 const& pos1, glm::vec3 const& rot1,
-	glm::vec3 const& pos2, glm::vec3 const& rot2)
+	glm::vec3 const& pos1, glm::quat const& rot1,
+	glm::vec3 const& pos2, glm::quat const& rot2)
 {
 	return nullptr;
 }

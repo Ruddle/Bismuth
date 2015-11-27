@@ -48,7 +48,7 @@ int main(int argc, char **argv)
 	EntityManager* entityManager = new EntityManager();
 	//entityManager->add(entityA);
 	entityManager->add(entityB);
-	//entityManager->add(entityC);
+	entityManager->add(entityC);
 
 	RenderSystem *renderSystem = new RenderSystem(cfg, rm);
 	Input input;
