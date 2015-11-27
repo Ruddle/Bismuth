@@ -5,6 +5,7 @@
 #include "glm.hpp"
 #include "glm\gtx\euler_angles.hpp"
 #include "glm\gtx\rotate_vector.hpp"
+#include "glm\gtx\quaternion.hpp"
 #define _USE_MATH_DEFINES
 #include <math.h>
 
@@ -14,9 +15,9 @@ public:
 	StateComponent();
 	~StateComponent();
 
-	void force(float time, glm::vec3 force);
-	void force(float time, glm::vec3 force, glm::vec3 point);
-	void torque(float time, glm::vec3 torque); // en O
+	void force(float time, glm::vec3 const&  force);
+	void force(float time, glm::vec3 const&  force, glm::vec3 const&  point);
+	void torque(float time, glm::vec3 const&  torque); // en O
 	void friction(float coeff);
 	void update(float time);
 
@@ -25,7 +26,7 @@ public:
 	glm::mat4 getLastModel() { return mLastModel; }
 	glm::vec3 getPosition() { return mPosition; }
 	glm::vec3 getPositionDiff() { return mPositionDiff; }
-	glm::vec3 getRotation() { return mRotation; }
+	glm::quat getRotation() { return mRotation; }
 	glm::vec3 getRotationDiff() { return mRotationDiff; }
 
 	float getMass() { return mMass; }
@@ -37,9 +38,6 @@ public:
 	void setInertia(float inertia) { setInertia(glm::mat3(inertia)); mInertiaInverse = inverse(mInertia);}
 	float getRestitution() { return mRestitution; }
 
-	glm::vec3 getPositionPast(float ms) { return mPosition - mPositionDiff*ms; }
-	glm::vec3 getRotationPast(float ms) { return mRotation - mRotationDiff*ms; }
-
 	bool hasDetection() { return mHasDetection; }
 	bool hasResponse() { return mHasResponse; }
 	bool hasGravity() { return mHasGravity; }
@@ -50,7 +48,7 @@ public:
 
 	void setPosition(glm::vec3 value) { mPosition = value; }
 	void setPositionDiff(glm::vec3 value) { mPositionDiff = value; }
-	void setRotation(glm::vec3 value) { mRotation = value;}
+	void setRotation(glm::quat value) { mRotation = value;}
 	void setRotationDiff(glm::vec3 value) { mRotationDiff = value; }
 
 private:
@@ -66,8 +64,8 @@ private:
 	glm::vec3 mPosition;
 	glm::vec3 mPositionDiff;
 
-	glm::vec3 mRotation;
 	glm::vec3 mRotationDiff;
+	glm::quat mRotation;
 
 	bool mHasDetection;
 	bool mHasResponse;
