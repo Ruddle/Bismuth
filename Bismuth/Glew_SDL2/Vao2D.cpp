@@ -39,7 +39,7 @@ void Vao2D::load()
 	glBufferData(GL_ARRAY_BUFFER, 6 * 2 * sizeof(float), 0, GL_STATIC_DRAW);
 
 	// Transfert des données
-	float m_vertex[12] = {
+	float mVertex[12] = {
 		-1,-1,
 		1,-1,
 		1,1,
@@ -48,7 +48,9 @@ void Vao2D::load()
 		-1,1
 	};
 
-	glBufferSubData(GL_ARRAY_BUFFER, 0, 12 * sizeof(float), m_vertex);
+	
+
+	glBufferSubData(GL_ARRAY_BUFFER, 0, 12 * sizeof(float), mVertex);
 
 	// Déverrouillage de l'objet
 

@@ -533,29 +533,34 @@ void RenderSystem::doStepGeometry(Camera const &cam, std::vector<Entity*> entiti
 
 	for (int i = 0; i < entities.size(); i++) {
 
+		
 		Entity* entity = entities[i];
-		glActiveTexture(GL_TEXTURE0);
-		glBindTexture(GL_TEXTURE_2D, (mRm->getTexture(entity->getGraphicComponent()->getTextureDiffuseId())->getId()));
-		glUniform1i(mShaderGeometry.getLocation("texture_diffuse"), 0);
 
-		glActiveTexture(GL_TEXTURE1);
-		glBindTexture(GL_TEXTURE_2D, (mRm->getTexture(entity->getGraphicComponent()->getTextureNormalId())->getId()));
-		glUniform1i(mShaderGeometry.getLocation("texture_normal"), 1);
+		if (entity != nullptr)
+		{
+			glActiveTexture(GL_TEXTURE0);
+			glBindTexture(GL_TEXTURE_2D, (mRm->getTexture(entity->getGraphicComponent()->getTextureDiffuseId())->getId()));
+			glUniform1i(mShaderGeometry.getLocation("texture_diffuse"), 0);
 
-		glActiveTexture(GL_TEXTURE2);
-		glBindTexture(GL_TEXTURE_2D, (mRm->getTexture(entity->getGraphicComponent()->getTextureSpecId())->getId()));
-		glUniform1i(mShaderGeometry.getLocation("texture_spec"), 2);
+			glActiveTexture(GL_TEXTURE1);
+			glBindTexture(GL_TEXTURE_2D, (mRm->getTexture(entity->getGraphicComponent()->getTextureNormalId())->getId()));
+			glUniform1i(mShaderGeometry.getLocation("texture_normal"), 1);
 
-		glActiveTexture(GL_TEXTURE3);
-		glBindTexture(GL_TEXTURE_2D, (mRm->getTexture(entity->getGraphicComponent()->getTextureEmitId())->getId()));
-		glUniform1i(mShaderGeometry.getLocation("texture_emit"), 3);
+			glActiveTexture(GL_TEXTURE2);
+			glBindTexture(GL_TEXTURE_2D, (mRm->getTexture(entity->getGraphicComponent()->getTextureSpecId())->getId()));
+			glUniform1i(mShaderGeometry.getLocation("texture_spec"), 2);
 
-		modelview = view*entity->getPhysicComponent()->getStateComponent()->getModel();
-		lastModel = entity->getPhysicComponent()->getStateComponent()->getLastModel();
-		glUniformMatrix4fv(mShaderGeometry.getLocation("modelview"), 1, GL_FALSE, value_ptr(modelview));
-		glUniformMatrix4fv(mShaderGeometry.getLocation("lastModel"), 1, GL_FALSE, value_ptr(lastModel));
-		glUniformMatrix3fv(mShaderGeometry.getLocation("normal"), 1, GL_FALSE, value_ptr(transpose(inverse(glm::mat3(modelview)))));
-		mRm->getVao(entity->getGraphicComponent()->getVaoId())->draw();
+			glActiveTexture(GL_TEXTURE3);
+			glBindTexture(GL_TEXTURE_2D, (mRm->getTexture(entity->getGraphicComponent()->getTextureEmitId())->getId()));
+			glUniform1i(mShaderGeometry.getLocation("texture_emit"), 3);
+
+			modelview = view*entity->getPhysicComponent()->getStateComponent()->getModel();
+			lastModel = entity->getPhysicComponent()->getStateComponent()->getLastModel();
+			glUniformMatrix4fv(mShaderGeometry.getLocation("modelview"), 1, GL_FALSE, value_ptr(modelview));
+			glUniformMatrix4fv(mShaderGeometry.getLocation("lastModel"), 1, GL_FALSE, value_ptr(lastModel));
+			glUniformMatrix3fv(mShaderGeometry.getLocation("normal"), 1, GL_FALSE, value_ptr(transpose(inverse(glm::mat3(modelview)))));
+			mRm->getVao(entity->getGraphicComponent()->getVaoId())->draw();
+		}
 	}
 
 }
