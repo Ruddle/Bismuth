@@ -105,6 +105,12 @@
     <ClCompile Include="DetectionComponent.cpp">
       <Filter>Bis 2\Physic</Filter>
     </ClCompile>
+    <ClCompile Include="PhysicComponent2D.cpp">
+      <Filter>Bis 2\Physic</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity2D.cpp">
+      <Filter>Bis 3</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h">
@@ -187,6 +193,12 @@
     </ClInclude>
     <ClInclude Include="Contact.h">
       <Filter>Bis 2\Physic</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicComponent2D.h">
+      <Filter>Bis 2\Physic</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity2D.h">
+      <Filter>Bis 3</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
