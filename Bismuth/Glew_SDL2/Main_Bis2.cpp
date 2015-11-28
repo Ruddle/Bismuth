@@ -101,20 +101,19 @@ int main(int argc, char **argv)
 					{
 						if (*it != nullptr)
 						{
-
-						}
-						vec4 worldSpace = vec4((*it)->position, 1);
-						vec4 screenSpace = cam->getProjection() * cam->getView() * worldSpace;
-						screenSpace /= screenSpace.w;
-						a.push_back(vec2(screenSpace));
-
-						for (int i = 0; i < 10; i++)
-						{
-							vec4 worldSpace = vec4((*it)->position + i*10.0f*(*it)->normal, 1);
+							vec4 worldSpace = vec4((*it)->position, 1);
 							vec4 screenSpace = cam->getProjection() * cam->getView() * worldSpace;
 							screenSpace /= screenSpace.w;
 							a.push_back(vec2(screenSpace));
 
+							for (int i = 0; i < 10; i++)
+							{
+								vec4 worldSpace = vec4((*it)->position + i*10.0f*(*it)->normal, 1);
+								vec4 screenSpace = cam->getProjection() * cam->getView() * worldSpace;
+								screenSpace /= screenSpace.w;
+								a.push_back(vec2(screenSpace));
+
+							}
 						}
 
 					}
