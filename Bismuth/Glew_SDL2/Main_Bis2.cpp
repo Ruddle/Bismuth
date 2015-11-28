@@ -129,17 +129,16 @@ int main(int argc, char **argv)
 		if (input.getRisingKey(SDL_SCANCODE_L))
 		listCube.push_back(new Cube(entityManager, rm, cam->getPosition(), 0.00951f*cam->getRotation()));
 
-		if (input.getRisingKey(SDL_SCANCODE_F))
-			entityC->getPhysicComponent()->getStateComponent()->torque(elapsedTime,vec3(0.001, 0, 0));
-		
-		if (input.getRisingKey(SDL_SCANCODE_H))
-			entityC->getPhysicComponent()->getStateComponent()->torque(elapsedTime,vec3(-0.001, 0, 0));
+		if (input.getRisingKey(SDL_SCANCODE_R))
+		{
+			for (std::vector<Ball*>::iterator it = listBall.begin(); it != listBall.end(); it++)
+			{
+				entityManager->suppr((*it)->getEntity()->getId());
+				delete (*it);
+			}
 
-		if (input.getRisingKey(SDL_SCANCODE_T))
-			entityC->getPhysicComponent()->getStateComponent()->torque(elapsedTime,vec3(0, 0.001, 0));
-	
-		if (input.getRisingKey(SDL_SCANCODE_G))
-			entityC->getPhysicComponent()->getStateComponent()->torque(elapsedTime,vec3(0, -0.001, 0));
+			listBall.clear();
+		}
 	}
 
 	delete cam;
