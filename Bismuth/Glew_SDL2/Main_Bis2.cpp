@@ -94,24 +94,32 @@ int main(int argc, char **argv)
 
 		for (auto it1 = entities.begin(); it1 != entities.end(); it1++)
 			{
-				set<Contact*> contacts = (*it1)->getPhysicComponent()->getContact();
-				for (auto it = contacts.begin(); it != contacts.end(); it++)
+				if (*it1 != nullptr)
 				{
-					vec4 worldSpace = vec4((*it)->position, 1);
-					vec4 screenSpace = cam->getProjection() * cam->getView() * worldSpace;
-					screenSpace /= screenSpace.w;
-					a.push_back(vec2(screenSpace));
-
-					for (int i = 0; i < 10; i++)
+					set<Contact*> contacts = (*it1)->getPhysicComponent()->getContact();
+					for (auto it = contacts.begin(); it != contacts.end(); it++)
 					{
-						vec4 worldSpace = vec4((*it)->position + i*10.0f*(*it)->normal, 1);
+						if (*it != nullptr)
+						{
+
+						}
+						vec4 worldSpace = vec4((*it)->position, 1);
 						vec4 screenSpace = cam->getProjection() * cam->getView() * worldSpace;
 						screenSpace /= screenSpace.w;
 						a.push_back(vec2(screenSpace));
 
-					}
+						for (int i = 0; i < 10; i++)
+						{
+							vec4 worldSpace = vec4((*it)->position + i*10.0f*(*it)->normal, 1);
+							vec4 screenSpace = cam->getProjection() * cam->getView() * worldSpace;
+							screenSpace /= screenSpace.w;
+							a.push_back(vec2(screenSpace));
 
+						}
+
+					}
 				}
+				
 			}
 		}
 

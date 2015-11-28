@@ -3,14 +3,12 @@
 
 EntityManager::EntityManager()
 {
-	nextId = 1;
-	mFreeIds.reserve(1000);
 	mEntity.reserve(1000);
 
 	for (int i = 0; i < 1000; i++)
 	{
-		mFreeIds.push_back(true);
 		mEntity.push_back(nullptr);
+		mFreeIds.insert(i);
 	}
 }
 EntityManager::~EntityManager()
@@ -71,15 +69,11 @@ void EntityManager::collisionResponse(float timestep)
 
 void EntityManager::add(Entity* entity)
 {
-	for (int i = 0; i < mEntity.size(); i++)
+	if (mFreeIds.size() > 0)
 	{
-		if (mFreeIds[i])
-		{
-			mEntity[i] = entity;
-			mFreeIds[i] = false;
-			entity->setId(i);
-			break;
-		}
+		auto it = mFreeIds.begin();
+		mEntity[*it] = entity;
+		mFreeIds.erase(it);
 	}
 }
 
@@ -89,6 +83,6 @@ void EntityManager::suppr(unsigned int id)
 	{
 		delete mEntity[id];
 		mEntity[id] = nullptr;
-		mFreeIds[id] = true;
+		mFreeIds.insert(id);
 	}
 }
