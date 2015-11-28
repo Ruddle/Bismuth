@@ -26,6 +26,5 @@ public:
 private:
 
 	std::vector<Entity*> mEntity;
-	std::vector<unsigned int> mFreeIds;
-	int nextId;
+	std::set<unsigned int> mFreeIds;
 };
