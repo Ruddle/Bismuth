@@ -55,7 +55,7 @@ Config readConfig(void) {
 
 
 Entity* createSphere(ResourcesManager* rm) {
-	GraphicComponent* gc1 = new GraphicComponent(
+	GraphicComponent* gc1 = new GraphicComponent(1,
 		rm->loadTexture("Texture/checker2.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
 		rm->loadTexture("Texture/BLUE.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
 		rm->loadTexture("Texture/checker2C.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
@@ -70,7 +70,7 @@ Entity* createSphere(ResourcesManager* rm) {
 }
 
 Entity* createPlane(ResourcesManager* rm) {
-	GraphicComponent* gc1 = new GraphicComponent(
+	GraphicComponent* gc1 = new GraphicComponent(1,
 		rm->loadTexture("Texture/rock.png", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),
 	//	rm->loadTexture("Texture/checker2.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
 		rm->loadTexture("Texture/rock_N.png", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),
@@ -90,7 +90,7 @@ Entity* createPlane(ResourcesManager* rm) {
 
 
 Entity* createThing(ResourcesManager* rm,vec3 position) {
-	GraphicComponent* gc1 = new GraphicComponent(
+	GraphicComponent* gc1 = new GraphicComponent(1,
 		rm->loadTexture("Texture/checker2.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
 		rm->loadTexture("Texture/BLUE.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
 		rm->loadTexture("Texture/checker2C.png", GL_RGB8, GL_NEAREST, GL_REPEAT),

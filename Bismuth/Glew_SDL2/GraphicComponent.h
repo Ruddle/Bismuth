@@ -14,23 +14,24 @@ class GraphicComponent
 
 public:
 
-	GraphicComponent(int textureDiffuse, int textureNormal, int textureSpec,int textureEmit, int vao);
+	GraphicComponent(bool is3d,int textureDiffuse, int textureNormal, int textureSpec,int textureEmit, int vao);
 	int getTextureDiffuseId() const { return mTextureDiffuse; }
 	int getTextureNormalId() const { return mTextureNormal; }
 	int getTextureSpecId() const { return mTextureSpec; }
 	int getTextureEmitId() const { return mTextureEmit; }
 	int getVaoId() const { return mVao; }
+	bool is3D() { return mIs3d; }
 	~GraphicComponent();
 
 
 private:
-
 
 	int mTextureDiffuse;
 	int mTextureNormal;
 	int mTextureSpec;
 	int mTextureEmit;
 	int mVao;
+	bool mIs3D;
 
 
 

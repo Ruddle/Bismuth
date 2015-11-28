@@ -228,9 +228,6 @@ void RenderSystem::draw2D(Camera const& cam , vector<vec2> dot)
 
 }
 
-
-
-
 void RenderSystem::doStepAo(Camera const &cam)
 {
 	vec2 resolution = vec2(mCfg.ResolutionX, mCfg.ResolutionY);
