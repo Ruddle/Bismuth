@@ -8,7 +8,7 @@ using namespace glm;
 StateComponent::StateComponent() : mHasDetection(true),mHasResponse(true), mHasForce(true), mHasGravity(true), mHasTorque(true),
 									mHasUpdate(true), mIsSleeping(false),
 									mPosition(0), mPositionDiff(0), mRotation(1,0.0, 0.0, 0.0), mRotationDiff(0),
-									mMass(1),mInertia(1.0/6.0), mModel(0), mModelInv(0), mLastModel(0),mRestitution(0.3)
+									mMass(1),mInertia(1.0/6.0), mModel(0), mModelInv(0), mLastModel(0),mRestitution(0.7)
 									, mInertiaInverse(1)
 {
 	mInertiaInverse = inverse(mat3(1));

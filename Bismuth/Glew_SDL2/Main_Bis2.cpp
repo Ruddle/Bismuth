@@ -119,7 +119,7 @@ int main(int argc, char **argv)
 
 		if (time % 1 == 0) {
 			renderSystem->draw(entityManager->getEntities(), *cam, time, input, float(fps));
-			renderSystem->draw2D(*cam,a);
+		//	renderSystem->draw2D(*cam,a);
 			currentScene->flip();
 		}
 

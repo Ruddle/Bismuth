@@ -156,8 +156,8 @@ for(int k=0;k<2;k++){
 
 if(!keyF4) lighting=lighting*(ao*2-1);
 
-if(keyF1) lighting = normal;
-if(keyF2) lighting = position_ViewSpace*vec3(1,1,-1);
+
+
 if(keyF3) lighting = vec3(ao);
 
 if(keyF7) lighting = vec3(emit);
@@ -181,4 +181,7 @@ outBloom = vec3(0);
 
 if(keyF10) outColor = vec3(pow(texture(shadowSampler,UV).x,1)/50.0);
 if(keyF10) outColor = vec3(shadows);
+
+if(keyF1) outColor = normal;
+if(keyF2) outColor = position_ViewSpace*vec3(1,1,-1);
 }

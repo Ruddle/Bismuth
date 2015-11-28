@@ -584,7 +584,7 @@ void RenderSystem::doStepLight(Camera const &cam, std::vector<Entity*> entities)
 		mRm->getVao(entity->getGraphicComponent()->getVaoId())->draw();
 	}
 
-	mSupportFbo.draw();
+	
 	glViewport(0, 0, mCfg.ResolutionX, mCfg.ResolutionY);
 }
 
