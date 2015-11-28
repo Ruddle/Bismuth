@@ -265,6 +265,8 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Texture\band.png" />
+    <Image Include="Texture\bismuth.png" />
+    <Image Include="Texture\bismuthSmall.png" />
     <Image Include="Texture\BLACK.png" />
     <Image Include="Texture\BLUE.png" />
     <Image Include="Texture\checker.png" />

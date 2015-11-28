@@ -14,6 +14,7 @@
 #include "Fbo.h"
 #include "Vao2D.h"
 #include "Entity.h"
+#include "Entity2D.h"
 #include "PhysicComponent.h"
 #include "GraphicComponent.h"
 #include "SphereDetectionComponent.h"
@@ -38,6 +39,8 @@ Config readConfig(void);
 Entity* createSphere(ResourcesManager* rm);
 Entity* createThing(ResourcesManager* rm,glm::vec3 position);
 Entity* createPlane(ResourcesManager* rm);
+Entity2D* createUI(ResourcesManager* rm);
+
 
 // Utile pour Main_Bis1
 Fbo* createFboGeometry(Config cfg);

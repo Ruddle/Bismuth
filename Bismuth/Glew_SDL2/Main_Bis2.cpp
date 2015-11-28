@@ -50,6 +50,10 @@ int main(int argc, char **argv)
 	entityManager->add(entityB);
 	entityManager->add(entityC);
 
+
+	Entity2D* entity2DA = createUI(rm);
+	entityManager->add(entity2DA);
+
 	RenderSystem *renderSystem = new RenderSystem(cfg, rm);
 	Input input;
 	int time = 0;
@@ -126,6 +130,7 @@ int main(int argc, char **argv)
 
 		if (time % 1 == 0) {
 			renderSystem->draw(entityManager->getEntities(), *cam, time, input, float(fps));
+			renderSystem->draw2D(entityManager->getEntities2D());
 		//	renderSystem->draw2D(*cam,a);
 			currentScene->flip();
 		}

@@ -240,11 +240,15 @@ void RenderSystem::draw2D(std::vector<Entity2D*> entities)
 			mat4 view = translate(vec3(entity->getPhysicComponent()->getPosition(),0)) *
 			scale(vec3(entity->getPhysicComponent()->getSize(),1));
 
+		
+
 			glActiveTexture(GL_TEXTURE0);
 			glBindTexture(GL_TEXTURE_2D, (mRm->getTexture(entity->getGraphicComponent()->getTextureDiffuseId())->getId()));
 			glUniform1i(mShaderGeometry.getLocation("texture_diffuse"), 0);
 
+			glUniformMatrix4fv(mShader2D.getLocation("view"), 1, GL_FALSE, value_ptr(view));
 			mRm->getVao(entity->getGraphicComponent()->getVaoId())->draw();
+			mSupportFbo.draw();
 		}
 	}
 }
