@@ -15,6 +15,7 @@
 #include "Vao2D.h"
 #include "Misc.h"
 #include "Entity.h"
+#include "Entity2D.h"
 #include <vector>
 #include "ResourcesManager.h"
 #include <random>
@@ -27,6 +28,8 @@ public:
 
 	void draw(std::vector<Entity*> entities, Camera const& cam, float time, Input &input,float fps);
 	void draw2D(Camera const& cam, std::vector<glm::vec2> dot);
+	void draw2D(std::vector<Entity2D*> entities);
+
 
 private: 
 

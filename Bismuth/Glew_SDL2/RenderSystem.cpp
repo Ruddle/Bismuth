@@ -223,9 +223,30 @@ void RenderSystem::draw2D(Camera const& cam , vector<vec2> dot)
 
 	}
 	
+}
 
+void RenderSystem::draw2D(std::vector<Entity2D*> entities)
+{
+	glBindFramebuffer(GL_FRAMEBUFFER, 0);
+	glClear(GL_DEPTH_BUFFER_BIT);
+	glUseProgram(mShader2D.getProgramID());
+	glEnable(GL_BLEND);
+	for (int i = 0; i < entities.size(); i++) {
 
+		Entity2D* entity = entities[i];
 
+		if (entity != nullptr)
+		{
+			mat4 view = translate(vec3(entity->getPhysicComponent()->getPosition(),0)) *
+			scale(vec3(entity->getPhysicComponent()->getSize(),1));
+
+			glActiveTexture(GL_TEXTURE0);
+			glBindTexture(GL_TEXTURE_2D, (mRm->getTexture(entity->getGraphicComponent()->getTextureDiffuseId())->getId()));
+			glUniform1i(mShaderGeometry.getLocation("texture_diffuse"), 0);
+
+			mRm->getVao(entity->getGraphicComponent()->getVaoId())->draw();
+		}
+	}
 }
 
 void RenderSystem::doStepAo(Camera const &cam)
