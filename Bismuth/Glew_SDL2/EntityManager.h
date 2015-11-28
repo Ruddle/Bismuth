@@ -20,10 +20,12 @@ public:
 	void collisionResponse(float timestep);
 
 	void add(Entity* entity);
+	void suppr(unsigned int id);
 	std::vector<Entity*> getEntities() { return mEntity; }
 
 private:
 
 	std::vector<Entity*> mEntity;
+	std::vector<unsigned int> mFreeIds;
 	int nextId;
 };

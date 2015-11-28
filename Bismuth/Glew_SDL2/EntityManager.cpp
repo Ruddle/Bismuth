@@ -4,6 +4,14 @@
 EntityManager::EntityManager()
 {
 	nextId = 1;
+	mFreeIds.reserve(1000);
+	mEntity.reserve(1000);
+
+	for (int i = 0; i < 1000; i++)
+	{
+		mFreeIds.push_back(true);
+		mEntity.push_back(nullptr);
+	}
 }
 EntityManager::~EntityManager()
 {
@@ -17,7 +25,8 @@ void EntityManager::update(float elapsedTime)
 	for (int i = 0; i < mEntity.size(); i++)
 	{
 		Entity *entity = mEntity[i];
-		entity->getPhysicComponent()->getStateComponent()->update(elapsedTime);
+		if(entity != nullptr)
+			entity->getPhysicComponent()->getStateComponent()->update(elapsedTime);
 	}
 }
 
@@ -29,19 +38,23 @@ void EntityManager::collision()
 	for (int i = 0; i < mEntity.size(); i++)
 	{
 		Entity *entity = mEntity[i];
-		entity->getPhysicComponent()->clearContact();
+		if (entity != nullptr)
+			entity->getPhysicComponent()->clearContact();
 	}
 	
 	//Géneration des nouveaux contactes
 	for (int i = 0; i < mEntity.size()-1; i++)
 	{
 		Entity *entity_i = mEntity[i];
-		for (int j = i+1; j < mEntity.size(); j++)
+		if (entity_i != nullptr)
 		{
-			Entity *entity_j = mEntity[j];
+			for (int j = i + 1; j < mEntity.size(); j++)
+			{
+				Entity *entity_j = mEntity[j];
+				if(entity_j != nullptr)
+					entity_i->getPhysicComponent()->getCollision(entity_j->getPhysicComponent());
 
-			entity_i->getPhysicComponent()->getCollision(entity_j->getPhysicComponent());
-
+			}
 		}
 	}
 }
@@ -50,14 +63,32 @@ void EntityManager::collisionResponse(float timestep)
 {
 	for (int i = 0; i < mEntity.size(); i++)
 	{
-		mEntity[i]->getPhysicComponent()->collisionResponse(timestep);
+		if(mEntity[i])
+			mEntity[i]->getPhysicComponent()->collisionResponse(timestep);
 	}
 }
 
 
 void EntityManager::add(Entity* entity)
 {
-	mEntity.push_back(entity);
-	entity->setId(nextId);
-	nextId++;
+	for (int i = 0; i < mEntity.size(); i++)
+	{
+		if (mFreeIds[i])
+		{
+			mEntity[i] = entity;
+			mFreeIds[i] = false;
+			entity->setId(i);
+			break;
+		}
+	}
+}
+
+void EntityManager::suppr(unsigned int id)
+{
+	if (mEntity[id] != nullptr)
+	{
+		delete mEntity[id];
+		mEntity[id] = nullptr;
+		mFreeIds[id] = true;
+	}
 }

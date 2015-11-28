@@ -35,6 +35,7 @@ Ball::~Ball()
 {
 }
 
+
 void Ball::update(float elapsedTime)
 {
 	StateComponent* sc = mEntity->getPhysicComponent()->getStateComponent();
