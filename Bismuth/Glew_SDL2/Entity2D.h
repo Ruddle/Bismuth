@@ -11,9 +11,13 @@ public:
 	PhysicComponent2D*  getPhysicComponent(void) { return mPhysicComponent; }
 	GraphicComponent* getGraphicComponent(void) { return mGraphicComponent; }
 
+	void setId(int id) { mId = id; }
+	int getId() { return mId; }
+
 
 private:
 	GraphicComponent*  mGraphicComponent;
 	PhysicComponent2D* mPhysicComponent;
+	int mId;
 };
 

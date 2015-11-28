@@ -10,6 +10,14 @@ EntityManager::EntityManager()
 		mEntity.push_back(nullptr);
 		mFreeIds.insert(i);
 	}
+
+	mEntity2D.reserve(1000);
+
+	for (int i = 0; i < 1000; i++)
+	{
+		mEntity2D.push_back(nullptr);
+		mFreeIds2D.insert(i);
+	}
 }
 EntityManager::~EntityManager()
 {
@@ -73,7 +81,19 @@ void EntityManager::add(Entity* entity)
 	{
 		auto it = mFreeIds.begin();
 		mEntity[*it] = entity;
+		entity->setId(*it);
 		mFreeIds.erase(it);
+	}
+}
+
+void EntityManager::add(Entity2D* entity)
+{
+	if (mFreeIds.size() > 0)
+	{
+		auto it = mFreeIds2D.begin();
+		mEntity2D[*it] = entity;
+		entity->setId(*it);
+		mFreeIds2D.erase(it);
 	}
 }
 
@@ -84,5 +104,15 @@ void EntityManager::suppr(unsigned int id)
 		delete mEntity[id];
 		mEntity[id] = nullptr;
 		mFreeIds.insert(id);
+	}
+}
+
+void EntityManager::suppr2D(unsigned int id)
+{
+	if (mEntity2D[id] != nullptr)
+	{
+		delete mEntity2D[id];
+		mEntity2D[id] = nullptr;
+		mFreeIds2D.insert(id);
 	}
 }
