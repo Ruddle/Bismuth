@@ -20,7 +20,7 @@ public:
 	int getTextureSpecId() const { return mTextureSpec; }
 	int getTextureEmitId() const { return mTextureEmit; }
 	int getVaoId() const { return mVao; }
-	bool is3D() { return mIs3d; }
+	bool is3D() { return mIs3D; }
 	~GraphicComponent();
 
 
