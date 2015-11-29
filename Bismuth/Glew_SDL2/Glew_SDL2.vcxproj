@@ -296,9 +296,11 @@
     <Image Include="Texture\circle.png" />
     <Image Include="Texture\circleColor.png" />
     <Image Include="Texture\cloud.png" />
+    <Image Include="Texture\dot.png" />
     <Image Include="Texture\RED.png" />
     <Image Include="Texture\rock.png" />
     <Image Include="Texture\rock_N.png" />
+    <Image Include="Texture\ui.png" />
     <Image Include="Texture\WHITE.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

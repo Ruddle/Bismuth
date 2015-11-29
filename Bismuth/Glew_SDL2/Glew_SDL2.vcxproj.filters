@@ -295,6 +295,12 @@
     <Image Include="Font\Calibri64.png">
       <Filter>Resources\Font</Filter>
     </Image>
+    <Image Include="Texture\dot.png">
+      <Filter>Resources\Texture</Filter>
+    </Image>
+    <Image Include="Texture\ui.png">
+      <Filter>Resources\Texture</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <None Include="config.ini">
