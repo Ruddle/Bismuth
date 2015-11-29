@@ -71,9 +71,9 @@ int main(int argc, char **argv)
 		}
 
 		if (core.input->getKey(SDL_SCANCODE_Q))
-			currentLoop.setTimeFactor(currentLoop.getTimeFactor() - 0.01);
+			currentLoop.setTimeFactor(currentLoop.getTimeFactor()*0.98);
 		if (core.input->getKey(SDL_SCANCODE_E))
-			currentLoop.setTimeFactor(currentLoop.getTimeFactor() + 0.01);
+			currentLoop.setTimeFactor(currentLoop.getTimeFactor()*1.02);
 
 		textTime.flush(core.entityManager);
 		textFps2.flush(core.entityManager);
