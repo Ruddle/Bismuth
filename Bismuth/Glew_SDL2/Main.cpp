@@ -70,10 +70,10 @@ int main(int argc, char **argv)
 			listUpdate.clear();
 		}
 
-		/*if (core.input->getRisingKey(SDL_SCANCODE_Q))
-			currentLoop.setTimeFactor(currentLoop.getTimeFactor() - 0.01);
+		if (core.input->getRisingKey(SDL_SCANCODE_Q))
+			currentLoop.setTimeStep(currentLoop.getTimeStep() - 0.01);
 		if (core.input->getRisingKey(SDL_SCANCODE_E))
-			currentLoop.setTimeFactor(currentLoop.getTimeFactor() + 0.01);*/
+			currentLoop.setTimeStep(currentLoop.getTimeStep() + 0.01);
 
 		textTime.flush(core.entityManager);
 		textFps2.flush(core.entityManager);
