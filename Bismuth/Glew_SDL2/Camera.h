@@ -11,7 +11,8 @@ public:
 	Camera(double fov, double aspect, double near,double far);
 	~Camera();
 	
-	
+	void capturePointer(bool b);
+
 	glm::mat4 getProjection() const { return mProjection; }
 	glm::mat4 getView() const;
 	double getTanHalfFov()const { return mTanHalfFov; }
@@ -35,6 +36,7 @@ private:
 
 	glm::mat4 mProjection;
 	
+	bool mPointer;
 
 	double mTanHalfFov;
 	double mAspect;

@@ -15,6 +15,15 @@ Camera::~Camera()
 
 }
 
+void Camera::capturePointer(bool b)
+{
+	 mPointer=b;
+
+	 SDL_SetRelativeMouseMode(SDL_FALSE);
+	 if(b)
+	 SDL_SetRelativeMouseMode(SDL_TRUE); 
+}
+
 
 
 glm::mat4 Camera::getView() const
