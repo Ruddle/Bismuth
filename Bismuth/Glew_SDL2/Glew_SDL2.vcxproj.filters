@@ -111,6 +111,21 @@
     <ClCompile Include="Entity2D.cpp">
       <Filter>Bis 3</Filter>
     </ClCompile>
+    <ClCompile Include="GraphicComponent2D.cpp">
+      <Filter>Bis 2\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="Panel.cpp">
+      <Filter>Bis 4</Filter>
+    </ClCompile>
+    <ClCompile Include="Updatable.cpp">
+      <Filter>Bis 4</Filter>
+    </ClCompile>
+    <ClCompile Include="Letter.cpp">
+      <Filter>Bis 3\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="Text.cpp">
+      <Filter>Bis 3\Text</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h">
@@ -200,6 +215,21 @@
     <ClInclude Include="Entity2D.h">
       <Filter>Bis 3</Filter>
     </ClInclude>
+    <ClInclude Include="GraphicComponent2D.h">
+      <Filter>Bis 2\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="Panel.h">
+      <Filter>Bis 4</Filter>
+    </ClInclude>
+    <ClInclude Include="Updatable.h">
+      <Filter>Bis 4</Filter>
+    </ClInclude>
+    <ClInclude Include="Letter.h">
+      <Filter>Bis 3\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="Text.h">
+      <Filter>Bis 3\Text</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Texture\cloud.png">
@@ -246,6 +276,12 @@
     </Image>
     <Image Include="Texture\bismuthSmall.png">
       <Filter>Resources\Texture</Filter>
+    </Image>
+    <Image Include="Font\SWLink48.bmp">
+      <Filter>Resources\Font</Filter>
+    </Image>
+    <Image Include="Font\font1.png">
+      <Filter>Resources\Font</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
@@ -344,6 +380,12 @@
     </Filter>
     <Filter Include="Bis 2\Physic\DetectionComponent">
       <UniqueIdentifier>{7a2e8313-059b-4b86-9107-98c8750ef6c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bis 3\Text">
+      <UniqueIdentifier>{408f4b24-b8d1-473b-bf97-4a75a83414e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Font">
+      <UniqueIdentifier>{cd0b8e61-5006-402f-9273-5f939c0d5a9d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

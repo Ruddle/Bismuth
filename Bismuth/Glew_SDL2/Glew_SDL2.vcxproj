@@ -159,7 +159,9 @@
     <ClCompile Include="EntityManager.cpp" />
     <ClCompile Include="Fbo.cpp" />
     <ClCompile Include="GraphicComponent.cpp" />
+    <ClCompile Include="GraphicComponent2D.cpp" />
     <ClCompile Include="Input.cpp" />
+    <ClCompile Include="Letter.cpp" />
     <ClCompile Include="Main_Bis1.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
@@ -170,6 +172,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Misc.cpp" />
+    <ClCompile Include="Panel.cpp" />
     <ClCompile Include="PhysicComponent.cpp" />
     <ClCompile Include="PhysicComponent2D.cpp" />
     <ClCompile Include="PlaneDetectionComponent.cpp" />
@@ -180,9 +183,11 @@
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="SphereDetectionComponent.cpp" />
     <ClCompile Include="StateComponent.cpp" />
+    <ClCompile Include="Text.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Texture_Abs.cpp" />
     <ClCompile Include="Texture_Cube.cpp" />
+    <ClCompile Include="Updatable.cpp" />
     <ClCompile Include="Vao.cpp" />
     <ClCompile Include="Vao2D.cpp" />
   </ItemGroup>
@@ -199,8 +204,11 @@
     <ClInclude Include="EntityManager.h" />
     <ClInclude Include="Fbo.h" />
     <ClInclude Include="GraphicComponent.h" />
+    <ClInclude Include="GraphicComponent2D.h" />
     <ClInclude Include="Input.h" />
+    <ClInclude Include="Letter.h" />
     <ClInclude Include="Misc.h" />
+    <ClInclude Include="Panel.h" />
     <ClInclude Include="PhysicComponent.h" />
     <ClInclude Include="PhysicComponent2D.h" />
     <ClInclude Include="PlaneDetectionComponent.h" />
@@ -213,9 +221,11 @@
     <ClInclude Include="Shader.h" />
     <ClInclude Include="SphereDetectionComponent.h" />
     <ClInclude Include="StateComponent.h" />
+    <ClInclude Include="Text.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Texture_Abs.h" />
     <ClInclude Include="Texture_Cube.h" />
+    <ClInclude Include="Updatable.h" />
     <ClInclude Include="Vao.h" />
     <ClInclude Include="Vao2D.h" />
   </ItemGroup>
@@ -264,6 +274,8 @@
     <None Include="Shader\tone.frag" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Font\font1.png" />
+    <Image Include="Font\SWLink48.bmp" />
     <Image Include="Texture\band.png" />
     <Image Include="Texture\bismuth.png" />
     <Image Include="Texture\bismuthSmall.png" />

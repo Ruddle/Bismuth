@@ -20,7 +20,9 @@
 #include "RenderSystem.h"
 #include "Ball.h"
 #include "Cube.h"
-
+#include "Panel.h"
+#include "Updatable.h"
+#include "Text.h"
 
 using namespace glm;
 using namespace std;
@@ -54,13 +56,17 @@ int main(int argc, char **argv)
 	Entity2D* entity2DA = createUI(rm);
 	entityManager->add(entity2DA);
 
+	Panel* panel = new Panel(entityManager, rm, vec2(cfg.ResolutionX, cfg.ResolutionY), vec2(cfg.ResolutionX-200, 0), vec2(200, cfg.ResolutionY));
+	//Text* text = new Text(entityManager, rm, "Font/font1.png", "abcdefghijklmnopqrstuvwxyz", vec2(100,100) , vec2(cfg.ResolutionX, cfg.ResolutionY));
+
+
 	RenderSystem *renderSystem = new RenderSystem(cfg, rm);
 	Input input;
 	int time = 0;
 
-
-	vector<Ball*> listBall = vector<Ball*>();
-	vector<Cube*> listCube = vector<Cube*>();
+	vector<Updatable*> listUpdate =  vector<Updatable*>();
+	
+	
 	
 	double fps = 60;
 
@@ -81,15 +87,11 @@ int main(int argc, char **argv)
 			{
 				entityManager->update(float(elapsedTime/ numIterPhys));
 
-				for (int i = 0; i < listBall.size(); i++)
-					listBall[i]->update(elapsedTime / numIterPhys);
-
-				for (int i = 0; i < listCube.size(); i++)
-					listCube[i]->update(elapsedTime / numIterPhys);
+				for (int i = 0; i < listUpdate.size(); i++)
+					listUpdate[i]->update(elapsedTime / numIterPhys);
 			}
 			entityManager->collision();
 			entityManager->collisionResponse(elapsedTime / numIterPhys);
-
 
 			vector<Entity*> entities = entityManager->getEntities();
 
@@ -126,8 +128,6 @@ int main(int argc, char **argv)
 			}
 		}
 
-		
-
 		if (time % 1 == 0) {
 			renderSystem->draw(entityManager->getEntities(), *cam, time, input, float(fps));
 			renderSystem->draw2D(entityManager->getEntities2D());
@@ -136,20 +136,19 @@ int main(int argc, char **argv)
 		}
 
 		if (input.getRisingKey(SDL_SCANCODE_K))
-		listBall.push_back(  new Ball(entityManager, rm, cam->getPosition(), 0.00951f*cam->getRotation()) );
+			listUpdate.push_back(  new Ball(entityManager, rm, cam->getPosition(), 0.00951f*cam->getRotation()) );
 
 		if (input.getRisingKey(SDL_SCANCODE_L))
-		listCube.push_back(new Cube(entityManager, rm, cam->getPosition(), 0.00951f*cam->getRotation()));
+			listUpdate.push_back(new Cube(entityManager, rm, cam->getPosition(), 0.00951f*cam->getRotation()));
 
 		if (input.getRisingKey(SDL_SCANCODE_R))
 		{
-			for (std::vector<Ball*>::iterator it = listBall.begin(); it != listBall.end(); it++)
+			for (auto it = listUpdate.begin(); it != listUpdate.end(); it++)
 			{
 				entityManager->suppr((*it)->getEntity()->getId());
 				delete (*it);
 			}
-
-			listBall.clear();
+			listUpdate.clear();
 		}
 	}
 

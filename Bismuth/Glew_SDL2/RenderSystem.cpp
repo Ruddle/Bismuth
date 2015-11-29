@@ -195,6 +195,7 @@ void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float t
 		doStepAo(cam);
 		doStepBlurAo();
 	}
+
 	doStepShading(cam,cam2,input);
 	doStepBloom();
 	doStepToneMapping();
@@ -237,9 +238,13 @@ void RenderSystem::draw2D(std::vector<Entity2D*> entities)
 
 		if (entity != nullptr)
 		{
-			mat4 view = translate(vec3(entity->getPhysicComponent()->getPosition(),0)) *
-			scale(vec3(entity->getPhysicComponent()->getSize(),1));
+			mat4 view = translate(
+							vec3(entity->getPhysicComponent()->getPosition()+ 
+								vec2(entity->getPhysicComponent()->getSize())        ,0)) 
+						*
+						scale(vec3(entity->getPhysicComponent()->getSize(),1));
 
+			
 		
 
 			glActiveTexture(GL_TEXTURE0);
@@ -247,7 +252,10 @@ void RenderSystem::draw2D(std::vector<Entity2D*> entities)
 			glUniform1i(mShaderGeometry.getLocation("texture_diffuse"), 0);
 
 			glUniformMatrix4fv(mShader2D.getLocation("view"), 1, GL_FALSE, value_ptr(view));
-			mRm->getVao(entity->getGraphicComponent()->getVaoId())->draw();
+		
+			mat4 toUV = translate(vec3(entity->getGraphicComponent()->getLeftBottom(), 0)) * scale(vec3(entity->getGraphicComponent()->getSize(), 1));
+			glUniformMatrix4fv(mShader2D.getLocation("toUV"), 1, GL_FALSE, value_ptr(toUV));
+			
 			mSupportFbo.draw();
 		}
 	}

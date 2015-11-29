@@ -8,9 +8,9 @@
 #include "SphereDetectionComponent.h"
 #include "CubeDetectionComponent.h"
 #include "EntityManager.h"
+#include "Updatable.h"
 
-
-class Ball
+class Ball : public Updatable
 {
 public:
 	Ball(EntityManager* em,ResourcesManager* rm, glm::vec3 position, glm::vec3 speed);
