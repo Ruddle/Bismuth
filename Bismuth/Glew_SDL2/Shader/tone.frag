@@ -18,7 +18,7 @@ vec3 bloom = texture(bloomSampler, UV).rgb;
 
 image+= bloom*1;
 
-image =  vec3(1.0) - exp(-image * 2.5);
+image =  vec3(1.0) - exp(-image * 3);
 
 outColor =		vec4(image,1);
 }

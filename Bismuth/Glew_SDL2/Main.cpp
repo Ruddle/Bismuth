@@ -42,11 +42,15 @@ int main(int argc, char **argv)
 
 	core.entityManager->add(createPlane(core.resourcesManager));
 	core.entityManager->add(createUI(core.resourcesManager));
-	Panel* panel = new Panel(core.entityManager, core.resourcesManager, vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), vec2(core.cfg->ResolutionX - 200, 0), vec2(200, core.cfg->ResolutionY));
-	Text* text = new Text(core.entityManager, core.resourcesManager, "Font/Calibri64.png", "123456789azertyuiopAZERTYUIOP", vec2(0, 0), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
+	Panel panel = Panel(core.entityManager, core.resourcesManager, vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), vec2(core.cfg->ResolutionX - 200, 0), vec2(200, core.cfg->ResolutionY));
+	Text textFps1 = Text(core.entityManager, core.resourcesManager, "Font/Calibri64.png", "Fps:", vec2(0, 0), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY),0.5);
+	Text textX1 = Text(core.entityManager, core.resourcesManager, "Font/Calibri64.png", "x:", vec2(0, 64*0.5), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), 0.5);
 
 	while (currentLoop.doContinue())
 	{
+		Text textFps2 =  Text(core.entityManager, core.resourcesManager, "Font/Calibri64.png", to_string(currentLoop.getFps()), vec2(48*5*0.5, 0), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY),0.5);
+		Text textX2 = Text(core.entityManager, core.resourcesManager, "Font/Calibri64.png", to_string(listUpdate.size()), vec2(48 * 3 * 0.5, 64*0.5), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), 0.5);
+
 		currentLoop.insertInLoop(listUpdate);
 
 		if (core.input->getRisingKey(SDL_SCANCODE_K))
@@ -63,6 +67,9 @@ int main(int argc, char **argv)
 			listUpdate.clear();
 		}
 
+
+		textFps2.flush(core.entityManager);
+		textX2.flush(core.entityManager);
 	}
 
 	return 0;

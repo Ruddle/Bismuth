@@ -32,7 +32,7 @@ public:
 	void insertInLoop(std::vector<Updatable*> &toUpdate);
 	bool doContinue() { return mContinue; }
 	CoreBismuth getCore() {	return{ mResourcesManager,mEntityManager,mInput,mCfg,mScene,mCamera,mRenderSystem };}
-	
+	double getFps() { return mFps; }
 
 private : 
 	ResourcesManager* mResourcesManager;

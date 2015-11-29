@@ -205,26 +205,6 @@ void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float t
 	mLastViewProjection = cam.getProjection()*cam.getView();
 }
 
-void RenderSystem::draw2D(Camera const& cam , vector<vec2> dot)
-{
-
-	glBindFramebuffer(GL_FRAMEBUFFER, 0);
-	glClear(GL_DEPTH_BUFFER_BIT);
-	glUseProgram(mShader2D.getProgramID());
-	glEnable(GL_BLEND);
-
-
-	for (int i = 0; i < dot.size(); i++)
-	{
-		mat4 view =  translate( vec3(dot[i], 0)) * scale(vec3(1, cam.getAspect(), 1) * vec3(0.0075));
-		
-		glUniformMatrix4fv(mShader2D.getLocation("view"), 1, GL_FALSE, value_ptr(view));
-
-		mSupportFbo.draw();
-
-	}
-	
-}
 
 void RenderSystem::draw2D(std::vector<Entity2D*> entities)
 {

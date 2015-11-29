@@ -8,7 +8,7 @@ layout (location = 0) out vec4 outColor;
 void main()
 {
 
-outColor = texture(texture_diffuse,UV)*    vec4(1,1,1,1);
+outColor = texture(texture_diffuse,UV);
 }
 
 
