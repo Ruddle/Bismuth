@@ -75,7 +75,7 @@ Scene_SDL::Scene_SDL(int w, int h, int fullscreen) : mLastTime(0)
 
 	//	glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
 	//	glHint(GL_POLYGON_SMOOTH_HINT, GL_NICEST);
-
+	
 	//	glEnable(GL_LINE_SMOOTH);
 	//	glEnable(GL_POLYGON_SMOOTH);
 }
