@@ -117,8 +117,8 @@ void PhysicComponent::collisionResponse(float timestep)
 		totalResponse.posDiff += response.posDiff;
 		totalResponse.rotDiff += response.rotDiff;
 	}
-
-	mStateComponent->setPositionDiff(mStateComponent->getPositionDiff() + totalResponse.posDiff2);
-	mStateComponent->setRotationDiff(mStateComponent->getRotationDiff() + totalResponse.rotDiff);
-	mStateComponent->setPosition(mStateComponent->getPosition() + totalResponse.posDiff);
+	
+	mStateComponent->setPositionDiff(mStateComponent->getPositionDiff() + totalResponse.posDiff2 / (float)mContact.size());
+	mStateComponent->setRotationDiff(mStateComponent->getRotationDiff() + totalResponse.rotDiff / (float)mContact.size());
+	mStateComponent->setPosition(mStateComponent->getPosition() + totalResponse.posDiff / (float)mContact.size());
 }
