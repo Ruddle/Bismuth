@@ -52,7 +52,7 @@ int main(int argc, char **argv)
 		Text textFps2 =  Text(core.entityManager, core.resourcesManager, "Font/Calibri64.png", to_string(currentLoop.getFps()).substr(0,4), vec2(48*5*0.5, 0), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY),0.5);
 		Text textX2 = Text(core.entityManager, core.resourcesManager, "Font/Calibri64.png", to_string(listUpdate.size()), vec2(48 * 3 * 0.5, 64*0.5), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), 0.5);
 		Text textPos = Text(core.entityManager, core.resourcesManager, "Font/Calibri64.png", (listUpdate.size()>0) ? to_string(listUpdate[0]->getEntity()->getPhysicComponent()->getStateComponent()->getPosition().z) : "", vec2(48 * 3 * 0.5, 128 * 0.5), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), 0.5);
-		Text textTime = Text(core.entityManager, core.resourcesManager, "Font/Calibri64.png", to_string(currentLoop.getTimeFactor()), vec2(48 * 3 * 0.5, 192 * 0.5), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), 0.5);
+		Text textTime = Text(core.entityManager, core.resourcesManager, "Font/Calibri64.png", to_string(currentLoop.getTimeStep()), vec2(48 * 3 * 0.5, 192 * 0.5), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), 0.5);
 
 		currentLoop.insertInLoop(listUpdate);
 		cam.update(*core.input, currentLoop.getElapsedTime());
@@ -70,10 +70,10 @@ int main(int argc, char **argv)
 			listUpdate.clear();
 		}
 
-		if (core.input->getRisingKey(SDL_SCANCODE_Q))
+		/*if (core.input->getRisingKey(SDL_SCANCODE_Q))
 			currentLoop.setTimeFactor(currentLoop.getTimeFactor() - 0.01);
 		if (core.input->getRisingKey(SDL_SCANCODE_E))
-			currentLoop.setTimeFactor(currentLoop.getTimeFactor() + 0.01);
+			currentLoop.setTimeFactor(currentLoop.getTimeFactor() + 0.01);*/
 
 		textTime.flush(core.entityManager);
 		textFps2.flush(core.entityManager);

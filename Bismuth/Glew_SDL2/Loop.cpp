@@ -2,7 +2,7 @@
 
 
 
-Loop::Loop() : mFrame(0), mContinue(true), mFps(1.0), mTimeFactor(1.0f), mPhysicsDelay(0.0f), mTimeStep(2.0f)
+Loop::Loop() : mFrame(0), mContinue(true), mFps(1.0), mPhysicsDelay(0.0f), mTimeStep(2.0f), mElapsedTime(0.0f)
 {
 	mCfg = readConfig(); 
 	mScene = new Scene_SDL(mCfg->ResolutionX, mCfg->ResolutionY, mCfg->FullScreen);
@@ -31,14 +31,13 @@ void Loop::insertInLoop(std::vector<Updatable*> &toUpdate)
 	mContinue = !mInput->end();
 	mFrame++;
 	mFps = mScene->waitForFps(30);
-	double elapsedTime = 1000.0 / mFps;
+	mElapsedTime = 1000.0 / mFps;
 
-	double timeToCompute = elapsedTime + mPhysicsDelay;
+	double timeToCompute = mElapsedTime + mPhysicsDelay;
 	int nbSteps = floor(timeToCompute / mTimeStep);
 	mPhysicsDelay = timeToCompute - floor(timeToCompute / mTimeStep);
 	//if (time % 10 == 0)	cout << mFps << endl;
 	mInput->update();
-	mCamera->update(*mInput, elapsedTime);
 
 	for (int i = 0; i < nbSteps; i++)
 	{
@@ -58,7 +57,7 @@ void Loop::insertInLoop(std::vector<Updatable*> &toUpdate)
 	mScene->flip();
 }
 
-void Loop::setTimeStep(float timeStep)
+void Loop::setTimeStep(double timeStep)
 {
 	if (timeStep > 0)
 		mTimeStep = timeStep;

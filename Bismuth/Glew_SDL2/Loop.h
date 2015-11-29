@@ -33,12 +33,13 @@ public:
 	bool doContinue() { return mContinue; }
 	CoreBismuth getCore() {	return{ mResourcesManager,mEntityManager,mInput,mCfg,mScene,mCamera,mRenderSystem };}
 	double getFps() { return mFps; }
-	void setTimeStep(float timeStep);
-	float getTimeStep() { return mTimeStep; }
+	void setTimeStep(double timeStep);
+	double getTimeStep() { return mTimeStep; }
+	double getElapsedTime() { return mElapsedTime; }
 
 private :
-	float mTimeStep;
-	float mPhysicsDelay;
+	double mTimeStep;
+	double mPhysicsDelay;
 	ResourcesManager* mResourcesManager;
 	EntityManager* mEntityManager;
 	Input* mInput;
@@ -48,6 +49,7 @@ private :
 	RenderSystem* mRenderSystem;
 	int mFrame;
 	double mFps;
+	double mElapsedTime;
 	bool mContinue;
 
 
