@@ -33,6 +33,7 @@ public:
 	bool doContinue() { return mContinue; }
 	CoreBismuth getCore() {	return{ mResourcesManager,mEntityManager,mInput,mCfg,mScene,mCamera,mRenderSystem };}
 	double getFps() { return mFps; }
+	double getElapsedTime() { return mElapsedTime; }
 
 private : 
 	ResourcesManager* mResourcesManager;
@@ -44,6 +45,7 @@ private :
 	RenderSystem* mRenderSystem;
 	int mFrame;
 	double mFps;
+	double mElapsedTime;
 	bool mContinue;
 
 

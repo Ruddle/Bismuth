@@ -195,6 +195,7 @@
     <ClCompile Include="Texture_Abs.cpp" />
     <ClCompile Include="Texture_Cube.cpp" />
     <ClCompile Include="Updatable.cpp" />
+    <ClCompile Include="UserCamera.cpp" />
     <ClCompile Include="Vao.cpp" />
     <ClCompile Include="Vao2D.cpp" />
   </ItemGroup>
@@ -234,6 +235,7 @@
     <ClInclude Include="Texture_Abs.h" />
     <ClInclude Include="Texture_Cube.h" />
     <ClInclude Include="Updatable.h" />
+    <ClInclude Include="UserCamera.h" />
     <ClInclude Include="Vao.h" />
     <ClInclude Include="Vao2D.h" />
   </ItemGroup>

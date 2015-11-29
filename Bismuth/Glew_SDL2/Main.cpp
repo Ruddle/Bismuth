@@ -24,6 +24,7 @@
 #include "Updatable.h"
 #include "Text.h"
 #include "Loop.h"
+#include "UserCamera.h"
 
 FILE _iob[] = { *stdin, *stdout, *stderr };
 extern "C" FILE * __cdecl __iob_func(void)
@@ -45,7 +46,7 @@ int main(int argc, char **argv)
 	core.entityManager->add(createUI(core.resourcesManager));
 	Text textFps1 = Text(core.entityManager, core.resourcesManager, "Font/Calibri64.png", "Fps:", vec2(0, 0), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY),0.5);
 	Text textX1 = Text(core.entityManager, core.resourcesManager, "Font/Calibri64.png", "x:", vec2(0, 64*0.5), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), 0.5);
-
+	UserCamera cam = UserCamera(core.camera);
 	while (currentLoop.doContinue())
 	{
 		Text textFps2 =  Text(core.entityManager, core.resourcesManager, "Font/Calibri64.png", to_string(currentLoop.getFps()).substr(0,4), vec2(48*5*0.5, 0), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY),0.5);
@@ -53,7 +54,7 @@ int main(int argc, char **argv)
 		Text textPos = Text(core.entityManager, core.resourcesManager, "Font/Calibri64.png", (listUpdate.size()>0) ? to_string(listUpdate[0]->getEntity()->getPhysicComponent()->getStateComponent()->getPosition().z) : "", vec2(48 * 3 * 0.5, 128 * 0.5), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), 0.5);
 
 		currentLoop.insertInLoop(listUpdate);
-
+		cam.update(*core.input, currentLoop.getElapsedTime());
 		if (core.input->getRisingKey(SDL_SCANCODE_K))
 			listUpdate.push_back(new Ball(core.entityManager, core.resourcesManager, core.camera->getPosition(), core.input->getKey(SDL_SCANCODE_I)*0.0951f*core.camera->getRotation()));
 		if (core.input->getRisingKey(SDL_SCANCODE_L))
