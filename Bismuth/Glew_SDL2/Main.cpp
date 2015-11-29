@@ -50,6 +50,7 @@ int main(int argc, char **argv)
 	{
 		Text textFps2 =  Text(core.entityManager, core.resourcesManager, "Font/Calibri64.png", to_string(currentLoop.getFps()), vec2(48*5*0.5, 0), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY),0.5);
 		Text textX2 = Text(core.entityManager, core.resourcesManager, "Font/Calibri64.png", to_string(listUpdate.size()), vec2(48 * 3 * 0.5, 64*0.5), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), 0.5);
+		Text textPos = Text(core.entityManager, core.resourcesManager, "Font/Calibri64.png", (listUpdate.size()>0) ? to_string(listUpdate[0]->getEntity()->getPhysicComponent()->getStateComponent()->getPosition().z) : "", vec2(48 * 3 * 0.5, 128 * 0.5), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), 0.5);
 
 		currentLoop.insertInLoop(listUpdate);
 
@@ -70,6 +71,8 @@ int main(int argc, char **argv)
 
 		textFps2.flush(core.entityManager);
 		textX2.flush(core.entityManager);
+		textPos.flush(core.entityManager);
+
 	}
 
 	return 0;

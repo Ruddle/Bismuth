@@ -17,7 +17,7 @@ public :
     ~PhysicComponent();
     void getCollision(PhysicComponent* phyComp2);
 	void collisionResponse(float timestep);
-	void responseToContact(float elapsedTime,Contact *contact);
+	ContactResponse responseToContact(float elapsedTime,Contact *contact);
 
 	DetectionComponent* getDetectionComponent(){ return mDetectionComponent; }
 	StateComponent* getStateComponent(){ return mStateComponent; }
