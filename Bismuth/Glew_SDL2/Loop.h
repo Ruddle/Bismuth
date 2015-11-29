@@ -36,8 +36,10 @@ public:
 	void setTimeStep(double timeStep);
 	double getTimeStep() { return mTimeStep; }
 	double getElapsedTime() { return mElapsedTime; }
+	int getNbStep() { return mNbSteps; }
 
 private :
+	int mNbSteps;
 	double mTimeStep;
 	double mPhysicsDelay;
 	ResourcesManager* mResourcesManager;

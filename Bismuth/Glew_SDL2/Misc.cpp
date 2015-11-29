@@ -107,10 +107,10 @@ Entity* createThing(ResourcesManager* rm,vec3 position) {
 Entity2D* createUI(ResourcesManager* rm) {
 
 	GraphicComponent2D* gc1 = new GraphicComponent2D(
-		rm->loadTexture("Texture/bismuth.png", GL_RGB8, GL_LINEAR, GL_REPEAT),
+		rm->loadTexture("Texture/bismuthSquare.png", GL_RGB8, GL_LINEAR, GL_REPEAT),
 		vec2(0),vec2(1));
 
-	PhysicComponent2D* pc1 = new PhysicComponent2D(vec2(0.15,0.25), vec2(-1, 0.5));
+	PhysicComponent2D* pc1 = new PhysicComponent2D(vec2(0.15,0.25), vec2(-0.995, 0.48));
 	Entity2D* entity = new Entity2D(gc1, pc1);
 	return entity;
 

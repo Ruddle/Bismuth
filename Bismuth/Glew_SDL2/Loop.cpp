@@ -34,12 +34,12 @@ void Loop::insertInLoop(std::vector<Updatable*> &toUpdate)
 	mElapsedTime = 1000.0 / mFps;
 
 	double timeToCompute = mElapsedTime + mPhysicsDelay;
-	int nbSteps = floor(timeToCompute / mTimeStep);
+	int mNbSteps = floor(timeToCompute / mTimeStep);
 	mPhysicsDelay = timeToCompute - floor(timeToCompute / mTimeStep);
 	//if (time % 10 == 0)	cout << mFps << endl;
 	mInput->update();
 
-	for (int i = 0; i < nbSteps; i++)
+	for (int i = 0; i < mNbSteps; i++)
 	{
 		for (int i = 0; i < toUpdate.size(); i++)
 			toUpdate[i]->update(mTimeStep);
