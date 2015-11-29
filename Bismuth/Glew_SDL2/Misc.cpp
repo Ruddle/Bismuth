@@ -5,9 +5,9 @@
 using namespace std;
 using namespace glm;
 
-Config readConfig(void) {
+Config* readConfig(void) {
 
-	Config cfg;
+	Config* cfg = new Config();
 
 	ifstream flux(CONFIGPATH);
 
@@ -32,19 +32,19 @@ Config readConfig(void) {
 		lineStream >> word2;
 
 		if (word1 == "ResolutionX")
-			cfg.ResolutionX = stoi(word2);
+			cfg->ResolutionX = stoi(word2);
 
 		if (word1 == "ResolutionY")
-			cfg.ResolutionY = stoi(word2);
+			cfg->ResolutionY = stoi(word2);
 
 		if (word1 == "HalfAO")
-			cfg.HalfAO = stoi(word2);
+			cfg->HalfAO = stoi(word2);
 
 		if (word1 == "FullScreen")
-			cfg.FullScreen = stoi(word2);
+			cfg->FullScreen = stoi(word2);
 
 		if (word1 == "AO")
-			cfg.AO = stoi(word2);
+			cfg->AO = stoi(word2);
 		
 
 	}
@@ -114,6 +114,56 @@ Entity2D* createUI(ResourcesManager* rm) {
 	Entity2D* entity = new Entity2D(gc1, pc1);
 	return entity;
 
+}
+
+std::vector<Entity2D*> getVisualCollision(ResourcesManager* rm,std::vector<Entity*> const & entities, Camera const & cam)
+{
+	std::vector<Entity2D*> res = std::vector<Entity2D*>();
+	std::vector<vec2> a = std::vector<vec2>();
+
+	for (auto it1 = entities.begin(); it1 != entities.end(); it1++)
+	{
+		if (*it1 != nullptr)
+		{
+			set<Contact*> contacts = (*it1)->getPhysicComponent()->getContact();
+			for (auto it = contacts.begin(); it != contacts.end(); it++)
+			{
+				if (*it != nullptr)
+				{
+					vec4 worldSpace = vec4((*it)->position, 1);
+					vec4 screenSpace = cam.getProjection() * cam.getView() * worldSpace;
+					screenSpace /= screenSpace.w;
+					a.push_back(vec2(screenSpace));
+
+					for (int i = 0; i < 10; i++)
+					{
+						vec4 worldSpace = vec4((*it)->position + i*10.0f*(*it)->normal, 1);
+						vec4 screenSpace = cam.getProjection() * cam.getView() * worldSpace;
+						screenSpace /= screenSpace.w;
+						a.push_back(vec2(screenSpace));
+
+					}
+				}
+
+			}
+		}
+
+	}
+	vec2 size = vec2(9, 16)*0.001f;
+
+	for (int i = 0; i < a.size(); i++) 
+	{
+		res.push_back(new Entity2D(
+			new GraphicComponent2D(
+				rm->loadTexture("Texture/dot.png", GL_RGB8, GL_LINEAR, GL_REPEAT),
+				vec2(0, 0), vec2(1.0 / 1.0f)),
+			new PhysicComponent2D(size, a[i]-size/1.0f   )));
+	}
+
+
+
+
+	return res;
 }
 
 

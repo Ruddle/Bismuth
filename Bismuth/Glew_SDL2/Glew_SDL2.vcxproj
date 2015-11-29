@@ -86,6 +86,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>D:\PROG\CPP\Glew_SDL2\Glew_SDL2\SDL2-2.0.3\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <Profile>true</Profile>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -104,6 +105,7 @@
       <SubSystem>Console</SubSystem>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <IgnoreSpecificDefaultLibraries>msvcrt.lib</IgnoreSpecificDefaultLibraries>
+      <Profile>true</Profile>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -162,11 +164,16 @@
     <ClCompile Include="GraphicComponent2D.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="Letter.cpp" />
+    <ClCompile Include="Loop.cpp" />
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="Main_Bis1.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="Main_Bis2.cpp" />
+    <ClCompile Include="Main_Bis2.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="Main_Test_Physique.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
@@ -207,6 +214,7 @@
     <ClInclude Include="GraphicComponent2D.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Letter.h" />
+    <ClInclude Include="Loop.h" />
     <ClInclude Include="Misc.h" />
     <ClInclude Include="Panel.h" />
     <ClInclude Include="PhysicComponent.h" />
@@ -274,6 +282,7 @@
     <None Include="Shader\tone.frag" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Font\Calibri64.png" />
     <Image Include="Font\font1.png" />
     <Image Include="Font\SWLink48.bmp" />
     <Image Include="Texture\band.png" />

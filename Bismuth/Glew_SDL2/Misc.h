@@ -20,6 +20,7 @@
 #include "SphereDetectionComponent.h"
 #include "CubeDetectionComponent.h"
 #include "PlaneDetectionComponent.h"
+
 #define CONFIGPATH  "config.ini"
 
 
@@ -33,13 +34,32 @@ struct Config
 	int HalfAO;
 };
 
-Config readConfig(void);
+class ResourcesManager;
+class EntityManager;
+class Input;
+class Scene_SDL;
+class RenderSystem;
+
+struct CoreBismuth
+{
+	ResourcesManager* resourcesManager;
+	EntityManager* entityManager;
+	Input* input;
+	Config* cfg;
+	Scene_SDL* scene;
+	Camera* camera;
+	RenderSystem* renderSystem;
+};
+
+Config* readConfig(void);
 
 // Utile pour Main_Bis2
 Entity* createSphere(ResourcesManager* rm);
 Entity* createThing(ResourcesManager* rm,glm::vec3 position);
 Entity* createPlane(ResourcesManager* rm);
 Entity2D* createUI(ResourcesManager* rm);
+
+std::vector<Entity2D*> getVisualCollision(ResourcesManager* rm,std::vector<Entity*> const& entities, Camera const & cam);
 
 
 // Utile pour Main_Bis1

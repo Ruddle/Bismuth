@@ -38,7 +38,7 @@ extern "C" FILE * __cdecl __iob_func(void)
 
 int main(int argc, char **argv)
 {
-	Config cfg = readConfig(); // Misc.cpp
+	Config cfg = *readConfig(); // Misc.cpp
 	Scene_SDL* currentScene = new Scene_SDL(cfg.ResolutionX,cfg.ResolutionY,cfg.FullScreen);
 	Camera* cam = new Camera(70.0, (float) cfg.ResolutionX/cfg.ResolutionY, 0.3, 100.0);
 	ResourcesManager* rm = new ResourcesManager();
@@ -66,77 +66,38 @@ int main(int argc, char **argv)
 
 	vector<Updatable*> listUpdate =  vector<Updatable*>();
 	
-	
-	
 	double fps = 60;
 
 	while (!input.end()) {
 		time++;
-		//entityC->getPhysicComponent()->getStateComponent()->setPosition(vec3(3+ cos(time / 10.0), 0, 2 + sin(time / 10.0)));
 		fps = (currentScene->waitForFps(30) + 2*fps)/3.0;
 		double elapsedTime = 1000.0/ fps;
 		//if (time % 10 == 0)	cout << fps << endl;
+
 		input.update();
 		cam->update(input, elapsedTime);
 		
-		vector<vec2> a;
 		float numIterPhys = 10;
 		for (int i = 0; i < numIterPhys; i++)
 		{
 			if (!input.getKey(SDL_SCANCODE_F11))
 			{
-				entityManager->update(float(elapsedTime/ numIterPhys));
+				entityManager->update(float(elapsedTime / numIterPhys));
 
-				for (int i = 0; i < listUpdate.size(); i++)
+				//ICI l'utilisateur doit pouvoir update ces entitées physiques  
+
+				// USER_CODE
+				for (int i = 0; i < listUpdate.size(); i++) 
 					listUpdate[i]->update(elapsedTime / numIterPhys);
+				// END USER_CODE
 			}
 			entityManager->collision();
 			entityManager->collisionResponse(elapsedTime / numIterPhys);
-
-			vector<Entity*> entities = entityManager->getEntities();
-
-	/*		entities.clear();
-			entities.push_back(entityB);*/
-
-		for (auto it1 = entities.begin(); it1 != entities.end(); it1++)
-			{
-				if (*it1 != nullptr)
-				{
-					set<Contact*> contacts = (*it1)->getPhysicComponent()->getContact();
-					for (auto it = contacts.begin(); it != contacts.end(); it++)
-					{
-						if (*it != nullptr)
-						{
-							vec4 worldSpace = vec4((*it)->position, 1);
-							vec4 screenSpace = cam->getProjection() * cam->getView() * worldSpace;
-							screenSpace /= screenSpace.w;
-							a.push_back(vec2(screenSpace));
-
-							for (int i = 0; i < 10; i++)
-							{
-								vec4 worldSpace = vec4((*it)->position + i*10.0f*(*it)->normal, 1);
-								vec4 screenSpace = cam->getProjection() * cam->getView() * worldSpace;
-								screenSpace /= screenSpace.w;
-								a.push_back(vec2(screenSpace));
-
-							}
-						}
-
-					}
-				}
-				
-			}
 		}
 
-		if (time % 1 == 0) {
-			renderSystem->draw(entityManager->getEntities(), *cam, time, input, float(fps));
-			renderSystem->draw2D(entityManager->getEntities2D());
-		//	renderSystem->draw2D(*cam,a);
-			currentScene->flip();
-		}
-
+		// USER_CODE
 		if (input.getRisingKey(SDL_SCANCODE_K))
-			listUpdate.push_back(  new Ball(entityManager, rm, cam->getPosition(), 0.00951f*cam->getRotation()) );
+			listUpdate.push_back(new Ball(entityManager, rm, cam->getPosition(), input.getKey(SDL_SCANCODE_I)*0.0951f*cam->getRotation()));
 
 		if (input.getRisingKey(SDL_SCANCODE_L))
 			listUpdate.push_back(new Cube(entityManager, rm, cam->getPosition(), 0.00951f*cam->getRotation()));
@@ -150,6 +111,12 @@ int main(int argc, char **argv)
 			}
 			listUpdate.clear();
 		}
+		// END USER_CODE
+		
+		renderSystem->draw(entityManager->getEntities(), *cam, time, input, float(fps));
+		renderSystem->draw2D(getVisualCollision(rm, entityManager->getEntities(), *cam));
+		renderSystem->draw2D(entityManager->getEntities2D());
+		currentScene->flip();
 	}
 
 	delete cam;

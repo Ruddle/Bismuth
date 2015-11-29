@@ -8,7 +8,7 @@ Text::Text(EntityManager * em, ResourcesManager * rm, std::string path, std::str
 
 	for (int i = 0; i < text.size(); i++)
 	{
-		mLetters.push_back( new Letter(em,rm,path,text[i],position + vec2(i*70,0),resolution));
+		mLetters.push_back( new Letter(em,rm,path,text[i],position + vec2(i*48,0),resolution));
 	}
 
 

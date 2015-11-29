@@ -126,6 +126,12 @@
     <ClCompile Include="Text.cpp">
       <Filter>Bis 3\Text</Filter>
     </ClCompile>
+    <ClCompile Include="Loop.cpp">
+      <Filter>Temp</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Temp</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h">
@@ -230,6 +236,9 @@
     <ClInclude Include="Text.h">
       <Filter>Bis 3\Text</Filter>
     </ClInclude>
+    <ClInclude Include="Loop.h">
+      <Filter>Temp</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Texture\cloud.png">
@@ -281,6 +290,9 @@
       <Filter>Resources\Font</Filter>
     </Image>
     <Image Include="Font\font1.png">
+      <Filter>Resources\Font</Filter>
+    </Image>
+    <Image Include="Font\Calibri64.png">
       <Filter>Resources\Font</Filter>
     </Image>
   </ItemGroup>
