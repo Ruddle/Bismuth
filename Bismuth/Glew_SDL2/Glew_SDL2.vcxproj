@@ -298,6 +298,7 @@
     <Image Include="Texture\checker2C.png" />
     <Image Include="Texture\circle.png" />
     <Image Include="Texture\circleColor.png" />
+    <Image Include="Texture\circleColor2.png" />
     <Image Include="Texture\cloud.png" />
     <Image Include="Texture\dot.png" />
     <Image Include="Texture\RED.png" />
@@ -305,6 +306,8 @@
     <Image Include="Texture\rock_N.png" />
     <Image Include="Texture\ui.png" />
     <Image Include="Texture\WHITE.png" />
+    <Image Include="Texture\wood.jpg" />
+    <Image Include="Texture\wood_N.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

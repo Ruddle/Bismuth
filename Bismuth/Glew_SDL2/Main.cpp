@@ -56,8 +56,8 @@ int main(int argc, char **argv)
 
 		currentLoop.insertInLoop(listUpdate);
 		cam.update(*core.input, currentLoop.getElapsedTime());
-		if (core.input->getRisingKey(SDL_SCANCODE_K))
-			listUpdate.push_back(new Ball(core.entityManager, core.resourcesManager, core.camera->getPosition(), core.input->getKey(SDL_SCANCODE_I)*0.0951f*core.camera->getRotation()));
+		if (core.input->getKey(SDL_SCANCODE_K))
+			listUpdate.push_back(new Ball(core.entityManager, core.resourcesManager, core.camera->getPosition(), core.input->getKey(SDL_SCANCODE_I)*0.0551f*core.camera->getRotation()));
 		if (core.input->getRisingKey(SDL_SCANCODE_L))
 			listUpdate.push_back(new Cube(core.entityManager, core.resourcesManager, core.camera->getPosition(), 0.00951f*core.camera->getRotation()));
 		if (core.input->getRisingKey(SDL_SCANCODE_R))

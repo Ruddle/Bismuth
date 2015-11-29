@@ -6,7 +6,7 @@ using namespace glm;
 Cube::Cube(EntityManager* em, ResourcesManager* rm, glm::vec3 position, glm::vec3 speed)
 {
 	GraphicComponent* gc1 = new GraphicComponent(
-		rm->loadTexture("Texture/circleColor.png", GL_RGB8, GL_LINEAR, GL_REPEAT),
+		rm->loadTexture("Texture/circleColor2.png", GL_RGB8, GL_LINEAR, GL_REPEAT),
 		rm->loadTexture("Texture/BLUE.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
 		rm->loadTexture("Texture/checker2C.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
 		rm->loadTexture("Texture/circle.png", GL_RGB8, GL_LINEAR, GL_REPEAT),
@@ -44,7 +44,7 @@ void Cube::update(float elapsedTime)
 {
 	StateComponent* sc = mEntity->getPhysicComponent()->getStateComponent();
 
-	sc->force(elapsedTime,vec3(0, 0, -0.000021f*elapsedTime));
+	sc->force(elapsedTime,vec3(0, 0, -9.8E-6*elapsedTime));
 	sc->friction(0.001f*elapsedTime);
 
 

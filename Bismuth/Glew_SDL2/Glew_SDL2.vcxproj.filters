@@ -310,6 +310,15 @@
     <Image Include="Texture\bismuthSquare.png">
       <Filter>Resources\Texture</Filter>
     </Image>
+    <Image Include="Texture\circleColor2.png">
+      <Filter>Resources\Texture</Filter>
+    </Image>
+    <Image Include="Texture\wood.jpg">
+      <Filter>Resources\Texture</Filter>
+    </Image>
+    <Image Include="Texture\wood_N.jpg">
+      <Filter>Resources\Texture</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <None Include="config.ini">
