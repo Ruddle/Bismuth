@@ -132,6 +132,9 @@
     <ClCompile Include="Main.cpp">
       <Filter>Temp</Filter>
     </ClCompile>
+    <ClCompile Include="UserCamera.cpp">
+      <Filter>Bis 4</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h">
@@ -238,6 +241,9 @@
     </ClInclude>
     <ClInclude Include="Loop.h">
       <Filter>Temp</Filter>
+    </ClInclude>
+    <ClInclude Include="UserCamera.h">
+      <Filter>Bis 4</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
