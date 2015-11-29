@@ -307,6 +307,9 @@
     <Image Include="Texture\ui.png">
       <Filter>Resources\Texture</Filter>
     </Image>
+    <Image Include="Texture\bismuthSquare.png">
+      <Filter>Resources\Texture</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <None Include="config.ini">

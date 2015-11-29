@@ -2,7 +2,7 @@
 
 
 
-Loop::Loop() : mFrame(0), mContinue(true), mFps(1.0), mPhysicsDelay(0.0f), mTimeStep(2.0f), mElapsedTime(0.0f)
+Loop::Loop() : mFrame(0), mContinue(true), mFps(1.0), mPhysicsDelay(0.0f), mTimeStep(1.0f), mElapsedTime(0.0f)
 {
 	mCfg = readConfig(); 
 	mScene = new Scene_SDL(mCfg->ResolutionX, mCfg->ResolutionY, mCfg->FullScreen);
@@ -34,7 +34,7 @@ void Loop::insertInLoop(std::vector<Updatable*> &toUpdate)
 	mElapsedTime = 1000.0 / mFps;
 
 	double timeToCompute = mElapsedTime + mPhysicsDelay;
-	int mNbSteps = floor(timeToCompute / mTimeStep);
+	mNbSteps = floor(timeToCompute / mTimeStep);
 	mPhysicsDelay = timeToCompute - floor(timeToCompute / mTimeStep);
 	//if (time % 10 == 0)	cout << mFps << endl;
 	mInput->update();
