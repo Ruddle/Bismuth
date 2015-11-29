@@ -41,8 +41,8 @@ int main(int argc, char **argv)
 	vector<Updatable*> listUpdate = vector<Updatable*>();
 
 	core.entityManager->add(createPlane(core.resourcesManager));
+	Panel panel = Panel(core.entityManager, core.resourcesManager, vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), vec2(0, 0), vec2(300, core.cfg->ResolutionY));
 	core.entityManager->add(createUI(core.resourcesManager));
-	Panel panel = Panel(core.entityManager, core.resourcesManager, vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), vec2(0, 0), vec2(200, core.cfg->ResolutionY));
 	Text textFps1 = Text(core.entityManager, core.resourcesManager, "Font/Calibri64.png", "Fps:", vec2(0, 0), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY),0.5);
 	Text textX1 = Text(core.entityManager, core.resourcesManager, "Font/Calibri64.png", "x:", vec2(0, 64*0.5), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), 0.5);
 

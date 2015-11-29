@@ -210,6 +210,7 @@ void RenderSystem::draw2D(std::vector<Entity2D*> entities)
 {
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	glClear(GL_DEPTH_BUFFER_BIT);
+	glDisable(GL_DEPTH_TEST);
 	glUseProgram(mShader2D.getProgramID());
 	glEnable(GL_BLEND);
 	for (int i = 0; i < entities.size(); i++) {
@@ -224,7 +225,7 @@ void RenderSystem::draw2D(std::vector<Entity2D*> entities)
 						*
 						scale(vec3(entity->getPhysicComponent()->getSize(),1));
 
-			
+		
 		
 
 			glActiveTexture(GL_TEXTURE0);
@@ -239,6 +240,7 @@ void RenderSystem::draw2D(std::vector<Entity2D*> entities)
 			mSupportFbo.draw();
 		}
 	}
+	glEnable(GL_DEPTH_TEST);
 }
 
 void RenderSystem::doStepAo(Camera const &cam)

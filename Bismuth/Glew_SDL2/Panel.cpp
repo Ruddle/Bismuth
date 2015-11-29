@@ -34,12 +34,12 @@ Panel::Panel(EntityManager* em, ResourcesManager* rm, glm::vec2 resolution,glm::
 			vec2(1.0 / 4.0f, 2.0 / 4.0f), vec2(1.0 / 4.0f, 2.0 / 4.0f)),
 		new PhysicComponent2D(vec2(size.x, 2.0f) / resolution, ((leftBottom + vec2(0, 0)) / resolution)*2.0f - vec2(1)));
 	
-	
+	em->add(mCenter);
 	em->add(mRight);
 	em->add(mLeft);
 	em->add(mDown);
 	em->add(mUp);
-	em->add(mCenter);
+	
 }
 
 
