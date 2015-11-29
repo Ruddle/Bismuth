@@ -9,6 +9,8 @@ public:
 	glm::vec2 getSize() { return mSize; }
 	glm::vec2 getPosition() { return mPosition; }
 
+	bool contain(glm::vec2 mouse);
+
 
 private:
 

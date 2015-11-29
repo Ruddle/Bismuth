@@ -46,4 +46,15 @@ Panel::Panel(EntityManager* em, ResourcesManager* rm, glm::vec2 resolution,glm::
 
 Panel::~Panel()
 {
+
+
+
+}
+
+void Panel::update(Input & input)
+{
+
+
+
+
 }
