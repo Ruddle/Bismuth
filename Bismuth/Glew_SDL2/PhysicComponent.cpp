@@ -50,7 +50,7 @@ void PhysicComponent::clearContact()
 	mContact.clear();
 }
 
-void PhysicComponent::responseToContact(float elapsedTime,Contact *contact)
+ContactResponse PhysicComponent::responseToContact(float elapsedTime,Contact *contact)
 {
 
 	StateComponent *sc1 = mStateComponent, *sc2 = contact->who->getStateComponent();
@@ -68,21 +68,32 @@ void PhysicComponent::responseToContact(float elapsedTime,Contact *contact)
 	float denJr_3 = dot(denJr_1 + denJr_2, normalized),
 		denJr = (1/sc1->getMass()) + (1/sc2->getMass()) + denJr_3;
 	float jr = numJr / denJr;
-	sc1->setPositionDiff(sc1->getPositionDiff() - (jr / sc1->getMass())*normalized);
+
+
+	ContactResponse response;
+	response.posDiff2 = -(jr / sc1->getMass())*normalized;
+	
+
+	//sc1->setPositionDiff(sc1->getPositionDiff() - (jr / sc1->getMass())*normalized);
 	
 	mat4 toRotCube = inverse(mat4(mat3(sc1->getModel())));
 	vec3 axis = vec3(toRotCube*vec4(cross(r1, normalized), 1));
 	axis = cross(r1, normalized);
 
-	sc1->setRotationDiff(sc1->getRotationDiff() - jr*invI1*axis *vec3(1)  );
-	sc1->setPosition(sc1->getPosition() - (sc2->getMass() / (sc1->getMass() + sc2->getMass()))*contact->normal*1.01f);
+	response.rotDiff = -jr*invI1*axis;
+
+	//sc1->setRotationDiff(sc1->getRotationDiff() - jr*invI1*axis *vec3(1)  );
+
+	response.posDiff = -(sc2->getMass() / (sc1->getMass() + sc2->getMass()))*contact->normal*1.01f;
+
+	//sc1->setPosition(sc1->getPosition() - (sc2->getMass() / (sc1->getMass() + sc2->getMass()))*contact->normal*1.01f);
 
 
 	//StateComponent *sc1 = mStateComponent, *sc2 = contact->who->getStateComponent();
 	//sc1->force(elapsedTime ,-contact->normal*0.005f, contact->position);
 
 
-
+	return response;
 
 
 
@@ -92,12 +103,22 @@ void PhysicComponent::collisionResponse(float timestep)
 {
 	if (mContact.size() == 0 || !mStateComponent->hasResponse())
 		return;
-	else if (mContact.size() == 1)
+	//else if (mContact.size() == 1)
+	//{
+	//	responseToContact(timestep,*mContact.begin());
+	//}
+
+	ContactResponse totalResponse = { vec3(0.0f, 0.0f, 0.0f), vec3(0.0f, 0.0f, 0.0f), vec3(0.0f, 0.0f, 0.0f) };
+
+	for (int i = 0; i < mContact.size(); i++)
 	{
-		responseToContact(timestep,*mContact.begin());
+		ContactResponse response = responseToContact(timestep,*mContact.begin());
+		totalResponse.posDiff2 += response.posDiff2;
+		totalResponse.posDiff += response.posDiff;
+		totalResponse.rotDiff += response.rotDiff;
 	}
-	else
-	{
-		responseToContact(timestep,*mContact.begin());
-	}
+
+	mStateComponent->setPositionDiff(mStateComponent->getPositionDiff() + totalResponse.posDiff2);
+	mStateComponent->setRotationDiff(mStateComponent->getRotationDiff() + totalResponse.rotDiff);
+	mStateComponent->setPosition(mStateComponent->getPosition() + totalResponse.posDiff);
 }
