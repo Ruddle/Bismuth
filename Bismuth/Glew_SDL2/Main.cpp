@@ -44,19 +44,23 @@ int main(int argc, char **argv)
 	core.entityManager->add(createPlane(core.resourcesManager));
 	Panel panel = Panel(core.entityManager, core.resourcesManager, vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), vec2(0, 0), vec2(250, core.cfg->ResolutionY));
 	core.entityManager->add(createUI(core.resourcesManager));
-	Text textFps1 = Text(core.entityManager, core.resourcesManager, "Font/Calibri64.png", "Fps:", vec2(0, 0), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY),0.5);
-	Text textX1 = Text(core.entityManager, core.resourcesManager, "Font/Calibri64.png", "x:", vec2(0, 64*0.5), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), 0.5);
+	Font * font = new Font("Font/Calibri64.png", 0.5f);
+	Text text1 = Text(core.entityManager, core.resourcesManager, font, "Fps:", vec2(0, 0), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
+	Text text2 = Text(core.entityManager, core.resourcesManager, font, "x:", vec2(0, 64*0.5), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
+	Text text3 = Text(core.entityManager, core.resourcesManager, font, "nbStep:", vec2(0,2* 64 * 0.5), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
+	Text text4 = Text(core.entityManager, core.resourcesManager, font, "timeFac:", vec2(0, 3 * 64 * 0.5), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
+	
 	UserCamera cam = UserCamera(core.camera);
 	while (currentLoop.doContinue())
 	{
-		Text textFps2 =  Text(core.entityManager, core.resourcesManager, "Font/Calibri64.png", to_string(currentLoop.getFps()).substr(0,4), vec2(48*5*0.5, 0), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY),0.5);
-		Text textX2 = Text(core.entityManager, core.resourcesManager, "Font/Calibri64.png", to_string(listUpdate.size()), vec2(48 * 3 * 0.5, 64*0.5), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), 0.5);
-		Text textPos = Text(core.entityManager, core.resourcesManager, "Font/Calibri64.png", to_string(currentLoop.getNbStep()), vec2(48 * 3 * 0.5, 128 * 0.5), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), 0.5);
-		Text textTime = Text(core.entityManager, core.resourcesManager, "Font/Calibri64.png", to_string(currentLoop.getTimeFactor()), vec2(48 * 3 * 0.5, 192 * 0.5), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), 0.5);
+		Text textFps2 =  Text(core.entityManager, core.resourcesManager, font, to_string(currentLoop.getFps()).substr(0,4), vec2(32*4*0.5, 0), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
+		Text textX2 = Text(core.entityManager, core.resourcesManager, font, to_string(listUpdate.size()), vec2(32 * 2 * 0.5, 64*0.5), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
+		Text textPos = Text(core.entityManager, core.resourcesManager, font, to_string(currentLoop.getNbStep()), vec2(32 * 7 * 0.5, 128 * 0.5), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
+		Text textTime = Text(core.entityManager, core.resourcesManager, font, to_string(currentLoop.getTimeFactor()).substr(0,7), vec2(32 * 8 * 0.5, 192 * 0.5), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
 
 		currentLoop.insertInLoop(listUpdate);
 		cam.update(*core.input, currentLoop.getElapsedTime());
-		if (core.input->getKey(SDL_SCANCODE_K))
+		if (core.input->getRisingKey(SDL_SCANCODE_K))
 			listUpdate.push_back(new Ball(core.entityManager, core.resourcesManager, core.camera->getPosition(), core.input->getKey(SDL_SCANCODE_I)*0.0551f*core.camera->getRotation()));
 		if (core.input->getRisingKey(SDL_SCANCODE_L))
 			listUpdate.push_back(new Cube(core.entityManager, core.resourcesManager, core.camera->getPosition(), 0.00951f*core.camera->getRotation()));
@@ -71,9 +75,9 @@ int main(int argc, char **argv)
 		}
 
 		if (core.input->getKey(SDL_SCANCODE_Q))
-			currentLoop.setTimeFactor(currentLoop.getTimeFactor()*0.98);
+			currentLoop.setTimeFactor(currentLoop.getTimeFactor()*0.97);
 		if (core.input->getKey(SDL_SCANCODE_E))
-			currentLoop.setTimeFactor(currentLoop.getTimeFactor()*1.02);
+			currentLoop.setTimeFactor(currentLoop.getTimeFactor()*1.03);
 
 		textTime.flush(core.entityManager);
 		textFps2.flush(core.entityManager);

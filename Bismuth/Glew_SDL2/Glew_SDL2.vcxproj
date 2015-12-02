@@ -160,6 +160,7 @@
     <ClCompile Include="Entity2D.cpp" />
     <ClCompile Include="EntityManager.cpp" />
     <ClCompile Include="Fbo.cpp" />
+    <ClCompile Include="Font.cpp" />
     <ClCompile Include="GraphicComponent.cpp" />
     <ClCompile Include="GraphicComponent2D.cpp" />
     <ClCompile Include="Input.cpp" />
@@ -211,6 +212,7 @@
     <ClInclude Include="Entity2D.h" />
     <ClInclude Include="EntityManager.h" />
     <ClInclude Include="Fbo.h" />
+    <ClInclude Include="Font.h" />
     <ClInclude Include="GraphicComponent.h" />
     <ClInclude Include="GraphicComponent2D.h" />
     <ClInclude Include="Input.h" />

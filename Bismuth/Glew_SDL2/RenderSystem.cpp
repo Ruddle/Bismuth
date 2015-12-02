@@ -312,7 +312,7 @@ void RenderSystem::doStepBlurAo()
 	glUniform1f(mShaderBlurBilateral.getLocation( "size"), 0);
 	mSupportFbo.draw();
 
-	int nombreDePasseBlurAo = 4;
+	int nombreDePasseBlurAo = 7;
 	for (int i = 1; i < nombreDePasseBlurAo; i++) {
 		//Blur AO Horizontal
 		glBindFramebuffer(GL_FRAMEBUFFER, mFboBlurH.getId());

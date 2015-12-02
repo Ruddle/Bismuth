@@ -135,6 +135,9 @@
     <ClCompile Include="UserCamera.cpp">
       <Filter>Bis 4</Filter>
     </ClCompile>
+    <ClCompile Include="Font.cpp">
+      <Filter>Bis 3\Text</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h">
@@ -244,6 +247,9 @@
     </ClInclude>
     <ClInclude Include="UserCamera.h">
       <Filter>Bis 4</Filter>
+    </ClInclude>
+    <ClInclude Include="Font.h">
+      <Filter>Bis 3\Text</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
