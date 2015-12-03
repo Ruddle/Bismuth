@@ -61,7 +61,7 @@ int main(int argc, char **argv)
 		currentLoop.insertInLoop(listUpdate);
 		cam.update(*core.input, currentLoop.getElapsedTime());
 		if (core.input->getRisingKey(SDL_SCANCODE_K))
-			listUpdate.push_back(new Ball(core.entityManager, core.resourcesManager, core.camera->getPosition(), core.input->getKey(SDL_SCANCODE_I)*0.0551f*core.camera->getRotation()));
+			listUpdate.push_back(new Ball(core.entityManager, core.resourcesManager, core.camera->getPosition(), core.input->getKey(SDL_SCANCODE_I)*10.51f*normalize(core.camera->getRotation())));
 		if (core.input->getRisingKey(SDL_SCANCODE_L))
 			listUpdate.push_back(new Cube(core.entityManager, core.resourcesManager, core.camera->getPosition(), 0.00951f*core.camera->getRotation()));
 		if (core.input->getRisingKey(SDL_SCANCODE_R))
@@ -74,10 +74,18 @@ int main(int argc, char **argv)
 			listUpdate.clear();
 		}
 
+		double x = currentLoop.getTimeFactor();
+		int sign_x = (x > 0) - (x < 0);
+
 		if (core.input->getKey(SDL_SCANCODE_Q))
-			currentLoop.setTimeFactor(currentLoop.getTimeFactor()*0.97);
+			currentLoop.setTimeFactor(x*(1-0.03*sign_x) - 0.03);
 		if (core.input->getKey(SDL_SCANCODE_E))
-			currentLoop.setTimeFactor(currentLoop.getTimeFactor()*1.03);
+			currentLoop.setTimeFactor(x*(1 + 0.03*sign_x) + 0.03);
+
+		if (core.input->getRisingKey(SDL_SCANCODE_T))
+			currentLoop.setTimeFactor( -x );
+	
+	
 
 		textTime.flush(core.entityManager);
 		textFps2.flush(core.entityManager);

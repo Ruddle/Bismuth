@@ -2,7 +2,7 @@
 
 
 
-Loop::Loop() : mFrame(0), mContinue(true), mFps(1.0), mPhysicsDelay(0.0f), mTimeStep(2.0f), mElapsedTime(0.0f), mTimeFactor(1.0f)
+Loop::Loop() : mFrame(0), mContinue(true), mFps(1.0), mPhysicsDelay(0.0f), mTimeStep(1.66f), mElapsedTime(0.0f), mTimeFactor(1.0f)
 {
 	mCfg = readConfig(); 
 	mScene = new Scene_SDL(mCfg->ResolutionX, mCfg->ResolutionY, mCfg->FullScreen);
@@ -31,22 +31,24 @@ void Loop::insertInLoop(std::vector<Updatable*> &toUpdate)
 	mContinue = !mInput->end();
 	mFrame++;
 	mFps = mScene->waitForFps(30);
-	mElapsedTime = 1000.0 / mFps;
+	mElapsedTime = 1000.0 / mFps; // ATTENTION EN MS
 
 	double timeToCompute = mTimeFactor * mElapsedTime + mPhysicsDelay;
 	mNbSteps = floor(timeToCompute / mTimeStep);
-	mPhysicsDelay = timeToCompute - floor(timeToCompute / mTimeStep);
+	mPhysicsDelay = timeToCompute - mNbSteps*mTimeStep;
 	//if (time % 10 == 0)	cout << mFps << endl;
 	mInput->update();
 
-	for (int i = 0; i < mNbSteps; i++)
+	int signTF = (mTimeFactor > 0) - (mTimeFactor < 0);
+
+	for (int i = 0; i < abs(mNbSteps); i++)
 	{
 		for (int i = 0; i < toUpdate.size(); i++)
-			toUpdate[i]->update(mTimeStep);
+			toUpdate[i]->update(signTF *  mTimeStep /1000); // CONVERSION EN S
 
-		mEntityManager->update(mTimeStep);
+		mEntityManager->update( mTimeStep / 1000);
 		mEntityManager->collision();
-		mEntityManager->collisionResponse(mTimeStep);
+		mEntityManager->collisionResponse(signTF * mTimeStep / 1000);
 	}
 
 
@@ -59,6 +61,6 @@ void Loop::insertInLoop(std::vector<Updatable*> &toUpdate)
 
 void Loop::setTimeFactor(double timeFactor)
 {
-	if (timeFactor > 0)
+	//if (timeFactor > 0)
 		mTimeFactor = timeFactor;
 }

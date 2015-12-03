@@ -16,11 +16,11 @@ public:
 	StateComponent();
 	~StateComponent();
 
-	void force(float time, glm::vec3 const&  force);
-	void force(float time, glm::vec3 const&  force, glm::vec3 const&  point);
-	void torque(float time, glm::vec3 const&  torque); // en O
+	void force(float time_s, glm::vec3 const&  force);
+	void force(float time_s, glm::vec3 const&  force, glm::vec3 const&  point);
+	void torque(float time_s, glm::vec3 const&  torque); // en O
 	void friction(float coeff);
-	void update(float time);
+	void update(float time_s);
 
 	glm::mat4 getModel() { return mModel; }
 	glm::mat4 getModelInv() { return mModelInv; }

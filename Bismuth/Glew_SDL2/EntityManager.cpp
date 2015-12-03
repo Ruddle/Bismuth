@@ -25,14 +25,14 @@ EntityManager::~EntityManager()
 		delete mEntity[i];
 }
 
-void EntityManager::update(float elapsedTime)
+void EntityManager::update(float time_s)
 {
 
 	for (int i = 0; i < mEntity.size(); i++)
 	{
 		Entity *entity = mEntity[i];
 		if(entity != nullptr)
-			entity->getPhysicComponent()->getStateComponent()->update(elapsedTime);
+			entity->getPhysicComponent()->getStateComponent()->update(time_s);
 	}
 }
 
@@ -65,12 +65,12 @@ void EntityManager::collision()
 	}
 }
 
-void EntityManager::collisionResponse(float timestep)
+void EntityManager::collisionResponse(float time_s)
 {
 	for (int i = 0; i < mEntity.size(); i++)
 	{
 		if(mEntity[i])
-			mEntity[i]->getPhysicComponent()->collisionResponse(timestep);
+			mEntity[i]->getPhysicComponent()->collisionResponse(time_s);
 	}
 }
 

@@ -16,7 +16,7 @@ public:
 	Cube(EntityManager* em, ResourcesManager* rm, glm::vec3 position, glm::vec3 speed);
 	~Cube();
 	Entity *getEntity() { return mEntity; }
-	void update(float elapsedTime);
+	void update(float time_s);
 
 private:
 	Entity* mEntity;

@@ -20,19 +20,19 @@ StateComponent::~StateComponent()
 }
 
 
-void StateComponent::force(float time, glm::vec3 const& force)
+void StateComponent::force(float time_s, glm::vec3 const& force)
 {
-	mPositionDiff += time*force / mMass;
+	mPositionDiff += time_s*force / mMass;
 }
-void StateComponent::force(float time, glm::vec3 const&  force, glm::vec3 const&  pt)
+void StateComponent::force(float time_s, glm::vec3 const&  force, glm::vec3 const&  pt)
 {
-	this->force(time,force);
+	this->force(time_s,force);
 	vec3 OM = pt - mPosition;
-	this->torque(time,cross(OM, force));
+	this->torque(time_s,cross(OM, force));
 }
-void StateComponent::torque(float time, glm::vec3 const&  torque)
+void StateComponent::torque(float time_s, glm::vec3 const&  torque)
 {
-	mRotationDiff += time*mInertiaInverse*torque;
+	mRotationDiff += time_s*mInertiaInverse*torque;
 }
 
 void StateComponent::friction(float coeff)
@@ -41,28 +41,19 @@ void StateComponent::friction(float coeff)
 	mRotationDiff /= (1 + coeff);
 }
 
-void StateComponent::update(float time)
+void StateComponent::update(float time_s)
 {
-	mPosition += mPositionDiff*float(time);
-
-
+	mPosition += mPositionDiff*float(time_s);
 
 	if (mRotationDiff != vec3(0))
 	{
-
-
-		quat q = quat(0, mRotationDiff*float(time));
-
+		quat q = quat(0, mRotationDiff*float(time_s));
 		mRotation = mRotation + 0.5f * q * mRotation;
 	}
 	
-
 	mRotation = normalize(mRotation);
-
 	mLastModel = mModel;
-	
 	mModel = translate(mPosition)* mat4_cast(mRotation);
 	mModelInv = inverse(mModel);
-
 }
 
