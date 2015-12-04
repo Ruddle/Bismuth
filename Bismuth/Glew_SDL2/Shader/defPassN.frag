@@ -165,10 +165,15 @@ if(keyF7) lighting = vec3(emit);
 
 outColor = lighting + emit*5 * (diffuse + vec3(0.0));
 
+mat3 vi = mat3(inverse(transpose(invView)));
+
+vec3 position_ViewSpace_far ;
+	position_ViewSpace_far.z = -far ;
+	position_ViewSpace_far.x = -(UV.x*2-1)*position_ViewSpace_far.z*(aspect) *tanHalfFov ;
+	position_ViewSpace_far.y = -(UV.y*2-1)*position_ViewSpace_far.z *tanHalfFov ;
 
 if(length(position_ViewSpace) == 0)
-	//outColor = vec3(1.0, 0.0, 0.0);
-	outColor = texture(skyboxSampler, mat3(invView)*vec3(0.0, 0.0, -1.0)).xyz;
+	outColor = texture(skyboxSampler, (vi*position_ViewSpace_far)  ).xyz;
 
 
 
