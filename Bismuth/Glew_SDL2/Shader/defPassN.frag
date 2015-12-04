@@ -167,7 +167,8 @@ outColor = lighting + emit*5 * (diffuse + vec3(0.0));
 
 
 if(length(position_ViewSpace) == 0)
-	outColor = texture(skyboxSampler, (invView*vec4(0.0, 0.0, -1.0, 1.0)).xyz).xyz;
+	//outColor = vec3(1.0, 0.0, 0.0);
+	outColor = texture(skyboxSampler, mat3(invView)*vec3(0.0, 0.0, -1.0)).xyz;
 
 
 
