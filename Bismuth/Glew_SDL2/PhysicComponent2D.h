@@ -18,7 +18,7 @@ public:
 	bool contain(glm::vec2 mouse);
 
 	bool isSelected() { return mIsSelected; }
-	bool isHovered() { return mIsSelected; }
+	bool isHovered() { return mIsHovered; }
 
 private:
 
