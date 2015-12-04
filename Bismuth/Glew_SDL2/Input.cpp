@@ -98,7 +98,7 @@ void Input::notifySelect()
 void Input::notifyDeselect()
 {
 	for (auto it = mObservers.begin(); it != mObservers.end(); it++)
-		(*it)->deselect();
+		(*it)->deselect(vec2(mX / mScreenW - 1 / 2, -mY / mScreenH - 1 / 2));
 }
 
 void Input::notifyMove()
