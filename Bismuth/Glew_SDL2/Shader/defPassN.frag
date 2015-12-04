@@ -155,6 +155,9 @@ for(int k=0;k<2;k++){
 	lighting += 0.03*diffuse+    (1-shadows*0.5)*(attenuation) * (alpha)*diffuse*lights[k].intensity*(1+1*specFactor*Cook_Torrance(-i,normalize(-position_ViewSpace),normal,0.25,0.8));
 }
 
+mat3 vi = mat3(inverse(transpose(invView)));
+lighting = texture(skyboxSampler, vi*reflect(position_ViewSpace,normal)  ).xyz;
+
 if(!keyF4) lighting=lighting*(ao*2-1);
 
 
@@ -165,7 +168,7 @@ if(keyF7) lighting = vec3(emit);
 
 outColor = lighting + emit*5 * (diffuse + vec3(0.0));
 
-mat3 vi = mat3(inverse(transpose(invView)));
+
 
 vec3 position_ViewSpace_far ;
 	position_ViewSpace_far.z = -far ;
