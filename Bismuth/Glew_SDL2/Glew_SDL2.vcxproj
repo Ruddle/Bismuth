@@ -310,6 +310,12 @@
     <Image Include="Texture\RED.png" />
     <Image Include="Texture\rock.png" />
     <Image Include="Texture\rock_N.png" />
+    <Image Include="Texture\Skybox\greenThing\greenThing0.png" />
+    <Image Include="Texture\Skybox\greenThing\greenThing1.png" />
+    <Image Include="Texture\Skybox\greenThing\greenThing2.png" />
+    <Image Include="Texture\Skybox\greenThing\greenThing3.png" />
+    <Image Include="Texture\Skybox\greenThing\greenThing4.png" />
+    <Image Include="Texture\Skybox\greenThing\greenThing5.png" />
     <Image Include="Texture\Skybox\interstellar0.tga" />
     <Image Include="Texture\Skybox\interstellar1.tga" />
     <Image Include="Texture\Skybox\interstellar2.tga" />

@@ -373,6 +373,24 @@
     <Image Include="Texture\Skybox\interstellar5.tga">
       <Filter>Resources\Texture\Skybox</Filter>
     </Image>
+    <Image Include="Texture\Skybox\greenThing\greenThing0.png">
+      <Filter>Resources\Texture\Skybox\greenThing</Filter>
+    </Image>
+    <Image Include="Texture\Skybox\greenThing\greenThing1.png">
+      <Filter>Resources\Texture\Skybox\greenThing</Filter>
+    </Image>
+    <Image Include="Texture\Skybox\greenThing\greenThing2.png">
+      <Filter>Resources\Texture\Skybox\greenThing</Filter>
+    </Image>
+    <Image Include="Texture\Skybox\greenThing\greenThing3.png">
+      <Filter>Resources\Texture\Skybox\greenThing</Filter>
+    </Image>
+    <Image Include="Texture\Skybox\greenThing\greenThing4.png">
+      <Filter>Resources\Texture\Skybox\greenThing</Filter>
+    </Image>
+    <Image Include="Texture\Skybox\greenThing\greenThing5.png">
+      <Filter>Resources\Texture\Skybox\greenThing</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <None Include="config.ini">
@@ -479,6 +497,9 @@
     </Filter>
     <Filter Include="Resources\Texture\Skybox">
       <UniqueIdentifier>{d940ab29-ed5f-4a13-9465-d3f8dec0f30a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Texture\Skybox\greenThing">
+      <UniqueIdentifier>{0ca9cf9b-a311-4d1e-905b-e150ce5191e2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
