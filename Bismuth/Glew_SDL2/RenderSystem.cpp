@@ -69,7 +69,7 @@ RenderSystem::RenderSystem(Config cfg, ResourcesManager* rm) : mCfg(cfg), mRm(rm
 	mFboLight.load();
 
 	TextureCfg texCfgSkybox = { GL_R32F, GL_LINEAR, GL_CLAMP_TO_EDGE };
-	mCubemapSkybox = new Texture_Cube("Texture/Skybox/interstellar.tga", texCfgSkybox);
+	mCubemapSkybox = new Texture_Cube("Texture/Skybox/skybox.jpg", texCfgSkybox);
 	mCubemapSkybox->load();
 
 
