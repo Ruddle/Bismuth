@@ -310,6 +310,12 @@
     <Image Include="Texture\RED.png" />
     <Image Include="Texture\rock.png" />
     <Image Include="Texture\rock_N.png" />
+    <Image Include="Texture\Skybox\skybox0.jpg" />
+    <Image Include="Texture\Skybox\skybox1.jpg" />
+    <Image Include="Texture\Skybox\skybox2.jpg" />
+    <Image Include="Texture\Skybox\skybox3.jpg" />
+    <Image Include="Texture\Skybox\skybox4.jpg" />
+    <Image Include="Texture\Skybox\skybox5.jpg" />
     <Image Include="Texture\ui.png" />
     <Image Include="Texture\WHITE.png" />
     <Image Include="Texture\wood.jpg" />
