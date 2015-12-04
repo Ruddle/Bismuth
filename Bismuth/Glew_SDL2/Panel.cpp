@@ -8,7 +8,7 @@ Panel::Panel(EntityManager* em, ResourcesManager* rm,  Input * input, glm::vec2 
 		new GraphicComponent2D( 
 			rm->loadTexture("Texture/ui.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
 			vec2(0, 0), vec2(1.0/4.0f)),
-		new PhysicComponent2D(size /resolution, (leftBottom/resolution)*2.0f - vec2(1) ));
+		new PhysicComponent2D(size*2.0f /resolution, (leftBottom/resolution)*2.0f - vec2(1) ));
 
 	mRight = new Entity2D(
 		new GraphicComponent2D(
@@ -57,7 +57,7 @@ void Panel::update()
 {
 	if (mCenter->getPhysicComponent()->isHovered())
 	{
-		mCenter->getGraphicComponent()->setLeftBottom(vec2(0, 1.0 / 4.0f));
+		mCenter->getGraphicComponent()->setLeftBottom(vec2(1.0 / 4.0f, 1.0 / 4.0f));
 
 
 	}

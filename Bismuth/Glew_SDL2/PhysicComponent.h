@@ -5,12 +5,13 @@
 
 #include <set>
 #include "glm.hpp"
+#include "Observer_Input.h"
 
 class DetectionComponent;
 class StateComponent;
 
 
-class PhysicComponent
+class PhysicComponent //: public Observer_Input
 {
 public :
     PhysicComponent(DetectionComponent* detectionComponent, StateComponent* stateComponent);

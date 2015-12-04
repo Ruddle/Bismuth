@@ -1,6 +1,8 @@
 #pragma once
 #include "glm.hpp"
 #include "Observer_Input.h"
+
+#include <iostream>
 class PhysicComponent2D : public Observer_Input
 {
 public:

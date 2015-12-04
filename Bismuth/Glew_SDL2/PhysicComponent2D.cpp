@@ -12,6 +12,7 @@ PhysicComponent2D::~PhysicComponent2D()
 void PhysicComponent2D::move(glm::vec2 mouse, glm::vec2 mouseRelative)
 {
 	mIsHovered = contain(mouse);
+	std::cout << mouse.x << "   " << mouse.y << std::endl;
 }
 
 void PhysicComponent2D::select(glm::vec2 mouse)

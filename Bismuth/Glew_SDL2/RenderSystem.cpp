@@ -221,9 +221,9 @@ void RenderSystem::draw2D(std::vector<Entity2D*> entities)
 		{
 			mat4 view = translate(
 							vec3(entity->getPhysicComponent()->getPosition()+ 
-								vec2(entity->getPhysicComponent()->getSize())        ,0)) 
+								vec2(entity->getPhysicComponent()->getSize()/2.0f)        ,0)) 
 						*
-						scale(vec3(entity->getPhysicComponent()->getSize(),1));
+						scale(vec3(entity->getPhysicComponent()->getSize()/2.0f,1));
 
 		
 		
