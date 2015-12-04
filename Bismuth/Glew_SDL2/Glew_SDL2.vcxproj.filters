@@ -337,6 +337,24 @@
     <Image Include="Texture\wood_N.jpg">
       <Filter>Resources\Texture</Filter>
     </Image>
+    <Image Include="Texture\Skybox\skybox0.jpg">
+      <Filter>Resources\Texture\Skybox</Filter>
+    </Image>
+    <Image Include="Texture\Skybox\skybox1.jpg">
+      <Filter>Resources\Texture\Skybox</Filter>
+    </Image>
+    <Image Include="Texture\Skybox\skybox2.jpg">
+      <Filter>Resources\Texture\Skybox</Filter>
+    </Image>
+    <Image Include="Texture\Skybox\skybox3.jpg">
+      <Filter>Resources\Texture\Skybox</Filter>
+    </Image>
+    <Image Include="Texture\Skybox\skybox4.jpg">
+      <Filter>Resources\Texture\Skybox</Filter>
+    </Image>
+    <Image Include="Texture\Skybox\skybox5.jpg">
+      <Filter>Resources\Texture\Skybox</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <None Include="config.ini">
@@ -440,6 +458,9 @@
     </Filter>
     <Filter Include="Resources\Font">
       <UniqueIdentifier>{cd0b8e61-5006-402f-9273-5f939c0d5a9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Texture\Skybox">
+      <UniqueIdentifier>{d940ab29-ed5f-4a13-9465-d3f8dec0f30a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
