@@ -50,6 +50,21 @@ void PhysicComponent::clearContact()
 	mContact.clear();
 }
 
+void PhysicComponent::move(glm::vec2 mouse, glm::vec2 mouseRelative)
+{
+}
+
+void PhysicComponent::select(glm::vec2 mouse)
+{
+
+
+
+}
+
+void PhysicComponent::deselect(glm::vec2 mouse)
+{
+}
+
 ContactResponse PhysicComponent::responseToContact(float elapsedTime,Contact *contact)
 {
 

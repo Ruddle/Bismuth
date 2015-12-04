@@ -11,7 +11,7 @@ class DetectionComponent;
 class StateComponent;
 
 
-class PhysicComponent //: public Observer_Input
+class PhysicComponent : public Observer_Input
 {
 public :
     PhysicComponent(DetectionComponent* detectionComponent, StateComponent* stateComponent);
@@ -24,6 +24,12 @@ public :
 	StateComponent* getStateComponent(){ return mStateComponent; }
 	std::set<Contact*>  getContact() { return mContact; }
 	void clearContact();
+
+
+	void move(glm::vec2 mouse, glm::vec2 mouseRelative);
+	void select(glm::vec2 mouse);
+	void deselect(glm::vec2 mouse);
+
 
 private :
 

@@ -55,16 +55,19 @@ Panel::~Panel()
 
 void Panel::update()
 {
-	if (mCenter->getPhysicComponent()->isHovered())
+
+	if (mCenter->getPhysicComponent()->isSelected())
 	{
 		mCenter->getGraphicComponent()->setLeftBottom(vec2(1.0 / 4.0f, 1.0 / 4.0f));
+	}
 
-
+	else if (mCenter->getPhysicComponent()->isHovered())
+	{
+		mCenter->getGraphicComponent()->setLeftBottom(vec2(0.0 / 4.0f, 1.0 / 4.0f));
 	}
 	else
 	{
 		mCenter->getGraphicComponent()->setLeftBottom(vec2(0));
-
 	}
 
 
