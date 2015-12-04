@@ -9,6 +9,7 @@ uniform sampler2D gDiffuse;
 uniform sampler2D gPosition;
 uniform sampler2D aoSampler;
 uniform sampler2D shadowSampler;
+uniform samplerCube skyboxSampler;
 uniform mat4 view;
 uniform mat4 invView;
 uniform mat4 viewLight;
@@ -166,7 +167,7 @@ outColor = lighting + emit*5 * (diffuse + vec3(0.0));
 
 
 if(length(position_ViewSpace) == 0)
-	outColor = vec3(1.0, 0.0, 0.0);
+	outColor = texture(skyboxSampler, (invView*vec4(0.0, 0.0, -1.0, 1.0)).xyz).xyz;
 
 
 
