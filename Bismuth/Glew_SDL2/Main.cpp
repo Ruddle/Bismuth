@@ -94,6 +94,7 @@ int main(int argc, char **argv)
 			currentLoop.setTimeFactor(0.0);
 	
 		panel.update();
+		button.update();
 
 		textTime.flush(core.entityManager);
 		textFps2.flush(core.entityManager);
