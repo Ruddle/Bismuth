@@ -138,6 +138,9 @@
     <ClCompile Include="Font.cpp">
       <Filter>Bis 3\Text</Filter>
     </ClCompile>
+    <ClCompile Include="Observer_Input.cpp">
+      <Filter>Bis 1</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h">
@@ -250,6 +253,9 @@
     </ClInclude>
     <ClInclude Include="Font.h">
       <Filter>Bis 3\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="Observer_Input.h">
+      <Filter>Bis 1</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

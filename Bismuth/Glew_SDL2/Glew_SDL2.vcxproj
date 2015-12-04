@@ -180,6 +180,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Misc.cpp" />
+    <ClCompile Include="Observer_Input.cpp" />
     <ClCompile Include="Panel.cpp" />
     <ClCompile Include="PhysicComponent.cpp" />
     <ClCompile Include="PhysicComponent2D.cpp" />
@@ -219,6 +220,7 @@
     <ClInclude Include="Letter.h" />
     <ClInclude Include="Loop.h" />
     <ClInclude Include="Misc.h" />
+    <ClInclude Include="Observer_Input.h" />
     <ClInclude Include="Panel.h" />
     <ClInclude Include="PhysicComponent.h" />
     <ClInclude Include="PhysicComponent2D.h" />

@@ -10,7 +10,7 @@ Loop::Loop() : mFrame(0), mContinue(true), mFps(1.0), mPhysicsDelay(0.0f), mTime
 	mResourcesManager = new ResourcesManager();
 	mEntityManager =new EntityManager();
 	mRenderSystem = new RenderSystem(*mCfg, mResourcesManager);
-	mInput =new Input();
+	mInput =new Input(mCfg->ResolutionX, mCfg->ResolutionY);
 
 }
 
