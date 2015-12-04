@@ -92,17 +92,17 @@ Input::~Input()
 void Input::notifySelect()
 {
 	for (auto it = mObservers.begin(); it != mObservers.end(); it++)
-		(*it)->select(vec2(mX / mScreenW - 1/2 , -mY / mScreenH - 1/2));
+		(*it)->select(vec2(2 * mX / mScreenW - 1 , -2 * mY / mScreenH + 1));
 }
 
 void Input::notifyDeselect()
 {
 	for (auto it = mObservers.begin(); it != mObservers.end(); it++)
-		(*it)->deselect(vec2(mX / mScreenW - 1 / 2, -mY / mScreenH - 1 / 2));
+		(*it)->deselect(vec2(2 * mX / mScreenW - 1, -2 * mY / mScreenH + 1));
 }
 
 void Input::notifyMove()
 {
 	for (auto it = mObservers.begin(); it != mObservers.end(); it++)
-		(*it)->move(vec2(mX / mScreenW - 1 / 2, -mY / mScreenH - 1 / 2), vec2(mRx / mScreenW - 1 / 2, -mRy / mScreenH - 1 / 2));
+		(*it)->move(vec2(2 * mX / mScreenW - 1, -2 * mY / mScreenH + 1), vec2(2 * mRx / mScreenW - 1, -2 * mRy / mScreenH + 1));
 }
