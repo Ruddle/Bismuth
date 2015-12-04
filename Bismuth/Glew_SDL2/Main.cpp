@@ -25,6 +25,7 @@
 #include "Text.h"
 #include "Loop.h"
 #include "UserCamera.h"
+#include "Button.h"
 
 FILE _iob[] = { *stdin, *stdout, *stderr };
 extern "C" FILE * __cdecl __iob_func(void)
@@ -43,6 +44,7 @@ int main(int argc, char **argv)
 
 	core.entityManager->add(createPlane(core.resourcesManager));
 	Panel panel = Panel(core.entityManager, core.resourcesManager,core.input, vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), vec2(0, 0), vec2(250, core.cfg->ResolutionY));
+	Button button = Button(core.entityManager, core.resourcesManager, core.input, vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), vec2(core.cfg->ResolutionX-50, 0), vec2(50, core.cfg->ResolutionY));
 	core.entityManager->add(createUI(core.resourcesManager));
 	Font * font = new Font("Font/Calibri64.png", 1.0f);
 	Text text1 = Text(core.entityManager, core.resourcesManager, font, "Fps:", vec2(0, 0), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));

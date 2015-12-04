@@ -141,6 +141,9 @@
     <ClCompile Include="Observer_Input.cpp">
       <Filter>Bis 1</Filter>
     </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Bis 4</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h">
@@ -256,6 +259,9 @@
     </ClInclude>
     <ClInclude Include="Observer_Input.h">
       <Filter>Bis 1</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Bis 4</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
