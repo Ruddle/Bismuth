@@ -9,6 +9,9 @@ public:
 	int getTextureDiffuseId() const { return mTextureDiffuse; }
 	glm::vec2 getLeftBottom() { return mLeftBottom; }
 	glm::vec2 getSize() { return mSize; }
+
+	void setLeftBottom(glm::vec2 leftBottom) {	mLeftBottom = leftBottom;}
+
 private:
 
 	int mTextureDiffuse;

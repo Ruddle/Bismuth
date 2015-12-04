@@ -14,10 +14,10 @@
 class Panel
 {
 public:
-	Panel(EntityManager* em, ResourcesManager* rm,glm::vec2 resolution, glm::vec2 leftBottom, glm::vec2 size);
+	Panel(EntityManager* em, ResourcesManager* rm,Input * input, glm::vec2 resolution, glm::vec2 leftBottom, glm::vec2 size);
 	~Panel();
 
-	void update(Input & input);
+	void update();
 	
 
 private:

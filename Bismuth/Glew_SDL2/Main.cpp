@@ -42,7 +42,7 @@ int main(int argc, char **argv)
 	vector<Updatable*> listUpdate = vector<Updatable*>();
 
 	core.entityManager->add(createPlane(core.resourcesManager));
-	Panel panel = Panel(core.entityManager, core.resourcesManager, vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), vec2(0, 0), vec2(250, core.cfg->ResolutionY));
+	Panel panel = Panel(core.entityManager, core.resourcesManager,core.input, vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), vec2(0, 0), vec2(250, core.cfg->ResolutionY));
 	core.entityManager->add(createUI(core.resourcesManager));
 	Font * font = new Font("Font/Calibri64.png", 0.5f);
 	Text text1 = Text(core.entityManager, core.resourcesManager, font, "Fps:", vec2(0, 0), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
@@ -91,6 +91,7 @@ int main(int argc, char **argv)
 		if (core.input->getRisingKey(SDL_SCANCODE_U))
 			currentLoop.setTimeFactor(0.0);
 	
+		panel.update();
 
 		textTime.flush(core.entityManager);
 		textFps2.flush(core.entityManager);

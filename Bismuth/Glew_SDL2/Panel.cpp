@@ -2,7 +2,7 @@
 
 using namespace glm;
 
-Panel::Panel(EntityManager* em, ResourcesManager* rm, glm::vec2 resolution,glm::vec2 leftBottom,glm::vec2 size)
+Panel::Panel(EntityManager* em, ResourcesManager* rm,  Input * input, glm::vec2 resolution,glm::vec2 leftBottom,glm::vec2 size)
 {
 	mCenter = new Entity2D(
 		new GraphicComponent2D( 
@@ -34,6 +34,8 @@ Panel::Panel(EntityManager* em, ResourcesManager* rm, glm::vec2 resolution,glm::
 			vec2(1.0 / 4.0f, 2.0 / 4.0f), vec2(1.0 / 4.0f, 2.0 / 4.0f)),
 		new PhysicComponent2D(vec2(size.x, 2.0f) / resolution, ((leftBottom + vec2(0, 0)) / resolution)*2.0f - vec2(1)));
 	
+	input->addObserver(mCenter->getPhysicComponent());
+
 	em->add(mCenter);
 	em->add(mRight);
 	em->add(mLeft);
@@ -51,10 +53,19 @@ Panel::~Panel()
 
 }
 
-void Panel::update(Input & input)
+void Panel::update()
 {
+	if (mCenter->getPhysicComponent()->isHovered())
+	{
+		mCenter->getGraphicComponent()->setLeftBottom(vec2(0, 1.0 / 4.0f));
 
 
+	}
+	else
+	{
+		mCenter->getGraphicComponent()->setLeftBottom(vec2(0));
+
+	}
 
 
 }
