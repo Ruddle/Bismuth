@@ -512,7 +512,7 @@ void RenderSystem::doStepShading(Camera const& cam, Camera const &camLight,Input
 
 	glActiveTexture(GL_TEXTURE5);
 	glBindTexture(GL_TEXTURE_CUBE_MAP, mCubemapSkybox->getId());
-	glUniform1i(mShaderDeferredFinal.getLocation("cubeMap"), 5);
+	glUniform1i(mShaderDeferredFinal.getLocation("skyboxSampler"), 5);
 
 	glUniformMatrix4fv(mShaderDeferredFinal.getLocation("projection"), 1, GL_FALSE, value_ptr(projection));
 	glUniformMatrix4fv(mShaderDeferredFinal.getLocation("projectionLight"), 1, GL_FALSE, value_ptr(camLight.getProjection()));
