@@ -25,7 +25,7 @@ void Texture_Cube::load()
 		// Chargement de l'image dans une surface SDL
 
 		string sub = mPath.substr(0, mPath.size() - 4);
-		SDL_Surface *imageSDL = IMG_Load((sub + (char)(i + '0') + ".jpg").c_str());
+		SDL_Surface *imageSDL = IMG_Load((sub + (char)(i + '0') + mPath.substr(mPath.size()-4, mPath.size())   ).c_str());
 
 		if (imageSDL == 0)
 			std::cout << "Erreur : " << SDL_GetError() << std::endl;

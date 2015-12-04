@@ -355,6 +355,24 @@
     <Image Include="Texture\Skybox\skybox5.jpg">
       <Filter>Resources\Texture\Skybox</Filter>
     </Image>
+    <Image Include="Texture\Skybox\interstellar0.tga">
+      <Filter>Resources\Texture\Skybox</Filter>
+    </Image>
+    <Image Include="Texture\Skybox\interstellar1.tga">
+      <Filter>Resources\Texture\Skybox</Filter>
+    </Image>
+    <Image Include="Texture\Skybox\interstellar2.tga">
+      <Filter>Resources\Texture\Skybox</Filter>
+    </Image>
+    <Image Include="Texture\Skybox\interstellar3.tga">
+      <Filter>Resources\Texture\Skybox</Filter>
+    </Image>
+    <Image Include="Texture\Skybox\interstellar4.tga">
+      <Filter>Resources\Texture\Skybox</Filter>
+    </Image>
+    <Image Include="Texture\Skybox\interstellar5.tga">
+      <Filter>Resources\Texture\Skybox</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <None Include="config.ini">
