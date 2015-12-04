@@ -2,7 +2,7 @@
 
 
 
-Loop::Loop() : mFrame(0), mContinue(true), mFps(1.0), mPhysicsDelay(0.0f), mTimeStep(1.66f), mElapsedTime(0.0f), mTimeFactor(1.0f)
+Loop::Loop() : mFrame(0), mContinue(true), mFps(1.0), mPhysicsDelay(0.0f), mTimeStep((1000.0/60.0)/10.0), mElapsedTime(0.0f), mTimeFactor(1.0f)
 {
 	mCfg = readConfig(); 
 	mScene = new Scene_SDL(mCfg->ResolutionX, mCfg->ResolutionY, mCfg->FullScreen);
@@ -41,6 +41,7 @@ void Loop::insertInLoop(std::vector<Updatable*> &toUpdate)
 
 	int signTF = (mTimeFactor > 0) - (mTimeFactor < 0);
 
+	if(mTimeFactor != 0.0)
 	for (int i = 0; i < abs(mNbSteps); i++)
 	{
 		for (int i = 0; i < toUpdate.size(); i++)
