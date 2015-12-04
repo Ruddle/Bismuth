@@ -18,6 +18,7 @@
 #include "Entity2D.h"
 #include <vector>
 #include "ResourcesManager.h"
+#include "Texture_Cube.h"
 #include <random>
 
 class RenderSystem
@@ -66,6 +67,8 @@ private:
 
 	GLuint mTextureNoiseId;
 	std::vector<glm::vec3> mKernel;
+
+	Texture_Cube *mCubemapSkybox;
 
 	Vao2D mSupportFbo;
 	ResourcesManager* mRm;

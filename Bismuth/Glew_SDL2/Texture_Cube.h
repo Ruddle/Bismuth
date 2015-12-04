@@ -8,6 +8,7 @@
 class Texture_Cube : public Texture_Abs
 {
 public:
+	Texture_Cube();
 	Texture_Cube(std::string path, TextureCfg cfg);
 	~Texture_Cube();
 

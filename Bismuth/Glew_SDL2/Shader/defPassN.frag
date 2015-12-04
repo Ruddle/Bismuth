@@ -164,6 +164,12 @@ if(keyF7) lighting = vec3(emit);
 
 outColor = lighting + emit*5 * (diffuse + vec3(0.0));
 
+
+if(length(position_ViewSpace) >= 0)
+	outColor = vec3(1.0, 0.0, 0.0);
+
+
+
 float brightness = dot(outColor, vec3(0.2126, 0.7152, 0.0722));
 
 outBloom = (brightness >1) ? outColor:vec3(0) ;

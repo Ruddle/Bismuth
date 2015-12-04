@@ -68,6 +68,10 @@ RenderSystem::RenderSystem(Config cfg, ResourcesManager* rm) : mCfg(cfg), mRm(rm
 	mFboLight = Fbo(textureArray, 1, 0);
 	mFboLight.load();
 
+	TextureCfg texCfgSkybox = { GL_R32F, GL_LINEAR, GL_CLAMP_TO_EDGE };
+	mCubemapSkybox = new Texture_Cube("Texture/Skybox/skybox.jpg", texCfgSkybox);
+	mCubemapSkybox->load();
+
 
 	TextureCfg texCfgBloom1 = { GL_RGB16F, GL_LINEAR, GL_CLAMP_TO_EDGE };
 	Texture* texBloom1 = new Texture(cfg.ResolutionX / 2.0, cfg.ResolutionY /  2.0, texCfgBloom1);
@@ -177,6 +181,7 @@ RenderSystem::RenderSystem(Config cfg, ResourcesManager* rm) : mCfg(cfg), mRm(rm
 
 RenderSystem::~RenderSystem()
 {
+	delete mCubemapSkybox;
 }
 
 
@@ -504,6 +509,10 @@ void RenderSystem::doStepShading(Camera const& cam, Camera const &camLight,Input
 	glActiveTexture(GL_TEXTURE4);
 	glBindTexture(GL_TEXTURE_2D, mFboLight.getColorBufferId(0));
 	glUniform1i(mShaderDeferredFinal.getLocation("shadowSampler"), 4);
+
+	glActiveTexture(GL_TEXTURE5);
+	glBindTexture(GL_TEXTURE_CUBE_MAP, mCubemapSkybox->getId());
+	glUniform1i(mShaderDeferredFinal.getLocation("cubeMap"), 5);
 
 	glUniformMatrix4fv(mShaderDeferredFinal.getLocation("projection"), 1, GL_FALSE, value_ptr(projection));
 	glUniformMatrix4fv(mShaderDeferredFinal.getLocation("projectionLight"), 1, GL_FALSE, value_ptr(camLight.getProjection()));
