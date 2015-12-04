@@ -156,7 +156,7 @@ for(int k=0;k<2;k++){
 }
 
 mat3 vi = mat3(inverse(transpose(invView)));
-lighting = texture(skyboxSampler, vi*reflect(position_ViewSpace,normal)  ).xyz;
+lighting =(3*lighting + texture(skyboxSampler, vi*reflect(position_ViewSpace,normal)  ).xyz) /4.0;
 
 if(!keyF4) lighting=lighting*(ao*2-1);
 
