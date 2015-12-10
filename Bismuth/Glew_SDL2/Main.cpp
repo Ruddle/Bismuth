@@ -44,7 +44,7 @@ int main(int argc, char **argv)
 
 	core.entityManager->add(createPlane(core.resourcesManager));
 	Panel panel = Panel(core.entityManager, core.resourcesManager,core.input, vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), vec2(0, 0), vec2(250, core.cfg->ResolutionY));
-	Button button = Button(core.entityManager, core.resourcesManager, core.input, vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), vec2(core.cfg->ResolutionX-50, 0), vec2(50, core.cfg->ResolutionY));
+	
 	core.entityManager->add(createUI(core.resourcesManager));
 	Font * font = new Font("Font/Calibri64.png", 1.0f);
 	Text text1 = Text(core.entityManager, core.resourcesManager, font, "Fps:", vec2(0, 0), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
@@ -52,6 +52,17 @@ int main(int argc, char **argv)
 	Text text3 = Text(core.entityManager, core.resourcesManager, font, "nbStep:", vec2(0,2* 64 * 0.5), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
 	Text text4 = Text(core.entityManager, core.resourcesManager, font, "timeFac:", vec2(0, 3 * 64 * 0.5), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
 	
+
+	
+	Button button = Button(core.entityManager, core.resourcesManager, core.input, vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), vec2(10, 200), vec2(120, 50));
+	Text label =  Text(core.entityManager, core.resourcesManager, font, "AO", vec2(10, 210), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
+
+
+	Button button2 = Button(core.entityManager, core.resourcesManager, core.input, vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), vec2(10, 260), vec2(120, 50));
+	Text label2 =  Text(core.entityManager, core.resourcesManager, font, "Shading", vec2(10, 260), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
+
+
+
 	UserCamera cam = UserCamera(core.camera);
 	while (currentLoop.doContinue())
 	{
@@ -95,6 +106,10 @@ int main(int argc, char **argv)
 	
 		panel.update();
 		button.update();
+		button2.update();
+
+		if (button.isChecked()) core.cfg->AO = 1;
+		else  core.cfg->AO = 0;
 
 		textTime.flush(core.entityManager);
 		textFps2.flush(core.entityManager);

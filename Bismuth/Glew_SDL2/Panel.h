@@ -18,6 +18,9 @@ public:
 	~Panel();
 
 	void update();
+
+protected :
+	Entity2D* getMainEntity() { return mCenter; }
 	
 
 private:

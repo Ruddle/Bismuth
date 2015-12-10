@@ -159,7 +159,7 @@ std::vector<Entity2D*> getVisualCollision(ResourcesManager* rm,std::vector<Entit
 			new GraphicComponent2D(
 				rm->loadTexture("Texture/dot.png", GL_RGB8, GL_LINEAR, GL_REPEAT),
 				vec2(0, 0), vec2(1.0 / 1.0f)),
-			new PhysicComponent2D(size, a[i]-size/1.0f   )));
+			new PhysicComponent2D(size*2.0f, a[i]-size/1.0f   )));
 	}
 
 

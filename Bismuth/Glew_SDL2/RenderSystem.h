@@ -24,7 +24,7 @@
 class RenderSystem
 {
 public:
-	RenderSystem(Config cfg, ResourcesManager* rm);
+	RenderSystem(Config * cfg, ResourcesManager* rm);
 	~RenderSystem();
 
 	void draw(std::vector<Entity*> entities, Camera const& cam, float time, Input &input,float fps);
@@ -43,7 +43,7 @@ private:
 	void doStepShading(Camera const& cam, Camera const &camLight, Input const& input);
 	void doStepFXAA(float time);
 
-	Config mCfg;
+	Config* mCfg;
 	Fbo mFboGeometry;
 	Fbo mFboAo;
 	Fbo mFboBloom1;

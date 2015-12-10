@@ -3,22 +3,22 @@
 using namespace std;
 using namespace glm;
 
-RenderSystem::RenderSystem(Config cfg, ResourcesManager* rm) : mCfg(cfg), mRm(rm), mLastViewProjection(0)
+RenderSystem::RenderSystem(Config* cfg, ResourcesManager* rm) : mCfg(cfg), mRm(rm), mLastViewProjection(0)
 {
 	for (int i = 0; i < 4; i++)
 		mAttach[i] = GL_COLOR_ATTACHMENT0 + i;  
 
 	TextureCfg texCfgNormal = { GL_RGB16F, GL_NEAREST, GL_CLAMP_TO_EDGE };
-	Texture* texNormal = new Texture(cfg.ResolutionX, cfg.ResolutionY, texCfgNormal);
+	Texture* texNormal = new Texture(cfg->ResolutionX, cfg->ResolutionY, texCfgNormal);
 	texNormal->load();
 	TextureCfg texCfgDiffuse = { GL_RGBA8, GL_NEAREST, GL_CLAMP_TO_EDGE };
-	Texture* texDiffuse = new Texture(cfg.ResolutionX, cfg.ResolutionY, texCfgDiffuse);
+	Texture* texDiffuse = new Texture(cfg->ResolutionX, cfg->ResolutionY, texCfgDiffuse);
 	texDiffuse->load();
 	TextureCfg texCfgPosition = { GL_R32F, GL_NEAREST, GL_CLAMP_TO_EDGE };
-	Texture* texPosition = new Texture(cfg.ResolutionX, cfg.ResolutionY, texCfgPosition);
+	Texture* texPosition = new Texture(cfg->ResolutionX, cfg->ResolutionY, texCfgPosition);
 	texPosition->load();
 	TextureCfg texCfgSpeed = { GL_RG16F, GL_NEAREST, GL_CLAMP_TO_EDGE };
-	Texture* texSpeed = new Texture(cfg.ResolutionX, cfg.ResolutionY, texCfgSpeed);
+	Texture* texSpeed = new Texture(cfg->ResolutionX, cfg->ResolutionY, texCfgSpeed);
 	texSpeed->load();
 	vector<Texture*> textureArray = vector<Texture*>();
 	textureArray.push_back(texNormal);
@@ -30,10 +30,10 @@ RenderSystem::RenderSystem(Config cfg, ResourcesManager* rm) : mCfg(cfg), mRm(rm
 
 
 	TextureCfg texCfgShading = { GL_RGB16F, GL_LINEAR, GL_CLAMP_TO_EDGE };
-	Texture* texShading = new Texture(cfg.ResolutionX , cfg.ResolutionY, texCfgShading);
+	Texture* texShading = new Texture(cfg->ResolutionX , cfg->ResolutionY, texCfgShading);
 	texShading->load();
 	TextureCfg texCfgShadingBloom = { GL_RGB16F, GL_LINEAR, GL_CLAMP_TO_EDGE };
-	Texture* texShadingBloom = new Texture(cfg.ResolutionX, cfg.ResolutionY, texCfgShadingBloom);
+	Texture* texShadingBloom = new Texture(cfg->ResolutionX, cfg->ResolutionY, texCfgShadingBloom);
 	texShadingBloom->load();
 	textureArray = vector<Texture*>();
 	textureArray.push_back(texShading);
@@ -43,7 +43,7 @@ RenderSystem::RenderSystem(Config cfg, ResourcesManager* rm) : mCfg(cfg), mRm(rm
 
 
 	TextureCfg texCfgShading2 = { GL_RGB8, GL_LINEAR, GL_CLAMP_TO_EDGE };
-	Texture* texShading2 = new Texture(cfg.ResolutionX, cfg.ResolutionY, texCfgShading2);
+	Texture* texShading2 = new Texture(cfg->ResolutionX, cfg->ResolutionY, texCfgShading2);
 	texShading2->load();
 	textureArray = vector<Texture*>();
 	textureArray.push_back(texShading2);
@@ -52,7 +52,7 @@ RenderSystem::RenderSystem(Config cfg, ResourcesManager* rm) : mCfg(cfg), mRm(rm
 
 
 	TextureCfg texCfgAo = { GL_R8, GL_LINEAR, GL_CLAMP_TO_EDGE };
-	Texture* texAo = new Texture(cfg.ResolutionX/(cfg.HalfAO ? 2.0:1.0) , cfg.ResolutionY/ (cfg.HalfAO ? 2.0 : 1.0), texCfgAo);
+	Texture* texAo = new Texture(cfg->ResolutionX/(cfg->HalfAO ? 2.0:1.0) , cfg->ResolutionY/ (cfg->HalfAO ? 2.0 : 1.0), texCfgAo);
 	texAo->load();
 	textureArray = vector<Texture*>();
 	textureArray.push_back(texAo);
@@ -74,7 +74,7 @@ RenderSystem::RenderSystem(Config cfg, ResourcesManager* rm) : mCfg(cfg), mRm(rm
 
 
 	TextureCfg texCfgBloom1 = { GL_RGB16F, GL_LINEAR, GL_CLAMP_TO_EDGE };
-	Texture* texBloom1 = new Texture(cfg.ResolutionX / 2.0, cfg.ResolutionY /  2.0, texCfgBloom1);
+	Texture* texBloom1 = new Texture(cfg->ResolutionX / 2.0, cfg->ResolutionY /  2.0, texCfgBloom1);
 	texBloom1->load();
 	textureArray = vector<Texture*>();
 	textureArray.push_back(texBloom1);
@@ -82,7 +82,7 @@ RenderSystem::RenderSystem(Config cfg, ResourcesManager* rm) : mCfg(cfg), mRm(rm
 	mFboBloom1.load();
 
 	TextureCfg texCfgBloom2 = { GL_RGB16F, GL_LINEAR, GL_CLAMP_TO_EDGE };
-	Texture* texBloom2 = new Texture(cfg.ResolutionX / 2.0, cfg.ResolutionY / 2.0, texCfgBloom2);
+	Texture* texBloom2 = new Texture(cfg->ResolutionX / 2.0, cfg->ResolutionY / 2.0, texCfgBloom2);
 	texBloom2->load();
 	textureArray = vector<Texture*>();
 	textureArray.push_back(texBloom2);
@@ -90,7 +90,7 @@ RenderSystem::RenderSystem(Config cfg, ResourcesManager* rm) : mCfg(cfg), mRm(rm
 	mFboBloom2.load();
 
 	TextureCfg texCfgBlurH = { GL_R8, GL_LINEAR, GL_CLAMP_TO_EDGE };
-	Texture* texBlurH = new Texture(cfg.ResolutionX, cfg.ResolutionY, texCfgBlurH);
+	Texture* texBlurH = new Texture(cfg->ResolutionX, cfg->ResolutionY, texCfgBlurH);
 	texBlurH->load();
 	textureArray = vector<Texture*>();
 	textureArray.push_back(texBlurH);
@@ -98,7 +98,7 @@ RenderSystem::RenderSystem(Config cfg, ResourcesManager* rm) : mCfg(cfg), mRm(rm
 	mFboBlurH.load();
 
 	TextureCfg texCfgBlurV = { GL_R8, GL_LINEAR, GL_CLAMP_TO_EDGE };
-	Texture* texBlurV = new Texture(cfg.ResolutionX, cfg.ResolutionY, texCfgBlurV);
+	Texture* texBlurV = new Texture(cfg->ResolutionX, cfg->ResolutionY, texCfgBlurV);
 	texBlurV->load();
 	textureArray = vector<Texture*>();
 	textureArray.push_back(texBlurV);
@@ -146,7 +146,7 @@ RenderSystem::RenderSystem(Config cfg, ResourcesManager* rm) : mCfg(cfg), mRm(rm
 	std::uniform_real_distribution<GLfloat> randomFloats(-1.0, 1.0);
 	std::default_random_engine generator;
 	std::vector<glm::vec4> noiseKernel;
-	for (GLuint i = 0; i < cfg.ResolutionX*cfg.ResolutionY/16.0 ;  ++i)
+	for (GLuint i = 0; i < cfg->ResolutionX*cfg->ResolutionY/16.0 ;  ++i)
 	{
 		glm::vec4 sample(
 			randomFloats(generator) ,
@@ -159,7 +159,7 @@ RenderSystem::RenderSystem(Config cfg, ResourcesManager* rm) : mCfg(cfg), mRm(rm
 
 	glGenTextures(1, &mTextureNoiseId);
 	glBindTexture(GL_TEXTURE_2D, mTextureNoiseId);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA16F, cfg.ResolutionX/4.0, cfg.ResolutionY / 4.0, 0, GL_RGBA, GL_FLOAT, &noiseKernel[0]);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA16F, cfg->ResolutionX/4.0, cfg->ResolutionY / 4.0, 0, GL_RGBA, GL_FLOAT, &noiseKernel[0]);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_MIRRORED_REPEAT);
@@ -195,7 +195,7 @@ void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float t
 
 	doStepGeometry(cam,entities);
 	doStepLight(cam2, entities);
-	if (mCfg.AO == 1) 
+	if (mCfg->AO == 1) 
 	{
 		doStepAo(cam);
 		doStepBlurAo();
@@ -250,10 +250,10 @@ void RenderSystem::draw2D(std::vector<Entity2D*> entities)
 
 void RenderSystem::doStepAo(Camera const &cam)
 {
-	vec2 resolution = vec2(mCfg.ResolutionX, mCfg.ResolutionY);
+	vec2 resolution = vec2(mCfg->ResolutionX, mCfg->ResolutionY);
 	glBindFramebuffer(GL_FRAMEBUFFER, mFboAo.getId());
-	if (mCfg.HalfAO == 1)
-		glViewport(0, 0, mCfg.ResolutionX / 2.0, mCfg.ResolutionY / 2.0);
+	if (mCfg->HalfAO == 1)
+		glViewport(0, 0, mCfg->ResolutionX / 2.0, mCfg->ResolutionY / 2.0);
 	glDrawBuffers(1, mAttach);
 	glClear(GL_COLOR_BUFFER_BIT);
 	glUseProgram(mShaderAo.getProgramID());
@@ -281,12 +281,12 @@ void RenderSystem::doStepAo(Camera const &cam)
 	glUniform1f(mShaderAo.getLocation( "near"), cam.getNear());
 	glUniform1f(mShaderAo.getLocation( "far"), cam.getFar());
 	mSupportFbo.draw();
-	glViewport(0, 0, mCfg.ResolutionX, mCfg.ResolutionY);
+	glViewport(0, 0, mCfg->ResolutionX, mCfg->ResolutionY);
 }
 
 void RenderSystem::doStepBlurAo()
 {
-	vec2 resolution = vec2(mCfg.ResolutionX, mCfg.ResolutionY);
+	vec2 resolution = vec2(mCfg->ResolutionX, mCfg->ResolutionY);
 	//Blur AO Horizontal
 	glBindFramebuffer(GL_FRAMEBUFFER, mFboBlurH.getId());
 	glDrawBuffers(1, mAttach);
@@ -345,9 +345,9 @@ void RenderSystem::doStepBlurAo()
 
 void RenderSystem::doStepBloom()
 {
-	vec2 resolution_2 = vec2(mCfg.ResolutionX / 2.0f, mCfg.ResolutionY / 2.0f);
+	vec2 resolution_2 = vec2(mCfg->ResolutionX / 2.0f, mCfg->ResolutionY / 2.0f);
 	glBindFramebuffer(GL_FRAMEBUFFER, mFboBloom1.getId());
-	glViewport(0, 0, mCfg.ResolutionX / 2.0, mCfg.ResolutionY / 2.0);
+	glViewport(0, 0, mCfg->ResolutionX / 2.0, mCfg->ResolutionY / 2.0);
 	glDrawBuffers(1, mAttach);
 	glClear(GL_COLOR_BUFFER_BIT);
 	glUseProgram(mShaderBlur.getProgramID());
@@ -408,13 +408,13 @@ void RenderSystem::doStepBloom()
 			value_ptr(resolution_2));
 		mSupportFbo.draw();
 	}
-	glViewport(0, 0, mCfg.ResolutionX, mCfg.ResolutionY);
+	glViewport(0, 0, mCfg->ResolutionX, mCfg->ResolutionY);
 
 }
 
 void RenderSystem::doStepMotionBlur(float fps)
 {
-	vec2 resolution = vec2(mCfg.ResolutionX, mCfg.ResolutionY);
+	vec2 resolution = vec2(mCfg->ResolutionX, mCfg->ResolutionY);
 
 	//Motion Blur 1
 	glBindFramebuffer(GL_FRAMEBUFFER, mFboShading.getId());
@@ -473,8 +473,8 @@ void RenderSystem::doStepToneMapping()
 void RenderSystem::doStepShading(Camera const& cam, Camera const &camLight,Input const& input)
 {
 
-	vec2 resolution = vec2(mCfg.ResolutionX, mCfg.ResolutionY);
-	vec2 resolution_2 = vec2(mCfg.ResolutionX / 2.0f, mCfg.ResolutionY / 2.0f);
+	vec2 resolution = vec2(mCfg->ResolutionX, mCfg->ResolutionY);
+	vec2 resolution_2 = vec2(mCfg->ResolutionX / 2.0f, mCfg->ResolutionY / 2.0f);
 	mat4 projection = cam.getProjection();
 	mat4 view = cam.getView();
 	mat4 invView = inverse(view);
@@ -530,21 +530,21 @@ void RenderSystem::doStepShading(Camera const& cam, Camera const &camLight,Input
 	glUniform1i(mShaderDeferredFinal.getLocation("keyF8"), input.getKey(SDL_SCANCODE_F8));
 	glUniform1i(mShaderDeferredFinal.getLocation("keyF9"), input.getKey(SDL_SCANCODE_F9));
 	glUniform1i(mShaderDeferredFinal.getLocation("keyF10"), input.getKey(SDL_SCANCODE_F10));
-	glUniform1i(mShaderDeferredFinal.getLocation("AO"), mCfg.AO);
+	glUniform1i(mShaderDeferredFinal.getLocation("AO"), mCfg->AO);
 	glUniform2fv(mShaderDeferredFinal.getLocation("resolution"), 1, value_ptr(resolution));
 	mSupportFbo.draw();
 }
 
 void RenderSystem::doStepGeometry(Camera const &cam, std::vector<Entity*> entities)
 {
-	vec2 resolution = vec2(mCfg.ResolutionX, mCfg.ResolutionY);
-	vec2 resolution_2 = vec2(mCfg.ResolutionX / 2.0f, mCfg.ResolutionY / 2.0f);
+	vec2 resolution = vec2(mCfg->ResolutionX, mCfg->ResolutionY);
+	vec2 resolution_2 = vec2(mCfg->ResolutionX / 2.0f, mCfg->ResolutionY / 2.0f);
 	mat4 projection = cam.getProjection();
 	mat4 view = cam.getView();
 	mat4 modelview;
 	mat4 lastModel;
 
-	glViewport(0, 0, mCfg.ResolutionX, mCfg.ResolutionY);
+	glViewport(0, 0, mCfg->ResolutionX, mCfg->ResolutionY);
 	glBindFramebuffer(GL_FRAMEBUFFER, mFboGeometry.getId());
 	glDrawBuffers(4, mAttach);
 	glDisable(GL_BLEND);
@@ -615,12 +615,12 @@ void RenderSystem::doStepLight(Camera const &cam, std::vector<Entity*> entities)
 	}
 
 	
-	glViewport(0, 0, mCfg.ResolutionX, mCfg.ResolutionY);
+	glViewport(0, 0, mCfg->ResolutionX, mCfg->ResolutionY);
 }
 
 void RenderSystem::doStepFXAA(float time) {
 
-	vec2 resolution = vec2(mCfg.ResolutionX, mCfg.ResolutionY);
+	vec2 resolution = vec2(mCfg->ResolutionX, mCfg->ResolutionY);
 
 	glBindFramebuffer(GL_FRAMEBUFFER,0);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);

@@ -9,7 +9,7 @@ Loop::Loop() : mFrame(0), mContinue(true), mFps(1.0), mPhysicsDelay(0.0f), mTime
 	mCamera = new Camera(70.0, (float)mCfg->ResolutionX / mCfg->ResolutionY, 0.3, 1000.0);
 	mResourcesManager = new ResourcesManager();
 	mEntityManager =new EntityManager();
-	mRenderSystem = new RenderSystem(*mCfg, mResourcesManager);
+	mRenderSystem = new RenderSystem(mCfg, mResourcesManager);
 	mInput =new Input(mCfg->ResolutionX, mCfg->ResolutionY);
 
 }
@@ -45,9 +45,9 @@ void Loop::insertInLoop(std::vector<Updatable*> &toUpdate)
 	for (int i = 0; i < abs(mNbSteps); i++)
 	{
 		for (int i = 0; i < toUpdate.size(); i++)
-			toUpdate[i]->update(signTF *  mTimeStep /1000); // CONVERSION EN S
+			toUpdate[i]->update( mTimeStep /1000); // CONVERSION EN S
 
-		mEntityManager->update( mTimeStep / 1000);
+		mEntityManager->update(signTF *  mTimeStep / 1000);
 		mEntityManager->collision();
 		mEntityManager->collisionResponse(signTF * mTimeStep / 1000);
 	}

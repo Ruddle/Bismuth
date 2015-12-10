@@ -14,25 +14,25 @@ Panel::Panel(EntityManager* em, ResourcesManager* rm,  Input * input, glm::vec2 
 		new GraphicComponent2D(
 			rm->loadTexture("Texture/ui.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
 			vec2(0, 1.0 / 4.0f), vec2(2.0 / 4.0f, 1.0 / 4.0f)),
-		new PhysicComponent2D(  vec2(2.0f,size.y) / resolution  , ((leftBottom+vec2( size.x-2.0f,0)) / resolution)*2.0f - vec2(1)));
+		new PhysicComponent2D(  vec2(2.0f,size.y)*2.0f / resolution  , ((leftBottom+vec2( size.x-2.0f,0)) / resolution)*2.0f - vec2(1)));
 
 	mLeft = new Entity2D(
 		new GraphicComponent2D(
 			rm->loadTexture("Texture/ui.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
 			vec2(2.0 / 4.0f, 1.0 / 4.0f), vec2(2.0 / 4.0f, 1.0 / 4.0f)),
-		new PhysicComponent2D(vec2(2.0f, size.y) / resolution, ((leftBottom + vec2(   0, 0)) / resolution)*2.0f - vec2(1)));
+		new PhysicComponent2D(vec2(2.0f, size.y)*2.0f / resolution, ((leftBottom + vec2(   0, 0)) / resolution)*2.0f - vec2(1)));
 
 	mUp = new Entity2D(
 		new GraphicComponent2D(
 			rm->loadTexture("Texture/ui.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
 			vec2(1.0 / 4.0f, 0.0 / 4.0f), vec2(1.0 / 4.0f, 2.0 / 4.0f)),
-		new PhysicComponent2D(vec2(size.x, 2.0f) / resolution, ((leftBottom + vec2(0, size.y-2.0)) / resolution)*2.0f - vec2(1)));
+		new PhysicComponent2D(vec2(size.x, 2.0f)*2.0f / resolution, ((leftBottom + vec2(0, size.y-2.0)) / resolution)*2.0f - vec2(1)));
 
 	mDown = new Entity2D(
 		new GraphicComponent2D(
 			rm->loadTexture("Texture/ui.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
 			vec2(1.0 / 4.0f, 2.0 / 4.0f), vec2(1.0 / 4.0f, 2.0 / 4.0f)),
-		new PhysicComponent2D(vec2(size.x, 2.0f) / resolution, ((leftBottom + vec2(0, 0)) / resolution)*2.0f - vec2(1)));
+		new PhysicComponent2D(vec2(size.x, 2.0f)*2.0f / resolution, ((leftBottom + vec2(0, 0)) / resolution)*2.0f - vec2(1)));
 	
 	input->addObserver(mCenter->getPhysicComponent());
 
@@ -56,19 +56,19 @@ Panel::~Panel()
 void Panel::update()
 {
 
-	if (mCenter->getPhysicComponent()->isSelected())
-	{
-		mCenter->getGraphicComponent()->setLeftBottom(vec2(1.0 / 4.0f, 1.0 / 4.0f));
-	}
+	//if (mCenter->getPhysicComponent()->isSelected())
+	//{
+	//	mCenter->getGraphicComponent()->setLeftBottom(vec2(1.0 / 4.0f, 1.0 / 4.0f));
+	//}
 
-	else if (mCenter->getPhysicComponent()->isHovered())
-	{
-		mCenter->getGraphicComponent()->setLeftBottom(vec2(0.0 / 4.0f, 1.0 / 4.0f));
-	}
-	else
-	{
-		mCenter->getGraphicComponent()->setLeftBottom(vec2(0));
-	}
+	//else if (mCenter->getPhysicComponent()->isHovered())
+	//{
+	//	mCenter->getGraphicComponent()->setLeftBottom(vec2(0.0 / 4.0f, 1.0 / 4.0f));
+	//}
+	//else
+	//{
+	//	mCenter->getGraphicComponent()->setLeftBottom(vec2(0));
+	//}
 
 
 }
