@@ -20,10 +20,30 @@ layout (location = 2) out float gPosition;
 layout (location = 3) out vec2 gSpeed;
 
 
+vec2 rgb2yuv(vec3 source)
+{
+vec2 result;
+
+
+result.x = dot(source,vec3(0.299, 0.587, 0.114)); //Y
+float cb = 0.5 - (0.168*source.r) - (0.331*source.g) + (0.500*source.b);
+float cr = 0.5 + (0.500*source.r) - (0.418*source.g) - (0.081*source.b);
+result.y = ( mod(gl_FragCoord.x ,2.0)>=1.0) ? cr : cb;
+
+
+
+return result;
+}
+
 
 void main()
 {
-	gDiffuse= vec4(texture(texture_diffuse, UV).xyz,   texture(texture_spec, UV).x        );
+
+
+	//gDiffuse= vec4(texture(texture_diffuse, UV).xyz,   texture(texture_spec, UV).x        );
+	gDiffuse= vec4( vec3(rgb2yuv(texture(texture_diffuse, UV).xyz),0 ) ,    texture(texture_spec, UV).x        );
+
+
 
 	gNormal    =  normalize(varNormal);
 //	vec3 B = normalize(varBitangent);

@@ -117,17 +117,11 @@
     <ClCompile Include="Panel.cpp">
       <Filter>Bis 4</Filter>
     </ClCompile>
-    <ClCompile Include="Updatable.cpp">
-      <Filter>Bis 4</Filter>
-    </ClCompile>
     <ClCompile Include="Letter.cpp">
       <Filter>Bis 3\Text</Filter>
     </ClCompile>
     <ClCompile Include="Text.cpp">
       <Filter>Bis 3\Text</Filter>
-    </ClCompile>
-    <ClCompile Include="Loop.cpp">
-      <Filter>Temp</Filter>
     </ClCompile>
     <ClCompile Include="Main.cpp">
       <Filter>Temp</Filter>
@@ -143,6 +137,12 @@
     </ClCompile>
     <ClCompile Include="Button.cpp">
       <Filter>Bis 4</Filter>
+    </ClCompile>
+    <ClCompile Include="Updatable.cpp">
+      <Filter>Bis 3</Filter>
+    </ClCompile>
+    <ClCompile Include="Loop.cpp">
+      <Filter>Bis 3</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -239,17 +239,11 @@
     <ClInclude Include="Panel.h">
       <Filter>Bis 4</Filter>
     </ClInclude>
-    <ClInclude Include="Updatable.h">
-      <Filter>Bis 4</Filter>
-    </ClInclude>
     <ClInclude Include="Letter.h">
       <Filter>Bis 3\Text</Filter>
     </ClInclude>
     <ClInclude Include="Text.h">
       <Filter>Bis 3\Text</Filter>
-    </ClInclude>
-    <ClInclude Include="Loop.h">
-      <Filter>Temp</Filter>
     </ClInclude>
     <ClInclude Include="UserCamera.h">
       <Filter>Bis 4</Filter>
@@ -262,6 +256,12 @@
     </ClInclude>
     <ClInclude Include="Button.h">
       <Filter>Bis 4</Filter>
+    </ClInclude>
+    <ClInclude Include="Updatable.h">
+      <Filter>Bis 3</Filter>
+    </ClInclude>
+    <ClInclude Include="Loop.h">
+      <Filter>Bis 3</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -391,6 +391,24 @@
     <Image Include="Texture\Skybox\greenThing\greenThing5.png">
       <Filter>Resources\Texture\Skybox\greenThing</Filter>
     </Image>
+    <Image Include="Texture\Skybox\purple-nebula\n0.png">
+      <Filter>Resources\Texture\Skybox\purple-nebula</Filter>
+    </Image>
+    <Image Include="Texture\Skybox\purple-nebula\n1.png">
+      <Filter>Resources\Texture\Skybox\purple-nebula</Filter>
+    </Image>
+    <Image Include="Texture\Skybox\purple-nebula\n2.png">
+      <Filter>Resources\Texture\Skybox\purple-nebula</Filter>
+    </Image>
+    <Image Include="Texture\Skybox\purple-nebula\n3.png">
+      <Filter>Resources\Texture\Skybox\purple-nebula</Filter>
+    </Image>
+    <Image Include="Texture\Skybox\purple-nebula\n4.png">
+      <Filter>Resources\Texture\Skybox\purple-nebula</Filter>
+    </Image>
+    <Image Include="Texture\Skybox\purple-nebula\n5.png">
+      <Filter>Resources\Texture\Skybox\purple-nebula</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <None Include="config.ini">
@@ -500,6 +518,9 @@
     </Filter>
     <Filter Include="Resources\Texture\Skybox\greenThing">
       <UniqueIdentifier>{0ca9cf9b-a311-4d1e-905b-e150ce5191e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Texture\Skybox\purple-nebula">
+      <UniqueIdentifier>{7c9f5956-4c46-46ec-b3c2-ea9d09ec1d0f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

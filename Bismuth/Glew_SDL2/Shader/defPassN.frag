@@ -109,8 +109,27 @@ normal = decodeNormal(normal.xy);
 
   //  normal.z= sqrt(1.0 - normal.x*normal.x - normal.y*normal.y); 
 
+float Y = texture(gDiffuse, UV).x;
+float Cb = texture(gDiffuse, (gl_FragCoord.xy + vec2(0,0) )/resolution).y;
+float Cr = texture(gDiffuse, (gl_FragCoord.xy + vec2(1,0) )/resolution).y;
 
-vec3 diffuse = texture(gDiffuse, UV).xyz;
+if (mod(gl_FragCoord.x ,2.0)>=1.0) 
+{
+	float temp = Cb;
+	Cb = Cr;
+	Cr = temp;
+}
+
+
+vec3 diffuse = vec3( 
+Y					 + 1.402*(Cr - 0.5),
+Y - 0.344*(Cb - 0.5) - 0.714*(Cr - 0.5),
+Y + 1.772*(Cb - 0.5)
+);
+
+//diffuse = vec3(YCb,Cr);
+
+
 float ao = texture(aoSampler,UV).x;
 
 if(AO!=1) 

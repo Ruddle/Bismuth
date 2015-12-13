@@ -38,8 +38,8 @@ using namespace glm;
 
 int main(int argc, char **argv)
 {
-	Loop currentLoop= Loop();
-	CoreBismuth core = currentLoop.getCore();
+	Loop currentLoop= Loop();// CODE MOTEUR MINIMAL
+	CoreBismuth core = currentLoop.getCore(); 
 	vector<Updatable*> listUpdate = vector<Updatable*>();
 
 	core.entityManager->add(createPlane(core.resourcesManager));
@@ -64,14 +64,14 @@ int main(int argc, char **argv)
 
 
 	UserCamera cam = UserCamera(core.camera);
-	while (currentLoop.doContinue())
+	while (currentLoop.doContinue())// CODE MOTEUR MINIMAL
 	{
 		Text textFps2 =  Text(core.entityManager, core.resourcesManager, font, to_string(currentLoop.getFps()).substr(0,4), vec2(32*4*0.5, 0), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
 		Text textX2 = Text(core.entityManager, core.resourcesManager, font, to_string(listUpdate.size()), vec2(32 * 2 * 0.5, 64*0.5), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
 		Text textPos = Text(core.entityManager, core.resourcesManager, font, to_string(currentLoop.getNbStep()), vec2(32 * 7 * 0.5, 128 * 0.5), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
 		Text textTime = Text(core.entityManager, core.resourcesManager, font, to_string(currentLoop.getTimeFactor()).substr(0,7), vec2(32 * 8 * 0.5, 192 * 0.5), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
 
-		currentLoop.insertInLoop(listUpdate);
+		currentLoop.insertInLoop(listUpdate); // CODE MOTEUR MINIMAL
 		cam.update(*core.input, currentLoop.getElapsedTime());
 		if (core.input->getKey(SDL_SCANCODE_K))
 			listUpdate.push_back(new Ball(core.entityManager, core.resourcesManager, core.camera->getPosition(), core.input->getKey(SDL_SCANCODE_I)*10.51f*normalize(core.camera->getRotation())));

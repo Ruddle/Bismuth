@@ -322,6 +322,12 @@
     <Image Include="Texture\Skybox\interstellar3.tga" />
     <Image Include="Texture\Skybox\interstellar4.tga" />
     <Image Include="Texture\Skybox\interstellar5.tga" />
+    <Image Include="Texture\Skybox\purple-nebula\n0.png" />
+    <Image Include="Texture\Skybox\purple-nebula\n1.png" />
+    <Image Include="Texture\Skybox\purple-nebula\n2.png" />
+    <Image Include="Texture\Skybox\purple-nebula\n3.png" />
+    <Image Include="Texture\Skybox\purple-nebula\n4.png" />
+    <Image Include="Texture\Skybox\purple-nebula\n5.png" />
     <Image Include="Texture\Skybox\skybox0.jpg" />
     <Image Include="Texture\Skybox\skybox1.jpg" />
     <Image Include="Texture\Skybox\skybox2.jpg" />

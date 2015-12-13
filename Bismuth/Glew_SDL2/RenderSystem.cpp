@@ -68,8 +68,8 @@ RenderSystem::RenderSystem(Config* cfg, ResourcesManager* rm) : mCfg(cfg), mRm(r
 	mFboLight = Fbo(textureArray, 1, 0);
 	mFboLight.load();
 
-	TextureCfg texCfgSkybox = { GL_R32F, GL_LINEAR, GL_CLAMP_TO_EDGE };
-	mCubemapSkybox = new Texture_Cube("Texture/Skybox/greenThing/greenThing.png", texCfgSkybox);
+	TextureCfg texCfgSkybox = { GL_RGB8, GL_LINEAR, GL_CLAMP_TO_EDGE };
+	mCubemapSkybox = new Texture_Cube("Texture/Skybox/purple-nebula/n.png", texCfgSkybox);
 	mCubemapSkybox->load();
 
 

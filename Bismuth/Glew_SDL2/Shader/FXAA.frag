@@ -18,6 +18,13 @@ uniform vec2 resolution;
     #define FXAA_SPAN_MAX     8.0
 #endif
 
+vec3 colorDisplace(sampler2D tex,vec2 scale)
+{
+
+
+return vec3(texture(tex,UV - scale).r,texture(tex,UV - scale*0.0).g,texture(tex,UV + scale).b);
+}
+
 vec4 fxaa(sampler2D tex, vec2 fragCoord, vec2 resolution,
             vec2 v_rgbNW, vec2 v_rgbNE, 
             vec2 v_rgbSW, vec2 v_rgbSE, 
@@ -66,20 +73,24 @@ vec4 fxaa(sampler2D tex, vec2 fragCoord, vec2 resolution,
     return color;
 }
 
+
+
 void main()
 {
 
 
 
 
-vec3 blur = texture( image, UV ).rgb ;
+vec3 before = texture( image, UV ).rgb ;
 
 
 
 outColor =		fxaa(image,gl_FragCoord.xy,resolution, UV+  vec2(-1,1)/resolution,UV+ vec2(1,1)/resolution,UV+ vec2(-1,-1)/resolution,UV+ vec2(1,-1)/resolution,UV );
+//outColor = vec4(colorDisplace(image, (UV*2.0-vec2(1))/100.0  ),1);
+
 
 if (gl_FragCoord.x>8000)
-outColor = vec4(blur,1);
+outColor = vec4(before,1);
 
 }
 
