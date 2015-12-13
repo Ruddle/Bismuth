@@ -60,6 +60,7 @@ Entity* createSphere(ResourcesManager* rm) {
 		rm->loadTexture("Texture/BLUE.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
 		rm->loadTexture("Texture/checker2C.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
 		rm->loadTexture("Texture/band.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
+		rm->loadTexture("Texture/BLACK.png", GL_RGB8, GL_LINEAR, GL_REPEAT),
 		rm->loadVao("Mesh/sphere.obj"));
 	SphereDetectionComponent* dc1 = new SphereDetectionComponent(1);
 	StateComponent* sc1 = new StateComponent();
@@ -78,6 +79,7 @@ Entity* createPlane(ResourcesManager* rm) {
 		rm->loadTexture("Texture/rock_N.png", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),*/
 		//rm->loadTexture("Texture/rock.png", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),
 		rm->loadTexture("Texture/BLACK.png", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),
+		rm->loadTexture("Texture/GRAY60.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
 		rm->loadVao("Mesh/plane.obj"));
 	PlaneDetectionComponent* dc1 = new PlaneDetectionComponent(1000,1000);
 	StateComponent* sc1 = new StateComponent();
@@ -97,6 +99,7 @@ Entity* createThing(ResourcesManager* rm,vec3 position) {
 		rm->loadTexture("Texture/BLUE.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
 		rm->loadTexture("Texture/checker2C.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
 		rm->loadTexture("Texture/BLACK.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
+		rm->loadTexture("Texture/BLACK.png", GL_RGB8, GL_LINEAR, GL_REPEAT),
 		rm->loadVao("Mesh/cube.obj"));
 	SphereDetectionComponent* dc1 = new SphereDetectionComponent(1);
 	StateComponent* sc1 = new StateComponent();

@@ -578,6 +578,10 @@ void RenderSystem::doStepGeometry(Camera const &cam, std::vector<Entity*> entiti
 			glBindTexture(GL_TEXTURE_2D, (mRm->getTexture(entity->getGraphicComponent()->getTextureEmitId())->getId()));
 			glUniform1i(mShaderGeometry.getLocation("texture_emit"), 3);
 
+			glActiveTexture(GL_TEXTURE4);
+			glBindTexture(GL_TEXTURE_2D, (mRm->getTexture(entity->getGraphicComponent()->getTextureReflectionId())->getId()));
+			glUniform1i(mShaderGeometry.getLocation("texture_reflection"), 4);
+
 			modelview = view*entity->getPhysicComponent()->getStateComponent()->getModel();
 			lastModel = entity->getPhysicComponent()->getStateComponent()->getLastModel();
 			glUniformMatrix4fv(mShaderGeometry.getLocation("modelview"), 1, GL_FALSE, value_ptr(modelview));

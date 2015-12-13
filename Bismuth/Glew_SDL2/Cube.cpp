@@ -14,6 +14,7 @@ Cube::Cube(EntityManager* em, ResourcesManager* rm, glm::vec3 position, glm::vec
 		rm->loadTexture("Texture/rock_n.png", GL_RGB8, GL_LINEAR, GL_REPEAT),
 		rm->loadTexture("Texture/rock.png", GL_RGB8, GL_LINEAR, GL_REPEAT),
 		rm->loadTexture("Texture/BLACK.png", GL_RGB8, GL_LINEAR, GL_REPEAT),*/
+		rm->loadTexture("Texture/GRAY60.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
 		rm->loadVao("Mesh/cube.obj"));
 
 

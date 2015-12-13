@@ -109,8 +109,9 @@ normal = decodeNormal(normal.xy);
 
   //  normal.z= sqrt(1.0 - normal.x*normal.x - normal.y*normal.y); 
 
-float Y = texture(gDiffuse, UV).x;
-float Cb = texture(gDiffuse, (gl_FragCoord.xy + vec2(0,0) )/resolution).y;
+vec3 YC_Reflection = texture(gDiffuse, UV).xyz;
+float Y = YC_Reflection.x;
+float Cb = YC_Reflection.y;
 float Cr = texture(gDiffuse, (gl_FragCoord.xy + vec2(1,0) )/resolution).y;
 
 if (mod(gl_FragCoord.x ,2.0)>=1.0) 
@@ -175,7 +176,7 @@ for(int k=0;k<2;k++){
 }
 
 mat3 vi = mat3(inverse(transpose(invView)));
-lighting =(3*lighting + texture(skyboxSampler, vi*reflect(position_ViewSpace,normal)  ).xyz) /4.0;
+lighting = lighting*(1-YC_Reflection.z) + YC_Reflection.z*texture(skyboxSampler, vi*reflect(position_ViewSpace,normal)  ).xyz;
 
 if(!keyF4) lighting=lighting*(ao*2-1);
 

@@ -12,6 +12,7 @@ uniform sampler2D texture_diffuse;
 uniform sampler2D texture_normal;
 uniform sampler2D texture_spec;
 uniform sampler2D texture_emit;
+uniform sampler2D texture_reflection;
 uniform vec2 resolution;
 
 layout (location = 0) out vec3 gNormal;
@@ -41,7 +42,7 @@ void main()
 
 
 	//gDiffuse= vec4(texture(texture_diffuse, UV).xyz,   texture(texture_spec, UV).x        );
-	gDiffuse= vec4( vec3(rgb2yuv(texture(texture_diffuse, UV).xyz),0 ) ,    texture(texture_spec, UV).x        );
+	gDiffuse= vec4( vec3(rgb2yuv(texture(texture_diffuse, UV).xyz), texture(texture_reflection, UV).x ) ,    texture(texture_spec, UV).x        );
 
 
 
