@@ -307,6 +307,9 @@
     <Image Include="Texture\circleColor2.png" />
     <Image Include="Texture\cloud.png" />
     <Image Include="Texture\dot.png" />
+    <Image Include="Texture\GRAY123.png" />
+    <Image Include="Texture\GRAY200.png" />
+    <Image Include="Texture\GRAY60.png" />
     <Image Include="Texture\RED.png" />
     <Image Include="Texture\rock.png" />
     <Image Include="Texture\rock_N.png" />

@@ -409,6 +409,15 @@
     <Image Include="Texture\Skybox\purple-nebula\n5.png">
       <Filter>Resources\Texture\Skybox\purple-nebula</Filter>
     </Image>
+    <Image Include="Texture\GRAY60.png">
+      <Filter>Resources\Texture</Filter>
+    </Image>
+    <Image Include="Texture\GRAY123.png">
+      <Filter>Resources\Texture</Filter>
+    </Image>
+    <Image Include="Texture\GRAY200.png">
+      <Filter>Resources\Texture</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <None Include="config.ini">
