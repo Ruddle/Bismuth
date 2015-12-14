@@ -150,8 +150,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AO_button.cpp" />
     <ClCompile Include="Ball.cpp" />
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="ButtonController.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Cube.cpp" />
     <ClCompile Include="CubeDetectionComponent.cpp" />
@@ -181,7 +183,9 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Misc.cpp" />
+    <ClCompile Include="Observer_button.cpp" />
     <ClCompile Include="Observer_Input.cpp" />
+    <ClCompile Include="Observer_UI_box.cpp" />
     <ClCompile Include="Panel.cpp" />
     <ClCompile Include="PhysicComponent.cpp" />
     <ClCompile Include="PhysicComponent2D.cpp" />
@@ -191,20 +195,26 @@
     <ClCompile Include="ResourcesManager.cpp" />
     <ClCompile Include="Scene_SDL.cpp" />
     <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="Slider.cpp" />
+    <ClCompile Include="SliderController.cpp" />
+    <ClCompile Include="Slider_dot.cpp" />
     <ClCompile Include="SphereDetectionComponent.cpp" />
     <ClCompile Include="StateComponent.cpp" />
     <ClCompile Include="Text.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Texture_Abs.cpp" />
     <ClCompile Include="Texture_Cube.cpp" />
+    <ClCompile Include="UI_box.cpp" />
     <ClCompile Include="Updatable.cpp" />
     <ClCompile Include="UserCamera.cpp" />
     <ClCompile Include="Vao.cpp" />
     <ClCompile Include="Vao2D.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AO_button.h" />
     <ClInclude Include="Ball.h" />
     <ClInclude Include="Button.h" />
+    <ClInclude Include="ButtonController.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Contact.h" />
     <ClInclude Include="Cube.h" />
@@ -222,7 +232,9 @@
     <ClInclude Include="Letter.h" />
     <ClInclude Include="Loop.h" />
     <ClInclude Include="Misc.h" />
+    <ClInclude Include="Observer_button.h" />
     <ClInclude Include="Observer_Input.h" />
+    <ClInclude Include="Observer_UI_box.h" />
     <ClInclude Include="Panel.h" />
     <ClInclude Include="PhysicComponent.h" />
     <ClInclude Include="PhysicComponent2D.h" />
@@ -234,12 +246,16 @@
     </ClInclude>
     <ClInclude Include="Scene_SDL.h" />
     <ClInclude Include="Shader.h" />
+    <ClInclude Include="Slider.h" />
+    <ClInclude Include="SliderController.h" />
+    <ClInclude Include="Slider_dot.h" />
     <ClInclude Include="SphereDetectionComponent.h" />
     <ClInclude Include="StateComponent.h" />
     <ClInclude Include="Text.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Texture_Abs.h" />
     <ClInclude Include="Texture_Cube.h" />
+    <ClInclude Include="UI_box.h" />
     <ClInclude Include="Updatable.h" />
     <ClInclude Include="UserCamera.h" />
     <ClInclude Include="Vao.h" />

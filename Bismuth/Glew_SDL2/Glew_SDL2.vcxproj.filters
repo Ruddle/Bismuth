@@ -114,9 +114,6 @@
     <ClCompile Include="GraphicComponent2D.cpp">
       <Filter>Bis 2\Graphic</Filter>
     </ClCompile>
-    <ClCompile Include="Panel.cpp">
-      <Filter>Bis 4</Filter>
-    </ClCompile>
     <ClCompile Include="Letter.cpp">
       <Filter>Bis 3\Text</Filter>
     </ClCompile>
@@ -135,14 +132,41 @@
     <ClCompile Include="Observer_Input.cpp">
       <Filter>Bis 1</Filter>
     </ClCompile>
-    <ClCompile Include="Button.cpp">
-      <Filter>Bis 4</Filter>
-    </ClCompile>
     <ClCompile Include="Updatable.cpp">
       <Filter>Bis 3</Filter>
     </ClCompile>
     <ClCompile Include="Loop.cpp">
       <Filter>Bis 3</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Bis 4\MayBis</Filter>
+    </ClCompile>
+    <ClCompile Include="ButtonController.cpp">
+      <Filter>Bis 4\MayBis</Filter>
+    </ClCompile>
+    <ClCompile Include="Observer_UI_box.cpp">
+      <Filter>Bis 4\MayBis</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_box.cpp">
+      <Filter>Bis 4\MayBis</Filter>
+    </ClCompile>
+    <ClCompile Include="Panel.cpp">
+      <Filter>Bis 4\MayBis</Filter>
+    </ClCompile>
+    <ClCompile Include="AO_button.cpp">
+      <Filter>Bis 4</Filter>
+    </ClCompile>
+    <ClCompile Include="Observer_button.cpp">
+      <Filter>Bis 4\MayBis</Filter>
+    </ClCompile>
+    <ClCompile Include="Slider.cpp">
+      <Filter>Bis 4\MayBis</Filter>
+    </ClCompile>
+    <ClCompile Include="SliderController.cpp">
+      <Filter>Bis 4\MayBis</Filter>
+    </ClCompile>
+    <ClCompile Include="Slider_dot.cpp">
+      <Filter>Bis 4\MayBis</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -236,9 +260,6 @@
     <ClInclude Include="GraphicComponent2D.h">
       <Filter>Bis 2\Graphic</Filter>
     </ClInclude>
-    <ClInclude Include="Panel.h">
-      <Filter>Bis 4</Filter>
-    </ClInclude>
     <ClInclude Include="Letter.h">
       <Filter>Bis 3\Text</Filter>
     </ClInclude>
@@ -254,14 +275,41 @@
     <ClInclude Include="Observer_Input.h">
       <Filter>Bis 1</Filter>
     </ClInclude>
-    <ClInclude Include="Button.h">
-      <Filter>Bis 4</Filter>
-    </ClInclude>
     <ClInclude Include="Updatable.h">
       <Filter>Bis 3</Filter>
     </ClInclude>
     <ClInclude Include="Loop.h">
       <Filter>Bis 3</Filter>
+    </ClInclude>
+    <ClInclude Include="ButtonController.h">
+      <Filter>Bis 4\MayBis</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Bis 4\MayBis</Filter>
+    </ClInclude>
+    <ClInclude Include="Observer_UI_box.h">
+      <Filter>Bis 4\MayBis</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_box.h">
+      <Filter>Bis 4\MayBis</Filter>
+    </ClInclude>
+    <ClInclude Include="Panel.h">
+      <Filter>Bis 4\MayBis</Filter>
+    </ClInclude>
+    <ClInclude Include="AO_button.h">
+      <Filter>Bis 4</Filter>
+    </ClInclude>
+    <ClInclude Include="Observer_button.h">
+      <Filter>Bis 4\MayBis</Filter>
+    </ClInclude>
+    <ClInclude Include="Slider.h">
+      <Filter>Bis 4\MayBis</Filter>
+    </ClInclude>
+    <ClInclude Include="SliderController.h">
+      <Filter>Bis 4\MayBis</Filter>
+    </ClInclude>
+    <ClInclude Include="Slider_dot.h">
+      <Filter>Bis 4\MayBis</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -530,6 +578,9 @@
     </Filter>
     <Filter Include="Resources\Texture\Skybox\purple-nebula">
       <UniqueIdentifier>{7c9f5956-4c46-46ec-b3c2-ea9d09ec1d0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bis 4\MayBis">
+      <UniqueIdentifier>{f0bdf203-d803-453e-9555-58f06677bbaa}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

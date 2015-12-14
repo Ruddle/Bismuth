@@ -26,6 +26,7 @@
 #include "Loop.h"
 #include "UserCamera.h"
 #include "Button.h"
+#include "AO_button.h"
 
 FILE _iob[] = { *stdin, *stdout, *stderr };
 extern "C" FILE * __cdecl __iob_func(void)
@@ -56,6 +57,8 @@ int main(int argc, char **argv)
 	
 	Button button = Button(core.entityManager, core.resourcesManager, core.input, vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), vec2(10, 200), vec2(120, 50));
 	Text label =  Text(core.entityManager, core.resourcesManager, font, "AO", vec2(10, 210), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
+
+	AO_button aoControl(&button, core.cfg); // Listener/Controller pour le bouton AO
 
 
 	Button button2 = Button(core.entityManager, core.resourcesManager, core.input, vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), vec2(10, 260), vec2(120, 50));
@@ -104,12 +107,6 @@ int main(int argc, char **argv)
 		if (core.input->getRisingKey(SDL_SCANCODE_U))
 			currentLoop.setTimeFactor(0.0);
 	
-		panel.update();
-		button.update();
-		button2.update();
-
-		if (button.isChecked()) core.cfg->AO = 1;
-		else  core.cfg->AO = 0;
 
 		textTime.flush(core.entityManager);
 		textFps2.flush(core.entityManager);

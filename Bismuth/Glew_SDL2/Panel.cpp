@@ -34,7 +34,6 @@ Panel::Panel(EntityManager* em, ResourcesManager* rm,  Input * input, glm::vec2 
 			vec2(1.0 / 4.0f, 2.0 / 4.0f), vec2(1.0 / 4.0f, 2.0 / 4.0f)),
 		new PhysicComponent2D(vec2(size.x, 2.0f)*2.0f / resolution, ((leftBottom + vec2(0, 0)) / resolution)*2.0f - vec2(1)));
 	
-	input->addObserver(mCenter->getPhysicComponent());
 
 	em->add(mCenter);
 	em->add(mRight);
@@ -42,6 +41,9 @@ Panel::Panel(EntityManager* em, ResourcesManager* rm,  Input * input, glm::vec2 
 	em->add(mDown);
 	em->add(mUp);
 	
+	mBox = new UI_box(mCenter->getPhysicComponent());
+
+	input->addObserver(mBox);
 }
 
 
@@ -53,22 +55,4 @@ Panel::~Panel()
 
 }
 
-void Panel::update()
-{
 
-	//if (mCenter->getPhysicComponent()->isSelected())
-	//{
-	//	mCenter->getGraphicComponent()->setLeftBottom(vec2(1.0 / 4.0f, 1.0 / 4.0f));
-	//}
-
-	//else if (mCenter->getPhysicComponent()->isHovered())
-	//{
-	//	mCenter->getGraphicComponent()->setLeftBottom(vec2(0.0 / 4.0f, 1.0 / 4.0f));
-	//}
-	//else
-	//{
-	//	mCenter->getGraphicComponent()->setLeftBottom(vec2(0));
-	//}
-
-
-}

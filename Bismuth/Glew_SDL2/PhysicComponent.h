@@ -27,8 +27,8 @@ public :
 
 
 	void move(glm::vec2 mouse, glm::vec2 mouseRelative);
-	void select(glm::vec2 mouse);
-	void deselect(glm::vec2 mouse);
+	void click(glm::vec2 mouse);
+	void unclick(glm::vec2 mouse);
 
 
 private :

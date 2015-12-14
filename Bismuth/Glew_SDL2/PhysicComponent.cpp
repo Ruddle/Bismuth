@@ -54,14 +54,14 @@ void PhysicComponent::move(glm::vec2 mouse, glm::vec2 mouseRelative)
 {
 }
 
-void PhysicComponent::select(glm::vec2 mouse)
+void PhysicComponent::click(glm::vec2 mouse)
 {
 
 
 
 }
 
-void PhysicComponent::deselect(glm::vec2 mouse)
+void PhysicComponent::unclick(glm::vec2 mouse)
 {
 }
 

@@ -6,7 +6,7 @@ Loop::Loop() : mFrame(0), mContinue(true), mFps(1.0), mPhysicsDelay(0.0f), mTime
 {
 	mCfg = readConfig(); 
 	mScene = new Scene_SDL(mCfg->ResolutionX, mCfg->ResolutionY, mCfg->FullScreen);
-	mCamera = new Camera(90.0, (float)mCfg->ResolutionX / mCfg->ResolutionY, 0.3, 1000.0);
+	mCamera = new Camera(70, (float)mCfg->ResolutionX / mCfg->ResolutionY, 0.3, 1000.0);
 	mResourcesManager = new ResourcesManager();
 	mEntityManager =new EntityManager();
 	mRenderSystem = new RenderSystem(mCfg, mResourcesManager);

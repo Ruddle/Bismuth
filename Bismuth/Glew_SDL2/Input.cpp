@@ -92,13 +92,13 @@ Input::~Input()
 void Input::notifySelect()
 {
 	for (auto it = mObservers.begin(); it != mObservers.end(); it++)
-		(*it)->select(vec2(2 * (float)mX / (float)mScreenW - 1 , -2 * (float)mY / (float)mScreenH + 1));
+		(*it)->click(vec2(2 * (float)mX / (float)mScreenW - 1 , -2 * (float)mY / (float)mScreenH + 1));
 }
 
 void Input::notifyDeselect()
 {
 	for (auto it = mObservers.begin(); it != mObservers.end(); it++)
-		(*it)->deselect(vec2(2 * (float)mX / (float)mScreenW - 1, -2 * (float)mY / (float)mScreenH + 1));
+		(*it)->unclick(vec2(2 * (float)mX / (float)mScreenW - 1, -2 * (float)mY / (float)mScreenH + 1));
 }
 
 void Input::notifyMove()

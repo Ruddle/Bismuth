@@ -10,26 +10,34 @@
 #include "PhysicComponent.h"
 #include "GraphicComponent.h"
 #include "EntityManager.h"
+#include "UI_box.h"
 
-class Panel
+class Panel 
 {
 public:
 	Panel(EntityManager* em, ResourcesManager* rm,Input * input, glm::vec2 resolution, glm::vec2 leftBottom, glm::vec2 size);
 	~Panel();
 
-	void update();
+
+
+
 
 protected :
 	Entity2D* getMainEntity() { return mCenter; }
-	
+	UI_box* mBox;
 
 private:
+
+
 
 	Entity2D* mLeft;
 	Entity2D* mRight;
 	Entity2D* mUp;
 	Entity2D* mDown;
 	Entity2D* mCenter;
+
+
+	
 	
 };
 
