@@ -10,6 +10,9 @@ public:
 	~PhysicComponent2D();
 	glm::vec2 getSize() { return mSize; }
 	glm::vec2 getPosition() { return mPosition; }
+
+	void setPosition(glm::vec2 position) { mPosition = position; }
+
 	bool contain(glm::vec2 mouse);
 
 private:

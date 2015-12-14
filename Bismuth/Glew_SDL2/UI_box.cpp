@@ -45,7 +45,11 @@ void UI_box::click(glm::vec2 mouse)
 
 void UI_box::unclick(glm::vec2 mouse)
 {
+	if(mIsClicked)
+		notifyUnClick(mouse);
 	mIsClicked = false;
+
+	
 }
 
 
@@ -56,9 +60,16 @@ void UI_box::notifyHover(glm::vec2 mouse)
 		(*it)->onHover(mouse);
 }
 
+void UI_box::notifyUnClick(glm::vec2 mouse)
+{
+	std::cout << "unClick on : " << this << std::endl;
+	for (auto it = mObservers.begin(); it != mObservers.end(); it++)
+		(*it)->onUnClick(mouse);
+}
+
 void UI_box::notifyClick(glm::vec2 mouse)
 {
-	/*std::cout << "click on : "<< this << std::endl;*/
+	std::cout << "click on : "<< this << std::endl;
 	for (auto it = mObservers.begin(); it != mObservers.end(); it++)
 		(*it)->onClick(mouse);
 }
@@ -72,7 +83,7 @@ void UI_box::notifySelected(glm::vec2 mouse)
 
 void UI_box::notifyUnSelected(glm::vec2 mouse)
 {
-	/*std::cout << "deselect on : " << this << std::endl;*/
+	//std::cout << "deselect on : " << this << std::endl;
 	for (auto it = mObservers.begin(); it != mObservers.end(); it++)
 		(*it)->onDeSelect(mouse);
 }

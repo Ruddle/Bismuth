@@ -183,7 +183,10 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Misc.cpp" />
+    <ClCompile Include="Observer_bar.cpp" />
     <ClCompile Include="Observer_button.cpp" />
+    <ClCompile Include="Observer_dot.cpp" />
+    <ClCompile Include="Observer_float.cpp" />
     <ClCompile Include="Observer_Input.cpp" />
     <ClCompile Include="Observer_UI_box.cpp" />
     <ClCompile Include="Panel.cpp" />
@@ -197,9 +200,11 @@
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="Slider.cpp" />
     <ClCompile Include="SliderController.cpp" />
+    <ClCompile Include="Slider_bar.cpp" />
     <ClCompile Include="Slider_dot.cpp" />
     <ClCompile Include="SphereDetectionComponent.cpp" />
     <ClCompile Include="StateComponent.cpp" />
+    <ClCompile Include="Test_Slider.cpp" />
     <ClCompile Include="Text.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Texture_Abs.cpp" />
@@ -232,7 +237,10 @@
     <ClInclude Include="Letter.h" />
     <ClInclude Include="Loop.h" />
     <ClInclude Include="Misc.h" />
+    <ClInclude Include="Observer_bar.h" />
     <ClInclude Include="Observer_button.h" />
+    <ClInclude Include="Observer_dot.h" />
+    <ClInclude Include="Observer_float.h" />
     <ClInclude Include="Observer_Input.h" />
     <ClInclude Include="Observer_UI_box.h" />
     <ClInclude Include="Panel.h" />
@@ -248,9 +256,11 @@
     <ClInclude Include="Shader.h" />
     <ClInclude Include="Slider.h" />
     <ClInclude Include="SliderController.h" />
+    <ClInclude Include="Slider_bar.h" />
     <ClInclude Include="Slider_dot.h" />
     <ClInclude Include="SphereDetectionComponent.h" />
     <ClInclude Include="StateComponent.h" />
+    <ClInclude Include="Test_Slider.h" />
     <ClInclude Include="Text.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Texture_Abs.h" />

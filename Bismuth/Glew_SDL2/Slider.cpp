@@ -7,31 +7,39 @@ using namespace glm;
 Slider::Slider(EntityManager * em, ResourcesManager * rm, Input * input, glm::vec2 resolution, glm::vec2 leftBottom, glm::vec2 size)
 {
 	mValue = 0.5;
-
-	mBar = new Entity2D(
-		new GraphicComponent2D(
-			rm->loadTexture("Texture/ui.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
-			vec2(2.0 / 4.0f), vec2(1.0 / 4.0f)),
-		new PhysicComponent2D(size*2.0f / resolution, (leftBottom / resolution)*2.0f - vec2(1)));
-
-	mDot = new Entity2D(
-		new GraphicComponent2D(
-			rm->loadTexture("Texture/ui.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
-			vec2(1.0 / 4.0f), vec2(1.0 / 4.0f)),
-		new PhysicComponent2D( vec2(min(size.x,size.y))*2.50f / resolution, (leftBottom / resolution)*2.0f - vec2(1)));
+	mMin = 0;
+	mMax = 1;
+	mStep = 0.05;
 
 
-	em->add(mBar);
-	em->add(mDot);
+	mBar = new Slider_bar(em, rm, input, resolution, leftBottom, size);
+	mDot = new Slider_dot(em, rm, input, resolution, leftBottom, size);
 
+	this->addObserver(mDot);
 
-	mUIBar = new UI_box(mBar->getPhysicComponent());
-	mUIDot = new UI_box(mDot->getPhysicComponent());
+	
+	mBar->addObserver(this);
+	mDot->addObserver(this);
 
-	input->addObserver(mUIBar);
-	input->addObserver(mUIDot);
 }
 
 Slider::~Slider()
 {
+}
+
+void Slider::Action_bar()
+{
+
+	
+}
+
+void Slider::Action_dot()
+{
+}
+
+void Slider::notify()
+{
+	for (auto it = mObservers.begin(); it != mObservers.end(); it++)
+		(*it)->Action(-mMin +  mValue/(mMax-mMin) );
+
 }

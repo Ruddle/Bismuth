@@ -168,6 +168,21 @@
     <ClCompile Include="Slider_dot.cpp">
       <Filter>Bis 4\MayBis</Filter>
     </ClCompile>
+    <ClCompile Include="Slider_bar.cpp">
+      <Filter>Bis 4\MayBis</Filter>
+    </ClCompile>
+    <ClCompile Include="Observer_bar.cpp">
+      <Filter>Bis 4\MayBis</Filter>
+    </ClCompile>
+    <ClCompile Include="Observer_dot.cpp">
+      <Filter>Bis 4\MayBis</Filter>
+    </ClCompile>
+    <ClCompile Include="Test_Slider.cpp">
+      <Filter>Bis 4</Filter>
+    </ClCompile>
+    <ClCompile Include="Observer_float.cpp">
+      <Filter>Bis 4\MayBis</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h">
@@ -309,6 +324,21 @@
       <Filter>Bis 4\MayBis</Filter>
     </ClInclude>
     <ClInclude Include="Slider_dot.h">
+      <Filter>Bis 4\MayBis</Filter>
+    </ClInclude>
+    <ClInclude Include="Slider_bar.h">
+      <Filter>Bis 4\MayBis</Filter>
+    </ClInclude>
+    <ClInclude Include="Observer_bar.h">
+      <Filter>Bis 4\MayBis</Filter>
+    </ClInclude>
+    <ClInclude Include="Observer_dot.h">
+      <Filter>Bis 4\MayBis</Filter>
+    </ClInclude>
+    <ClInclude Include="Test_Slider.h">
+      <Filter>Bis 4</Filter>
+    </ClInclude>
+    <ClInclude Include="Observer_float.h">
       <Filter>Bis 4\MayBis</Filter>
     </ClInclude>
   </ItemGroup>

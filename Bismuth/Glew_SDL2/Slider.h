@@ -11,19 +11,33 @@
 #include "GraphicComponent.h"
 #include "EntityManager.h"
 #include "UI_box.h"
+#include "Slider_dot.h"
+#include "Slider_bar.h"
+#include "Observer_bar.h"
+#include "Observer_dot.h"
+#include "Observer_float.h"
 
-class Slider
+class Slider: public Observer_bar, public Observer_dot
 {
 public:
 	Slider(EntityManager* em, ResourcesManager* rm, Input * input, glm::vec2 resolution, glm::vec2 leftBottom, glm::vec2 size);
 	~Slider();
 
-protected:
-	UI_box* mUIBar;
-	UI_box* mUIDot;
+	void Action_bar();
+	void Action_dot();
+
+	float getValue() { return mValue; }
+
+	void notify();
+
+	void addObserver(Observer_float* observer) { mObservers.insert(observer); }
 private:
-	Entity2D* mBar;
-	Entity2D* mDot;
+	Slider_dot* mDot;
+	Slider_bar* mBar;
 	double mValue;
+	double mMax;
+	double mMin;
+	double mStep;
+	std::unordered_set<Observer_float*> mObservers;
 };
 

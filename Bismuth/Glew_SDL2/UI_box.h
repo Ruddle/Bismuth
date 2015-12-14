@@ -29,6 +29,7 @@ public:
 	void addObserver(Observer_UI_box* observer) { mObservers.insert(observer); }
 
 	void notifyHover(glm::vec2 mouse);
+	void notifyUnClick(glm::vec2 mouse);
 	void notifyClick(glm::vec2 mouse);
 	void notifySelected(glm::vec2 mouse);
 	void notifyUnSelected(glm::vec2 mouse);

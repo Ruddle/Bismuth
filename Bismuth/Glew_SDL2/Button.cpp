@@ -26,6 +26,10 @@ void Button::onUnHover(glm::vec2 mouse)
 		getMainEntity()->getGraphicComponent()->setLeftBottom(vec2(0.0 / 4.0f, 1.0 / 4.0f));
 }
 
+void Button::onUnClick(glm::vec2 mouse)
+{
+}
+
 void Button::onClick(glm::vec2 mouse)
 {
 	notifyAction();

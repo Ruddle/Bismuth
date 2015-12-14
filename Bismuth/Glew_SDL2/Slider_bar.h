@@ -11,16 +11,14 @@
 #include "EntityManager.h"
 #include "UI_box.h"
 #include "Observer_button.h"
-#include "Observer_dot.h"
-#include "Observer_float.h"
-
-class Slider_dot : public Observer_float, public Observer_UI_box
+#include "Observer_bar.h"
+class Slider_bar : public Observer_UI_box
 {
 public:
-	Slider_dot(EntityManager * em, ResourcesManager * rm, Input * input, glm::vec2 resolution, glm::vec2 leftBottom, glm::vec2 size);
-	~Slider_dot();
+	Slider_bar(EntityManager * em, ResourcesManager * rm, Input * input, glm::vec2 resolution, glm::vec2 leftBottom, glm::vec2 size);
+	~Slider_bar();
 
-	void addObserver(Observer_dot* observer) { mObservers.insert(observer); }
+	void addObserver(Observer_bar* observer) { mObservers.insert(observer); }
 
 	void onHover(glm::vec2 mouse);
 	void onUnHover(glm::vec2 mouse);
@@ -31,17 +29,10 @@ public:
 
 	void notify();
 
-	void Action(float x);
-
 protected:
 	UI_box* mUI_box;
 private:
 	Entity2D* mEntity;
-
-	glm::vec2 mResolution;
-	glm::vec2 mLeftBottom;
-	glm::vec2 mSize;
-
-	std::unordered_set<Observer_dot*> mObservers;
+	std::unordered_set<Observer_bar*> mObservers;
 };
 
