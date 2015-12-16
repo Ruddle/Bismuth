@@ -34,3 +34,10 @@ glm::mat4 Camera::getView() const
 		mUp); 
 }
 
+void Camera::setFov(float fovInDegree)
+{
+ mTanHalfFov = tan((fovInDegree*M_PI / 180.0) / 2.0);
+mProjection = glm::perspective(fovInDegree*M_PI / 180.0, mAspect, mNear, mFar);
+
+}
+

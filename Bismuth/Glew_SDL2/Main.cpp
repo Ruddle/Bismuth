@@ -73,6 +73,8 @@ int main(int argc, char **argv)
 	UserCamera cam = UserCamera(core.camera);
 	while (currentLoop.doContinue())// CODE MOTEUR MINIMAL
 	{
+
+		/*core.camera->setFov(179 - test * 178);*/
 		Text textFps2 =  Text(core.entityManager, core.resourcesManager, font, to_string(currentLoop.getFps()).substr(0,4), vec2(32*4*0.5, 0), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
 		Text textX2 = Text(core.entityManager, core.resourcesManager, font, to_string(listUpdate.size()), vec2(32 * 2 * 0.5, 64*0.5), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
 		Text textPos = Text(core.entityManager, core.resourcesManager, font, to_string(currentLoop.getNbStep()), vec2(32 * 7 * 0.5, 128 * 0.5), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));

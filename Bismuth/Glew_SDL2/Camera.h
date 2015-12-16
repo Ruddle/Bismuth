@@ -26,7 +26,7 @@ public:
 
 	void setPosition(glm::vec3 value) { mPosition = value; }
 	void setRotation(glm::vec3 value) { mRotation = value;	if (length(mRotation)>1)mRotation = (mRotation)*0.5f;}
-	
+	void setFov(float fovInDegree);
 
 
 
