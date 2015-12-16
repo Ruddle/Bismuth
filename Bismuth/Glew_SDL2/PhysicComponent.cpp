@@ -77,9 +77,10 @@ ContactResponse PhysicComponent::responseToContact(float elapsedTime,Contact *co
 	vec3 vp1 = sc1->getPositionDiff() + cross(sc1->getRotationDiff(), r1);
 	vec3 vp2 = sc2->getPositionDiff() + cross(sc2->getRotationDiff(), r2);
 	vec3 vr = vp2 - vp1;
-	cout << length(vr)*1000.0 << endl;
+	//cout << length(vr)*1000.0 << endl;
 	mat3 invI1 = sc1->getInertiaInverse(), invI2 = sc2->getInertiaInverse();
 	float e = (sc2->getRestitution() + sc1->getRestitution()) / 2;
+
 	vec3 normalized = normalize(contact->normal);
 	float numJr = -(1+e)*dot(vr, normalized);
 	vec3 denJr_1 = invI1 *cross(cross(r1, normalized), r1);
@@ -104,6 +105,11 @@ ContactResponse PhysicComponent::responseToContact(float elapsedTime,Contact *co
 	//sc1->setRotationDiff(sc1->getRotationDiff() - jr*invI1*axis *vec3(1)  );
 
 	response.posDiff = -(sc2->getMass() / (sc1->getMass() + sc2->getMass()))*contact->normal*1.01f;
+
+	/*if (mDetectionComponent->getShape() == DetectionComponent::CUBE && contact->who->getDetectionComponent()->getShape() == DetectionComponent::SPHERE && response.posDiff.z == 0.0)
+	{
+		cout << contact->normal.x << " " << contact->normal.y << " " << contact->normal.z << endl;
+	}*/
 
 	//sc1->setPosition(sc1->getPosition() - (sc2->getMass() / (sc1->getMass() + sc2->getMass()))*contact->normal*1.01f);
 
