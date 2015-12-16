@@ -21,6 +21,7 @@ public:
 	void move(glm::vec2 mouse, glm::vec2 mouseRelative);
 	void click(glm::vec2 mouse);
 	void unclick(glm::vec2 mouse);
+	void tick();
 
 	bool isSelected() { return mIsSelected; }
 	bool isHovered() { return mIsHovered; }
@@ -34,6 +35,10 @@ public:
 	void notifySelected(glm::vec2 mouse);
 	void notifyUnSelected(glm::vec2 mouse);
 	void notifyUnHover(glm::vec2 mouse);
+	void notifyDrag(glm::vec2 mouse);
+
+	glm::vec2 getMouse() { return mMouse; }
+	glm::vec2 getMouseRelative() { return mMouseRelative; }
 
 private:
 	PhysicComponent2D* mPhysicComponent;
@@ -41,7 +46,10 @@ private:
 	bool mIsClicked;
 	bool mIsSelected;
 	bool mIsHovered;
+	bool mIsDragged;
 
+	glm::vec2 mMouse;
+	glm::vec2 mMouseRelative;
 
 };
 

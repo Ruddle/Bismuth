@@ -16,7 +16,7 @@
 #include "Observer_bar.h"
 #include "Observer_dot.h"
 #include "Observer_float.h"
-
+#include "Observer_Slider.h"
 class Slider: public Observer_bar, public Observer_dot
 {
 public:
@@ -24,13 +24,13 @@ public:
 	~Slider();
 
 	void Action_bar();
-	void Action_dot();
+	void Action_dot(int direction);
 
 	float getValue() { return mValue; }
 
 	void notify();
 
-	void addObserver(Observer_float* observer) { mObservers.insert(observer); }
+	void addObserver(Observer_Slider* observer) { mObservers.insert(observer); }
 private:
 	Slider_dot* mDot;
 	Slider_bar* mBar;
@@ -38,6 +38,6 @@ private:
 	double mMax;
 	double mMin;
 	double mStep;
-	std::unordered_set<Observer_float*> mObservers;
+	std::unordered_set<Observer_Slider*> mObservers;
 };
 

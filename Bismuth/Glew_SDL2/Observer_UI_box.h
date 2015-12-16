@@ -14,5 +14,6 @@ public:
 	virtual void onDeSelect(glm::vec2 mouse) = 0;
 	virtual void onHover(glm::vec2 mouse) = 0;
 	virtual void onUnHover(glm::vec2 mouse) = 0;
+	virtual void onDrag(glm::vec2 mouse) = 0;
 };
 

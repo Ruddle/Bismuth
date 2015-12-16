@@ -28,6 +28,7 @@
 #include "Button.h"
 #include "AO_button.h"
 #include "Slider.h"
+#include "Test_Slider.h"
 
 
 FILE _iob[] = { *stdin, *stdout, *stderr };
@@ -54,14 +55,15 @@ int main(int argc, char **argv)
 	Text text2 = Text(core.entityManager, core.resourcesManager, font, "x:", vec2(0, 64*0.5), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
 	Text text3 = Text(core.entityManager, core.resourcesManager, font, "nbStep:", vec2(0,2* 64 * 0.5), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
 	Text text4 = Text(core.entityManager, core.resourcesManager, font, "timeFac:", vec2(0, 3 * 64 * 0.5), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
-	Slider slider = Slider(core.entityManager, core.resourcesManager, core.input, vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), vec2(5, 4 * 64 * 0.5),vec2(100,10));
+	Slider slider = Slider(core.entityManager, core.resourcesManager, core.input, vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), vec2(15, 4 * 64 * 0.5),vec2(100,12));
 	
 	
 	Button button = Button(core.entityManager, core.resourcesManager, core.input, vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), vec2(10, 200), vec2(120, 50));
 	Text label =  Text(core.entityManager, core.resourcesManager, font, "AO", vec2(10, 210), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
 
 	AO_button aoControl(&button, core.cfg); // Listener/Controller pour le bouton AO
-
+	float test = 0.5;
+	Test_Slider sliderControl(&slider,&test);
 
 	Button button2 = Button(core.entityManager, core.resourcesManager, core.input, vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), vec2(10, 260), vec2(120, 50));
 	Text label2 =  Text(core.entityManager, core.resourcesManager, font, "Shading", vec2(10, 260), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
@@ -75,6 +77,8 @@ int main(int argc, char **argv)
 		Text textX2 = Text(core.entityManager, core.resourcesManager, font, to_string(listUpdate.size()), vec2(32 * 2 * 0.5, 64*0.5), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
 		Text textPos = Text(core.entityManager, core.resourcesManager, font, to_string(currentLoop.getNbStep()), vec2(32 * 7 * 0.5, 128 * 0.5), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
 		Text textTime = Text(core.entityManager, core.resourcesManager, font, to_string(currentLoop.getTimeFactor()).substr(0,7), vec2(32 * 8 * 0.5, 192 * 0.5), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
+		Text textTestSlider = Text(core.entityManager, core.resourcesManager, font, to_string(test).substr(0, 5), vec2(32 * 8 * 0.5, 256 * 0.5), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
+
 
 		currentLoop.insertInLoop(listUpdate); // CODE MOTEUR MINIMAL
 		cam.update(*core.input, currentLoop.getElapsedTime());
@@ -109,7 +113,7 @@ int main(int argc, char **argv)
 		if (core.input->getRisingKey(SDL_SCANCODE_U))
 			currentLoop.setTimeFactor(0.0);
 	
-
+		textTestSlider.flush(core.entityManager);
 		textTime.flush(core.entityManager);
 		textFps2.flush(core.entityManager);
 		textX2.flush(core.entityManager);

@@ -16,8 +16,6 @@ Slider::Slider(EntityManager * em, ResourcesManager * rm, Input * input, glm::ve
 	mDot = new Slider_dot(em, rm, input, resolution, leftBottom, size);
 
 	this->addObserver(mDot);
-
-	
 	mBar->addObserver(this);
 	mDot->addObserver(this);
 
@@ -33,13 +31,16 @@ void Slider::Action_bar()
 	
 }
 
-void Slider::Action_dot()
+void Slider::Action_dot(int direction)
 {
+	mValue += direction*mStep;
+	mValue = clamp(mValue, mMin, mMax);
+	notify();
 }
 
 void Slider::notify()
 {
 	for (auto it = mObservers.begin(); it != mObservers.end(); it++)
-		(*it)->Action(-mMin +  mValue/(mMax-mMin) );
+		(*it)->Action(mValue,mMin,mMax,mStep );
 
 }

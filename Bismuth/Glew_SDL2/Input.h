@@ -30,6 +30,7 @@ private:
 	void notifySelect();
 	void notifyDeselect();
 	void notifyMove();
+	void notifyTick();
 	std::unordered_set<Observer_Input*> mObservers;
 	SDL_Event mEvent;
 	bool mKeys[SDL_NUM_SCANCODES];

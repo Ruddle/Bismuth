@@ -46,6 +46,10 @@ void Slider_bar::onDeSelect(glm::vec2 mouse)
 {
 }
 
+void Slider_bar::onDrag(glm::vec2 mouse)
+{
+}
+
 void Slider_bar::notify()
 {
 	for (auto it = mObservers.begin(); it != mObservers.end(); it++)

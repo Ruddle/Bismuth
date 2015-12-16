@@ -77,6 +77,7 @@ void Input::update()
 			break;
 		}
 	}
+	notifyTick();
 }
 
 bool Input::mouseMotion() const
@@ -105,4 +106,10 @@ void Input::notifyMove()
 {
 	for (auto it = mObservers.begin(); it != mObservers.end(); it++)
 		(*it)->move(vec2(2 * (float)mX / (float)mScreenW - 1, -2 * (float)mY / (float)mScreenH + 1), vec2(2 * (float)mRx / (float)mScreenW - 1, -2 * (float)mRy / (float)mScreenH + 1));
+}
+
+void Input::notifyTick()
+{
+	for (auto it = mObservers.begin(); it != mObservers.end(); it++)
+		(*it)->tick();
 }

@@ -45,6 +45,10 @@ void Button::onDeSelect(glm::vec2 mouse)
 	getMainEntity()->getGraphicComponent()->setLeftBottom(vec2(0.0 / 4.0f, 1.0 / 4.0f));
 }
 
+void Button::onDrag(glm::vec2 mouse)
+{
+}
+
 void Button::notifyAction()
 {
 	for (auto it = mObservers.begin(); it != mObservers.end(); it++)

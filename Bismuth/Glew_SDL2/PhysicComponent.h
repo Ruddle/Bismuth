@@ -29,6 +29,7 @@ public :
 	void move(glm::vec2 mouse, glm::vec2 mouseRelative);
 	void click(glm::vec2 mouse);
 	void unclick(glm::vec2 mouse);
+	void tick();
 
 
 private :

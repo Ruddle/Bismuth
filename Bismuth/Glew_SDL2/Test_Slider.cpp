@@ -11,7 +11,9 @@ Test_Slider::~Test_Slider()
 {
 }
 
-void Test_Slider::Action(float x)
+void Test_Slider::Action(float value, float min, float max, float step)
 {
-	*mValue = x;
+	*mValue = value;
+
 }
+

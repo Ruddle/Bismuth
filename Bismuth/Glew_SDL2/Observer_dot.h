@@ -5,6 +5,6 @@ public:
 	Observer_dot();
 	~Observer_dot();
 
-	virtual void Action_dot() = 0;
+	virtual void Action_dot(int direction) = 0;
 };
 

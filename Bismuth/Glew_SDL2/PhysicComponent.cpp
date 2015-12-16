@@ -65,6 +65,10 @@ void PhysicComponent::unclick(glm::vec2 mouse)
 {
 }
 
+void PhysicComponent::tick()
+{
+}
+
 ContactResponse PhysicComponent::responseToContact(float elapsedTime,Contact *contact)
 {
 

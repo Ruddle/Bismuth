@@ -6,7 +6,7 @@ public:
 	Test_Slider(Slider* slider,float* value);
 	~Test_Slider();
 
-	void Action(float x);
+	void Action(float value, float min, float max, float step);
 private:
 	float* mValue;
 

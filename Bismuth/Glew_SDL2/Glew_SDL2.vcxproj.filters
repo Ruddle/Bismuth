@@ -144,9 +144,6 @@
     <ClCompile Include="ButtonController.cpp">
       <Filter>Bis 4\MayBis</Filter>
     </ClCompile>
-    <ClCompile Include="Observer_UI_box.cpp">
-      <Filter>Bis 4\MayBis</Filter>
-    </ClCompile>
     <ClCompile Include="UI_box.cpp">
       <Filter>Bis 4\MayBis</Filter>
     </ClCompile>
@@ -155,9 +152,6 @@
     </ClCompile>
     <ClCompile Include="AO_button.cpp">
       <Filter>Bis 4</Filter>
-    </ClCompile>
-    <ClCompile Include="Observer_button.cpp">
-      <Filter>Bis 4\MayBis</Filter>
     </ClCompile>
     <ClCompile Include="Slider.cpp">
       <Filter>Bis 4\MayBis</Filter>
@@ -171,17 +165,26 @@
     <ClCompile Include="Slider_bar.cpp">
       <Filter>Bis 4\MayBis</Filter>
     </ClCompile>
-    <ClCompile Include="Observer_bar.cpp">
-      <Filter>Bis 4\MayBis</Filter>
-    </ClCompile>
-    <ClCompile Include="Observer_dot.cpp">
-      <Filter>Bis 4\MayBis</Filter>
-    </ClCompile>
     <ClCompile Include="Test_Slider.cpp">
       <Filter>Bis 4</Filter>
     </ClCompile>
+    <ClCompile Include="Observer_bar.cpp">
+      <Filter>Bis 4\MayBis\Observer</Filter>
+    </ClCompile>
+    <ClCompile Include="Observer_button.cpp">
+      <Filter>Bis 4\MayBis\Observer</Filter>
+    </ClCompile>
+    <ClCompile Include="Observer_dot.cpp">
+      <Filter>Bis 4\MayBis\Observer</Filter>
+    </ClCompile>
     <ClCompile Include="Observer_float.cpp">
-      <Filter>Bis 4\MayBis</Filter>
+      <Filter>Bis 4\MayBis\Observer</Filter>
+    </ClCompile>
+    <ClCompile Include="Observer_Slider.cpp">
+      <Filter>Bis 4\MayBis\Observer</Filter>
+    </ClCompile>
+    <ClCompile Include="Observer_UI_box.cpp">
+      <Filter>Bis 4\MayBis\Observer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -302,9 +305,6 @@
     <ClInclude Include="Button.h">
       <Filter>Bis 4\MayBis</Filter>
     </ClInclude>
-    <ClInclude Include="Observer_UI_box.h">
-      <Filter>Bis 4\MayBis</Filter>
-    </ClInclude>
     <ClInclude Include="UI_box.h">
       <Filter>Bis 4\MayBis</Filter>
     </ClInclude>
@@ -313,9 +313,6 @@
     </ClInclude>
     <ClInclude Include="AO_button.h">
       <Filter>Bis 4</Filter>
-    </ClInclude>
-    <ClInclude Include="Observer_button.h">
-      <Filter>Bis 4\MayBis</Filter>
     </ClInclude>
     <ClInclude Include="Slider.h">
       <Filter>Bis 4\MayBis</Filter>
@@ -329,17 +326,26 @@
     <ClInclude Include="Slider_bar.h">
       <Filter>Bis 4\MayBis</Filter>
     </ClInclude>
-    <ClInclude Include="Observer_bar.h">
-      <Filter>Bis 4\MayBis</Filter>
-    </ClInclude>
-    <ClInclude Include="Observer_dot.h">
-      <Filter>Bis 4\MayBis</Filter>
-    </ClInclude>
     <ClInclude Include="Test_Slider.h">
       <Filter>Bis 4</Filter>
     </ClInclude>
+    <ClInclude Include="Observer_bar.h">
+      <Filter>Bis 4\MayBis\Observer</Filter>
+    </ClInclude>
+    <ClInclude Include="Observer_button.h">
+      <Filter>Bis 4\MayBis\Observer</Filter>
+    </ClInclude>
+    <ClInclude Include="Observer_dot.h">
+      <Filter>Bis 4\MayBis\Observer</Filter>
+    </ClInclude>
     <ClInclude Include="Observer_float.h">
-      <Filter>Bis 4\MayBis</Filter>
+      <Filter>Bis 4\MayBis\Observer</Filter>
+    </ClInclude>
+    <ClInclude Include="Observer_Slider.h">
+      <Filter>Bis 4\MayBis\Observer</Filter>
+    </ClInclude>
+    <ClInclude Include="Observer_UI_box.h">
+      <Filter>Bis 4\MayBis\Observer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -611,6 +617,9 @@
     </Filter>
     <Filter Include="Bis 4\MayBis">
       <UniqueIdentifier>{f0bdf203-d803-453e-9555-58f06677bbaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bis 4\MayBis\Observer">
+      <UniqueIdentifier>{f783657c-699f-4066-968d-48db5387f03b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

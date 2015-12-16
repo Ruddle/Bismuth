@@ -17,6 +17,7 @@ public:
 	void onClick(glm::vec2 mouse);
 	void onSelect(glm::vec2 mouse);
 	void onDeSelect(glm::vec2 mouse);
+	void onDrag(glm::vec2 mouse);
 
 
 	void notifyAction();

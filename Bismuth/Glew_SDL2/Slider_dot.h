@@ -13,8 +13,9 @@
 #include "Observer_button.h"
 #include "Observer_dot.h"
 #include "Observer_float.h"
+#include "Observer_Slider.h"
 
-class Slider_dot : public Observer_float, public Observer_UI_box
+class Slider_dot : public Observer_Slider, public Observer_UI_box
 {
 public:
 	Slider_dot(EntityManager * em, ResourcesManager * rm, Input * input, glm::vec2 resolution, glm::vec2 leftBottom, glm::vec2 size);
@@ -28,10 +29,11 @@ public:
 	void onUnClick(glm::vec2 mouse);
 	void onSelect(glm::vec2 mouse);
 	void onDeSelect(glm::vec2 mouse);
+	void onDrag(glm::vec2 mouse);
 
-	void notify();
+	void notify(int direction);
 
-	void Action(float x);
+	void Action(float value, float min, float max, float step);
 
 protected:
 	UI_box* mUI_box;
@@ -41,6 +43,7 @@ private:
 	glm::vec2 mResolution;
 	glm::vec2 mLeftBottom;
 	glm::vec2 mSize;
+	bool mIsDragged;
 
 	std::unordered_set<Observer_dot*> mObservers;
 };

@@ -188,6 +188,7 @@
     <ClCompile Include="Observer_dot.cpp" />
     <ClCompile Include="Observer_float.cpp" />
     <ClCompile Include="Observer_Input.cpp" />
+    <ClCompile Include="Observer_Slider.cpp" />
     <ClCompile Include="Observer_UI_box.cpp" />
     <ClCompile Include="Panel.cpp" />
     <ClCompile Include="PhysicComponent.cpp" />
@@ -242,6 +243,7 @@
     <ClInclude Include="Observer_dot.h" />
     <ClInclude Include="Observer_float.h" />
     <ClInclude Include="Observer_Input.h" />
+    <ClInclude Include="Observer_Slider.h" />
     <ClInclude Include="Observer_UI_box.h" />
     <ClInclude Include="Panel.h" />
     <ClInclude Include="PhysicComponent.h" />
