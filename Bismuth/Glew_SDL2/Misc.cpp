@@ -82,8 +82,8 @@ Entity* createPlane(ResourcesManager* rm) {
 		rm->loadTexture("Texture/wood_N.jpg", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),
 		rm->loadTexture("Texture/WHITE.png", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),
 	/*	rm->loadTexture("Texture/rock.png", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),
-		rm->loadTexture("Texture/rock_N.png", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),*/
-		//rm->loadTexture("Texture/rock.png", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),
+		rm->loadTexture("Texture/rock_N.png", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),
+		rm->loadTexture("Texture/rock.png", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),*/
 		rm->loadTexture("Texture/BLACK.png", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),
 		rm->loadTexture("Texture/GRAY60.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
 		rm->loadVao("Mesh/plane.obj"));

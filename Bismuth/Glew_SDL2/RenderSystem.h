@@ -46,8 +46,14 @@ private:
 	Config* mCfg;
 	Fbo mFboGeometry;
 	Fbo mFboAo;
-	Fbo mFboBloom1;
-	Fbo mFboBloom2;
+	Fbo mFboBloom_2_h;
+	Fbo mFboBloom_2_v;
+	Fbo mFboBloom_8_h;
+	Fbo mFboBloom_8_v;
+	Fbo mFboBloom_16_h;
+	Fbo mFboBloom_16_v;
+	Fbo mFboBloom_32_h;
+	Fbo mFboBloom_32_v;
 	Fbo mFboBlurH;
 	Fbo mFboBlurV;
 	Fbo mFboShading;

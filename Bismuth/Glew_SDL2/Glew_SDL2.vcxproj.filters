@@ -508,6 +508,15 @@
     <Image Include="Texture\GRAY200.png">
       <Filter>Resources\Texture</Filter>
     </Image>
+    <Image Include="Texture\mystic.png">
+      <Filter>Resources\Texture</Filter>
+    </Image>
+    <Image Include="Texture\mystic_d.png">
+      <Filter>Resources\Texture</Filter>
+    </Image>
+    <Image Include="Texture\mystic_e.png">
+      <Filter>Resources\Texture</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <None Include="config.ini">

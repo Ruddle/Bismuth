@@ -72,23 +72,75 @@ RenderSystem::RenderSystem(Config* cfg, ResourcesManager* rm) : mCfg(cfg), mRm(r
 	mCubemapSkybox = new Texture_Cube("Texture/Skybox/purple-nebula/n.png", texCfgSkybox);
 	mCubemapSkybox->load();
 
-
-	TextureCfg texCfgBloom1 = { GL_RGB16F, GL_LINEAR, GL_CLAMP_TO_EDGE };
-	Texture* texBloom1 = new Texture(cfg->ResolutionX / 2.0, cfg->ResolutionY /  2.0, texCfgBloom1);
-	texBloom1->load();
+	//BLOOM 
+	TextureCfg texCfgBloom_2_h = { GL_RGB16F, GL_LINEAR, GL_CLAMP_TO_EDGE };
+	Texture* texBloom_2_h = new Texture(cfg->ResolutionX / 2.0, cfg->ResolutionY /  2.0, texCfgBloom_2_h);
+	texBloom_2_h->load();
 	textureArray = vector<Texture*>();
-	textureArray.push_back(texBloom1);
-	mFboBloom1 = Fbo(textureArray, 0, 0);
-	mFboBloom1.load();
+	textureArray.push_back(texBloom_2_h);
+	mFboBloom_2_h = Fbo(textureArray, 0, 0);
+	mFboBloom_2_h.load();
 
-	TextureCfg texCfgBloom2 = { GL_RGB16F, GL_LINEAR, GL_CLAMP_TO_EDGE };
-	Texture* texBloom2 = new Texture(cfg->ResolutionX / 2.0, cfg->ResolutionY / 2.0, texCfgBloom2);
-	texBloom2->load();
+	TextureCfg texCfgBloom_2_v = { GL_RGB16F, GL_LINEAR, GL_CLAMP_TO_EDGE };
+	Texture* texBloom_2_v = new Texture(cfg->ResolutionX / 2.0, cfg->ResolutionY / 2.0, texCfgBloom_2_v);
+	texBloom_2_v->load();
 	textureArray = vector<Texture*>();
-	textureArray.push_back(texBloom2);
-	mFboBloom2 = Fbo(textureArray, 0, 0);
-	mFboBloom2.load();
+	textureArray.push_back(texBloom_2_v);
+	mFboBloom_2_v = Fbo(textureArray, 0, 0);
+	mFboBloom_2_v.load();
 
+	TextureCfg texCfgBloom_8_h = { GL_RGB16F, GL_LINEAR, GL_CLAMP_TO_EDGE };
+	Texture* texBloom_8_h = new Texture(cfg->ResolutionX / 8.0, cfg->ResolutionY / 8.0, texCfgBloom_8_h);
+	texBloom_8_h->load();
+	textureArray = vector<Texture*>();
+	textureArray.push_back(texBloom_8_h);
+	mFboBloom_8_h = Fbo(textureArray, 0, 0);
+	mFboBloom_8_h.load();
+
+	TextureCfg texCfgBloom_8_v = { GL_RGB16F, GL_LINEAR, GL_CLAMP_TO_EDGE };
+	Texture* texBloom_8_v = new Texture(cfg->ResolutionX / 8.0, cfg->ResolutionY / 8.0, texCfgBloom_8_v);
+	texBloom_8_v->load();
+	textureArray = vector<Texture*>();
+	textureArray.push_back(texBloom_8_v);
+	mFboBloom_8_v = Fbo(textureArray, 0, 0);
+	mFboBloom_8_v.load();
+
+	TextureCfg texCfgBloom_16_h = { GL_RGB16F, GL_LINEAR, GL_CLAMP_TO_EDGE };
+	Texture* texBloom_16_h = new Texture(cfg->ResolutionX / 16.0, cfg->ResolutionY / 16.0, texCfgBloom_16_h);
+	texBloom_16_h->load();
+	textureArray = vector<Texture*>();
+	textureArray.push_back(texBloom_16_h);
+	mFboBloom_16_h = Fbo(textureArray, 0, 0);
+	mFboBloom_16_h.load();
+
+	TextureCfg texCfgBloom_16_v = { GL_RGB16F, GL_LINEAR, GL_CLAMP_TO_EDGE };
+	Texture* texBloom_16_v = new Texture(cfg->ResolutionX / 16.0, cfg->ResolutionY / 16.0, texCfgBloom_16_v);
+	texBloom_16_v->load();
+	textureArray = vector<Texture*>();
+	textureArray.push_back(texBloom_16_v);
+	mFboBloom_16_v = Fbo(textureArray, 0, 0);
+	mFboBloom_16_v.load();
+
+	TextureCfg texCfgBloom_32_h = { GL_RGB16F, GL_LINEAR, GL_CLAMP_TO_EDGE };
+	Texture* texBloom_32_h = new Texture(cfg->ResolutionX / 32.0, cfg->ResolutionY / 32.0, texCfgBloom_32_h);
+	texBloom_32_h->load();
+	textureArray = vector<Texture*>();
+	textureArray.push_back(texBloom_32_h);
+	mFboBloom_32_h = Fbo(textureArray, 0, 0);
+	mFboBloom_32_h.load();
+
+	TextureCfg texCfgBloom_32_v = { GL_RGB16F, GL_LINEAR, GL_CLAMP_TO_EDGE };
+	Texture* texBloom_32_v = new Texture(cfg->ResolutionX / 32.0, cfg->ResolutionY / 32.0, texCfgBloom_32_v);
+	texBloom_32_v->load();
+	textureArray = vector<Texture*>();
+	textureArray.push_back(texBloom_32_v);
+	mFboBloom_32_v = Fbo(textureArray, 0, 0);
+	mFboBloom_32_v.load();
+
+
+
+
+	//AO BLUR or any 1 channel stuff
 	TextureCfg texCfgBlurH = { GL_R8, GL_LINEAR, GL_CLAMP_TO_EDGE };
 	Texture* texBlurH = new Texture(cfg->ResolutionX, cfg->ResolutionY, texCfgBlurH);
 	texBlurH->load();
@@ -345,8 +397,12 @@ void RenderSystem::doStepBlurAo()
 
 void RenderSystem::doStepBloom()
 {
+	int nombreDePasseBlurBloom = 4;
+	int nombreDePasseBlurBloom2 = 4;
+	int nombreDePasseBlurBloom16 = 4;
+	int nombreDePasseBlurBloom_32 = 4;
 	vec2 resolution_2 = vec2(mCfg->ResolutionX / 2.0f, mCfg->ResolutionY / 2.0f);
-	glBindFramebuffer(GL_FRAMEBUFFER, mFboBloom1.getId());
+	glBindFramebuffer(GL_FRAMEBUFFER, mFboBloom_2_h.getId());
 	glViewport(0, 0, mCfg->ResolutionX / 2.0, mCfg->ResolutionY / 2.0);
 	glDrawBuffers(1, mAttach);
 	glClear(GL_COLOR_BUFFER_BIT);
@@ -361,12 +417,12 @@ void RenderSystem::doStepBloom()
 		value_ptr(resolution_2));
 	mSupportFbo.draw();
 
-	glBindFramebuffer(GL_FRAMEBUFFER, mFboBloom2.getId());
+	glBindFramebuffer(GL_FRAMEBUFFER, mFboBloom_2_v.getId());
 	glDrawBuffers(1, mAttach);
 	glClear(GL_COLOR_BUFFER_BIT);
 	glUseProgram(mShaderBlur.getProgramID());
 	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, mFboBloom1.getColorBufferId(0));
+	glBindTexture(GL_TEXTURE_2D, mFboBloom_2_h.getColorBufferId(0));
 	glUniform1i(mShaderBlur.getLocation( "image"), 0);
 
 	glUniform1i(mShaderBlur.getLocation( "h"), 0);
@@ -375,16 +431,16 @@ void RenderSystem::doStepBloom()
 		value_ptr(resolution_2));
 	mSupportFbo.draw();
 
-	int nombreDePasseBlurBloom = 5;
+	
 	for (int i = 1; i < nombreDePasseBlurBloom; i++) {
 		float size = 0 * float(i) / nombreDePasseBlurBloom;
 
-		glBindFramebuffer(GL_FRAMEBUFFER, mFboBloom1.getId());
+		glBindFramebuffer(GL_FRAMEBUFFER, mFboBloom_2_h.getId());
 		glDrawBuffers(1, mAttach);
 		glClear(GL_COLOR_BUFFER_BIT);
 		glUseProgram(mShaderBlur.getProgramID());
 		glActiveTexture(GL_TEXTURE0);
-		glBindTexture(GL_TEXTURE_2D, mFboBloom2.getColorBufferId(0));
+		glBindTexture(GL_TEXTURE_2D, mFboBloom_2_v.getColorBufferId(0));
 		glUniform1i(mShaderBlur.getLocation( "image"), 0);
 
 		glUniform1i(mShaderBlur.getLocation( "h"), 1);
@@ -394,12 +450,12 @@ void RenderSystem::doStepBloom()
 		mSupportFbo.draw();
 
 
-		glBindFramebuffer(GL_FRAMEBUFFER, mFboBloom2.getId());
+		glBindFramebuffer(GL_FRAMEBUFFER, mFboBloom_2_v.getId());
 		glDrawBuffers(1, mAttach);
 		glClear(GL_COLOR_BUFFER_BIT);
 		glUseProgram(mShaderBlur.getProgramID());
 		glActiveTexture(GL_TEXTURE0);
-		glBindTexture(GL_TEXTURE_2D, mFboBloom1.getColorBufferId(0));
+		glBindTexture(GL_TEXTURE_2D, mFboBloom_2_h.getColorBufferId(0));
 		glUniform1i(mShaderBlur.getLocation( "image"), 0);
 
 		glUniform1i(mShaderBlur.getLocation( "h"), 0);
@@ -408,6 +464,218 @@ void RenderSystem::doStepBloom()
 			value_ptr(resolution_2));
 		mSupportFbo.draw();
 	}
+
+
+
+
+	// HUITEME DE RESOLUTION
+
+	vec2 resolution_8 = vec2(mCfg->ResolutionX / 8.0f, mCfg->ResolutionY / 8.0f);
+	glBindFramebuffer(GL_FRAMEBUFFER, mFboBloom_8_h.getId());
+	glViewport(0, 0, mCfg->ResolutionX / 8.0, mCfg->ResolutionY / 8.0);
+	glDrawBuffers(1, mAttach);
+	glClear(GL_COLOR_BUFFER_BIT);
+	glUseProgram(mShaderBlur.getProgramID());
+	glActiveTexture(GL_TEXTURE0);
+	//glBindTexture(GL_TEXTURE_2D, mFboShading.getColorBufferId(1));
+	glBindTexture(GL_TEXTURE_2D, mFboBloom_2_v.getColorBufferId(0));
+	glUniform1i(mShaderBlur.getLocation("image"), 0);
+
+	glUniform1i(mShaderBlur.getLocation("h"), 1);
+	glUniform1f(mShaderBlur.getLocation("size"), 0);
+	glUniform2fv(mShaderBlur.getLocation("resolution"), 1,
+		value_ptr(resolution_8));
+	mSupportFbo.draw();
+
+	glBindFramebuffer(GL_FRAMEBUFFER, mFboBloom_8_v.getId());
+	glDrawBuffers(1, mAttach);
+	glClear(GL_COLOR_BUFFER_BIT);
+	glUseProgram(mShaderBlur.getProgramID());
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, mFboBloom_8_h.getColorBufferId(0));
+	glUniform1i(mShaderBlur.getLocation("image"), 0);
+
+	glUniform1i(mShaderBlur.getLocation("h"), 0);
+	glUniform1f(mShaderBlur.getLocation("size"), 0);
+	glUniform2fv(mShaderBlur.getLocation("resolution"), 1,
+		value_ptr(resolution_8));
+	mSupportFbo.draw();
+
+
+	for (int i = 1; i < nombreDePasseBlurBloom2; i++) {
+		float size = 0 * float(i) / nombreDePasseBlurBloom2;
+
+		glBindFramebuffer(GL_FRAMEBUFFER, mFboBloom_8_h.getId());
+		glDrawBuffers(1, mAttach);
+		glClear(GL_COLOR_BUFFER_BIT);
+		glUseProgram(mShaderBlur.getProgramID());
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, mFboBloom_8_v.getColorBufferId(0));
+		glUniform1i(mShaderBlur.getLocation("image"), 0);
+
+		glUniform1i(mShaderBlur.getLocation("h"), 1);
+		glUniform1f(mShaderBlur.getLocation("size"), size);
+		glUniform2fv(mShaderBlur.getLocation("resolution"), 1,
+			value_ptr(resolution_8));
+		mSupportFbo.draw();
+
+
+		glBindFramebuffer(GL_FRAMEBUFFER, mFboBloom_8_v.getId());
+		glDrawBuffers(1, mAttach);
+		glClear(GL_COLOR_BUFFER_BIT);
+		glUseProgram(mShaderBlur.getProgramID());
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, mFboBloom_8_h.getColorBufferId(0));
+		glUniform1i(mShaderBlur.getLocation("image"), 0);
+
+		glUniform1i(mShaderBlur.getLocation("h"), 0);
+		glUniform1f(mShaderBlur.getLocation("size"), size);
+		glUniform2fv(mShaderBlur.getLocation("resolution"), 1,
+			value_ptr(resolution_8));
+		mSupportFbo.draw();
+	}
+
+
+	// 16 DE RESOLUTION
+
+	vec2 resolution_16 = vec2(mCfg->ResolutionX / 16.0f, mCfg->ResolutionY / 16.0f);
+	glBindFramebuffer(GL_FRAMEBUFFER, mFboBloom_16_h.getId());
+	glViewport(0, 0, mCfg->ResolutionX / 16.0, mCfg->ResolutionY / 16.0);
+	glDrawBuffers(1, mAttach);
+	glClear(GL_COLOR_BUFFER_BIT);
+	glUseProgram(mShaderBlur.getProgramID());
+	glActiveTexture(GL_TEXTURE0);
+	//glBindTexture(GL_TEXTURE_2D, mFboShading.getColorBufferId(1));
+	glBindTexture(GL_TEXTURE_2D, mFboBloom_8_v.getColorBufferId(0));
+	glUniform1i(mShaderBlur.getLocation("image"), 0);
+
+	glUniform1i(mShaderBlur.getLocation("h"), 1);
+	glUniform1f(mShaderBlur.getLocation("size"), 0);
+	glUniform2fv(mShaderBlur.getLocation("resolution"), 1,
+		value_ptr(resolution_16));
+	mSupportFbo.draw();
+
+	glBindFramebuffer(GL_FRAMEBUFFER, mFboBloom_16_v.getId());
+	glDrawBuffers(1, mAttach);
+	glClear(GL_COLOR_BUFFER_BIT);
+	glUseProgram(mShaderBlur.getProgramID());
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, mFboBloom_16_h.getColorBufferId(0));
+	glUniform1i(mShaderBlur.getLocation("image"), 0);
+
+	glUniform1i(mShaderBlur.getLocation("h"), 0);
+	glUniform1f(mShaderBlur.getLocation("size"), 0);
+	glUniform2fv(mShaderBlur.getLocation("resolution"), 1,
+		value_ptr(resolution_16));
+	mSupportFbo.draw();
+
+	
+	for (int i = 1; i < nombreDePasseBlurBloom16; i++) {
+		float size = 0 * float(i) / nombreDePasseBlurBloom16;
+
+		glBindFramebuffer(GL_FRAMEBUFFER, mFboBloom_16_h.getId());
+		glDrawBuffers(1, mAttach);
+		glClear(GL_COLOR_BUFFER_BIT);
+		glUseProgram(mShaderBlur.getProgramID());
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, mFboBloom_16_v.getColorBufferId(0));
+		glUniform1i(mShaderBlur.getLocation("image"), 0);
+
+		glUniform1i(mShaderBlur.getLocation("h"), 1);
+		glUniform1f(mShaderBlur.getLocation("size"), size);
+		glUniform2fv(mShaderBlur.getLocation("resolution"), 1,
+			value_ptr(resolution_16));
+		mSupportFbo.draw();
+
+
+		glBindFramebuffer(GL_FRAMEBUFFER, mFboBloom_16_v.getId());
+		glDrawBuffers(1, mAttach);
+		glClear(GL_COLOR_BUFFER_BIT);
+		glUseProgram(mShaderBlur.getProgramID());
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, mFboBloom_16_h.getColorBufferId(0));
+		glUniform1i(mShaderBlur.getLocation("image"), 0);
+
+		glUniform1i(mShaderBlur.getLocation("h"), 0);
+		glUniform1f(mShaderBlur.getLocation("size"), size);
+		glUniform2fv(mShaderBlur.getLocation("resolution"), 1,
+			value_ptr(resolution_16));
+		mSupportFbo.draw();
+	}
+
+	// 32 DE RESOLUTION
+
+	vec2 resolution_32 = vec2(mCfg->ResolutionX / 32.0f, mCfg->ResolutionY / 32.0f);
+	glBindFramebuffer(GL_FRAMEBUFFER, mFboBloom_32_h.getId());
+	glViewport(0, 0, mCfg->ResolutionX / 32.0, mCfg->ResolutionY / 32.0);
+	glDrawBuffers(1, mAttach);
+	glClear(GL_COLOR_BUFFER_BIT);
+	glUseProgram(mShaderBlur.getProgramID());
+	glActiveTexture(GL_TEXTURE0);
+	//glBindTexture(GL_TEXTURE_2D, mFboShading.getColorBufferId(1));
+	glBindTexture(GL_TEXTURE_2D, mFboBloom_16_v.getColorBufferId(0));
+	glUniform1i(mShaderBlur.getLocation("image"), 0);
+
+	glUniform1i(mShaderBlur.getLocation("h"), 1);
+	glUniform1f(mShaderBlur.getLocation("size"), 0);
+	glUniform2fv(mShaderBlur.getLocation("resolution"), 1,
+		value_ptr(resolution_32));
+	mSupportFbo.draw();
+
+	glBindFramebuffer(GL_FRAMEBUFFER, mFboBloom_32_v.getId());
+	glDrawBuffers(1, mAttach);
+	glClear(GL_COLOR_BUFFER_BIT);
+	glUseProgram(mShaderBlur.getProgramID());
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, mFboBloom_32_h.getColorBufferId(0));
+	glUniform1i(mShaderBlur.getLocation("image"), 0);
+
+	glUniform1i(mShaderBlur.getLocation("h"), 0);
+	glUniform1f(mShaderBlur.getLocation("size"), 0);
+	glUniform2fv(mShaderBlur.getLocation("resolution"), 1,
+		value_ptr(resolution_32));
+	mSupportFbo.draw();
+
+
+	for (int i = 1; i < nombreDePasseBlurBloom_32; i++) {
+		float size = 0 * float(i) / nombreDePasseBlurBloom_32;
+
+		glBindFramebuffer(GL_FRAMEBUFFER, mFboBloom_32_h.getId());
+		glDrawBuffers(1, mAttach);
+		glClear(GL_COLOR_BUFFER_BIT);
+		glUseProgram(mShaderBlur.getProgramID());
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, mFboBloom_32_v.getColorBufferId(0));
+		glUniform1i(mShaderBlur.getLocation("image"), 0);
+
+		glUniform1i(mShaderBlur.getLocation("h"), 1);
+		glUniform1f(mShaderBlur.getLocation("size"), size);
+		glUniform2fv(mShaderBlur.getLocation("resolution"), 1,
+			value_ptr(resolution_32));
+		mSupportFbo.draw();
+
+
+		glBindFramebuffer(GL_FRAMEBUFFER, mFboBloom_32_v.getId());
+		glDrawBuffers(1, mAttach);
+		glClear(GL_COLOR_BUFFER_BIT);
+		glUseProgram(mShaderBlur.getProgramID());
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, mFboBloom_32_h.getColorBufferId(0));
+		glUniform1i(mShaderBlur.getLocation("image"), 0);
+
+		glUniform1i(mShaderBlur.getLocation("h"), 0);
+		glUniform1f(mShaderBlur.getLocation("size"), size);
+		glUniform2fv(mShaderBlur.getLocation("resolution"), 1,
+			value_ptr(resolution_32));
+		mSupportFbo.draw();
+	}
+
+
+
+
+
+
+
 	glViewport(0, 0, mCfg->ResolutionX, mCfg->ResolutionY);
 
 }
@@ -465,8 +733,17 @@ void RenderSystem::doStepToneMapping()
 	glBindTexture(GL_TEXTURE_2D, mFboShading.getColorBufferId(0));
 	glUniform1i(mShaderTone.getLocation("imageSampler"),0);
 	glActiveTexture(GL_TEXTURE1);
-	glBindTexture(GL_TEXTURE_2D, mFboBloom2.getColorBufferId(0));
-	glUniform1i(mShaderTone.getLocation("bloomSampler"), 1);
+	glBindTexture(GL_TEXTURE_2D, mFboBloom_2_v.getColorBufferId(0));
+	glUniform1i(mShaderTone.getLocation("bloomSampler1"), 1);
+	glActiveTexture(GL_TEXTURE2);
+	glBindTexture(GL_TEXTURE_2D, mFboBloom_8_v.getColorBufferId(0));
+	glUniform1i(mShaderTone.getLocation("bloomSampler2"), 2);
+	glActiveTexture(GL_TEXTURE3);
+	glBindTexture(GL_TEXTURE_2D, mFboBloom_16_v.getColorBufferId(0));
+	glUniform1i(mShaderTone.getLocation("bloomSampler3"), 3);
+	glActiveTexture(GL_TEXTURE4);
+	glBindTexture(GL_TEXTURE_2D, mFboBloom_32_v.getColorBufferId(0));
+	glUniform1i(mShaderTone.getLocation("bloomSampler4"), 4);
 	mSupportFbo.draw();
 }
 

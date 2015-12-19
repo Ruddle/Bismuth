@@ -341,6 +341,9 @@
     <Image Include="Texture\GRAY123.png" />
     <Image Include="Texture\GRAY200.png" />
     <Image Include="Texture\GRAY60.png" />
+    <Image Include="Texture\mystic.png" />
+    <Image Include="Texture\mystic_d.png" />
+    <Image Include="Texture\mystic_e.png" />
     <Image Include="Texture\RED.png" />
     <Image Include="Texture\rock.png" />
     <Image Include="Texture\rock_N.png" />

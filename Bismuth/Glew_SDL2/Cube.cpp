@@ -6,10 +6,10 @@ using namespace glm;
 Cube::Cube(EntityManager* em, ResourcesManager* rm, glm::vec3 position, glm::vec3 speed)
 {
 	GraphicComponent* gc1 = new GraphicComponent(
-		rm->loadTexture("Texture/circleColor2.png", GL_RGB8, GL_LINEAR, GL_REPEAT),
+		rm->loadTexture("Texture/mystic_d.png", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),
 		rm->loadTexture("Texture/BLUE.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
 		rm->loadTexture("Texture/checker2C.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
-		rm->loadTexture("Texture/circle.png", GL_RGB8, GL_LINEAR, GL_REPEAT),
+		rm->loadTexture("Texture/mystic_e.png", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),
 		/*	rm->loadTexture("Texture/rock.png", GL_RGB8, GL_LINEAR, GL_REPEAT),
 		rm->loadTexture("Texture/rock_n.png", GL_RGB8, GL_LINEAR, GL_REPEAT),
 		rm->loadTexture("Texture/rock.png", GL_RGB8, GL_LINEAR, GL_REPEAT),

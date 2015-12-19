@@ -195,8 +195,8 @@ if(keyF3) lighting = vec3(ao);
 
 if(keyF7) lighting = vec3(emit);
 
-outColor = lighting + emit*5 * (diffuse + vec3(0.0));
-
+outColor = lighting  ;// emit*vec3(10);
+vec3 outColor_emit = lighting + emit*5 * (diffuse + vec3(0.0));
 
 
 vec3 position_ViewSpace_far ;
@@ -207,21 +207,17 @@ vec3 position_ViewSpace_far ;
 if(length(position_ViewSpace) == 0)
 	outColor = texture(skyboxSampler, (vi*position_ViewSpace_far)  ).xyz;
 
+float brightness = dot(outColor_emit, vec3(0.2126, 0.7152, 0.0722));
 
-
-float brightness = dot(outColor, vec3(0.2126, 0.7152, 0.0722));
-
-outBloom = (brightness >1) ? outColor:vec3(0) ;
-
-outColor =  (brightness >0) ? outColor:vec3(0);
-
+outBloom = (brightness >1) ? outColor_emit:vec3(0) ;
+outColor =  max(vec3(0),outColor);
 
 if(keyF8) {
-outColor = outBloom;
+outColor = outBloom*0;
 }
 if(keyF9) outColor = vec3(specFactor);
 
-if(keyF1 || keyF2|| keyF3|| keyF6|| keyF7|| keyF8 ||keyF9 ||keyF10)
+if(keyF1 || keyF2|| keyF3|| keyF6|| keyF7 ||keyF9 ||keyF10)
 outBloom = vec3(0);
 
 if(keyF10) outColor = vec3(pow(texture(shadowSampler,UV).x,1)/50.0);
