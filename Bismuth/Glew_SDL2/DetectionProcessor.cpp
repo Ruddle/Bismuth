@@ -196,6 +196,9 @@ Contact * DetectionProcessor::cubeToSphere(CubeDetectionComponent * cube, Sphere
 		vec3 p_WorldSpace = (pointMaxDepth_WorldSpace + closestPoint_WorldSpace) / 2.0f;
 		vec3 n_WorldSpace = closestPoint_WorldSpace - pointMaxDepth_WorldSpace;
 
+		if (length2(n_WorldSpace) == 0.0)
+			return nullptr;
+
 		result = new Contact();
 		result->normal = n_WorldSpace;
 		result->position = p_WorldSpace;
@@ -251,8 +254,14 @@ Contact * DetectionProcessor::cubeToPlane(CubeDetectionComponent * cube, PlaneDe
 
 	if (count > 0)
 	{
+		vec3 normal = normalsSum / float(count);
+
+		if (length2(normal) == 0.0)
+			return nullptr;
+
 		Contact *contact = new Contact;
-		contact->normal = normalsSum/float(count);
+		contact->normal = normal;
+
 		contact->position = positionsSum/float(count);
 		contact->who = nullptr;
 
@@ -293,22 +302,24 @@ Contact * DetectionProcessor::planeToSphere(PlaneDetectionComponent * plane, Sph
 	float radius = sqrt(sphere->getRadius2());
 	if (posSphere_PlaneSpace.z - radius < 0) 
 	{
-		result = new Contact();
-		
 		vec3 H_PlaneSpace = vec3(vec2(posSphere_PlaneSpace), 0);
 		vec3 H_WorldSpace = vec3(toWorldSpace* vec4(H_PlaneSpace, 1));
-
-
 		vec3 toMaxDepth = -radius*vec3(toWorldSpace*vec4(0, 0, 1, 1));
 		vec3 maxDepth = pos2 + toMaxDepth;
+
+		vec3 normal = H_WorldSpace - maxDepth;
+
+		if (length2(normal) == 0.0)
+			return nullptr;
+
+		result = new Contact();
+
 
 
 
 		result->position = (H_WorldSpace + maxDepth)/2.0f;
-		result->normal = H_WorldSpace - maxDepth;
-		result->normal = result->normal;
+		result->normal = normal;
 	}
-
 
 	return result;
 }
@@ -369,12 +380,15 @@ Contact * DetectionProcessor::sphereToSphere(SphereDetectionComponent * sphere, 
 	if (r1 + r2 <= length(pos1 - pos2))
 		return nullptr;
 
+	vec3 normal = normalize(pos2 - pos1)*((r2 + r1) - length(pos2 - pos1));
+
+	if (length2(normal) == 0.0)
+		return nullptr;
+
 	Contact* result = new Contact;
 
-
-
 	result->position = (r2*pos1 + r1*pos2) / (r1 + r2);
-	result->normal = normalize(pos2 - pos1)*((r2 + r1) - length(pos2 - pos1));
+	result->normal = normal;
 
 	return result;
 }

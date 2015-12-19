@@ -27,8 +27,8 @@ void Texture_Cube::load()
 		string sub = mPath.substr(0, mPath.size() - 4);
 		SDL_Surface *imageSDL = IMG_Load((sub + (char)(i + '0') + mPath.substr(mPath.size()-4, mPath.size())   ).c_str());
 
-		if (imageSDL == 0)
-			std::cout << "Erreur : " << SDL_GetError() << std::endl;
+		//if (imageSDL == 0)
+			//std::cout << "Erreur : " << SDL_GetError() << std::endl;
 
 
 		// Inversion de l'image
@@ -74,7 +74,7 @@ void Texture_Cube::load()
 
 		else
 		{
-			std::cout << "Erreur, format interne de l'image inconnu" << std::endl;
+			//std::cout << "Erreur, format interne de l'image inconnu" << std::endl;
 			SDL_FreeSurface(invertedSDL);
 		}
 

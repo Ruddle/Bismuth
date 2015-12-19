@@ -89,10 +89,13 @@ int main(int argc, char **argv)
 
 		currentLoop.insertInLoop(listUpdate); // CODE MOTEUR MINIMAL
 		cam.update(*core.input, currentLoop.getElapsedTime());
-		if (core.input->getKey(SDL_SCANCODE_K))
+		if (core.input->getRisingKey(SDL_SCANCODE_K))
+			//listUpdate.push_back(new Ball(core.entityManager, core.resourcesManager, vec3(0, 0, 5), vec3(0, 0, 0)));
 			listUpdate.push_back(new Ball(core.entityManager, core.resourcesManager, core.camera->getPosition(), core.input->getKey(SDL_SCANCODE_I)*10.51f*normalize(core.camera->getRotation())));
 		if (core.input->getRisingKey(SDL_SCANCODE_L))
 			listUpdate.push_back(new Cube(core.entityManager, core.resourcesManager, core.camera->getPosition(), 0.00951f*core.camera->getRotation()));
+			//listUpdate.push_back(new Cube(core.entityManager, core.resourcesManager, vec3(0, 0, 0), vec3(0, 0, 0)));
+
 		if (core.input->getRisingKey(SDL_SCANCODE_R))
 		{
 			for (auto it = listUpdate.begin(); it != listUpdate.end(); it++)
