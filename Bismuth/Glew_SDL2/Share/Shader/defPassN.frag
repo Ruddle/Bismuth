@@ -9,6 +9,7 @@ uniform sampler2D gDiffuse;
 uniform sampler2D gPosition;
 uniform sampler2D aoSampler;
 uniform sampler2D shadowSampler;
+uniform samplerCube skyboxSampler;
 uniform mat4 view;
 uniform mat4 invView;
 uniform mat4 viewLight;
@@ -108,8 +109,28 @@ normal = decodeNormal(normal.xy);
 
   //  normal.z= sqrt(1.0 - normal.x*normal.x - normal.y*normal.y); 
 
+vec3 YC_Reflection = texture(gDiffuse, UV).xyz;
+float Y = YC_Reflection.x;
+float Cb = YC_Reflection.y;
+float Cr = texture(gDiffuse, (gl_FragCoord.xy + vec2(1,0) )/resolution).y;
 
-vec3 diffuse = texture(gDiffuse, UV).xyz;
+if (mod(gl_FragCoord.x ,2.0)>=1.0) 
+{
+	float temp = Cb;
+	Cb = Cr;
+	Cr = temp;
+}
+
+
+vec3 diffuse = vec3( 
+Y					 + 1.402*(Cr - 0.5),
+Y - 0.344*(Cb - 0.5) - 0.714*(Cr - 0.5),
+Y + 1.772*(Cb - 0.5)
+);
+
+//diffuse = vec3(YCb,Cr);
+
+
 float ao = texture(aoSampler,UV).x;
 
 if(AO!=1) 
@@ -154,6 +175,9 @@ for(int k=0;k<2;k++){
 	lighting += 0.03*diffuse+    (1-shadows*0.5)*(attenuation) * (alpha)*diffuse*lights[k].intensity*(1+1*specFactor*Cook_Torrance(-i,normalize(-position_ViewSpace),normal,0.25,0.8));
 }
 
+mat3 vi = mat3(inverse(transpose(invView)));
+lighting = lighting*(1-YC_Reflection.z) + YC_Reflection.z*texture(skyboxSampler, vi*reflect(position_ViewSpace,normal)  ).xyz;
+
 if(!keyF4) lighting=lighting*(ao*2-1);
 
 
@@ -163,6 +187,18 @@ if(keyF3) lighting = vec3(ao);
 if(keyF7) lighting = vec3(emit);
 
 outColor = lighting + emit*5 * (diffuse + vec3(0.0));
+
+
+
+vec3 position_ViewSpace_far ;
+	position_ViewSpace_far.z = -far ;
+	position_ViewSpace_far.x = -(UV.x*2-1)*position_ViewSpace_far.z*(aspect) *tanHalfFov ;
+	position_ViewSpace_far.y = -(UV.y*2-1)*position_ViewSpace_far.z *tanHalfFov ;
+
+if(length(position_ViewSpace) == 0)
+	outColor = texture(skyboxSampler, (vi*position_ViewSpace_far)  ).xyz;
+
+
 
 float brightness = dot(outColor, vec3(0.2126, 0.7152, 0.0722));
 

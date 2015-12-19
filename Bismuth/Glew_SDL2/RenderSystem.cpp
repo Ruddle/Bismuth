@@ -530,6 +530,8 @@ void RenderSystem::doStepShading(Camera const& cam, Camera const &camLight,Input
 	glUniform1i(mShaderDeferredFinal.getLocation("keyF8"), input.getKey(SDL_SCANCODE_F8));
 	glUniform1i(mShaderDeferredFinal.getLocation("keyF9"), input.getKey(SDL_SCANCODE_F9));
 	glUniform1i(mShaderDeferredFinal.getLocation("keyF10"), input.getKey(SDL_SCANCODE_F10));
+	glUniform1i(mShaderDeferredFinal.getLocation("CookTorrance"), mCfg->CookTorrance);
+	glUniform1i(mShaderDeferredFinal.getLocation("Reflection"), mCfg->Reflection);
 	glUniform1i(mShaderDeferredFinal.getLocation("AO"), mCfg->AO);
 	glUniform2fv(mShaderDeferredFinal.getLocation("resolution"), 1, value_ptr(resolution));
 	mSupportFbo.draw();

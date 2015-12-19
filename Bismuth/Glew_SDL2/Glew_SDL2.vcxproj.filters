@@ -186,6 +186,9 @@
     <ClCompile Include="Observer_UI_box.cpp">
       <Filter>Bis 4\MayBis\Observer</Filter>
     </ClCompile>
+    <ClCompile Include="ButtonController_int.cpp">
+      <Filter>Bis 4</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h">
@@ -346,6 +349,9 @@
     </ClInclude>
     <ClInclude Include="Observer_UI_box.h">
       <Filter>Bis 4\MayBis\Observer</Filter>
+    </ClInclude>
+    <ClInclude Include="ButtonController_int.h">
+      <Filter>Bis 4</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

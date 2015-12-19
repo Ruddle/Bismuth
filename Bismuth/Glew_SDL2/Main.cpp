@@ -29,7 +29,7 @@
 #include "AO_button.h"
 #include "Slider.h"
 #include "Test_Slider.h"
-
+#include "ButtonController_int.h"
 
 FILE _iob[] = { *stdin, *stdout, *stderr };
 extern "C" FILE * __cdecl __iob_func(void)
@@ -67,6 +67,11 @@ int main(int argc, char **argv)
 
 	Button button2 = Button(core.entityManager, core.resourcesManager, core.input, vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), vec2(10, 260), vec2(120, 50));
 	Text label2 =  Text(core.entityManager, core.resourcesManager, font, "Shading", vec2(10, 260), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
+	ButtonController_int b2c(&button2, &(core.cfg->CookTorrance));
+
+	Button buttonR = Button(core.entityManager, core.resourcesManager, core.input, vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), vec2(10, 320), vec2(120, 50));
+	Text labelR = Text(core.entityManager, core.resourcesManager, font, "Reflect", vec2(10, 320), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
+	ButtonController_int bcR(&buttonR, &(core.cfg->Reflection));
 
 
 

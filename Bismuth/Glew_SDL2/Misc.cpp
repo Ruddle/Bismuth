@@ -45,6 +45,12 @@ Config* readConfig(void) {
 
 		if (word1 == "AO")
 			cfg->AO = stoi(word2);
+
+		if (word1 == "CookTorrance")
+			cfg->CookTorrance = stoi(word2);
+
+		if (word1 == "Reflection")
+			cfg->Reflection = stoi(word2);
 		
 
 	}

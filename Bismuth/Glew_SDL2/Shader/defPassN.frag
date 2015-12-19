@@ -30,6 +30,8 @@ uniform bool keyF7;
 uniform bool keyF8;
 uniform bool keyF9;
 uniform bool keyF10;
+uniform bool CookTorrance;
+uniform bool Reflection;
 uniform int AO;
 
 
@@ -175,8 +177,15 @@ for(int k=0;k<2;k++){
 	lighting += 0.03*diffuse+    (1-shadows*0.5)*(attenuation) * (alpha)*diffuse*lights[k].intensity*(1+1*specFactor*Cook_Torrance(-i,normalize(-position_ViewSpace),normal,0.25,0.8));
 }
 
+if(!CookTorrance)
+lighting = diffuse;
+
 mat3 vi = mat3(inverse(transpose(invView)));
+
+if(Reflection)
+{
 lighting = lighting*(1-YC_Reflection.z) + YC_Reflection.z*texture(skyboxSampler, vi*reflect(position_ViewSpace,normal)  ).xyz;
+}
 
 if(!keyF4) lighting=lighting*(ao*2-1);
 

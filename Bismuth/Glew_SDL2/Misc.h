@@ -32,6 +32,8 @@ struct Config
 	int ResolutionY;
 	int AO;
 	int HalfAO;
+	int CookTorrance;
+	int Reflection;
 };
 
 class ResourcesManager;
