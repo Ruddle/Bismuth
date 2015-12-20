@@ -192,6 +192,7 @@
     <ClCompile Include="Observer_Input.cpp" />
     <ClCompile Include="Observer_Slider.cpp" />
     <ClCompile Include="Observer_UI_box.cpp" />
+    <ClCompile Include="Pane.cpp" />
     <ClCompile Include="Panel.cpp" />
     <ClCompile Include="PhysicComponent.cpp" />
     <ClCompile Include="PhysicComponent2D.cpp" />
@@ -212,7 +213,12 @@
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Texture_Abs.cpp" />
     <ClCompile Include="Texture_Cube.cpp" />
+    <ClCompile Include="UI_Assembler.cpp" />
     <ClCompile Include="UI_box.cpp" />
+    <ClCompile Include="UI_Element.cpp" />
+    <ClCompile Include="UI_Layout.cpp" />
+    <ClCompile Include="UI_Layout_Absolute.cpp" />
+    <ClCompile Include="UI_Layout_Grid.cpp" />
     <ClCompile Include="Updatable.cpp" />
     <ClCompile Include="UserCamera.cpp" />
     <ClCompile Include="Vao.cpp" />
@@ -248,6 +254,7 @@
     <ClInclude Include="Observer_Input.h" />
     <ClInclude Include="Observer_Slider.h" />
     <ClInclude Include="Observer_UI_box.h" />
+    <ClInclude Include="Pane.h" />
     <ClInclude Include="Panel.h" />
     <ClInclude Include="PhysicComponent.h" />
     <ClInclude Include="PhysicComponent2D.h" />
@@ -270,7 +277,12 @@
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Texture_Abs.h" />
     <ClInclude Include="Texture_Cube.h" />
+    <ClInclude Include="UI_Assembler.h" />
     <ClInclude Include="UI_box.h" />
+    <ClInclude Include="UI_Element.h" />
+    <ClInclude Include="UI_Layout.h" />
+    <ClInclude Include="UI_Layout_Absolute.h" />
+    <ClInclude Include="UI_Layout_Grid.h" />
     <ClInclude Include="Updatable.h" />
     <ClInclude Include="UserCamera.h" />
     <ClInclude Include="Vao.h" />

@@ -189,6 +189,24 @@
     <ClCompile Include="ButtonController_int.cpp">
       <Filter>Bis 4</Filter>
     </ClCompile>
+    <ClCompile Include="UI_Assembler.cpp">
+      <Filter>Bis 4\MayBis</Filter>
+    </ClCompile>
+    <ClCompile Include="Pane.cpp">
+      <Filter>Bis 4\MayBis\Test</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Element.cpp">
+      <Filter>Bis 4\MayBis\Test</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Layout_Grid.cpp">
+      <Filter>Bis 4\MayBis\Test</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Layout_Absolute.cpp">
+      <Filter>Bis 4\MayBis\Test</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Layout.cpp">
+      <Filter>Bis 4\MayBis\Test</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h">
@@ -352,6 +370,24 @@
     </ClInclude>
     <ClInclude Include="ButtonController_int.h">
       <Filter>Bis 4</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Assembler.h">
+      <Filter>Bis 4\MayBis</Filter>
+    </ClInclude>
+    <ClInclude Include="Pane.h">
+      <Filter>Bis 4\MayBis\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Element.h">
+      <Filter>Bis 4\MayBis\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Layout_Absolute.h">
+      <Filter>Bis 4\MayBis\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Layout.h">
+      <Filter>Bis 4\MayBis\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Layout_Grid.h">
+      <Filter>Bis 4\MayBis\Test</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -635,6 +671,9 @@
     </Filter>
     <Filter Include="Bis 4\MayBis\Observer">
       <UniqueIdentifier>{f783657c-699f-4066-968d-48db5387f03b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bis 4\MayBis\Test">
+      <UniqueIdentifier>{6917ba09-551b-43d7-8709-988b489e5f74}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
