@@ -398,9 +398,9 @@ void RenderSystem::doStepBlurAo()
 void RenderSystem::doStepBloom()
 {
 	int nombreDePasseBlurBloom = 4;
-	int nombreDePasseBlurBloom2 = 4;
+	int nombreDePasseBlurBloom8 = 4;
 	int nombreDePasseBlurBloom16 = 4;
-	int nombreDePasseBlurBloom_32 = 4;
+	int nombreDePasseBlurBloom32 = 4;
 	vec2 resolution_2 = vec2(mCfg->ResolutionX / 2.0f, mCfg->ResolutionY / 2.0f);
 	glBindFramebuffer(GL_FRAMEBUFFER, mFboBloom_2_h.getId());
 	glViewport(0, 0, mCfg->ResolutionX / 2.0, mCfg->ResolutionY / 2.0);
@@ -502,8 +502,8 @@ void RenderSystem::doStepBloom()
 	mSupportFbo.draw();
 
 
-	for (int i = 1; i < nombreDePasseBlurBloom2; i++) {
-		float size = 0 * float(i) / nombreDePasseBlurBloom2;
+	for (int i = 1; i < nombreDePasseBlurBloom8; i++) {
+		float size = 0 * float(i) / nombreDePasseBlurBloom8;
 
 		glBindFramebuffer(GL_FRAMEBUFFER, mFboBloom_8_h.getId());
 		glDrawBuffers(1, mAttach);
@@ -637,8 +637,8 @@ void RenderSystem::doStepBloom()
 	mSupportFbo.draw();
 
 
-	for (int i = 1; i < nombreDePasseBlurBloom_32; i++) {
-		float size = 0 * float(i) / nombreDePasseBlurBloom_32;
+	for (int i = 1; i < nombreDePasseBlurBloom32; i++) {
+		float size = 0 * float(i) / nombreDePasseBlurBloom32;
 
 		glBindFramebuffer(GL_FRAMEBUFFER, mFboBloom_32_h.getId());
 		glDrawBuffers(1, mAttach);

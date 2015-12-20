@@ -1,9 +1,10 @@
 #pragma once
 #include "UI_Element.h"
+#include "Misc.h"
 class Pane
 {
 public:
-	Pane();
+	Pane(CoreBismuth & core);
 	~Pane();
 
 

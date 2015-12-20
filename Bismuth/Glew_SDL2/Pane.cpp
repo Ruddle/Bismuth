@@ -2,10 +2,11 @@
 
 
 
-Pane::Pane()
+
+
+Pane::Pane(CoreBismuth & core) : mCore(core)
 {
 }
-
 
 Pane::~Pane()
 {
