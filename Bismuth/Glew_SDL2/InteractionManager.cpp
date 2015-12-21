@@ -52,8 +52,8 @@ void InteractionManager::singleCollisionResponse()
 			
 
 
-		StateComponent *sc1 = mContacts[i].who1->getStateComponent(), *sc2 = mContacts[i].who2->getStateComponent();
-		vec3 r1 = mContacts[i].position  - sc1->getPosition(), r2 = mContacts[i].position - sc2->getPosition();
+		StateComponent *sc1 = mContacts[i]->who1->getStateComponent(), *sc2 = mContacts[i]->who2->getStateComponent();
+		vec3 r1 = mContacts[i]->position  - sc1->getPosition(), r2 = mContacts[i]->position - sc2->getPosition();
 		vec3 vp1 = sc1->getPositionDiff() + cross(sc1->getRotationDiff(), r1);
 		vec3 vp2 = sc2->getPositionDiff() + cross(sc2->getRotationDiff(), r2);
 		vec3 vr = vp2 - vp1;
@@ -61,7 +61,7 @@ void InteractionManager::singleCollisionResponse()
 		mat3 invI1 = sc1->getInertiaInverse(), invI2 = sc2->getInertiaInverse();
 		float e = (sc2->getRestitution() + sc1->getRestitution()) / 2;
 
-		vec3 normalized = normalize(contact->normal);
+		vec3 normalized = normalize(mContacts[i]->normal);
 		float numJr = -(1 + e)*dot(vr, normalized);
 		vec3 denJr_1 = invI1 *cross(cross(r1, normalized), r1);
 		vec3 denJr_2 = invI2 *cross(cross(r2, normalized), r2);
