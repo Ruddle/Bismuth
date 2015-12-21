@@ -203,6 +203,7 @@
     <ClCompile Include="RayDetectionComponent.cpp" />
     <ClCompile Include="RenderSystem.cpp" />
     <ClCompile Include="ResourcesManager.cpp" />
+    <ClCompile Include="ResponseProcessor.cpp" />
     <ClCompile Include="Scene_SDL.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="Slider.cpp" />
@@ -278,6 +279,7 @@
     <ClInclude Include="ResourcesManager.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="ResponseProcessor.h" />
     <ClInclude Include="Scene_SDL.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="Slider.h" />
