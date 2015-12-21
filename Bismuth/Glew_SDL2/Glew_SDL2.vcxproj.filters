@@ -296,9 +296,6 @@
     <ClInclude Include="DetectionComponent.h">
       <Filter>Bis 2\Physic</Filter>
     </ClInclude>
-    <ClInclude Include="Contact.h">
-      <Filter>Bis 2\Physic</Filter>
-    </ClInclude>
     <ClInclude Include="PhysicComponent2D.h">
       <Filter>Bis 2\Physic</Filter>
     </ClInclude>
