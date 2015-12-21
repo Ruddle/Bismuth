@@ -18,7 +18,8 @@ public:
 
 	void update(float time_s);
 	void collision();
-	void collisionResponse(float time_s);
+	void singleCollisionResponse(float time_s);
+	void systemCollisionResponse(float time_s);
 
 	void add(Entity* entity);
 	void add(Entity2D* entity);
@@ -34,5 +35,7 @@ private:
 
 	std::vector<Entity2D*> mEntity2D;
 	std::set<unsigned int> mFreeIds2D;
+
+	InteractionManager* mIM;
 
 };

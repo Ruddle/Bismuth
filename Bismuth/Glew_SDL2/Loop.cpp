@@ -49,7 +49,7 @@ void Loop::insertInLoop(std::vector<Updatable*> &toUpdate)
 
 		mEntityManager->update(signTF *  mTimeStep / 1000);
 		mEntityManager->collision();
-		mEntityManager->collisionResponse(signTF * mTimeStep / 1000);
+		mEntityManager->singleCollisionResponse(signTF * mTimeStep / 1000);
 	}
 
 
