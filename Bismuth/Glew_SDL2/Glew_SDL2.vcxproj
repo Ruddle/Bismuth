@@ -243,7 +243,6 @@
     <ClInclude Include="ButtonController.h" />
     <ClInclude Include="ButtonController_int.h" />
     <ClInclude Include="Camera.h" />
-    <ClInclude Include="Contact.h" />
     <ClInclude Include="Cube.h" />
     <ClInclude Include="CubeDetectionComponent.h" />
     <ClInclude Include="DetectionComponent.h" />

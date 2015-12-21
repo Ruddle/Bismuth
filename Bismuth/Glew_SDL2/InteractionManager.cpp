@@ -66,25 +66,73 @@ void InteractionManager::singleCollisionResponse()
 			denJr = (1 / sc1->getMass()) + (1 / sc2->getMass()) + denJr_3;
 		float jr = numJr / denJr;
 
+		mat4 toRotCube1 = inverse(mat4(mat3(sc1->getModel())));
+		vec3 axis1 = vec3(toRotCube1*vec4(cross(r1, normalized), 1));
+		axis1 = cross(r1, normalized);
+
+		Screw screw1 = { -(jr / sc1->getMass())*normalized  ,  -jr*invI1*axis1 , r1};
+		Screw screw2 = { +(jr / sc2->getMass())*normalized  ,  +jr*invI2*axis1 , r2};
+
+
 		ContactResponse response;
-		response.r1 = r1;
-		response.r2 = r2;
+		response.screw1 = screw1;
+		response.screw2 = screw2;
 		response.normal = mContacts[i]->normal;
 		response.who1 = mContacts[i]->who1;
 		response.who2 = mContacts[i]->who2;
 		mResponses.push_back(response);
 
 
-		//response.posDiff2 = -(jr / sc1->getMass())*normalized;
-		//mat4 toRotCube = inverse(mat4(mat3(sc1->getModel())));
-		//vec3 axis = vec3(toRotCube*vec4(cross(r1, normalized), 1));
-		//axis = cross(r1, normalized);
-		//response.rotDiff = -jr*invI1*axis;
-		//response.posDiff = -(sc2->getMass() / (sc1->getMass() + sc2->getMass()))*contact->normal*1.01f;
-		//return response;
+	
 	}
 }
 
 void InteractionManager::systemCollisionResponse()
 {
+	for (int i = 0; i < mResponses.size(); i++)
+	{
+		PhysicSystem* phySysA = mResponses[i].who1->getSystem();
+		PhysicSystem* phySysB = mResponses[i].who2->getSystem();
+
+		if (phySysA == nullptr)
+		{
+			//Calcul facile de la force
+		}
+		else
+		{
+			//Prise en compte du system
+			elementCollisionResponse(mResponses[i].who1);
+		}
+
+
+		if (phySysB == nullptr)
+		{
+			//Calcul facile de la force
+		}
+		else
+		{
+			elementCollisionResponse(mResponses[i].who2);
+		}
+	}
+}
+
+void InteractionManager::doResponse()
+{
+
+
+}
+
+void InteractionManager::elementCollisionResponse(Entity * e)
+{
+	PhysicSystem* phySys = e->getSystem();
+
+	bool end = 0;
+
+	while (end == 0)
+	{
+		vector<Constraint*> constraints = phySys->getConstraints(e);
+
+		
+
+	}
 }

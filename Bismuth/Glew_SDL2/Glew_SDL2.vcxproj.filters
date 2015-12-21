@@ -210,6 +210,7 @@
     <ClCompile Include="InteractionManager.cpp">
       <Filter>Bis 3</Filter>
     </ClCompile>
+    <ClCompile Include="ResponseProcessor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h">
@@ -288,9 +289,6 @@
       <Filter>Bis 2\Physic</Filter>
     </ClInclude>
     <ClInclude Include="DetectionComponent.h">
-      <Filter>Bis 2\Physic</Filter>
-    </ClInclude>
-    <ClInclude Include="Contact.h">
       <Filter>Bis 2\Physic</Filter>
     </ClInclude>
     <ClInclude Include="PhysicComponent2D.h">
@@ -395,6 +393,7 @@
     <ClInclude Include="InteractionManager.h">
       <Filter>Bis 3</Filter>
     </ClInclude>
+    <ClInclude Include="ResponseProcessor.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Texture\cloud.png">
