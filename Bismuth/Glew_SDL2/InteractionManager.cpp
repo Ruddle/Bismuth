@@ -11,6 +11,11 @@ InteractionManager::~InteractionManager()
 
 void InteractionManager::collision()
 {
+	for (auto it = mContacts.begin(); it != mContacts.end(); it++)
+		delete (*it);
+
+	mContacts.clear();
+
 	for (int i = 0; i < mEntities.size() - 1; i++)
 	{
 		Entity *entity_i = mEntities[i];
@@ -20,7 +25,14 @@ void InteractionManager::collision()
 			{
 				Entity *entity_j = mEntities[j];
 				if (entity_j != nullptr)
-					DetectionProcessor::detection()
+				{
+					PhysicComponent *phyI = entity_i->getPhysicComponent(), *phyJ = entity_j->getPhysicComponent();
+					Contact* contact = DetectionProcessor::detection(phyI->getDetectionComponent(), phyJ->getDetectionComponent(),
+						phyI->getStateComponent()->getPosition(), phyI->getStateComponent()->getRotation(),
+						phyJ->getStateComponent()->getPosition(), phyJ->getStateComponent()->getRotation());
+					if (contact != nullptr)
+						mContacts.push_back(contact);
+				}
 
 			}
 		}

@@ -14,7 +14,7 @@ public:
 
 private:
 	std::vector<Entity*> &mEntities;
-	std::vector<Contact> mContacts;
+	std::vector<Contact*> mContacts;
 
 };
 
