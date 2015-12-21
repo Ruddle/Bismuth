@@ -169,6 +169,7 @@
     <ClCompile Include="GraphicComponent.cpp" />
     <ClCompile Include="GraphicComponent2D.cpp" />
     <ClCompile Include="Input.cpp" />
+    <ClCompile Include="InteractionManager.cpp" />
     <ClCompile Include="Letter.cpp" />
     <ClCompile Include="Loop.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -254,6 +255,7 @@
     <ClInclude Include="GraphicComponent.h" />
     <ClInclude Include="GraphicComponent2D.h" />
     <ClInclude Include="Input.h" />
+    <ClInclude Include="InteractionManager.h" />
     <ClInclude Include="Letter.h" />
     <ClInclude Include="Loop.h" />
     <ClInclude Include="Misc.h" />

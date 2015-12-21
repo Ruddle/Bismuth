@@ -9,7 +9,8 @@ struct Contact
 {
 	glm::vec3 position;
 	glm::vec3 normal;
-	PhysicComponent* who;
+	PhysicComponent* who1;
+	PhysicComponent* who2;
 };
 
 struct ContactResponse

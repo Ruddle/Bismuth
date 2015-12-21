@@ -207,6 +207,9 @@
     <ClCompile Include="UI_Layout.cpp">
       <Filter>Bis 4\MayBis\Test</Filter>
     </ClCompile>
+    <ClCompile Include="InteractionManager.cpp">
+      <Filter>Bis 3</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h">
@@ -388,6 +391,9 @@
     </ClInclude>
     <ClInclude Include="UI_Layout_Grid.h">
       <Filter>Bis 4\MayBis\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="InteractionManager.h">
+      <Filter>Bis 3</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
