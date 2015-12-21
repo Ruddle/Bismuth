@@ -15,7 +15,8 @@ struct Contact
 
 struct ContactResponse
 {
-	glm::vec3 posDiff2;
-	glm::vec3 posDiff;
-	glm::vec3 rotDiff;
+	glm::vec3 normal;
+	float jr;
+	PhysicComponent* who1;
+	PhysicComponent* who2;
 };

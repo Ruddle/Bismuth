@@ -48,11 +48,7 @@ void EntityManager::collision()
 void EntityManager::singleCollisionResponse(float time_s)
 {
 	mIM->singleCollisionResponse();
-	//for (int i = 0; i < mEntity.size(); i++)
-	//{
-	//	if(mEntity[i])
-	//		mEntity[i]->getPhysicComponent()->collisionResponse(time_s);
-	//}
+	
 }
 
 void EntityManager::systemCollisionResponse(float time_s)
