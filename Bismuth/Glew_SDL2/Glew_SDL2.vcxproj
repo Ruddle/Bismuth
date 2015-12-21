@@ -199,6 +199,7 @@
     <ClCompile Include="Panel.cpp" />
     <ClCompile Include="PhysicComponent.cpp" />
     <ClCompile Include="PhysicComponent2D.cpp" />
+    <ClCompile Include="PhysicSystem.cpp" />
     <ClCompile Include="PlaneDetectionComponent.cpp" />
     <ClCompile Include="RayDetectionComponent.cpp" />
     <ClCompile Include="RenderSystem.cpp" />
@@ -243,6 +244,7 @@
     <ClInclude Include="ButtonController.h" />
     <ClInclude Include="ButtonController_int.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="Constraint.h" />
     <ClInclude Include="Contact.h" />
     <ClInclude Include="Cube.h" />
     <ClInclude Include="CubeDetectionComponent.h" />
@@ -273,6 +275,7 @@
     <ClInclude Include="Panel.h" />
     <ClInclude Include="PhysicComponent.h" />
     <ClInclude Include="PhysicComponent2D.h" />
+    <ClInclude Include="PhysicSystem.h" />
     <ClInclude Include="PlaneDetectionComponent.h" />
     <ClInclude Include="RayDetectionComponent.h" />
     <ClInclude Include="RenderSystem.h" />
@@ -281,6 +284,7 @@
     </ClInclude>
     <ClInclude Include="ResponseProcessor.h" />
     <ClInclude Include="Scene_SDL.h" />
+    <ClInclude Include="Screw.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="Slider.h" />
     <ClInclude Include="SliderController.h" />

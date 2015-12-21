@@ -210,6 +210,12 @@
     <ClCompile Include="InteractionManager.cpp">
       <Filter>Bis 3</Filter>
     </ClCompile>
+    <ClCompile Include="PhysicSystem.cpp">
+      <Filter>Bis 2\Physic</Filter>
+    </ClCompile>
+    <ClCompile Include="ResponseProcessor.cpp">
+      <Filter>Bis 3</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h">
@@ -393,6 +399,18 @@
       <Filter>Bis 4\MayBis\Test</Filter>
     </ClInclude>
     <ClInclude Include="InteractionManager.h">
+      <Filter>Bis 3</Filter>
+    </ClInclude>
+    <ClInclude Include="Constraint.h">
+      <Filter>Bis 2\Physic</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicSystem.h">
+      <Filter>Bis 2\Physic</Filter>
+    </ClInclude>
+    <ClInclude Include="Screw.h">
+      <Filter>Bis 2\Physic</Filter>
+    </ClInclude>
+    <ClInclude Include="ResponseProcessor.h">
       <Filter>Bis 3</Filter>
     </ClInclude>
   </ItemGroup>
