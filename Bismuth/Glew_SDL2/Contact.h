@@ -17,6 +17,8 @@ struct ContactResponse
 {
 	glm::vec3 normal;
 	float jr;
+	glm::vec3 r1;
+	glm::vec3 r2;
 	PhysicComponent* who1;
 	PhysicComponent* who2;
 };

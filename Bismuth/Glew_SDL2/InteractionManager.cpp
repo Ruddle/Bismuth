@@ -45,13 +45,10 @@ void InteractionManager::collision()
 void InteractionManager::singleCollisionResponse()
 {
 
+	mResponses.clear();
+
 	for (int i = 0; i < mContacts.size(); i++)
-	{
-		
-		
-			
-
-
+	{	
 		StateComponent *sc1 = mContacts[i]->who1->getStateComponent(), *sc2 = mContacts[i]->who2->getStateComponent();
 		vec3 r1 = mContacts[i]->position  - sc1->getPosition(), r2 = mContacts[i]->position - sc2->getPosition();
 		vec3 vp1 = sc1->getPositionDiff() + cross(sc1->getRotationDiff(), r1);
@@ -69,25 +66,23 @@ void InteractionManager::singleCollisionResponse()
 			denJr = (1 / sc1->getMass()) + (1 / sc2->getMass()) + denJr_3;
 		float jr = numJr / denJr;
 
-
 		ContactResponse response;
-		response.posDiff2 = -(jr / sc1->getMass())*normalized;
+		response.r1 = r1;
+		response.r2 = r2;
+		response.normal = mContacts[i]->normal;
+		response.who1 = mContacts[i]->who1;
+		response.who2 = mContacts[i]->who2;
+		mResponses.push_back(response);
 
 
-		mat4 toRotCube = inverse(mat4(mat3(sc1->getModel())));
-		vec3 axis = vec3(toRotCube*vec4(cross(r1, normalized), 1));
-		axis = cross(r1, normalized);
-
-		response.rotDiff = -jr*invI1*axis;
-		response.posDiff = -(sc2->getMass() / (sc1->getMass() + sc2->getMass()))*contact->normal*1.01f;
-
-
-
-		return response;
-
+		//response.posDiff2 = -(jr / sc1->getMass())*normalized;
+		//mat4 toRotCube = inverse(mat4(mat3(sc1->getModel())));
+		//vec3 axis = vec3(toRotCube*vec4(cross(r1, normalized), 1));
+		//axis = cross(r1, normalized);
+		//response.rotDiff = -jr*invI1*axis;
+		//response.posDiff = -(sc2->getMass() / (sc1->getMass() + sc2->getMass()))*contact->normal*1.01f;
+		//return response;
 	}
-
-
 }
 
 void InteractionManager::systemCollisionResponse()
