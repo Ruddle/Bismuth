@@ -26,7 +26,7 @@ public:
 	void Action_bar();
 	void Action_dot(int direction);
 
-	float getValue() { return mValue; }
+	double getValue() { return mValue; }
 
 	void notify();
 

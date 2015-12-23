@@ -1,12 +1,13 @@
 #pragma once
-#include "Contact.h"
 #include "DetectionComponent.h"
 #include "RayDetectionComponent.h"
 #include "SphereDetectionComponent.h"
 #include "PlaneDetectionComponent.h"
 #include "CubeDetectionComponent.h"
-#include "PhysicComponent.h"
+#include "Contact.h"
 #include "glm.hpp"
+#include "glm\gtc\quaternion.hpp"
+#include "glm\gtx\norm.hpp"
 
 class DetectionProcessor
 {

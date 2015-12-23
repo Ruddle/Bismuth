@@ -410,6 +410,9 @@
     <ClInclude Include="ResponseProcessor.h">
       <Filter>Bis 3</Filter>
     </ClInclude>
+    <ClInclude Include="Contact.h">
+      <Filter>Bis 3</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Texture\cloud.png">

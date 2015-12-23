@@ -41,6 +41,6 @@ void Slider::Action_dot(int direction)
 void Slider::notify()
 {
 	for (auto it = mObservers.begin(); it != mObservers.end(); it++)
-		(*it)->Action(mValue,mMin,mMax,mStep );
+		(*it)->Action(float(mValue),float(mMin),float(mMax),float(mStep) );
 
 }

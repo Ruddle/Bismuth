@@ -263,7 +263,7 @@ Contact * DetectionProcessor::cubeToPlane(CubeDetectionComponent * cube, PlaneDe
 		contact->normal = normal;
 
 		contact->position = positionsSum/float(count);
-		contact->who = nullptr;
+		contact->who1 = nullptr;
 
 		return contact;
 	}

@@ -52,7 +52,7 @@ int ResourcesManager::loadTexture(std::string path, GLenum format, GLenum filter
 		Texture *newTexture = new Texture(path, cfg);
 		mTextures.push_back(newTexture);
 		newTexture->load();
-		return mTextures.size() - 1;
+		return int(mTextures.size()) - 1;
 	}
 }
 
@@ -69,7 +69,7 @@ int ResourcesManager::loadVao(std::string path)
 		Vao *newVao = new Vao(path);
 		mVaos.push_back(newVao);
 		newVao->load();
-		return mVaos.size() - 1;
+		return int(mVaos.size()) - 1;
 	}
 }
 

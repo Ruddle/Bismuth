@@ -5,7 +5,7 @@
 #include "Entity2D.h"
 #include "GraphicComponent.h"
 #include "StateComponent.h"
-#include "Contact.h"
+#include "InteractionManager.h"
 #include "PhysicComponent.h"
 
 class EntityManager

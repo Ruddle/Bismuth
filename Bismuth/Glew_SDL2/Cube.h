@@ -2,7 +2,6 @@
 #include "Entity.h"
 #include "GraphicComponent.h"
 #include "StateComponent.h"
-#include "Contact.h"
 #include "PhysicComponent.h"
 #include "ResourcesManager.h"
 #include "CubeDetectionComponent.h"

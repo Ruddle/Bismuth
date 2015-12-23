@@ -11,19 +11,24 @@ class DetectionComponent;
 class StateComponent;
 
 
+
+
 class PhysicComponent : public Observer_Input
 {
 public :
     PhysicComponent(DetectionComponent* detectionComponent, StateComponent* stateComponent);
     ~PhysicComponent();
-    void getCollision(PhysicComponent* phyComp2);
-	void collisionResponse(float timestep);
-	ContactResponse responseToContact(float elapsedTime,Contact *contact);
+ 
+	//void getCollision(PhysicComponent* phyComp2);
+	//void collisionResponse(float timestep);
+	//ContactResponse responseToContact(float elapsedTime,Contact *contact);
+	//void clearContact();
+
 
 	DetectionComponent* getDetectionComponent(){ return mDetectionComponent; }
 	StateComponent* getStateComponent(){ return mStateComponent; }
 	std::set<Contact*>  getContact() { return mContact; }
-	void clearContact();
+
 
 
 	void move(glm::vec2 mouse, glm::vec2 mouseRelative);

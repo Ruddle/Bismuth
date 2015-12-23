@@ -245,6 +245,7 @@
     <ClInclude Include="ButtonController_int.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Constraint.h" />
+    <ClInclude Include="Contact.h" />
     <ClInclude Include="Cube.h" />
     <ClInclude Include="CubeDetectionComponent.h" />
     <ClInclude Include="DetectionComponent.h" />

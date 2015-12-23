@@ -34,7 +34,7 @@ void Loop::insertInLoop(std::vector<Updatable*> &toUpdate)
 	mElapsedTime = 1000.0 / mFps; // ATTENTION EN MS
 
 	double timeToCompute = mTimeFactor * mElapsedTime + mPhysicsDelay;
-	mNbSteps = floor(timeToCompute / mTimeStep);
+	mNbSteps = int(floor(timeToCompute / mTimeStep));
 	mPhysicsDelay = timeToCompute - mNbSteps*mTimeStep;
 	//if (time % 10 == 0)	cout << mFps << endl;
 	mInput->update();
@@ -45,16 +45,16 @@ void Loop::insertInLoop(std::vector<Updatable*> &toUpdate)
 	for (int i = 0; i < abs(mNbSteps); i++)
 	{
 		for (int i = 0; i < toUpdate.size(); i++)
-			toUpdate[i]->update( mTimeStep /1000); // CONVERSION EN S
+			toUpdate[i]->update( float(mTimeStep /1000) ); // CONVERSION EN S
 
-		mEntityManager->update(signTF *  mTimeStep / 1000);
+		mEntityManager->update(signTF *  float(mTimeStep / 1000));
 		mEntityManager->collision();
-		mEntityManager->singleCollisionResponse(signTF * mTimeStep / 1000);
-		mEntityManager->systemCollisionResponse(signTF * mTimeStep / 1000);
+		mEntityManager->singleCollisionResponse(signTF *  float(mTimeStep / 1000));
+		mEntityManager->systemCollisionResponse(signTF * float(mTimeStep / 1000));
 	}
 
 
-	mRenderSystem->draw(mEntityManager->getEntities(), *mCamera, mFrame, *mInput, float(mFps));
+	mRenderSystem->draw(mEntityManager->getEntities(), *mCamera, float(mFrame), *mInput, float(mFps));
 	if (mInput->getKey(SDL_SCANCODE_C))
 	mRenderSystem->draw2D(getVisualCollision(mResourcesManager, mEntityManager->getEntities(), *mCamera));
 	mRenderSystem->draw2D(mEntityManager->getEntities2D());

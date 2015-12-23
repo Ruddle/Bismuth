@@ -89,31 +89,31 @@ void InteractionManager::singleCollisionResponse()
 
 void InteractionManager::systemCollisionResponse()
 {
-	for (int i = 0; i < mResponses.size(); i++)
-	{
-		PhysicSystem* phySysA = mResponses[i].who1->getSystem();
-		PhysicSystem* phySysB = mResponses[i].who2->getSystem();
+	//for (int i = 0; i < mResponses.size(); i++)
+	//{
+	//	PhysicSystem* phySysA = mResponses[i].who1->getSystem();
+	//	PhysicSystem* phySysB = mResponses[i].who2->getSystem();
 
-		if (phySysA == nullptr)
-		{
-			//Calcul facile de la force
-		}
-		else
-		{
-			//Prise en compte du system
-			elementCollisionResponse(mResponses[i].who1);
-		}
+	//	if (phySysA == nullptr)
+	//	{
+	//		//Calcul facile de la force
+	//	}
+	//	else
+	//	{
+	//		//Prise en compte du system
+	//		elementCollisionResponse(mResponses[i].who1);
+	//	}
 
 
-		if (phySysB == nullptr)
-		{
-			//Calcul facile de la force
-		}
-		else
-		{
-			elementCollisionResponse(mResponses[i].who2);
-		}
-	}
+	//	if (phySysB == nullptr)
+	//	{
+	//		//Calcul facile de la force
+	//	}
+	//	else
+	//	{
+	//		elementCollisionResponse(mResponses[i].who2);
+	//	}
+	//}
 }
 
 void InteractionManager::doResponse()
@@ -124,7 +124,7 @@ void InteractionManager::doResponse()
 
 void InteractionManager::elementCollisionResponse(Entity * e)
 {
-	PhysicSystem* phySys = e->getSystem();
+	/*PhysicSystem* phySys = e->getSystem();
 
 	bool end = 0;
 
@@ -134,5 +134,5 @@ void InteractionManager::elementCollisionResponse(Entity * e)
 
 		
 
-	}
+	}*/
 }

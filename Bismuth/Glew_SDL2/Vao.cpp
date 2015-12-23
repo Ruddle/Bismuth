@@ -80,7 +80,7 @@ void Vao::load(vec4 color)
 void Vao::draw()
 {
 	glBindVertexArray(mVaoID);
-	glDrawArrays(GL_TRIANGLES, 0, mPosition.size());
+	glDrawArrays(GL_TRIANGLES, 0, GLsizei(mPosition.size()));
 	glBindVertexArray(0);
 }
 
@@ -140,14 +140,14 @@ void Vao::loadFile()
 				string indexVertex;
 				lineStream >> indexVertex;
 
-				int slash1 = indexVertex.find("/");
-				int slash2 = indexVertex.find("/", slash1 + 1);
+				int slash1 = int(indexVertex.find("/"));
+				int slash2 = int(indexVertex.find("/", slash1 + 1));
 
 				istringstream iv(indexVertex.substr(0, slash1));
 				istringstream it(indexVertex.substr(slash1 + 1, slash2 - slash1 - 1));
 				istringstream in(indexVertex.substr(slash2 + 1));
 
-				float num;
+				int num;
 
 				iv >> num;
 				indexPosition.push_back(num);

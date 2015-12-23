@@ -90,7 +90,7 @@ float Cook_Torrance(vec3 lightDirection, vec3 eyeDir, vec3 normal, float roughne
  
         specular = (fresnel * geoAtt * roughness) / (NdotV * NdotL * 3.14);
 	}
-	if(keyF8) return 0;
+	
 	return specular;
 }
 
@@ -196,16 +196,15 @@ if(keyF3) lighting = vec3(ao);
 if(keyF7) lighting = vec3(emit);
 
 outColor = lighting  ;// emit*vec3(10);
-vec3 outColor_emit = lighting + emit*5 * (diffuse + vec3(0.0));
-
-
 vec3 position_ViewSpace_far ;
 	position_ViewSpace_far.z = -far ;
 	position_ViewSpace_far.x = -(UV.x*2-1)*position_ViewSpace_far.z*(aspect) *tanHalfFov ;
 	position_ViewSpace_far.y = -(UV.y*2-1)*position_ViewSpace_far.z *tanHalfFov ;
 
 if(length(position_ViewSpace) == 0)
-	outColor = texture(skyboxSampler, (vi*position_ViewSpace_far)  ).xyz;
+	outColor =texture(skyboxSampler, (vi*position_ViewSpace_far)  ).xyz ;
+
+vec3 outColor_emit = outColor + emit*5 * (diffuse + vec3(0.0));
 
 float brightness = dot(outColor_emit, vec3(0.2126, 0.7152, 0.0722));
 
@@ -215,7 +214,7 @@ outColor =  max(vec3(0),outColor);
 if(keyF8) {
 outColor = outBloom*0;
 }
-if(keyF9) outColor = vec3(specFactor);
+if(keyF9) outColor = outBloom;
 
 if(keyF1 || keyF2|| keyF3|| keyF6|| keyF7 ||keyF9 ||keyF10)
 outBloom = vec3(0);

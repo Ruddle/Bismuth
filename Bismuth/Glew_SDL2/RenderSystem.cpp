@@ -52,7 +52,7 @@ RenderSystem::RenderSystem(Config* cfg, ResourcesManager* rm) : mCfg(cfg), mRm(r
 
 
 	TextureCfg texCfgAo = { GL_R8, GL_LINEAR, GL_CLAMP_TO_EDGE };
-	Texture* texAo = new Texture(cfg->ResolutionX/(cfg->HalfAO ? 2.0:1.0) , cfg->ResolutionY/ (cfg->HalfAO ? 2.0 : 1.0), texCfgAo);
+	Texture* texAo = new Texture(int(cfg->ResolutionX/(cfg->HalfAO ? 2.0:1.0)) , int(cfg->ResolutionY/ (cfg->HalfAO ? 2.0 : 1.0)), texCfgAo);
 	texAo->load();
 	textureArray = vector<Texture*>();
 	textureArray.push_back(texAo);
@@ -74,7 +74,7 @@ RenderSystem::RenderSystem(Config* cfg, ResourcesManager* rm) : mCfg(cfg), mRm(r
 
 	//BLOOM 
 	TextureCfg texCfgBloom_2_h = { GL_RGB16F, GL_LINEAR, GL_CLAMP_TO_EDGE };
-	Texture* texBloom_2_h = new Texture(cfg->ResolutionX / 2.0, cfg->ResolutionY /  2.0, texCfgBloom_2_h);
+	Texture* texBloom_2_h = new Texture(cfg->ResolutionX / 2, cfg->ResolutionY /  2, texCfgBloom_2_h);
 	texBloom_2_h->load();
 	textureArray = vector<Texture*>();
 	textureArray.push_back(texBloom_2_h);
@@ -82,7 +82,7 @@ RenderSystem::RenderSystem(Config* cfg, ResourcesManager* rm) : mCfg(cfg), mRm(r
 	mFboBloom_2_h.load();
 
 	TextureCfg texCfgBloom_2_v = { GL_RGB16F, GL_LINEAR, GL_CLAMP_TO_EDGE };
-	Texture* texBloom_2_v = new Texture(cfg->ResolutionX / 2.0, cfg->ResolutionY / 2.0, texCfgBloom_2_v);
+	Texture* texBloom_2_v = new Texture(cfg->ResolutionX / 2, cfg->ResolutionY / 2, texCfgBloom_2_v);
 	texBloom_2_v->load();
 	textureArray = vector<Texture*>();
 	textureArray.push_back(texBloom_2_v);
@@ -90,7 +90,7 @@ RenderSystem::RenderSystem(Config* cfg, ResourcesManager* rm) : mCfg(cfg), mRm(r
 	mFboBloom_2_v.load();
 
 	TextureCfg texCfgBloom_8_h = { GL_RGB16F, GL_LINEAR, GL_CLAMP_TO_EDGE };
-	Texture* texBloom_8_h = new Texture(cfg->ResolutionX / 8.0, cfg->ResolutionY / 8.0, texCfgBloom_8_h);
+	Texture* texBloom_8_h = new Texture(cfg->ResolutionX / 8, cfg->ResolutionY / 8, texCfgBloom_8_h);
 	texBloom_8_h->load();
 	textureArray = vector<Texture*>();
 	textureArray.push_back(texBloom_8_h);
@@ -98,7 +98,7 @@ RenderSystem::RenderSystem(Config* cfg, ResourcesManager* rm) : mCfg(cfg), mRm(r
 	mFboBloom_8_h.load();
 
 	TextureCfg texCfgBloom_8_v = { GL_RGB16F, GL_LINEAR, GL_CLAMP_TO_EDGE };
-	Texture* texBloom_8_v = new Texture(cfg->ResolutionX / 8.0, cfg->ResolutionY / 8.0, texCfgBloom_8_v);
+	Texture* texBloom_8_v = new Texture(cfg->ResolutionX / 8, cfg->ResolutionY / 8, texCfgBloom_8_v);
 	texBloom_8_v->load();
 	textureArray = vector<Texture*>();
 	textureArray.push_back(texBloom_8_v);
@@ -106,7 +106,7 @@ RenderSystem::RenderSystem(Config* cfg, ResourcesManager* rm) : mCfg(cfg), mRm(r
 	mFboBloom_8_v.load();
 
 	TextureCfg texCfgBloom_16_h = { GL_RGB16F, GL_LINEAR, GL_CLAMP_TO_EDGE };
-	Texture* texBloom_16_h = new Texture(cfg->ResolutionX / 16.0, cfg->ResolutionY / 16.0, texCfgBloom_16_h);
+	Texture* texBloom_16_h = new Texture(cfg->ResolutionX / 16, cfg->ResolutionY / 16, texCfgBloom_16_h);
 	texBloom_16_h->load();
 	textureArray = vector<Texture*>();
 	textureArray.push_back(texBloom_16_h);
@@ -114,7 +114,7 @@ RenderSystem::RenderSystem(Config* cfg, ResourcesManager* rm) : mCfg(cfg), mRm(r
 	mFboBloom_16_h.load();
 
 	TextureCfg texCfgBloom_16_v = { GL_RGB16F, GL_LINEAR, GL_CLAMP_TO_EDGE };
-	Texture* texBloom_16_v = new Texture(cfg->ResolutionX / 16.0, cfg->ResolutionY / 16.0, texCfgBloom_16_v);
+	Texture* texBloom_16_v = new Texture(cfg->ResolutionX / 16, cfg->ResolutionY / 16, texCfgBloom_16_v);
 	texBloom_16_v->load();
 	textureArray = vector<Texture*>();
 	textureArray.push_back(texBloom_16_v);
@@ -122,7 +122,7 @@ RenderSystem::RenderSystem(Config* cfg, ResourcesManager* rm) : mCfg(cfg), mRm(r
 	mFboBloom_16_v.load();
 
 	TextureCfg texCfgBloom_32_h = { GL_RGB16F, GL_LINEAR, GL_CLAMP_TO_EDGE };
-	Texture* texBloom_32_h = new Texture(cfg->ResolutionX / 32.0, cfg->ResolutionY / 32.0, texCfgBloom_32_h);
+	Texture* texBloom_32_h = new Texture(cfg->ResolutionX / 32, cfg->ResolutionY / 32, texCfgBloom_32_h);
 	texBloom_32_h->load();
 	textureArray = vector<Texture*>();
 	textureArray.push_back(texBloom_32_h);
@@ -130,7 +130,7 @@ RenderSystem::RenderSystem(Config* cfg, ResourcesManager* rm) : mCfg(cfg), mRm(r
 	mFboBloom_32_h.load();
 
 	TextureCfg texCfgBloom_32_v = { GL_RGB16F, GL_LINEAR, GL_CLAMP_TO_EDGE };
-	Texture* texBloom_32_v = new Texture(cfg->ResolutionX / 32.0, cfg->ResolutionY / 32.0, texCfgBloom_32_v);
+	Texture* texBloom_32_v = new Texture(cfg->ResolutionX / 32, cfg->ResolutionY / 32, texCfgBloom_32_v);
 	texBloom_32_v->load();
 	textureArray = vector<Texture*>();
 	textureArray.push_back(texBloom_32_v);
@@ -211,7 +211,7 @@ RenderSystem::RenderSystem(Config* cfg, ResourcesManager* rm) : mCfg(cfg), mRm(r
 
 	glGenTextures(1, &mTextureNoiseId);
 	glBindTexture(GL_TEXTURE_2D, mTextureNoiseId);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA16F, cfg->ResolutionX/4.0, cfg->ResolutionY / 4.0, 0, GL_RGBA, GL_FLOAT, &noiseKernel[0]);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA16F, cfg->ResolutionX/4, cfg->ResolutionY / 4, 0, GL_RGBA, GL_FLOAT, &noiseKernel[0]);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_MIRRORED_REPEAT);
@@ -305,7 +305,7 @@ void RenderSystem::doStepAo(Camera const &cam)
 	vec2 resolution = vec2(mCfg->ResolutionX, mCfg->ResolutionY);
 	glBindFramebuffer(GL_FRAMEBUFFER, mFboAo.getId());
 	if (mCfg->HalfAO == 1)
-		glViewport(0, 0, mCfg->ResolutionX / 2.0, mCfg->ResolutionY / 2.0);
+		glViewport(0, 0, mCfg->ResolutionX / 2, mCfg->ResolutionY / 2);
 	glDrawBuffers(1, mAttach);
 	glClear(GL_COLOR_BUFFER_BIT);
 	glUseProgram(mShaderAo.getProgramID());
@@ -328,10 +328,10 @@ void RenderSystem::doStepAo(Camera const &cam)
 
 	glUniform1f(mShaderAo.getLocation( "time"), 0);
 	glUniformMatrix4fv(mShaderAo.getLocation( "projection"), 1, GL_FALSE, value_ptr(cam.getProjection()));
-	glUniform1f(mShaderAo.getLocation( "aspect"), cam.getAspect());
-	glUniform1f(mShaderAo.getLocation( "tanHalfFov"), cam.getTanHalfFov());
-	glUniform1f(mShaderAo.getLocation( "near"), cam.getNear());
-	glUniform1f(mShaderAo.getLocation( "far"), cam.getFar());
+	glUniform1f(mShaderAo.getLocation( "aspect"), GLfloat(cam.getAspect()));
+	glUniform1f(mShaderAo.getLocation( "tanHalfFov"), GLfloat(cam.getTanHalfFov()));
+	glUniform1f(mShaderAo.getLocation( "near"), GLfloat(cam.getNear()));
+	glUniform1f(mShaderAo.getLocation( "far"), GLfloat(cam.getFar()));
 	mSupportFbo.draw();
 	glViewport(0, 0, mCfg->ResolutionX, mCfg->ResolutionY);
 }
@@ -379,7 +379,7 @@ void RenderSystem::doStepBlurAo()
 		glBindTexture(GL_TEXTURE_2D, mFboBlurV.getColorBufferId(0));
 		glUniform1i(mShaderBlurBilateral.getLocation( "h"), 1);
 		glUniform1i(mShaderBlurBilateral.getLocation( "image"), 0);
-		glUniform1f(mShaderBlurBilateral.getLocation( "size"), 3.0* (float)i / (float)nombreDePasseBlurAo);
+		glUniform1f(mShaderBlurBilateral.getLocation( "size"), GLfloat(3.0)* (GLfloat)i / (GLfloat)nombreDePasseBlurAo);
 		mSupportFbo.draw();
 
 		//Blur AO Vertical
@@ -390,7 +390,7 @@ void RenderSystem::doStepBlurAo()
 		glBindTexture(GL_TEXTURE_2D, mFboBlurH.getColorBufferId(0));
 		glUniform1i(mShaderBlurBilateral.getLocation( "h"), 0);
 		glUniform1i(mShaderBlurBilateral.getLocation( "image"), 0);
-		glUniform1f(mShaderBlurBilateral.getLocation( "size"), 3.0* (float)i / (float)nombreDePasseBlurAo);
+		glUniform1f(mShaderBlurBilateral.getLocation( "size"), GLfloat(3.0)* (GLfloat)i / (GLfloat)nombreDePasseBlurAo);
 		mSupportFbo.draw();
 	}
 }
@@ -403,7 +403,7 @@ void RenderSystem::doStepBloom()
 	int nombreDePasseBlurBloom32 = 4;
 	vec2 resolution_2 = vec2(mCfg->ResolutionX / 2.0f, mCfg->ResolutionY / 2.0f);
 	glBindFramebuffer(GL_FRAMEBUFFER, mFboBloom_2_h.getId());
-	glViewport(0, 0, mCfg->ResolutionX / 2.0, mCfg->ResolutionY / 2.0);
+	glViewport(0, 0, mCfg->ResolutionX / 2, mCfg->ResolutionY / 2);
 	glDrawBuffers(1, mAttach);
 	glClear(GL_COLOR_BUFFER_BIT);
 	glUseProgram(mShaderBlur.getProgramID());
@@ -472,7 +472,7 @@ void RenderSystem::doStepBloom()
 
 	vec2 resolution_8 = vec2(mCfg->ResolutionX / 8.0f, mCfg->ResolutionY / 8.0f);
 	glBindFramebuffer(GL_FRAMEBUFFER, mFboBloom_8_h.getId());
-	glViewport(0, 0, mCfg->ResolutionX / 8.0, mCfg->ResolutionY / 8.0);
+	glViewport(0, 0, mCfg->ResolutionX / 8, mCfg->ResolutionY / 8);
 	glDrawBuffers(1, mAttach);
 	glClear(GL_COLOR_BUFFER_BIT);
 	glUseProgram(mShaderBlur.getProgramID());
@@ -540,7 +540,7 @@ void RenderSystem::doStepBloom()
 
 	vec2 resolution_16 = vec2(mCfg->ResolutionX / 16.0f, mCfg->ResolutionY / 16.0f);
 	glBindFramebuffer(GL_FRAMEBUFFER, mFboBloom_16_h.getId());
-	glViewport(0, 0, mCfg->ResolutionX / 16.0, mCfg->ResolutionY / 16.0);
+	glViewport(0, 0, mCfg->ResolutionX / 16, mCfg->ResolutionY / 16);
 	glDrawBuffers(1, mAttach);
 	glClear(GL_COLOR_BUFFER_BIT);
 	glUseProgram(mShaderBlur.getProgramID());
@@ -607,7 +607,7 @@ void RenderSystem::doStepBloom()
 
 	vec2 resolution_32 = vec2(mCfg->ResolutionX / 32.0f, mCfg->ResolutionY / 32.0f);
 	glBindFramebuffer(GL_FRAMEBUFFER, mFboBloom_32_h.getId());
-	glViewport(0, 0, mCfg->ResolutionX / 32.0, mCfg->ResolutionY / 32.0);
+	glViewport(0, 0, mCfg->ResolutionX / 32, mCfg->ResolutionY / 32);
 	glDrawBuffers(1, mAttach);
 	glClear(GL_COLOR_BUFFER_BIT);
 	glUseProgram(mShaderBlur.getProgramID());
@@ -688,7 +688,7 @@ void RenderSystem::doStepMotionBlur(float fps)
 	glBindFramebuffer(GL_FRAMEBUFFER, mFboShading.getId());
 	glClear(GL_COLOR_BUFFER_BIT);
 	glUseProgram(mShaderBlurDir.getProgramID());
-	glUniform1f(mShaderBlurDir.getLocation("factor"), (fps / 60.0) * 300 );
+	glUniform1f(mShaderBlurDir.getLocation("factor"), (fps / 60.0f) * 300.0f );
 
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, mFboShading2.getColorBufferId(0));
@@ -774,10 +774,10 @@ void RenderSystem::doStepShading(Camera const& cam, Camera const &camLight,Input
 	glBindTexture(GL_TEXTURE_2D, mFboGeometry.getColorBufferId(2));
 	glUniform1i(mShaderDeferredFinal.getLocation("gPosition"), 2);
 
-	glUniform1f(mShaderDeferredFinal.getLocation("aspect"), cam.getAspect());
-	glUniform1f(mShaderDeferredFinal.getLocation("tanHalfFov"), cam.getTanHalfFov());
-	glUniform1f(mShaderDeferredFinal.getLocation("near"), cam.getNear());
-	glUniform1f(mShaderDeferredFinal.getLocation("far"), cam.getFar());
+	glUniform1f(mShaderDeferredFinal.getLocation("aspect"), GLfloat(cam.getAspect()));
+	glUniform1f(mShaderDeferredFinal.getLocation("tanHalfFov"), GLfloat(cam.getTanHalfFov()));
+	glUniform1f(mShaderDeferredFinal.getLocation("near"), GLfloat(cam.getNear()));
+	glUniform1f(mShaderDeferredFinal.getLocation("far"), GLfloat(cam.getFar()));
 
 	glActiveTexture(GL_TEXTURE3);
 	glBindTexture(GL_TEXTURE_2D, !input.getKey(SDL_SCANCODE_F5) ? mFboBlurV.getColorBufferId(0) : mFboAo.getColorBufferId(0));
