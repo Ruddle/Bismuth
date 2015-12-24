@@ -16,6 +16,12 @@
     <Object Include="Mesh\thing.obj">
       <Filter>Resources\Mesh</Filter>
     </Object>
+    <Object Include="Mesh\saber.obj">
+      <Filter>Resources\Mesh</Filter>
+    </Object>
+    <Object Include="Mesh\Default\o.obj">
+      <Filter>Resources\Mesh\Default</Filter>
+    </Object>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Ball.cpp">
@@ -216,6 +222,9 @@
     <ClCompile Include="ResponseProcessor.cpp">
       <Filter>Bis 3</Filter>
     </ClCompile>
+    <ClCompile Include="BisObject.cpp">
+      <Filter>Bis 4</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h">
@@ -413,6 +422,9 @@
     <ClInclude Include="Contact.h">
       <Filter>Bis 3</Filter>
     </ClInclude>
+    <ClInclude Include="BisObject.h">
+      <Filter>Bis 4</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Texture\cloud.png">
@@ -577,6 +589,33 @@
     <Image Include="Texture\mystic_e.png">
       <Filter>Resources\Texture</Filter>
     </Image>
+    <Image Include="Texture\saber\d.png">
+      <Filter>Resources\Texture\saber</Filter>
+    </Image>
+    <Image Include="Texture\saber\e.png">
+      <Filter>Resources\Texture\saber</Filter>
+    </Image>
+    <Image Include="Texture\saber\r.png">
+      <Filter>Resources\Texture\saber</Filter>
+    </Image>
+    <Image Include="Texture\saber\s.png">
+      <Filter>Resources\Texture\saber</Filter>
+    </Image>
+    <Image Include="Texture\Default\d.png">
+      <Filter>Resources\Texture\Default</Filter>
+    </Image>
+    <Image Include="Texture\Default\e.png">
+      <Filter>Resources\Texture\Default</Filter>
+    </Image>
+    <Image Include="Texture\Default\n.png">
+      <Filter>Resources\Texture\Default</Filter>
+    </Image>
+    <Image Include="Texture\Default\r.png">
+      <Filter>Resources\Texture\Default</Filter>
+    </Image>
+    <Image Include="Texture\Default\s.png">
+      <Filter>Resources\Texture\Default</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <None Include="config.ini">
@@ -699,5 +738,22 @@
     <Filter Include="Bis 4\MayBis\Test">
       <UniqueIdentifier>{6917ba09-551b-43d7-8709-988b489e5f74}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resources\BisObject">
+      <UniqueIdentifier>{c7f50f5b-209b-4c47-aa09-7e0ba4326a78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Mesh\Default">
+      <UniqueIdentifier>{553ad19e-d25d-4811-b3f9-4f3cebdbfe06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Texture\Default">
+      <UniqueIdentifier>{9b22cc4c-6a0b-4667-b7ff-4a99b503afba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Texture\saber">
+      <UniqueIdentifier>{e2c2756c-26fb-46ea-81ef-62030a191609}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="BisObject\saber.txt">
+      <Filter>Resources\BisObject</Filter>
+    </Text>
   </ItemGroup>
 </Project>

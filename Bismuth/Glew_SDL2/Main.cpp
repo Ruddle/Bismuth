@@ -30,6 +30,7 @@
 #include "Slider.h"
 #include "Test_Slider.h"
 #include "ButtonController_int.h"
+#include "BisObject.h"
 
 FILE _iob[] = { *stdin, *stdout, *stderr };
 extern "C" FILE * __cdecl __iob_func(void)
@@ -95,6 +96,12 @@ int main(int argc, char **argv)
 		if (core.input->getRisingKey(SDL_SCANCODE_L))
 			listUpdate.push_back(new Cube(core.entityManager, core.resourcesManager, core.camera->getPosition(), 0.00951f*core.camera->getRotation()));
 			//listUpdate.push_back(new Cube(core.entityManager, core.resourcesManager, vec3(0, 0, 0), vec3(0, 0, 0)));
+
+
+		if (core.input->getRisingKey(SDL_SCANCODE_V))
+			listUpdate.push_back(new BisObject(core.entityManager, core.resourcesManager, core.camera->getPosition(), 0.00951f*core.camera->getRotation(), "BisObject/saber.txt"));
+
+		
 
 		if (core.input->getRisingKey(SDL_SCANCODE_R))
 		{

@@ -153,6 +153,7 @@
   <ItemGroup>
     <ClCompile Include="AO_button.cpp" />
     <ClCompile Include="Ball.cpp" />
+    <ClCompile Include="BisObject.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="ButtonController.cpp" />
     <ClCompile Include="ButtonController_int.cpp" />
@@ -195,6 +196,7 @@
     <ClCompile Include="Observer_UI_box.cpp" />
     <ClCompile Include="Pane.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Panel.cpp" />
     <ClCompile Include="PhysicComponent.cpp" />
@@ -222,15 +224,19 @@
     <ClCompile Include="UI_box.cpp" />
     <ClCompile Include="UI_Element.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="UI_Layout.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="UI_Layout_Absolute.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="UI_Layout_Grid.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Updatable.cpp" />
     <ClCompile Include="UserCamera.cpp" />
@@ -240,6 +246,7 @@
   <ItemGroup>
     <ClInclude Include="AO_button.h" />
     <ClInclude Include="Ball.h" />
+    <ClInclude Include="BisObject.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="ButtonController.h" />
     <ClInclude Include="ButtonController_int.h" />
@@ -271,6 +278,7 @@
     <ClInclude Include="Observer_UI_box.h" />
     <ClInclude Include="Pane.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="Panel.h" />
     <ClInclude Include="PhysicComponent.h" />
@@ -301,15 +309,19 @@
     <ClInclude Include="UI_box.h" />
     <ClInclude Include="UI_Element.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="UI_Layout.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="UI_Layout_Absolute.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="UI_Layout_Grid.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="Updatable.h" />
     <ClInclude Include="UserCamera.h" />
@@ -322,6 +334,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </Object>
+    <Object Include="Mesh\Default\o.obj" />
     <Object Include="Mesh\plane.obj">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
@@ -329,6 +342,10 @@
     <Object Include="Mesh\ray.obj">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </Object>
+    <Object Include="Mesh\saber.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </Object>
     <Object Include="Mesh\sphere.obj">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
@@ -377,6 +394,11 @@
     <Image Include="Texture\circleColor.png" />
     <Image Include="Texture\circleColor2.png" />
     <Image Include="Texture\cloud.png" />
+    <Image Include="Texture\Default\d.png" />
+    <Image Include="Texture\Default\e.png" />
+    <Image Include="Texture\Default\n.png" />
+    <Image Include="Texture\Default\r.png" />
+    <Image Include="Texture\Default\s.png" />
     <Image Include="Texture\dot.png" />
     <Image Include="Texture\GRAY123.png" />
     <Image Include="Texture\GRAY200.png" />
@@ -387,6 +409,10 @@
     <Image Include="Texture\RED.png" />
     <Image Include="Texture\rock.png" />
     <Image Include="Texture\rock_N.png" />
+    <Image Include="Texture\saber\d.png" />
+    <Image Include="Texture\saber\e.png" />
+    <Image Include="Texture\saber\r.png" />
+    <Image Include="Texture\saber\s.png" />
     <Image Include="Texture\Skybox\greenThing\greenThing0.png" />
     <Image Include="Texture\Skybox\greenThing\greenThing1.png" />
     <Image Include="Texture\Skybox\greenThing\greenThing2.png" />
@@ -415,6 +441,9 @@
     <Image Include="Texture\WHITE.png" />
     <Image Include="Texture\wood.jpg" />
     <Image Include="Texture\wood_N.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="BisObject\saber.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,0 +1,2 @@
+Mesh = saber.obj
+Texture = saber

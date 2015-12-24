@@ -20,6 +20,7 @@ public:
 	void collision();
 	void singleCollisionResponse(float time_s);
 	void systemCollisionResponse(float time_s);
+	void doResponseCollision();
 
 	void add(Entity* entity);
 	void add(Entity2D* entity);

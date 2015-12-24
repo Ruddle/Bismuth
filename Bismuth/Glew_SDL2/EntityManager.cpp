@@ -56,6 +56,11 @@ void EntityManager::systemCollisionResponse(float time_s)
 	mIM->systemCollisionResponse();
 }
 
+void EntityManager::doResponseCollision()
+{
+	mIM->doResponse();
+}
+
 
 void EntityManager::add(Entity* entity)
 {
