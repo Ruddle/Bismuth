@@ -138,7 +138,23 @@ RenderSystem::RenderSystem(Config* cfg, ResourcesManager* rm) : mCfg(cfg), mRm(r
 	mFboBloom_32_v.load();
 
 
+	//LENS FLARE
 
+	TextureCfg texCfgLF_2_h = { GL_RGB16F, GL_LINEAR, GL_CLAMP_TO_EDGE };
+	Texture* texLF_2_h = new Texture(cfg->ResolutionX / 2, cfg->ResolutionY / 2, texCfgLF_2_h);
+	texLF_2_h->load();
+	textureArray = vector<Texture*>();
+	textureArray.push_back(texLF_2_h);
+	mFboLensFlare_2_h = Fbo(textureArray, 0, 0);
+	mFboLensFlare_2_h.load();
+
+	TextureCfg texCfgLF_2_v = { GL_RGB16F, GL_LINEAR, GL_CLAMP_TO_EDGE };
+	Texture* texLF_2_v = new Texture(cfg->ResolutionX / 2, cfg->ResolutionY / 2, texCfgLF_2_v);
+	texLF_2_v->load();
+	textureArray = vector<Texture*>();
+	textureArray.push_back(texLF_2_v);
+	mFboLensFlare_2_v = Fbo(textureArray, 0, 0);
+	mFboLensFlare_2_v.load();
 
 	//AO BLUR or any 1 channel stuff
 	TextureCfg texCfgBlurH = { GL_R8, GL_LINEAR, GL_CLAMP_TO_EDGE };
@@ -181,6 +197,9 @@ RenderSystem::RenderSystem(Config* cfg, ResourcesManager* rm) : mCfg(cfg), mRm(r
 	mShaderTone = Shader("Shader/defPassN.vert", "Shader/tone.frag");
 	mShaderTone.load();
 
+	mShaderLensFlare = Shader("Shader/defPassN.vert", "Shader/lensFlare.frag");
+	mShaderLensFlare.load();
+
 	mShaderFXAA = Shader("Shader/defPassN.vert", "Shader/FXAA.frag");
 	mShaderFXAA.load();
 
@@ -191,6 +210,13 @@ RenderSystem::RenderSystem(Config* cfg, ResourcesManager* rm) : mCfg(cfg), mRm(r
 	mSupportFbo.load();
 
 
+	TextureCfg texCfgLensStar = { GL_RGB8, GL_LINEAR, GL_CLAMP_TO_EDGE };
+	mLensStar = new Texture("Texture/Engine/lensstar.png", texCfgLensStar);
+	mLensStar->load();
+
+	TextureCfg texCfgLensDirt = { GL_RGB8, GL_LINEAR, GL_CLAMP_TO_EDGE };
+	mLensDirt = new Texture("Texture/Engine/lensdirt.png", texCfgLensDirt);
+	mLensDirt->load();
 
 
 	//Texture de bruit pour l'occlusion ambiante
@@ -255,7 +281,8 @@ void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float t
 
 	doStepShading(cam,cam2,input);
 	doStepBloom();
-	doStepToneMapping();
+	doStepLensFlare();
+	doStepToneMapping(cam);
 	doStepMotionBlur(fps);
 	doStepFXAA(time);
 
@@ -670,13 +697,105 @@ void RenderSystem::doStepBloom()
 		mSupportFbo.draw();
 	}
 
-
-
-
-
-
-
 	glViewport(0, 0, mCfg->ResolutionX, mCfg->ResolutionY);
+
+}
+
+void RenderSystem::doStepLensFlare()
+{
+	glViewport(0, 0, mCfg->ResolutionX / 2, mCfg->ResolutionY / 2);
+	int nombreDePasseBlurLensFlare = 5;
+	vec2 resolution_2 = vec2(mCfg->ResolutionX / 2.0f, mCfg->ResolutionY / 2.0f);
+
+	//LENS FLARE 
+
+	glBindFramebuffer(GL_FRAMEBUFFER, mFboLensFlare_2_v.getId());
+	glDrawBuffers(1, mAttach);
+	glClear(GL_COLOR_BUFFER_BIT);
+	glUseProgram(mShaderLensFlare.getProgramID());
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, mFboShading.getColorBufferId(1));
+	glUniform1i(mShaderBlur.getLocation("image"), 0);
+
+	glUniform1i(mShaderBlur.getLocation("h"), 0);
+	glUniform1f(mShaderBlur.getLocation("size"), 0);
+	glUniform2fv(mShaderBlur.getLocation("resolution"), 1,
+		value_ptr(resolution_2));
+	mSupportFbo.draw();
+
+
+	//BLUR 
+	glBindFramebuffer(GL_FRAMEBUFFER, mFboLensFlare_2_h.getId());
+	
+	glDrawBuffers(1, mAttach);
+	glClear(GL_COLOR_BUFFER_BIT);
+	glUseProgram(mShaderBlur.getProgramID());
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, mFboLensFlare_2_v.getColorBufferId(0));
+	glUniform1i(mShaderBlur.getLocation("image"), 0);
+
+	glUniform1i(mShaderBlur.getLocation("h"), 1);
+	glUniform1f(mShaderBlur.getLocation("size"), 0);
+	glUniform2fv(mShaderBlur.getLocation("resolution"), 1,
+		value_ptr(resolution_2));
+	mSupportFbo.draw();
+
+	glBindFramebuffer(GL_FRAMEBUFFER, mFboLensFlare_2_v.getId());
+	glDrawBuffers(1, mAttach);
+	glClear(GL_COLOR_BUFFER_BIT);
+	glUseProgram(mShaderBlur.getProgramID());
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, mFboLensFlare_2_h.getColorBufferId(0));
+	glUniform1i(mShaderBlur.getLocation("image"), 0);
+
+	glUniform1i(mShaderBlur.getLocation("h"), 0);
+	glUniform1f(mShaderBlur.getLocation("size"), 0);
+	glUniform2fv(mShaderBlur.getLocation("resolution"), 1,
+		value_ptr(resolution_2));
+	mSupportFbo.draw();
+
+
+	for (int i = 1; i < nombreDePasseBlurLensFlare; i++) {
+		float size = 0 * float(i) / nombreDePasseBlurLensFlare;
+
+		glBindFramebuffer(GL_FRAMEBUFFER, mFboLensFlare_2_h.getId());
+		glDrawBuffers(1, mAttach);
+		glClear(GL_COLOR_BUFFER_BIT);
+		glUseProgram(mShaderBlur.getProgramID());
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, mFboLensFlare_2_v.getColorBufferId(0));
+		glUniform1i(mShaderBlur.getLocation("image"), 0);
+
+		glUniform1i(mShaderBlur.getLocation("h"), 1);
+		glUniform1f(mShaderBlur.getLocation("size"), size);
+		glUniform2fv(mShaderBlur.getLocation("resolution"), 1,
+			value_ptr(resolution_2));
+		mSupportFbo.draw();
+
+
+		glBindFramebuffer(GL_FRAMEBUFFER, mFboLensFlare_2_v.getId());
+		glDrawBuffers(1, mAttach);
+		glClear(GL_COLOR_BUFFER_BIT);
+		glUseProgram(mShaderBlur.getProgramID());
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, mFboLensFlare_2_h.getColorBufferId(0));
+		glUniform1i(mShaderBlur.getLocation("image"), 0);
+
+		glUniform1i(mShaderBlur.getLocation("h"), 0);
+		glUniform1f(mShaderBlur.getLocation("size"), size);
+		glUniform2fv(mShaderBlur.getLocation("resolution"), 1,
+			value_ptr(resolution_2));
+		mSupportFbo.draw();
+	}
+
+
+
+
+
+
+
+	glViewport(0, 0, mCfg->ResolutionX , mCfg->ResolutionY );
+
 
 }
 
@@ -724,7 +843,7 @@ void RenderSystem::doStepMotionBlur(float fps)
 
 }
 
-void RenderSystem::doStepToneMapping()
+void RenderSystem::doStepToneMapping(Camera const& cam)
 {
 	glBindFramebuffer(GL_FRAMEBUFFER, mFboShading2.getId());
 	glClear(GL_COLOR_BUFFER_BIT);
@@ -744,6 +863,20 @@ void RenderSystem::doStepToneMapping()
 	glActiveTexture(GL_TEXTURE4);
 	glBindTexture(GL_TEXTURE_2D, mFboBloom_32_v.getColorBufferId(0));
 	glUniform1i(mShaderTone.getLocation("bloomSampler4"), 4);
+	glActiveTexture(GL_TEXTURE5);
+	glBindTexture(GL_TEXTURE_2D, mFboLensFlare_2_v.getColorBufferId(0));
+	glUniform1i(mShaderTone.getLocation("lensFlareSampler"), 5);
+	glActiveTexture(GL_TEXTURE6);
+	glBindTexture(GL_TEXTURE_2D, mLensStar->getId());
+	glUniform1i(mShaderTone.getLocation("lensStarSampler"), 6);
+	glActiveTexture(GL_TEXTURE7);
+	glBindTexture(GL_TEXTURE_2D, mLensDirt->getId());
+	glUniform1i(mShaderTone.getLocation("lensDirtSampler"), 7);
+
+	float angle = cam.getRotation().x - cam.getRotation().y + cam.getRotation().z ;
+	angle *= 10;
+	mat2 matAngle = mat2(cos(angle), sin(angle), -sin(angle), cos(angle));
+	glUniformMatrix2fv(mShaderTone.getLocation("matAngle"), 1, GL_FALSE, value_ptr(matAngle));
 	mSupportFbo.draw();
 }
 

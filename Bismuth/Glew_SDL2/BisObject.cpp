@@ -126,7 +126,7 @@ BisObject::BisObject(EntityManager* em, ResourcesManager* rm, glm::vec3 position
 	sc1->setPosition(position + speed*1000.0f);
 	sc1->setPositionDiff(vec3(0, 0, 0.0));
 
-	sc1->setRotationDiff(vec3(0.1f, 0.00000f, 0.0f));
+	sc1->setRotationDiff(vec3(10.0f, 0.00000f, 0.0f));
 	sc1->setRotation(quat(1, 0, 0, 0));
 
 

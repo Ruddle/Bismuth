@@ -616,6 +616,15 @@
     <Image Include="Texture\Default\s.png">
       <Filter>Resources\Texture\Default</Filter>
     </Image>
+    <Image Include="Texture\Engine\lenscolor.png">
+      <Filter>Resources\Texture\Engine</Filter>
+    </Image>
+    <Image Include="Texture\Engine\lensdirt.png">
+      <Filter>Resources\Texture\Engine</Filter>
+    </Image>
+    <Image Include="Texture\Engine\lensstar.png">
+      <Filter>Resources\Texture\Engine</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <None Include="config.ini">
@@ -671,6 +680,9 @@
       <Filter>Shader</Filter>
     </None>
     <None Include="Shader\2D.vert">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="Shader\lensFlare.frag">
       <Filter>Shader</Filter>
     </None>
   </ItemGroup>
@@ -749,6 +761,9 @@
     </Filter>
     <Filter Include="Resources\Texture\saber">
       <UniqueIdentifier>{e2c2756c-26fb-46ea-81ef-62030a191609}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Texture\Engine">
+      <UniqueIdentifier>{7dadb846-537c-424b-a467-643aa615f161}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

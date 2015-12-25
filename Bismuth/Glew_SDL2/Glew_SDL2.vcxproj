@@ -334,7 +334,9 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </Object>
-    <Object Include="Mesh\Default\o.obj" />
+    <Object Include="Mesh\Default\o.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </Object>
     <Object Include="Mesh\plane.obj">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
@@ -373,6 +375,7 @@
     <None Include="Shader\defPassN.frag" />
     <None Include="Shader\defPassN.vert" />
     <None Include="Shader\FXAA.frag" />
+    <None Include="Shader\lensFlare.frag" />
     <None Include="Shader\light.frag" />
     <None Include="Shader\light.vert" />
     <None Include="Shader\tone.frag" />
@@ -400,6 +403,9 @@
     <Image Include="Texture\Default\r.png" />
     <Image Include="Texture\Default\s.png" />
     <Image Include="Texture\dot.png" />
+    <Image Include="Texture\Engine\lenscolor.png" />
+    <Image Include="Texture\Engine\lensdirt.png" />
+    <Image Include="Texture\Engine\lensstar.png" />
     <Image Include="Texture\GRAY123.png" />
     <Image Include="Texture\GRAY200.png" />
     <Image Include="Texture\GRAY60.png" />

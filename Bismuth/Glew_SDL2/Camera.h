@@ -19,9 +19,9 @@ public:
 	double getAspect()const { return mAspect; }
 	double getNear()const { return mNear; }
 	double getFar()const { return mFar; }
-	glm::vec3 getPosition() { return mPosition; }
-	glm::vec3 getRotation() { return mRotation; }
-	glm::vec3 getUp() { return mUp; }
+	glm::vec3 getPosition()const { return mPosition; }
+	glm::vec3 getRotation()const { return mRotation; }
+	glm::vec3 getUp()const { return mUp; }
 
 
 	void setPosition(glm::vec3 value) { mPosition = value; }

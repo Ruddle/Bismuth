@@ -38,8 +38,9 @@ private:
 	void doStepAo(Camera const &cam);
 	void doStepBlurAo();
 	void doStepBloom();
+	void doStepLensFlare();
 	void doStepMotionBlur(float fps);
-	void doStepToneMapping();
+	void doStepToneMapping(Camera const& cam);
 	void doStepShading(Camera const& cam, Camera const &camLight, Input const& input);
 	void doStepFXAA(float time);
 
@@ -54,6 +55,8 @@ private:
 	Fbo mFboBloom_16_v;
 	Fbo mFboBloom_32_h;
 	Fbo mFboBloom_32_v;
+	Fbo mFboLensFlare_2_h;
+	Fbo mFboLensFlare_2_v;
 	Fbo mFboBlurH;
 	Fbo mFboBlurV;
 	Fbo mFboShading;
@@ -65,6 +68,7 @@ private:
 	Shader mShaderLight;
 	Shader mShaderBlurDir;
 	Shader mShaderBlur;
+	Shader mShaderLensFlare;
 	Shader mShaderBlurBilateral;
 	Shader mShaderDeferredFinal;
 	Shader mShaderTone;
@@ -75,6 +79,8 @@ private:
 	std::vector<glm::vec3> mKernel;
 
 	Texture_Cube *mCubemapSkybox;
+	Texture* mLensStar;
+	Texture* mLensDirt;
 
 	Vao2D mSupportFbo;
 	ResourcesManager* mRm;
