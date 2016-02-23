@@ -73,7 +73,6 @@ void InteractionManager::singleCollisionResponse()
 		Screw screw1 = { -(jr / sc1->getMass())*normalized  ,  -jr*invI1*axis1 , r1};
 		Screw screw2 = { +(jr / sc2->getMass())*normalized  ,  +jr*invI2*axis1 , r2};
 
-
 		ContactResponse response;
 		response.screw1 = screw1;
 		response.screw2 = screw2;
@@ -82,8 +81,6 @@ void InteractionManager::singleCollisionResponse()
 		response.who2 = mContacts[i]->who2;
 		mResponses.push_back(response);
 
-
-	
 	}
 }
 
@@ -104,7 +101,6 @@ void InteractionManager::systemCollisionResponse()
 	//		elementCollisionResponse(mResponses[i].who1);
 	//	}
 
-
 	//	if (phySysB == nullptr)
 	//	{
 	//		//Calcul facile de la force
@@ -118,6 +114,24 @@ void InteractionManager::systemCollisionResponse()
 
 void InteractionManager::doResponse()
 {
+
+	for (int i = 0; i < mResponses.size(); i++)
+	{
+		ContactResponse cr = mResponses[i];
+
+		PhysicComponent*  w1 = cr.who1;
+		PhysicComponent*  w2 = cr.who2;
+		glm::vec3 n = cr.normal;
+		Screw s1 = cr.screw1;
+		Screw s2 = cr.screw2;
+
+
+		w1->getStateComponent()->force(1.0,s1.s);
+		w1->getStateComponent()->torque(1.0, s1.v);
+
+		w2->getStateComponent()->force(1.0, s2.s);
+		w2->getStateComponent()->torque(1.0, s2.v);
+	}
 
 
 }

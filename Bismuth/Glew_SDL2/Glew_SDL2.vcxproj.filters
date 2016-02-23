@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Object Include="Mesh\cube.obj">
-      <Filter>Resources\Mesh</Filter>
-    </Object>
     <Object Include="Mesh\plane.obj">
       <Filter>Resources\Mesh</Filter>
     </Object>
@@ -19,10 +16,10 @@
     <Object Include="Mesh\saber.obj">
       <Filter>Resources\Mesh</Filter>
     </Object>
-    <Object Include="Mesh\Default\o.obj">
-      <Filter>Resources\Mesh\Default</Filter>
-    </Object>
     <Object Include="Mesh\bac.obj">
+      <Filter>Resources\Mesh</Filter>
+    </Object>
+    <Object Include="Mesh\cube.obj">
       <Filter>Resources\Mesh</Filter>
     </Object>
     <Object Include="Mesh\drag.obj">
@@ -30,6 +27,9 @@
     </Object>
     <Object Include="Mesh\tank.obj">
       <Filter>Resources\Mesh</Filter>
+    </Object>
+    <Object Include="Mesh\Default\o.obj">
+      <Filter>Resources\Mesh\Default</Filter>
     </Object>
   </ItemGroup>
   <ItemGroup>
