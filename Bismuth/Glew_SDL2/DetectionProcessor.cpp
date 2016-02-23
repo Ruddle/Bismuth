@@ -33,19 +33,19 @@ Contact * DetectionProcessor::detection(PhysicComponent * phyA, PhysicComponent 
 		
 		switch (b->getShape()) {
 		case DetectionComponent::CUBE:
-			return cubeToCube((CubeDetectionComponent*)a, (CubeDetectionComponent*)b, pos1, rot1, pos2, rot2);
+			return contactFrom<CubeDetectionComponent, CubeDetectionComponent>(cubeToCube, phyA, phyB);
 			break;
 
 		case DetectionComponent::PLANE:
-			return cubeToPlane((CubeDetectionComponent*)a, (PlaneDetectionComponent*)b, pos1, rot1, pos2, rot2);
+			return contactFrom<CubeDetectionComponent, PlaneDetectionComponent>(cubeToPlane, phyA, phyB);
 			break;
 
 		case DetectionComponent::SPHERE:
-			return cubeToSphere((CubeDetectionComponent*)a, (SphereDetectionComponent*)b, pos1, rot1, pos2, rot2);
+			return contactFrom<CubeDetectionComponent, SphereDetectionComponent>(cubeToSphere, phyA, phyB);
 			break;
 
 		case DetectionComponent::RAY:
-			return cubeToRay((CubeDetectionComponent*)a, (RayDetectionComponent*)b, pos1, rot1, pos2, rot2);
+			return contactFrom<CubeDetectionComponent, RayDetectionComponent>(cubeToRay, phyA, phyB);
 			break;
 
 		default:
@@ -59,11 +59,11 @@ Contact * DetectionProcessor::detection(PhysicComponent * phyA, PhysicComponent 
 
 		switch (b->getShape()) {
 		case DetectionComponent::CUBE:
-			return  reverse(cubeToPlane((CubeDetectionComponent*)b, (PlaneDetectionComponent*)a, pos2, rot2, pos1, rot1));
+			return  reverse(contactFrom<CubeDetectionComponent, PlaneDetectionComponent>(cubeToPlane, phyB, phyA));
 			break;
 
 		case DetectionComponent::PLANE:
-			return planeToPlane((PlaneDetectionComponent*)a, (PlaneDetectionComponent*)b, pos1, rot1, pos2, rot2);
+			return contactFrom<PlaneDetectionComponent, PlaneDetectionComponent>(planeToPlane, phyA, phyB);
 			break;
 
 		case DetectionComponent::SPHERE:
@@ -72,7 +72,7 @@ Contact * DetectionProcessor::detection(PhysicComponent * phyA, PhysicComponent 
 			break;
 
 		case DetectionComponent::RAY:
-			return planeToRay((PlaneDetectionComponent*)a, (RayDetectionComponent*)b, pos1, rot1, pos2, rot2);
+			return contactFrom<PlaneDetectionComponent, RayDetectionComponent>(planeToRay, phyA, phyB);
 			break;
 
 		default:
