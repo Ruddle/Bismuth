@@ -85,19 +85,19 @@ Contact * DetectionProcessor::detection(PhysicComponent * phyA, PhysicComponent 
 	case DetectionComponent::SPHERE:
 		switch (b->getShape()) {
 		case DetectionComponent::CUBE:
-			return  reverse(cubeToSphere((CubeDetectionComponent*)b, (SphereDetectionComponent*)a, pos2, rot2, pos1, rot1));
+			return reverse(contactFrom<CubeDetectionComponent, SphereDetectionComponent>(cubeToSphere, phyB, phyA));
 			break;
 
 		case DetectionComponent::PLANE:
-			return  reverse(planeToSphere((PlaneDetectionComponent*)b, (SphereDetectionComponent*)a, pos2, rot2, pos1, rot1));
+			return reverse(contactFrom<PlaneDetectionComponent, SphereDetectionComponent>(planeToSphere, phyB, phyA));
 			break;
 
 		case DetectionComponent::SPHERE:
-			return sphereToSphere((SphereDetectionComponent*)a, (SphereDetectionComponent*)b, pos1, rot1, pos2, rot2);
+			return contactFrom<SphereDetectionComponent, SphereDetectionComponent>(sphereToSphere, phyA, phyB);
 			break;
 
 		case DetectionComponent::RAY:
-			return sphereToRay((SphereDetectionComponent*)a, (RayDetectionComponent*)b, pos1, rot1, pos2, rot2);
+			return contactFrom<SphereDetectionComponent, RayDetectionComponent>(sphereToRay, phyA, phyB);
 			break;
 
 		default:
@@ -109,19 +109,19 @@ Contact * DetectionProcessor::detection(PhysicComponent * phyA, PhysicComponent 
 	case DetectionComponent::RAY:
 		switch (b->getShape()) {
 		case DetectionComponent::CUBE:
-			return  reverse(cubeToRay((CubeDetectionComponent*)b, (RayDetectionComponent*)a, pos2, rot2, pos1, rot1));
+			return reverse(contactFrom<CubeDetectionComponent, RayDetectionComponent>(cubeToRay, phyB, phyA));
 			break;
 
 		case DetectionComponent::PLANE:
-			return  reverse(planeToRay((PlaneDetectionComponent*)b, (RayDetectionComponent*)a, pos2, rot2, pos1, rot1));
+			return reverse(contactFrom<PlaneDetectionComponent, RayDetectionComponent>(planeToRay, phyB, phyA));
 			break;
 
 		case DetectionComponent::SPHERE:
-			return  reverse(cubeToSphere((CubeDetectionComponent*)b, (SphereDetectionComponent*)a, pos2, rot2, pos1, rot1));
+			return reverse(contactFrom<SphereDetectionComponent, RayDetectionComponent>(sphereToRay, phyB, phyA));
 			break;
 
 		case DetectionComponent::RAY:
-			return rayToRay((RayDetectionComponent*)a, (RayDetectionComponent*)b, pos1, rot1, pos2, rot2);
+			return contactFrom<RayDetectionComponent, RayDetectionComponent>(rayToRay, phyA, phyB);
 			break;
 
 		default:
@@ -149,11 +149,14 @@ Contact * DetectionProcessor::contactFrom(Contact*(*func)(A *a, B *b, glm::vec3 
 	glm::quat rot1 = phyA->getStateComponent()->getRotation(), rot2 = phyB->getStateComponent()->getRotation();
 	A *a = (A*)phyA->getDetectionComponent();B *b = (B*)phyB->getDetectionComponent();
 
+
     Contact * res = func( a, b, pos1, rot1, pos2, rot2 )  ;
 
 	if (res == nullptr)
 		return nullptr;
 
+
+	
 	res->who1 = phyA;
 	res->who2 = phyB;
 	return res;

@@ -73,8 +73,11 @@ void InteractionManager::singleCollisionResponse()
 		vec3 axis1 = vec3(toRotCube1*vec4(cross(r1, normalized), 1));
 		axis1 = cross(r1, normalized);
 
+		vec3 axis2 = vec3(toRotCube1*vec4(cross(r2, normalized), 1));
+		axis2 = cross(r2, normalized);
+
 		Screw screw1 = { -(jr / sc1->getMass())*normalized  ,  -jr*invI1*axis1 , r1};
-		Screw screw2 = { +(jr / sc2->getMass())*normalized  ,  +jr*invI2*axis1 , r2};
+		Screw screw2 = { +(jr / sc2->getMass())*normalized  ,  +jr*invI2*axis2 , r2};
 
 		ContactResponse response;
 		response.screw1 = screw1;
