@@ -33,8 +33,15 @@ void InteractionManager::collision()
 					Contact* contact = DetectionProcessor::detection(phyI->getDetectionComponent(), phyJ->getDetectionComponent(),
 						phyI->getStateComponent()->getPosition(), phyI->getStateComponent()->getRotation(),
 						phyJ->getStateComponent()->getPosition(), phyJ->getStateComponent()->getRotation());
+				
+
 					if (contact != nullptr)
+					{
+						contact->who2 = phyI;
+						contact->who1 = phyJ;
 						mContacts.push_back(contact);
+					}
+						
 				}
 
 			}
