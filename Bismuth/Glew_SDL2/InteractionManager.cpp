@@ -73,11 +73,12 @@ void InteractionManager::singleCollisionResponse()
 		vec3 axis1 = vec3(toRotCube1*vec4(cross(r1, normalized), 1));
 		axis1 = cross(r1, normalized);
 
-		vec3 axis2 = vec3(toRotCube1*vec4(cross(r2, normalized), 1));
+		mat4 toRotCube2 = inverse(mat4(mat3(sc2->getModel())));
+		vec3 axis2 = vec3(toRotCube2*vec4(cross(r2, normalized), 1));
 		axis2 = cross(r2, normalized);
 
-		Screw screw1 = { -(jr / sc1->getMass())*normalized  ,  -jr*invI1*axis1 , r1};
-		Screw screw2 = { +(jr / sc2->getMass())*normalized  ,  +jr*invI2*axis2 , r2};
+		Screw screw1 = { -jr*invI1*axis1,  -(jr / sc1->getMass())*normalized   , r1};
+		Screw screw2 = { +jr*invI2*axis2 , +(jr / sc2->getMass())*normalized ,   r2};
 
 		ContactResponse response;
 		response.screw1 = screw1;
@@ -132,11 +133,11 @@ void InteractionManager::doResponse()
 		Screw s2 = cr.screw2;
 
 
-		w1->getStateComponent()->force(1.0,s1.s);
-		w1->getStateComponent()->torque(1.0, s1.v);
+		w1->getStateComponent()->torque(1.0, s1.s);
+		w1->getStateComponent()-> force(1.0, s1.v);
 
-		w2->getStateComponent()->force(1.0, s2.s);
-		w2->getStateComponent()->torque(1.0, s2.v);
+		w2->getStateComponent()->torque(1.0, s2.s);
+		w2->getStateComponent()-> force(1.0, s2.v);
 	}
 
 
