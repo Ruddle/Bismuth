@@ -401,3 +401,19 @@ Contact * DetectionProcessor::rayToRay(RayDetectionComponent * ray, RayDetection
 	return nullptr;
 }
 
+Contact * DetectionProcessor::reverse(Contact * c)
+{
+	 if (c == nullptr) 
+		 return nullptr;
+
+	 c->normal = -c->normal; 
+	 
+	 PhysicComponent * temp = c->who1;
+
+	 c->who1 = c->who2;
+	 c->who2 = temp;
+
+	 return c; 
+
+}
+
