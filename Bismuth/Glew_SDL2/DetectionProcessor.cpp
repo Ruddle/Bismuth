@@ -16,6 +16,10 @@ DetectionProcessor::~DetectionProcessor()
 
 Contact * DetectionProcessor::detection(PhysicComponent * phyA, PhysicComponent * phyB)
 {
+
+
+	
+
 	glm::vec3 pos1 = phyA->getStateComponent()->getPosition(), pos2 = phyB->getStateComponent()->getPosition();
 	glm::quat rot1 = phyA->getStateComponent()->getRotation(), rot2 = phyB->getStateComponent()->getRotation();
 	DetectionComponent *a = phyA->getDetectionComponent(), *b = phyB->getDetectionComponent();
@@ -63,7 +67,8 @@ Contact * DetectionProcessor::detection(PhysicComponent * phyA, PhysicComponent 
 			break;
 
 		case DetectionComponent::SPHERE:
-			return planeToSphere((PlaneDetectionComponent*)a, (SphereDetectionComponent*)b, pos1, rot1, pos2, rot2);
+			return contactFrom<PlaneDetectionComponent,SphereDetectionComponent>(planeToSphere, phyA, phyB);
+			//return planeToSphere((PlaneDetectionComponent*)a, (SphereDetectionComponent*)b, pos1, rot1, pos2, rot2);
 			break;
 
 		case DetectionComponent::RAY:
@@ -135,6 +140,23 @@ Contact * DetectionProcessor::detection(PhysicComponent * phyA, PhysicComponent 
 	
 	
 	return nullptr;
+}
+
+template <typename A , typename B>
+Contact * DetectionProcessor::contactFrom(Contact*(*func)(A *a, B *b, glm::vec3 const &pos1, glm::quat const &rot1, glm::vec3 const &pos2, glm::quat const &rot2), PhysicComponent * phyA, PhysicComponent * phyB)
+{
+	glm::vec3 pos1 = phyA->getStateComponent()->getPosition(), pos2 = phyB->getStateComponent()->getPosition();
+	glm::quat rot1 = phyA->getStateComponent()->getRotation(), rot2 = phyB->getStateComponent()->getRotation();
+	A *a = (A*)phyA->getDetectionComponent();B *b = (B*)phyB->getDetectionComponent();
+
+    Contact * res = func( a, b, pos1, rot1, pos2, rot2 )  ;
+
+	if (res == nullptr)
+		return nullptr;
+
+	res->who1 = phyA;
+	res->who2 = phyB;
+	return res;
 }
 
 Contact * DetectionProcessor::cubeToRay(CubeDetectionComponent * cube, RayDetectionComponent * ray,

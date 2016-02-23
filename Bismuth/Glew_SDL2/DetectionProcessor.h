@@ -18,6 +18,11 @@ public:
 
 	static Contact* detection(PhysicComponent * phyA, PhysicComponent * phyB);
 
+	template <typename A,typename B>
+	static Contact* contactFrom( Contact*(*func ) (A * a, B * b,
+		glm::vec3 const&pos1, glm::quat const&rot1,
+		glm::vec3 const&pos2, glm::quat const&rot2)   , PhysicComponent * phyA, PhysicComponent * phyB );
+
 	static Contact* cubeToRay(CubeDetectionComponent * cube, RayDetectionComponent * ray,
 		glm::vec3 const&pos1, glm::quat const&rot1,
 		glm::vec3 const&pos2, glm::quat const&rot2);//TODO

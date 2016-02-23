@@ -35,8 +35,6 @@ void InteractionManager::collision()
 
 					if (contact != nullptr)
 					{
-						contact->who2 = phyI;
-						contact->who1 = phyJ;
 						mContacts.push_back(contact);
 					}
 						
