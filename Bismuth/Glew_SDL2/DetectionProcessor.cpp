@@ -14,10 +14,11 @@ DetectionProcessor::~DetectionProcessor()
 {
 }
 
-Contact * DetectionProcessor::detection(DetectionComponent * a, DetectionComponent * b,
-	glm::vec3 const& pos1, glm::quat const& rot1, glm::vec3 const& pos2, glm::quat const& rot2)
+Contact * DetectionProcessor::detection(PhysicComponent * phyA, PhysicComponent * phyB)
 {
-	
+	glm::vec3 pos1 = phyA->getStateComponent()->getPosition(), pos2 = phyB->getStateComponent()->getPosition();
+	glm::quat rot1 = phyA->getStateComponent()->getRotation(), rot2 = phyB->getStateComponent()->getRotation();
+	DetectionComponent *a = phyA->getDetectionComponent(), *b = phyB->getDetectionComponent();
 
 	if (length(pos2 - pos1) > a->getRadius() + b->getRadius())	
 		return nullptr;

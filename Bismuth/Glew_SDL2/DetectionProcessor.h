@@ -1,10 +1,11 @@
 #pragma once
-#include "DetectionComponent.h"
+#include "Contact.h"
+#include "PhysicComponent.h"
 #include "RayDetectionComponent.h"
 #include "SphereDetectionComponent.h"
 #include "PlaneDetectionComponent.h"
 #include "CubeDetectionComponent.h"
-#include "Contact.h"
+
 #include "glm.hpp"
 #include "glm\gtc\quaternion.hpp"
 #include "glm\gtx\norm.hpp"
@@ -15,9 +16,7 @@ public:
 	DetectionProcessor();
 	~DetectionProcessor();
 
-	static Contact* detection(DetectionComponent * a, DetectionComponent * b,
-	    glm::vec3 const&pos1, glm::quat const&rot1,
-		glm::vec3 const&pos2, glm::quat const&rot2); 
+	static Contact* detection(PhysicComponent * phyA, PhysicComponent * phyB);
 
 	static Contact* cubeToRay(CubeDetectionComponent * cube, RayDetectionComponent * ray,
 		glm::vec3 const&pos1, glm::quat const&rot1,

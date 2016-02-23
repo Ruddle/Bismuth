@@ -30,9 +30,7 @@ void InteractionManager::collision()
 				if (entity_j != nullptr)
 				{
 					PhysicComponent *phyI = entity_i->getPhysicComponent(), *phyJ = entity_j->getPhysicComponent();
-					Contact* contact = DetectionProcessor::detection(phyI->getDetectionComponent(), phyJ->getDetectionComponent(),
-						phyI->getStateComponent()->getPosition(), phyI->getStateComponent()->getRotation(),
-						phyJ->getStateComponent()->getPosition(), phyJ->getStateComponent()->getRotation());
+					Contact* contact = DetectionProcessor::detection(phyI, phyJ);
 				
 
 					if (contact != nullptr)
