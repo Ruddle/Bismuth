@@ -33,12 +33,9 @@ void InteractionManager::collision()
 					Contact* contact = DetectionProcessor::detection(phyI->getDetectionComponent(), phyJ->getDetectionComponent(),
 						phyI->getStateComponent()->getPosition(), phyI->getStateComponent()->getRotation(),
 						phyJ->getStateComponent()->getPosition(), phyJ->getStateComponent()->getRotation());
-				
 
 					if (contact != nullptr)
 					{
-						contact->who2 = phyI;
-						contact->who1 = phyJ;
 						mContacts.push_back(contact);
 					}
 						
@@ -132,15 +129,12 @@ void InteractionManager::doResponse()
 		Screw s1 = cr.screw1;
 		Screw s2 = cr.screw2;
 
-
 		w1->getStateComponent()->force(1.0,s1.s);
 		w1->getStateComponent()->torque(1.0, s1.v);
 
 		w2->getStateComponent()->force(1.0, s2.s);
 		w2->getStateComponent()->torque(1.0, s2.v);
 	}
-
-
 }
 
 void InteractionManager::elementCollisionResponse(Entity * e)
