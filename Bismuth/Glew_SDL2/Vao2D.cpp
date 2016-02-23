@@ -41,11 +41,11 @@ void Vao2D::load()
 	// Transfert des données
 	float mVertex[12] = {
 		-1,-1,
-		1,-1,
-		1,1,
+		+1,-1,
+		+1,+1,
 		-1,-1,
-		1,1,
-		-1,1
+		+1,+1,
+		-1,+1
 	};
 
 	

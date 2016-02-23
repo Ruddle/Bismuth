@@ -1,17 +1,15 @@
 #pragma once
-#include "UI_Layout.h"
-
-struct Option_Grid
-{
-	int x;
-	int y;
-};
-
-
-class UI_Layout_Grid : public UI_Layout
+#include "UI_layout.h"
+class UI_layout_grid : public UI_layout
 {
 public:
-	UI_Layout_Grid();
-	~UI_Layout_Grid();
+	UI_layout_grid(int x, int y);
+	~UI_layout_grid();
+
+	int getX() { return mX; }
+	int getY() { return mY; }
+private :
+	int mX;
+	int mY;
 };
 

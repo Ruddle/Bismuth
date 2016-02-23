@@ -204,7 +204,7 @@ vec3 position_ViewSpace_far ;
 if(length(position_ViewSpace) == 0)
 	outColor =texture(skyboxSampler, (vi*position_ViewSpace_far)  ).xyz ;
 
-vec3 outColor_emit = outColor + emit*5 * (diffuse + vec3(0.0));
+vec3 outColor_emit = outColor + emit*20 * (diffuse + vec3(0.0));
 
 float brightness = dot(outColor_emit, vec3(0.2126, 0.7152, 0.0722));
 

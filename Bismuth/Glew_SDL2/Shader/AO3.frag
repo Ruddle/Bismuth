@@ -14,98 +14,133 @@ uniform float tanHalfFov;
 uniform float near;
 uniform float far;
 
-uint hash( uint x ) {
-    x += ( x << 10u );
-    x ^= ( x >>  6u );
-    x += ( x <<  3u );
-    x ^= ( x >> 11u );
-    x += ( x << 15u );
-    return x;
+
+
+
+#define SAMPLES 22   // More than 1, 80 max ( FullHD - 870M GTX)
+#define DISTANCE 4. // Try between 0.5 - 5 
+#define INTENSITY 3.
+
+#define SCALE 0.005
+#define BIAS 0.05
+#define SAMPLE_RAD 1*DISTANCE
+#define MAX_DISTANCE 60.
+
+
+vec3 decodeNormal(vec2 enc){
+	vec3 normal;
+	 vec2 fenc = enc.xy*4.0;
+    float f = dot(fenc,fenc);
+    float g = sqrt(1-f/4);
+    normal.xy = fenc*g;
+    normal.z = 1-f/2;
+	normal = normalize(normal);
+	return normal;
 }
 
-uint hash( uvec2 v ) {
-    return hash( v.x ^ hash(v.y) );
+
+vec3 getPosition(vec2 uv){
+
+
+	vec3 position_ViewSpace ;
+	position_ViewSpace.z = -texture(gPosition, uv).r ;
+	position_ViewSpace.x = -(uv.x*2-1)*position_ViewSpace.z*(aspect) *tanHalfFov ;
+	position_ViewSpace.y = -(uv.y*2-1)*position_ViewSpace.z *tanHalfFov ;
+	
+	return position_ViewSpace;
 }
 
-float random( float f ) {
-    const uint mantissaMask = 0x007FFFFFu;
-    const uint one          = 0x3F800000u;
+
+
+highp float rand(vec2 co)
+{
+    highp float a = 12.9898;
+    highp float b = 78.233;
+    highp float c = 43758.5453;
+    highp float dt= dot(co.xy ,vec2(a,b));
+    highp float sn= mod(dt,3.14);
+    return fract(sin(sn) * c);
+}
+
+
+
+
+float doAmbientOcclusion(in vec2 tcoord,in vec2 uv, in vec3 p, in vec3 cnorm)
+{
+    vec3 diff = getPosition(tcoord + uv) - p;
+    float l = length(diff);
+    vec3 v = diff/l;
+    float d = l*SCALE;
+    float ao = max(0.0,dot(cnorm,v)-BIAS  )*(1.0/(1.0+d));
     
-    uint h = hash( floatBitsToUint( f ) );
-    h &= mantissaMask;
-    h |= one;
-    
-    float  r2 = uintBitsToFloat( h );
-    return r2 - 1.0;
-}
+    float maxd = MAX_DISTANCE*length(uv)*(1.*float(SAMPLES));
+    ao *= smoothstep(maxd,maxd * 0.5, l);
+    return ao;
 
-float random( vec2 f ) {
-    const uint mantissaMask = 0x007FFFFFu;
-    const uint one          = 0x3F800000u;
-    
-    uint h = hash( floatBitsToUint( f ) );
-    h &= mantissaMask;
-    h |= one;
-    
-    float  r2 = uintBitsToFloat( h );
-    return r2 - 1.0;
 }
 
 
-float doAO(int numPass,vec3 position,vec3 normal,float radius) {
+float spiralAO(vec2 uv, vec3 p, vec3 n, float rad)
+{
+    float goldenAngle = 2.39996;
+    float ao = 0.0;
+    float inv = 1. / float(SAMPLES);
+    float radius = 0.;
+    float rotatePhase = rand(uv*1.) * 6.28; 
+    float rStep = inv * rad;
+    vec2 spiralUV;
 
-	float ao=0;
-	for(float i =1;i<numPass+1;i++){
+    for (int i = 0; i < SAMPLES; i++) {
+        spiralUV.x = sin(rotatePhase);
+        spiralUV.y = cos(rotatePhase);
+        radius += rStep * float( (i+1)*(i+1)) /float(SAMPLES*SAMPLES) * 3. / 2.     ;
 
-		float index = 1001*i+(pow(time,1.334))*0.348484657;
-		float rand1 =	random(gl_FragCoord.xy*0.3153548679861*pow(index,2.3513));
-		float rand2 =	random(gl_FragCoord.xy*0.1461276795721*pow(index,3.545));
-		float rand3 =	random(gl_FragCoord.xy*0.9876543598998*index);
-
-		vec2 offset = vec2(rand1,rand2)-vec2(0.5) ;
-		offset = float(i)/10.0*normalize(offset)*radius/position.z;
-
-
-		vec3 position2 ;
-		position2.z = -texture(gPosition, UV + offset ).r ;
-		position2.x = -(UV.x*2-1)*position2.z*(aspect) *tanHalfFov ;
-		position2.y = -(UV.y*2-1)*position2.z *tanHalfFov ;
-		
-		vec3 diff = position2 - position;
-		vec3 v = normalize(diff);
-		float d = length(diff)*1;
-		ao+=   max(0.0,dot(normal,v)-0.0)*2;//*(1.0/(1.0+d))*2.0
-
-
-						
-	}
-	ao = ao/(numPass);
-	return ao;
+        float randomRadius = 0.6 + 0.8 * rand(vec2(sin(float(i)+uv.y),cos(float(i)+uv.x)));
+    
+      
+       ao += doAmbientOcclusion(uv, spiralUV * radius * randomRadius, p, n)  ;
+       rotatePhase += goldenAngle;
+    }
+    ao *= inv;
+   
+    return ao;
 }
 
 
-int NUMPASS=32;
-float RADIUS =0.1;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 void main()
 {
 
-vec3 position_ViewSpace ;
-	position_ViewSpace.z = -texture(gPosition, UV).r ;
-	position_ViewSpace.x = -(UV.x*2-1)*position_ViewSpace.z*(aspect) *tanHalfFov ;
-	position_ViewSpace.y = -(UV.y*2-1)*position_ViewSpace.z *tanHalfFov ;
+vec3 position_ViewSpace =getPosition(UV);
 
 vec3 normal = vec3(texture(gNormal, UV).rg,0);
-				normal.z= sqrt(1.0 - normal.x*normal.x - normal.y*normal.y); 
+	normal = decodeNormal(normal.xy);
 
 
-float ao = doAO(NUMPASS,position_ViewSpace,normal,RADIUS);
+
+  float rad = SAMPLE_RAD/position_ViewSpace.z;
+  float  ao = spiralAO(UV, position_ViewSpace, normal, rad);
 
 
-ao = 1-ao;
 
-float lost = 0.3;
-//ao = (max(ao,lost)-lost)/(1-lost);
+ao = 1-ao*INTENSITY;
 
 outColor =		pow(ao,1);
 }

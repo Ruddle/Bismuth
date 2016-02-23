@@ -86,5 +86,7 @@ private:
 	ResourcesManager* mRm;
 	glm::mat4 mLastViewProjection;
 	GLuint mAttach[4];
+
+	
 };
 

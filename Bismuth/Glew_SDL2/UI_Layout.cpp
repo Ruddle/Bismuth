@@ -1,12 +1,12 @@
-#include "UI_Layout.h"
+#include "UI_layout.h"
 
 
 
-UI_Layout::UI_Layout()
+UI_layout::UI_layout()
 {
 }
 
 
-UI_Layout::~UI_Layout()
+UI_layout::~UI_layout()
 {
 }

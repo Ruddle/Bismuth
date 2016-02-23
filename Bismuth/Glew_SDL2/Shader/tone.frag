@@ -62,6 +62,7 @@ float k1 =1;
 float k2 =1;
 float k3 =1;
 float k4 =1;
+float kl =0.5;
 
 bloom1 = darken(bloom1);
 bloom2 = darken(bloom2);
@@ -99,7 +100,7 @@ bloom4 = darken(bloom4);
 
 
 
-image+= k *( k1* bloom1 +k2*bloom2 + k3*bloom3 + k4*bloom4 ) +lensFlare ;
+image+= k *( k1* bloom1 +k2*bloom2 + k3*bloom3 + k4*bloom4 ) +lensFlare*kl ;
 
 image =  vec3(1.0) - exp(-image * 2);
 

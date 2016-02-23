@@ -1,12 +1,12 @@
-#include "UI_Layout_Grid.h"
+#include "UI_layout_grid.h"
 
 
 
-UI_Layout_Grid::UI_Layout_Grid()
+UI_layout_grid::UI_layout_grid(int x,int y ) : mX(x), mY(y)
 {
 }
 
 
-UI_Layout_Grid::~UI_Layout_Grid()
+UI_layout_grid::~UI_layout_grid()
 {
 }

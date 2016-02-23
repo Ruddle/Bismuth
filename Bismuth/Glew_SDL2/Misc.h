@@ -34,6 +34,7 @@ struct Config
 	int HalfAO;
 	int CookTorrance;
 	int Reflection;
+	int LensFlare_Undersampling;
 };
 
 class ResourcesManager;

@@ -187,7 +187,7 @@ if(Reflection)
 lighting = lighting*(1-YC_Reflection.z) + YC_Reflection.z*texture(skyboxSampler, vi*reflect(position_ViewSpace,normal)  ).xyz;
 }
 
-if(!keyF4) lighting=lighting*(ao*2-1);
+if(!keyF4) lighting=lighting*( ao );
 
 
 

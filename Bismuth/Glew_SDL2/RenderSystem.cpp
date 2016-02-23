@@ -141,7 +141,7 @@ RenderSystem::RenderSystem(Config* cfg, ResourcesManager* rm) : mCfg(cfg), mRm(r
 	//LENS FLARE
 
 	TextureCfg texCfgLF_2_h = { GL_RGB16F, GL_LINEAR, GL_CLAMP_TO_EDGE };
-	Texture* texLF_2_h = new Texture(cfg->ResolutionX / 2, cfg->ResolutionY / 2, texCfgLF_2_h);
+	Texture* texLF_2_h = new Texture(cfg->ResolutionX / cfg->LensFlare_Undersampling, cfg->ResolutionY / cfg->LensFlare_Undersampling, texCfgLF_2_h);
 	texLF_2_h->load();
 	textureArray = vector<Texture*>();
 	textureArray.push_back(texLF_2_h);
@@ -149,7 +149,7 @@ RenderSystem::RenderSystem(Config* cfg, ResourcesManager* rm) : mCfg(cfg), mRm(r
 	mFboLensFlare_2_h.load();
 
 	TextureCfg texCfgLF_2_v = { GL_RGB16F, GL_LINEAR, GL_CLAMP_TO_EDGE };
-	Texture* texLF_2_v = new Texture(cfg->ResolutionX / 2, cfg->ResolutionY / 2, texCfgLF_2_v);
+	Texture* texLF_2_v = new Texture(cfg->ResolutionX / cfg->LensFlare_Undersampling, cfg->ResolutionY / cfg->LensFlare_Undersampling, texCfgLF_2_v);
 	texLF_2_v->load();
 	textureArray = vector<Texture*>();
 	textureArray.push_back(texLF_2_v);
@@ -176,7 +176,7 @@ RenderSystem::RenderSystem(Config* cfg, ResourcesManager* rm) : mCfg(cfg), mRm(r
 	mShaderGeometry = Shader("Shader/defPass1.vert", "Shader/defPass1.frag") ;
 	mShaderGeometry.load();
 
-	mShaderAo       = Shader("Shader/defPassN.vert", "Shader/AO2.frag");
+	mShaderAo       = Shader("Shader/defPassN.vert", "Shader/AO3.frag");
 	mShaderAo.load();
 
 	mShaderLight = Shader("Shader/light.vert", "Shader/light.frag");
@@ -188,7 +188,7 @@ RenderSystem::RenderSystem(Config* cfg, ResourcesManager* rm) : mCfg(cfg), mRm(r
 	mShaderBlur = Shader("Shader/defPassN.vert", "Shader/blur_3ch.frag");
 	mShaderBlur.load();
 
-	mShaderBlurBilateral = Shader("Shader/defPassN.vert", "Shader/blurBilateral_1ch.frag");
+	mShaderBlurBilateral = Shader("Shader/defPassN.vert", "Shader/blurBilateral_1chV2.frag");
 	mShaderBlurBilateral.load();
 
 	mShaderDeferredFinal = Shader("Shader/defPassN.vert", "Shader/defPassN.frag");
@@ -396,7 +396,7 @@ void RenderSystem::doStepBlurAo()
 	glUniform1f(mShaderBlurBilateral.getLocation( "size"), 0);
 	mSupportFbo.draw();
 
-	int nombreDePasseBlurAo = 7;
+	int nombreDePasseBlurAo = 2;
 	for (int i = 1; i < nombreDePasseBlurAo; i++) {
 		//Blur AO Horizontal
 		glBindFramebuffer(GL_FRAMEBUFFER, mFboBlurH.getId());
@@ -703,9 +703,9 @@ void RenderSystem::doStepBloom()
 
 void RenderSystem::doStepLensFlare()
 {
-	glViewport(0, 0, mCfg->ResolutionX / 2, mCfg->ResolutionY / 2);
+	glViewport(0, 0, mCfg->ResolutionX / mCfg->LensFlare_Undersampling, mCfg->ResolutionY / mCfg->LensFlare_Undersampling);
 	int nombreDePasseBlurLensFlare = 5;
-	vec2 resolution_2 = vec2(mCfg->ResolutionX / 2.0f, mCfg->ResolutionY / 2.0f);
+	vec2 resolution_2 = vec2(mCfg->ResolutionX / mCfg->LensFlare_Undersampling, mCfg->ResolutionY / mCfg->LensFlare_Undersampling);
 
 	//LENS FLARE 
 

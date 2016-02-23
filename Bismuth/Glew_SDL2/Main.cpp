@@ -32,6 +32,11 @@
 #include "ButtonController_int.h"
 #include "BisObject.h"
 
+//#include "UI_layout_grid.h"
+//#include "UI_link_grid.h"
+//#include "UI_button.h"
+
+
 FILE _iob[] = { *stdin, *stdout, *stderr };
 extern "C" FILE * __cdecl __iob_func(void)
 {
@@ -73,6 +78,24 @@ int main(int argc, char **argv)
 	Button buttonR = Button(core.entityManager, core.resourcesManager, core.input, vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), vec2(10, 320), vec2(120, 50));
 	Text labelR = Text(core.entityManager, core.resourcesManager, font, "Reflect", vec2(10, 320), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
 	ButtonController_int bcR(&buttonR, &(core.cfg->Reflection));
+
+
+	//UI_layout_grid* layout = new UI_layout_grid(3, 4);
+	//UI_button* ui_buttonA = new UI_button(&core, layout);
+	//ui_buttonA->setPositionSize({ vec2(-1),vec2(2) });
+
+	//UI_layout_grid* layout1 = new UI_layout_grid(2,2);
+	//UI_button* ui_button1 = new UI_button(&core, layout1);
+
+	//UI_link_grid* ui_link1 = new UI_link_grid(ui_button1, 0, 0);
+	//UI_link_grid* ui_link2 = new UI_link_grid(ui_button1, 1, 1);
+	//UI_link_grid* ui_link3 = new UI_link_grid(ui_button1, 2, 3);
+
+	//ui_buttonA->add(ui_link1);
+	//ui_buttonA->add(ui_link2);
+	//ui_buttonA->add(ui_link3);
+	
+	//ui_buttonA->update();
 
 
 

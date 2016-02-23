@@ -12,6 +12,7 @@ public:
 	glm::vec2 getPosition() { return mPosition; }
 
 	void setPosition(glm::vec2 position) { mPosition = position; }
+	void setSize(glm::vec2 size) { mSize = size; }
 
 	bool contain(glm::vec2 mouse);
 

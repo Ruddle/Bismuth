@@ -198,21 +198,6 @@
     <ClCompile Include="UI_Assembler.cpp">
       <Filter>Bis 4\MayBis</Filter>
     </ClCompile>
-    <ClCompile Include="Pane.cpp">
-      <Filter>Bis 4\MayBis\Test</Filter>
-    </ClCompile>
-    <ClCompile Include="UI_Element.cpp">
-      <Filter>Bis 4\MayBis\Test</Filter>
-    </ClCompile>
-    <ClCompile Include="UI_Layout_Grid.cpp">
-      <Filter>Bis 4\MayBis\Test</Filter>
-    </ClCompile>
-    <ClCompile Include="UI_Layout_Absolute.cpp">
-      <Filter>Bis 4\MayBis\Test</Filter>
-    </ClCompile>
-    <ClCompile Include="UI_Layout.cpp">
-      <Filter>Bis 4\MayBis\Test</Filter>
-    </ClCompile>
     <ClCompile Include="InteractionManager.cpp">
       <Filter>Bis 3</Filter>
     </ClCompile>
@@ -224,6 +209,24 @@
     </ClCompile>
     <ClCompile Include="BisObject.cpp">
       <Filter>Bis 4</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_element.cpp">
+      <Filter>Bis 4\MayBis\Test\Mother class</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_link.cpp">
+      <Filter>Bis 4\MayBis\Test\Mother class</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_layout.cpp">
+      <Filter>Bis 4\MayBis\Test\Mother class</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_layout_grid.cpp">
+      <Filter>Bis 4\MayBis\Test\grid</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_link_grid.cpp">
+      <Filter>Bis 4\MayBis\Test\grid</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_button.cpp">
+      <Filter>Bis 4\MayBis\Test\element</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -389,21 +392,6 @@
     <ClInclude Include="UI_Assembler.h">
       <Filter>Bis 4\MayBis</Filter>
     </ClInclude>
-    <ClInclude Include="Pane.h">
-      <Filter>Bis 4\MayBis\Test</Filter>
-    </ClInclude>
-    <ClInclude Include="UI_Element.h">
-      <Filter>Bis 4\MayBis\Test</Filter>
-    </ClInclude>
-    <ClInclude Include="UI_Layout_Absolute.h">
-      <Filter>Bis 4\MayBis\Test</Filter>
-    </ClInclude>
-    <ClInclude Include="UI_Layout.h">
-      <Filter>Bis 4\MayBis\Test</Filter>
-    </ClInclude>
-    <ClInclude Include="UI_Layout_Grid.h">
-      <Filter>Bis 4\MayBis\Test</Filter>
-    </ClInclude>
     <ClInclude Include="InteractionManager.h">
       <Filter>Bis 3</Filter>
     </ClInclude>
@@ -424,6 +412,24 @@
     </ClInclude>
     <ClInclude Include="BisObject.h">
       <Filter>Bis 4</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_link.h">
+      <Filter>Bis 4\MayBis\Test\Mother class</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_element.h">
+      <Filter>Bis 4\MayBis\Test\Mother class</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_layout.h">
+      <Filter>Bis 4\MayBis\Test\Mother class</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_link_grid.h">
+      <Filter>Bis 4\MayBis\Test\grid</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_layout_grid.h">
+      <Filter>Bis 4\MayBis\Test\grid</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_button.h">
+      <Filter>Bis 4\MayBis\Test\element</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -685,6 +691,9 @@
     <None Include="Shader\lensFlare.frag">
       <Filter>Shader</Filter>
     </None>
+    <None Include="Shader\blurBilateral_1chV2.frag">
+      <Filter>Shader</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Bis 1">
@@ -764,6 +773,15 @@
     </Filter>
     <Filter Include="Resources\Texture\Engine">
       <UniqueIdentifier>{7dadb846-537c-424b-a467-643aa615f161}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bis 4\MayBis\Test\Mother class">
+      <UniqueIdentifier>{8a1be3c1-f093-44cb-93a8-6671347abbdd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bis 4\MayBis\Test\grid">
+      <UniqueIdentifier>{72bf00d5-f891-42e1-93bd-e1273dd2d78a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bis 4\MayBis\Test\element">
+      <UniqueIdentifier>{aea31843-ac8f-411e-8fa0-e77291831932}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

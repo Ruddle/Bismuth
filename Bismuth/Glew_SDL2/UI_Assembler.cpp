@@ -12,10 +12,10 @@ UI_Assembler::~UI_Assembler()
 {
 }
 
-Pane * UI_Assembler::createPane()
-{
-	return nullptr;
-}
+//Pane * UI_Assembler::createPane()
+//{
+//	return nullptr;
+//}
 
 Button * UI_Assembler::createButton()
 {

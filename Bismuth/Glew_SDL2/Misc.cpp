@@ -53,6 +53,12 @@ Config* readConfig(void) {
 			cfg->Reflection = stoi(word2);
 		
 
+		if (word1 == "LensFlare_Undersampling")
+			cfg->LensFlare_Undersampling = stoi(word2);
+
+		
+
+
 	}
 	return cfg;
 }

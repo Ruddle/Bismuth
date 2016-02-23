@@ -1,21 +1,29 @@
 #pragma once
-#include "UI_Layout_Grid.h"
-#include "UI_Layout_Absolute.h"
+#include <vector>
+#include "UI_link.h"
+#include "UI_layout.h"
+#include "Misc.h"
+#include "UI_box.h"
 
-class UI_Element
+class UI_element
 {
 public:
-	UI_Element();
-	~UI_Element();
+	UI_element(CoreBismuth* core, UI_layout* layout);
+	~UI_element();
 
-	void setOptionGrid(int x, int y) { mOG.x = x; mOG.y = y; }
-	void setOptionAbsolute(int x, int y) {mOA.x = x; mOA.y = y; }
-	Option_Grid getOptionGrid() { return mOG; }
-	Option_Absolute getOptionAbsolute() { return mOA; }
+  	void add(UI_link* link); 
+	void update();
 
+	void setPositionSize(elementConfig ec);
 
+protected :
+	CoreBismuth* mCore;
+	std::vector<UI_link*> mLinks;
+	UI_layout* mLayout;
+
+	UI_box* mBox;
+	Entity2D* mEntity;
 private:
-	Option_Grid mOG;
-	Option_Absolute mOA;
+
 };
 
