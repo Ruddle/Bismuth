@@ -22,6 +22,15 @@
     <Object Include="Mesh\Default\o.obj">
       <Filter>Resources\Mesh\Default</Filter>
     </Object>
+    <Object Include="Mesh\bac.obj">
+      <Filter>Resources\Mesh</Filter>
+    </Object>
+    <Object Include="Mesh\drag.obj">
+      <Filter>Resources\Mesh</Filter>
+    </Object>
+    <Object Include="Mesh\tank.obj">
+      <Filter>Resources\Mesh</Filter>
+    </Object>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Ball.cpp">
@@ -631,6 +640,18 @@
     <Image Include="Texture\Engine\lensstar.png">
       <Filter>Resources\Texture\Engine</Filter>
     </Image>
+    <Image Include="Texture\bac\d.png">
+      <Filter>Resources\Texture\bac</Filter>
+    </Image>
+    <Image Include="Texture\bac\layout.png">
+      <Filter>Resources\Texture\bac</Filter>
+    </Image>
+    <Image Include="Texture\bac\r.png">
+      <Filter>Resources\Texture\bac</Filter>
+    </Image>
+    <Image Include="Texture\bac\s.png">
+      <Filter>Resources\Texture\bac</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <None Include="config.ini">
@@ -693,6 +714,9 @@
     </None>
     <None Include="Shader\blurBilateral_1chV2.frag">
       <Filter>Shader</Filter>
+    </None>
+    <None Include="Texture\bac\layout.psd">
+      <Filter>Resources\Texture\bac</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -783,9 +807,18 @@
     <Filter Include="Bis 4\MayBis\Test\element">
       <UniqueIdentifier>{aea31843-ac8f-411e-8fa0-e77291831932}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resources\Texture\bac">
+      <UniqueIdentifier>{1570d3f0-ed1e-489b-b275-415c46317fbb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="BisObject\saber.txt">
+      <Filter>Resources\BisObject</Filter>
+    </Text>
+    <Text Include="BisObject\bac.txt">
+      <Filter>Resources\BisObject</Filter>
+    </Text>
+    <Text Include="BisObject\box.txt">
       <Filter>Resources\BisObject</Filter>
     </Text>
   </ItemGroup>

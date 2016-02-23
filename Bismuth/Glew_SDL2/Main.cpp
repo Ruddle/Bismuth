@@ -122,7 +122,7 @@ int main(int argc, char **argv)
 
 
 		if (core.input->getRisingKey(SDL_SCANCODE_V))
-			listUpdate.push_back(new BisObject(core.entityManager, core.resourcesManager, core.camera->getPosition(), 0.00951f*core.camera->getRotation(), "BisObject/saber.txt"));
+			listUpdate.push_back(new BisObject(core.entityManager, core.resourcesManager, core.camera->getPosition(), 0.00951f*core.camera->getRotation(), "BisObject/bac.txt"));
 
 		
 

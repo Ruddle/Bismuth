@@ -337,6 +337,7 @@
     <ClInclude Include="Vao2D.h" />
   </ItemGroup>
   <ItemGroup>
+    <Object Include="Mesh\bac.obj" />
     <Object Include="Mesh\cube.obj">
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
@@ -346,6 +347,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </Object>
+    <Object Include="Mesh\drag.obj" />
     <Object Include="Mesh\plane.obj">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
@@ -362,6 +364,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </Object>
+    <Object Include="Mesh\tank.obj" />
     <Object Include="Mesh\thing.obj">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
@@ -389,11 +392,16 @@
     <None Include="Shader\light.frag" />
     <None Include="Shader\light.vert" />
     <None Include="Shader\tone.frag" />
+    <None Include="Texture\bac\layout.psd" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Font\Calibri64.png" />
     <Image Include="Font\font1.png" />
     <Image Include="Font\SWLink48.bmp" />
+    <Image Include="Texture\bac\d.png" />
+    <Image Include="Texture\bac\layout.png" />
+    <Image Include="Texture\bac\r.png" />
+    <Image Include="Texture\bac\s.png" />
     <Image Include="Texture\band.png" />
     <Image Include="Texture\bismuth.png" />
     <Image Include="Texture\bismuthSmall.png" />
@@ -459,6 +467,8 @@
     <Image Include="Texture\wood_N.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="BisObject\bac.txt" />
+    <Text Include="BisObject\box.txt" />
     <Text Include="BisObject\saber.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
