@@ -18,6 +18,7 @@ public:
 	void systemCollisionResponse();
 	void doResponse();
 
+	std::vector<Contact*> getContacts() { return mContacts; }
 	
 private:
 	std::vector<Entity*> &mEntities;

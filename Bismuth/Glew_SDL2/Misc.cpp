@@ -133,16 +133,13 @@ Entity2D* createUI(ResourcesManager* rm) {
 
 }
 
-std::vector<Entity2D*> getVisualCollision(ResourcesManager* rm,std::vector<Entity*> const & entities, Camera const & cam)
+std::vector<Entity2D*> getVisualCollision(ResourcesManager* rm, InteractionManager * im, Camera const & cam)
 {
 	std::vector<Entity2D*> res = std::vector<Entity2D*>();
 	std::vector<vec2> a = std::vector<vec2>();
 
-	for (auto it1 = entities.begin(); it1 != entities.end(); it1++)
-	{
-		if (*it1 != nullptr)
-		{
-			set<Contact*> contacts = (*it1)->getPhysicComponent()->getContact();
+
+	vector<Contact*> contacts = im->getContacts();
 			for (auto it = contacts.begin(); it != contacts.end(); it++)
 			{
 				if (*it != nullptr)
@@ -163,9 +160,9 @@ std::vector<Entity2D*> getVisualCollision(ResourcesManager* rm,std::vector<Entit
 				}
 
 			}
-		}
+		
 
-	}
+	
 	vec2 size = vec2(9, 16)*0.001f;
 
 	for (int i = 0; i < a.size(); i++) 

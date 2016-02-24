@@ -29,6 +29,8 @@ public:
 	std::vector<Entity*> getEntities() { return mEntity; }
 	std::vector<Entity2D*> getEntities2D() { return mEntity2D; }
 
+	InteractionManager* getIM() { return mIM; }
+
 private:
 
 	std::vector<Entity*> mEntity;

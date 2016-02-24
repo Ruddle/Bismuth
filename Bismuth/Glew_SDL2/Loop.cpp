@@ -57,7 +57,7 @@ void Loop::insertInLoop(std::vector<Updatable*> &toUpdate)
 
 	mRenderSystem->draw(mEntityManager->getEntities(), *mCamera, float(mFrame), *mInput, float(mFps));
 	if (mInput->getKey(SDL_SCANCODE_C))
-	mRenderSystem->draw2D(getVisualCollision(mResourcesManager, mEntityManager->getEntities(), *mCamera));
+	mRenderSystem->draw2D(getVisualCollision(mResourcesManager, mEntityManager->getIM(), *mCamera));
 
 
 	mRenderSystem->draw2D(mEntityManager->getEntities2D());

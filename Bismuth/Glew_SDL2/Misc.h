@@ -20,6 +20,8 @@
 #include "SphereDetectionComponent.h"
 #include "CubeDetectionComponent.h"
 #include "PlaneDetectionComponent.h"
+#include "InteractionManager.h"
+
 
 #define CONFIGPATH  "config.ini"
 
@@ -62,7 +64,7 @@ Entity* createThing(ResourcesManager* rm,glm::vec3 position);
 Entity* createPlane(ResourcesManager* rm);
 Entity2D* createUI(ResourcesManager* rm);
 
-std::vector<Entity2D*> getVisualCollision(ResourcesManager* rm,std::vector<Entity*> const& entities, Camera const & cam);
+std::vector<Entity2D*> getVisualCollision(ResourcesManager* rm, InteractionManager * im, Camera const & cam);
 
 
 // Utile pour Main_Bis1
