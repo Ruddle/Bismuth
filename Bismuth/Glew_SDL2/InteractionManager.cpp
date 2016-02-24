@@ -69,13 +69,13 @@ void InteractionManager::singleCollisionResponse()
 			denJr = (1 / sc1->getMass()) + (1 / sc2->getMass()) + denJr_3;
 		float jr = numJr / denJr;
 
-		mat4 toRotCube1 = inverse(mat4(mat3(sc1->getModel())));
-		vec3 axis1 = vec3(toRotCube1*vec4(cross(r1, normalized), 1));
-		axis1 = cross(r1, normalized);
+	//	mat4 toRotCube1 = inverse(mat4(mat3(sc1->getModel())));
+	//	vec3 axis1 = vec3(toRotCube1*vec4(cross(r1, normalized), 1));
+		vec3 axis1 = cross(r1, normalized);
 
-		mat4 toRotCube2 = inverse(mat4(mat3(sc2->getModel())));
-		vec3 axis2 = vec3(toRotCube2*vec4(cross(r2, normalized), 1));
-		axis2 = cross(r2, normalized);
+	//	mat4 toRotCube2 = inverse(mat4(mat3(sc2->getModel())));
+	//	vec3 axis2 = vec3(toRotCube2*vec4(cross(r2, normalized), 1));
+		vec3 axis2 = cross(r2, normalized);
 
 		Screw screw1 = { -jr*invI1*axis1,  -(jr / sc1->getMass())*normalized   , r1};
 		Screw screw2 = { +jr*invI2*axis2 , +(jr / sc2->getMass())*normalized ,   r2};
