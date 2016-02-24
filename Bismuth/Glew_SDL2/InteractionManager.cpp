@@ -131,6 +131,12 @@ void InteractionManager::doResponse()
 		Screw s1 = cr.screw1;
 		Screw s2 = cr.screw2;
 
+		float m1 = w1->getStateComponent()->getMass(), m2 = w2->getStateComponent()->getMass();
+		float totalMass = m1 + m2;
+
+		w1->getStateComponent()->setPosition(w1->getStateComponent()->getPosition() - n*m2/totalMass);
+		w2->getStateComponent()->setPosition(w2->getStateComponent()->getPosition() + n*m1 / totalMass);
+
 
 		w1->getStateComponent()->force(1.0,s1.s);
 		w1->getStateComponent()->torque(1.0, s1.v);
