@@ -272,7 +272,9 @@ void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float t
 
 
 	doStepGeometry(cam,entities);
+	if(mCfg->ShadowMap == 1)
 	doStepLight(cam2, entities);
+
 	if (mCfg->AO == 1) 
 	{
 		doStepAo(cam);
@@ -280,10 +282,16 @@ void RenderSystem::draw(std::vector<Entity*> entities,Camera const& cam, float t
 	}
 
 	doStepShading(cam,cam2,input);
-	doStepBloom();
-	doStepLensFlare();
+	if (mCfg->Bloom == 1)
+	{
+		doStepBloom();
+		doStepLensFlare();
+	}
 	doStepToneMapping(cam);
+
+	if( mCfg->MotionBlur)
 	doStepMotionBlur(fps);
+
 	doStepFXAA(time);
 
 	mLastViewProjection = cam.getProjection()*cam.getView();
@@ -873,6 +881,8 @@ void RenderSystem::doStepToneMapping(Camera const& cam)
 	glBindTexture(GL_TEXTURE_2D, mLensDirt->getId());
 	glUniform1i(mShaderTone.getLocation("lensDirtSampler"), 7);
 
+	glUniform1i(mShaderTone.getLocation("BloomActive"), mCfg->Bloom);
+
 	float angle = cam.getRotation().x - cam.getRotation().y + cam.getRotation().z ;
 	angle *= 10;
 	mat2 matAngle = mat2(cos(angle), sin(angle), -sin(angle), cos(angle));
@@ -943,6 +953,7 @@ void RenderSystem::doStepShading(Camera const& cam, Camera const &camLight,Input
 	glUniform1i(mShaderDeferredFinal.getLocation("CookTorrance"), mCfg->CookTorrance);
 	glUniform1i(mShaderDeferredFinal.getLocation("Reflection"), mCfg->Reflection);
 	glUniform1i(mShaderDeferredFinal.getLocation("AO"), mCfg->AO);
+	glUniform1i(mShaderDeferredFinal.getLocation("ShadowMapActive"), mCfg->ShadowMap);
 	glUniform2fv(mShaderDeferredFinal.getLocation("resolution"), 1, value_ptr(resolution));
 	mSupportFbo.draw();
 }
@@ -1042,7 +1053,9 @@ void RenderSystem::doStepFXAA(float time) {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glUseProgram(mShaderFXAA.getProgramID());
 	glActiveTexture(GL_TEXTURE0);
+	if(mCfg->MotionBlur)
 	glBindTexture(GL_TEXTURE_2D, mFboShading.getColorBufferId(0));
+	else glBindTexture(GL_TEXTURE_2D, mFboShading2.getColorBufferId(0));
 	glUniform1i(mShaderFXAA.getLocation("image"), 0);
 	glUniform1f(mShaderFXAA.getLocation("time"), time);
 	glUniform2fv(mShaderFXAA.getLocation("resolution"), 1, value_ptr(resolution));

@@ -36,6 +36,10 @@ struct Config
 	int HalfAO;
 	int CookTorrance;
 	int Reflection;
+	int Bloom;
+	int ShadowMap;
+	int MotionBlur;
+	int DrawCollision;
 	int LensFlare_Undersampling;
 };
 

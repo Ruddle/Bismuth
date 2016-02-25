@@ -53,7 +53,7 @@ void EntityManager::singleCollisionResponse(float time_s)
 
 void EntityManager::systemCollisionResponse(float time_s)
 {
-	//mIM->systemCollisionResponse();
+	mIM->systemCollisionResponse();
 }
 
 void EntityManager::doResponseCollision()

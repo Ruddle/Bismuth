@@ -73,6 +73,14 @@ int ResourcesManager::loadVao(std::string path)
 	}
 }
 
+int ResourcesManager::loadVao(std::vector<glm::vec3> position, std::vector<glm::vec3> normal, std::vector<glm::vec2> uv)
+{
+	Vao *newVao = new Vao(position,normal,uv);
+	mVaos.push_back(newVao);
+	newVao->load();
+	return int(mVaos.size()) - 1;
+}
+
 int ResourcesManager::getTexture(std::string path, TextureCfg cfg)
 {
 	for (int i = 0; i < mTextures.size(); i++)

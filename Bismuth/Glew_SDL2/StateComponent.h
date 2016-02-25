@@ -5,9 +5,7 @@
 #include "glm\gtx\euler_angles.hpp"
 #include "glm\gtx\rotate_vector.hpp"
 #include "glm\gtx\quaternion.hpp"
-//#define _USE_MATH_DEFINES
-//#include <math.h>
-//#define GLM_FORCE_RADIANS
+
 
 class StateComponent
 {

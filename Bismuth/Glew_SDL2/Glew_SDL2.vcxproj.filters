@@ -237,6 +237,9 @@
     <ClCompile Include="UI_button.cpp">
       <Filter>Bis 4\MayBis\Test\element</Filter>
     </ClCompile>
+    <ClCompile Include="Heightmap.cpp">
+      <Filter>Bis 4</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h">
@@ -439,6 +442,9 @@
     </ClInclude>
     <ClInclude Include="UI_button.h">
       <Filter>Bis 4\MayBis\Test\element</Filter>
+    </ClInclude>
+    <ClInclude Include="Heightmap.h">
+      <Filter>Bis 4</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

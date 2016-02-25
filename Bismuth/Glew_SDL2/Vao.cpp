@@ -10,6 +10,13 @@ mPosition(0), mUv(0), mNormal(0), mTangent(0),mBitangent(0)
 	loadFile();
 }
 
+Vao::Vao(std::vector<glm::vec3> position, std::vector<glm::vec3> normal, std::vector<glm::vec2> uv) :mPosition(position), mNormal(normal), mUv(uv)
+{
+
+	loadData();
+	mPath = "dataGiven";
+}
+
 Vao::~Vao()
 {
 	// Destruction du VBO
@@ -76,6 +83,44 @@ void Vao::load(vec4 color)
 
 	glBindVertexArray(0);
 	//Vao LOADED
+}
+void Vao::calcTangentBitangent()
+{
+	for (int i = 0; i < mNormal.size(); i += 3)
+	{
+		// Shortcuts for vertices
+		glm::vec3 & v0 = mPosition[i + 0];
+		glm::vec3 & v1 = mPosition[i + 1];
+		glm::vec3 & v2 = mPosition[i + 2];
+
+		// Shortcuts for UVs
+		glm::vec2 & uv0 = mUv[i + 0];
+		glm::vec2 & uv1 = mUv[i + 1];
+		glm::vec2 & uv2 = mUv[i + 2];
+
+		// Edges of the triangle : postion delta
+		glm::vec3 deltaPos1 = v1 - v0;
+		glm::vec3 deltaPos2 = v2 - v0;
+
+		// UV delta
+		glm::vec2 deltaUV1 = uv1 - uv0;
+		glm::vec2 deltaUV2 = uv2 - uv0;
+
+		float r = 1.0f / (deltaUV1.x * deltaUV2.y - deltaUV1.y * deltaUV2.x);
+		glm::vec3 tangent = (deltaPos1 * deltaUV2.y - deltaPos2 * deltaUV1.y)*r;
+		glm::vec3 bitangent = (deltaPos2 * deltaUV1.x - deltaPos1 * deltaUV2.x)*r;
+
+
+		mTangent.push_back(tangent);
+		mTangent.push_back(tangent);
+		mTangent.push_back(tangent);
+
+
+		mBitangent.push_back(bitangent);
+		mBitangent.push_back(bitangent);
+		mBitangent.push_back(bitangent);
+
+	}
 }
 void Vao::draw()
 {
@@ -188,41 +233,7 @@ void Vao::loadFile()
 
 
 
-	for (int i = 0; i < mNormal.size(); i+=3)
-	{
-		// Shortcuts for vertices
-		glm::vec3 & v0 = mPosition[i + 0];
-		glm::vec3 & v1 = mPosition[i + 1];
-		glm::vec3 & v2 = mPosition[i + 2];
-
-		// Shortcuts for UVs
-		glm::vec2 & uv0 = mUv[i + 0];
-		glm::vec2 & uv1 = mUv[i + 1];
-		glm::vec2 & uv2 = mUv[i + 2];
-
-		// Edges of the triangle : postion delta
-		glm::vec3 deltaPos1 = v1 - v0;
-		glm::vec3 deltaPos2 = v2 - v0;
-
-		// UV delta
-		glm::vec2 deltaUV1 = uv1 - uv0;
-		glm::vec2 deltaUV2 = uv2 - uv0;
-
-		float r = 1.0f / (deltaUV1.x * deltaUV2.y - deltaUV1.y * deltaUV2.x);
-		glm::vec3 tangent = (deltaPos1 * deltaUV2.y - deltaPos2 * deltaUV1.y)*r;
-		glm::vec3 bitangent = (deltaPos2 * deltaUV1.x - deltaPos1 * deltaUV2.x)*r;
-
-
-		mTangent.push_back(tangent);
-		mTangent.push_back(tangent);
-		mTangent.push_back(tangent);
-
-		
-		mBitangent.push_back(bitangent);
-		mBitangent.push_back(bitangent);
-		mBitangent.push_back(bitangent);
-
-	}
+	calcTangentBitangent();
 
 
 
@@ -233,4 +244,9 @@ void Vao::loadFile()
 
 
 
+}
+
+void Vao::loadData()
+{
+	calcTangentBitangent();
 }

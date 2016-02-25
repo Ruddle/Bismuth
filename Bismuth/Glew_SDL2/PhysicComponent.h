@@ -18,16 +18,11 @@ class PhysicComponent : public Observer_Input
 public :
     PhysicComponent(DetectionComponent* detectionComponent, StateComponent* stateComponent);
     ~PhysicComponent();
- 
-	//void getCollision(PhysicComponent* phyComp2);
-	//void collisionResponse(float timestep);
-	//ContactResponse responseToContact(float elapsedTime,Contact *contact);
-	//void clearContact();
 
 
 	DetectionComponent* getDetectionComponent(){ return mDetectionComponent; }
 	StateComponent* getStateComponent(){ return mStateComponent; }
-	std::set<Contact*>  getContact() { return mContact; }
+
 
 
 
@@ -41,6 +36,6 @@ private :
 
     DetectionComponent* mDetectionComponent;
     StateComponent* mStateComponent;
-	std::set<Contact*> mContact;
+
 
 };

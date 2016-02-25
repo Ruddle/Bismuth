@@ -11,6 +11,7 @@ public:
 	int loadTexture(std::string path, GLenum format, GLenum filter, GLenum wrap);
 	int loadTexture(std::string path, TextureCfg cfg);
 	int loadVao(std::string path);
+	int loadVao(std::vector<glm::vec3> position, std::vector<glm::vec3> normal, std::vector<glm::vec2> uv);
 
 	Texture* getTexture(unsigned int id);
 	Vao* getVao(unsigned int id);

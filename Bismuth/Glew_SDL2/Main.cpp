@@ -31,7 +31,7 @@
 #include "Test_Slider.h"
 #include "ButtonController_int.h"
 #include "BisObject.h"
-
+#include "Heightmap.h"
 //#include "UI_layout_grid.h"
 //#include "UI_link_grid.h"
 //#include "UI_button.h"
@@ -63,21 +63,39 @@ int main(int argc, char **argv)
 	Text text4 = Text(core.entityManager, core.resourcesManager, font, "timeFac:", vec2(0, 3 * 64 * 0.5), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
 	Slider slider = Slider(core.entityManager, core.resourcesManager, core.input, vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), vec2(15, 4 * 64 * 0.5),vec2(100,12));
 	
+
+	Text info = Text(core.entityManager, core.resourcesManager, font, "keys : F = free mouse, I/K = throw/drop Ball, L = drop Box", vec2(250, 0), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
 	
-	Button button = Button(core.entityManager, core.resourcesManager, core.input, vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), vec2(10, 200), vec2(120, 50));
+	Button button = Button(core.entityManager, core.resourcesManager, core.input, vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), vec2(10, 200), vec2(150, 50));
 	Text label =  Text(core.entityManager, core.resourcesManager, font, "AO", vec2(10, 210), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
 
 	AO_button aoControl(&button, core.cfg); // Listener/Controller pour le bouton AO
 	float test = 0.5;
 	Test_Slider sliderControl(&slider,&test);
 
-	Button button2 = Button(core.entityManager, core.resourcesManager, core.input, vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), vec2(10, 260), vec2(120, 50));
+	Button button2 = Button(core.entityManager, core.resourcesManager, core.input, vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), vec2(10, 260), vec2(150, 50));
 	Text label2 =  Text(core.entityManager, core.resourcesManager, font, "Shading", vec2(10, 260), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
 	ButtonController_int b2c(&button2, &(core.cfg->CookTorrance));
 
-	Button buttonR = Button(core.entityManager, core.resourcesManager, core.input, vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), vec2(10, 320), vec2(120, 50));
+	Button buttonR = Button(core.entityManager, core.resourcesManager, core.input, vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), vec2(10, 320), vec2(150, 50));
 	Text labelR = Text(core.entityManager, core.resourcesManager, font, "Reflect", vec2(10, 320), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
 	ButtonController_int bcR(&buttonR, &(core.cfg->Reflection));
+
+	Button buttonB = Button(core.entityManager, core.resourcesManager, core.input, vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), vec2(10, 380), vec2(150, 50));
+	Text labelB = Text(core.entityManager, core.resourcesManager, font, "Bloom", vec2(10, 380), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
+	ButtonController_int bcB(&buttonB, &(core.cfg->Bloom));
+
+	Button buttonSM = Button(core.entityManager, core.resourcesManager, core.input, vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), vec2(10, 440), vec2(150, 50));
+	Text labelSM = Text(core.entityManager, core.resourcesManager, font, "Shadow", vec2(10, 440), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
+	ButtonController_int bcSM(&buttonSM, &(core.cfg->ShadowMap));
+
+	Button buttonMB = Button(core.entityManager, core.resourcesManager, core.input, vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), vec2(10, 500), vec2(150, 50));
+	Text labelMB = Text(core.entityManager, core.resourcesManager, font, "M-blur", vec2(10, 500), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
+	ButtonController_int bcMB(&buttonMB, &(core.cfg->MotionBlur));
+
+	Button buttonCO = Button(core.entityManager, core.resourcesManager, core.input, vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), vec2(10, 560), vec2(150, 50));
+	Text labelCO = Text(core.entityManager, core.resourcesManager, font, "Collision", vec2(10, 560), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
+	ButtonController_int bcCO(&buttonCO, &(core.cfg->DrawCollision));
 
 
 	//UI_layout_grid* layout = new UI_layout_grid(3, 4);
@@ -97,7 +115,7 @@ int main(int argc, char **argv)
 	
 	//ui_buttonA->update();
 
-
+	//Heightmap hm = Heightmap(core.entityManager, core.resourcesManager);
 
 	UserCamera cam = UserCamera(core.camera);
 	while (currentLoop.doContinue())// CODE MOTEUR MINIMAL
@@ -114,15 +132,16 @@ int main(int argc, char **argv)
 		currentLoop.insertInLoop(listUpdate); // CODE MOTEUR MINIMAL
 		cam.update(*core.input, currentLoop.getElapsedTime());
 		if (core.input->getRisingKey(SDL_SCANCODE_K))
-			//listUpdate.push_back(new Ball(core.entityManager, core.resourcesManager, vec3(0, 0, 5), vec3(0, 0, 0)));
-			listUpdate.push_back(new Ball(core.entityManager, core.resourcesManager, core.camera->getPosition(), core.input->getKey(SDL_SCANCODE_I)*10.51f*normalize(core.camera->getRotation())));
+			listUpdate.push_back(new Ball(core.entityManager, core.resourcesManager, core.camera->getPosition(), 0*10.51f*normalize(core.camera->getRotation())));
+		if (core.input->getKey(SDL_SCANCODE_I))
+			listUpdate.push_back(new Ball(core.entityManager, core.resourcesManager, core.camera->getPosition(), 1*10.51f*normalize(core.camera->getRotation())));
 		if (core.input->getRisingKey(SDL_SCANCODE_L))
 			listUpdate.push_back(new Cube(core.entityManager, core.resourcesManager, core.camera->getPosition(), 0.00951f*core.camera->getRotation()));
 			//listUpdate.push_back(new Cube(core.entityManager, core.resourcesManager, vec3(0, 0, 0), vec3(0, 0, 0)));
 
 
 		if (core.input->getRisingKey(SDL_SCANCODE_V))
-			listUpdate.push_back(new BisObject(core.entityManager, core.resourcesManager, core.camera->getPosition(), 0.00951f*core.camera->getRotation(), "BisObject/bac.txt"));
+			listUpdate.push_back(new BisObject(core.entityManager, core.resourcesManager, core.camera->getPosition(), 0.00951f*core.camera->getRotation(), "BisObject/saber.txt"));
 
 		
 
@@ -139,9 +158,9 @@ int main(int argc, char **argv)
 		double x = currentLoop.getTimeFactor();
 		int sign_x = (x > 0) - (x < 0);
 
-		if (core.input->getKey(SDL_SCANCODE_Q))
+		if (core.input->getKey(SDL_SCANCODE_X))
 			currentLoop.setTimeFactor(x*(1-0.03*sign_x) - 0.01);
-		if (core.input->getKey(SDL_SCANCODE_E))
+		if (core.input->getKey(SDL_SCANCODE_C))
 			currentLoop.setTimeFactor(x*(1 + 0.03*sign_x) + 0.01);
 
 		if (core.input->getRisingKey(SDL_SCANCODE_T))

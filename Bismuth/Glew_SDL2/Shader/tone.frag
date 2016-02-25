@@ -12,6 +12,7 @@ uniform sampler2D lensFlareSampler;
 uniform sampler2D lensStarSampler;
 uniform sampler2D lensDirtSampler;
 uniform mat2 matAngle;
+uniform bool BloomActive;
 
 vec3 darken(vec3 s){
 
@@ -63,6 +64,12 @@ float k2 =1;
 float k3 =1;
 float k4 =1;
 float kl =0.5;
+
+if(!BloomActive){
+k=0;
+kl=0;
+}
+
 
 bloom1 = darken(bloom1);
 bloom2 = darken(bloom2);

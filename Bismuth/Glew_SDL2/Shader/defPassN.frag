@@ -32,6 +32,7 @@ uniform bool keyF9;
 uniform bool keyF10;
 uniform bool CookTorrance;
 uniform bool Reflection;
+uniform bool ShadowMapActive;
 uniform int AO;
 
 
@@ -140,6 +141,8 @@ ao=1;
 
 float specFactor =texture(gDiffuse, UV).a;
 
+float shadows = 0.0f;
+if(ShadowMapActive){
 //SHADOW
 vec4 positionFromCam_WorldSpace = invView*vec4(position_ViewSpace,1);
 vec4 positionFromCam_ViewLightSpace = viewLight *positionFromCam_WorldSpace;
@@ -148,13 +151,9 @@ positionFromCam_ScreenLightSpace /= positionFromCam_ScreenLightSpace.w;
 vec2 offset  = (positionFromCam_ScreenLightSpace).xy;
 offset = (offset*0.5) +0.5;
 
-
-//float depth = -texture(shadowSampler,offset).x ;
 float depth= 0 ;
-float shadows=0;
 float scale = -0.0001;
 float shadow=0;
-
 
 for(float xAxis=-3;xAxis<4;xAxis++){
 	for(float yAxis=-3;yAxis<4;yAxis++){
@@ -164,7 +163,7 @@ for(float xAxis=-3;xAxis<4;xAxis++){
 }}
 
 shadows/= 7*7;
-
+}
 
 for(int k=0;k<2;k++){
 	vec3 i = position_ViewSpace- (view* vec4(lights[k].position_WorldSpace,1)).xyz;

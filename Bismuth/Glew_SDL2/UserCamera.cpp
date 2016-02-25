@@ -30,8 +30,14 @@ void UserCamera::update1(Input &input, double elapsedTime)
 	vec3 side = normalize(cross(mCamera->getRotation(), mCamera->getUp()));
 	vec3 up = normalize(cross(mCamera->getRotation(), side));
 
-	mPositionDiff += (float)(input.getKey(SDL_SCANCODE_W) - input.getKey(SDL_SCANCODE_S)) * normalize(mCamera->getRotation()) / 1000.0f
-		- (float)(input.getKey(SDL_SCANCODE_A) - input.getKey(SDL_SCANCODE_D)) * side / 1000.0f
+	float  forward = max( (float)(input.getKey(SDL_SCANCODE_W))  , (float)(input.getKey(SDL_SCANCODE_Z)));
+	float backward = max((float)(input.getKey(SDL_SCANCODE_S)), (float)(input.getKey(SDL_SCANCODE_S)));
+	float left	   = max((float)(input.getKey(SDL_SCANCODE_A)), (float)(input.getKey(SDL_SCANCODE_Q)));
+	float right    = max((float)(input.getKey(SDL_SCANCODE_D)), (float)(input.getKey(SDL_SCANCODE_D)));
+
+
+	mPositionDiff += (forward - backward) * normalize(mCamera->getRotation()) / 1000.0f
+		- (left - right) * side / 1000.0f
 		- (float)(input.getKey(SDL_SCANCODE_SPACE) - input.getKey(SDL_SCANCODE_LCTRL))* up / 1000.0f;
 
 

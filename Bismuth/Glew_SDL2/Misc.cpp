@@ -52,6 +52,17 @@ Config* readConfig(void) {
 		if (word1 == "Reflection")
 			cfg->Reflection = stoi(word2);
 		
+		if (word1 == "Bloom")
+			cfg->Bloom = stoi(word2);
+
+		if (word1 == "ShadowMap")
+			cfg->ShadowMap = stoi(word2);
+
+		if (word1 == "MotionBlur")
+			cfg->MotionBlur = stoi(word2);
+
+		if (word1 == "DrawCollision")
+			cfg->DrawCollision = stoi(word2);
 
 		if (word1 == "LensFlare_Undersampling")
 			cfg->LensFlare_Undersampling = stoi(word2);
@@ -127,7 +138,7 @@ Entity2D* createUI(ResourcesManager* rm) {
 		rm->loadTexture("Texture/bismuthSquare.png", GL_RGB8, GL_LINEAR, GL_REPEAT),
 		vec2(0),vec2(1));
 
-	PhysicComponent2D* pc1 = new PhysicComponent2D(vec2(0.15,0.25), vec2(-0.995, 0.48));
+	PhysicComponent2D* pc1 = new PhysicComponent2D(vec2(0.15,0.25), vec2(-0.995, 0.75));
 	Entity2D* entity = new Entity2D(gc1, pc1);
 	return entity;
 
@@ -151,7 +162,7 @@ std::vector<Entity2D*> getVisualCollision(ResourcesManager* rm, InteractionManag
 
 					for (int i = 0; i < 10; i++)
 					{
-						vec4 worldSpace = vec4((*it)->position + i*10.0f*(*it)->normal, 1);
+						vec4 worldSpace = vec4((*it)->position + i*100.0f*(*it)->normal, 1);
 						vec4 screenSpace = cam.getProjection() * cam.getView() * worldSpace;
 						screenSpace /= screenSpace.w;
 						a.push_back(vec2(screenSpace));

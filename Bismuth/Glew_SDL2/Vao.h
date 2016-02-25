@@ -18,12 +18,15 @@ class Vao
 
 public:
 	Vao(std::string path);
+	Vao(std::vector<glm::vec3> mPosition,std::vector<glm::vec3> mNormal,std::vector<glm::vec2> mUv);
 	~Vao();
 
 	void draw();
 	void loadFile();
+	void loadData();
 	void load();
 	void load(glm::vec4 color);
+	void calcTangentBitangent();
 
 	GLuint getVAO() { return mVaoID; }
 	std::string getPath() const { return mPath; }

@@ -169,6 +169,7 @@
     <ClCompile Include="Font.cpp" />
     <ClCompile Include="GraphicComponent.cpp" />
     <ClCompile Include="GraphicComponent2D.cpp" />
+    <ClCompile Include="Heightmap.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="InteractionManager.cpp" />
     <ClCompile Include="Letter.cpp" />
@@ -268,6 +269,7 @@
     <ClInclude Include="Font.h" />
     <ClInclude Include="GraphicComponent.h" />
     <ClInclude Include="GraphicComponent2D.h" />
+    <ClInclude Include="Heightmap.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="InteractionManager.h" />
     <ClInclude Include="Letter.h" />
