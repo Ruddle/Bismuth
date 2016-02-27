@@ -2,6 +2,7 @@
 
 #include "GraphicComponent.h"
 #include "PhysicComponent.h"
+#include "Entity.h"
 
 class Mesh : public Entity
 {

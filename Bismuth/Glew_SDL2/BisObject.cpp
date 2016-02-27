@@ -132,10 +132,10 @@ BisObject::BisObject(EntityManager* em, ResourcesManager* rm, glm::vec3 position
 
 	PhysicComponent* pc1 = new PhysicComponent(dc1, sc1);
 
-	mEntity = new Entity(gc1, pc1);
+	mMesh = new Mesh(gc1, pc1);
 
 
-	em->add(mEntity);
+	em->add(mMesh);
 }
 
 

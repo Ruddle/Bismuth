@@ -16,7 +16,7 @@ public:
 	float getAttenuation() { return mAttenuation; }
 	bool getCastShadow() { return mCastShadows; }
 
-	Type getType() { return LIGHT };
+	Type getType() { return LIGHT; }
 
 private:
 	glm::vec3 mIntensity;

@@ -14,7 +14,7 @@ class Cube : public Updatable
 public:
 	Cube(EntityManager* em, ResourcesManager* rm, glm::vec3 position, glm::vec3 speed);
 	~Cube();
-	Entity *getMesh() { return mMesh; }
+	Entity *getEntity() { return mMesh; }
 	void update(float time_s);
 
 private:

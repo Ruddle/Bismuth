@@ -1037,11 +1037,12 @@ void RenderSystem::doStepLight(Camera const &cam, std::vector<Entity*> entities)
 	mat4 modelview;
 	for (int i = 0; i < entities.size(); i++) {
 		Entity* entity = entities[i];
-		if (entity != nullptr)
+		if (entity != nullptr && entity->getType() == Entity::MESH)
 		{
-			modelview = view*entity->getPhysicComponent()->getStateComponent()->getModel();
+			Mesh* mesh = (Mesh*)entity;
+			modelview = view*mesh->getPhysicComponent()->getStateComponent()->getModel();
 			glUniformMatrix4fv(mShaderLight.getLocation("modelview"), 1, GL_FALSE, value_ptr(modelview));
-			mRm->getVao(entity->getGraphicComponent()->getVaoId())->draw();
+			mRm->getVao(mesh->getGraphicComponent()->getVaoId())->draw();
 		}
 		
 	}

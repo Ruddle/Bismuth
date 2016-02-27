@@ -33,7 +33,7 @@ class Heightmap
 {
 public:
 	Heightmap(EntityManager* em, ResourcesManager* rm);
-	Entity *getMesh() { return mMesh; }
+	Entity *getEntity() { return mMesh; }
 	~Heightmap();
 private:
 	Mesh *mMesh;

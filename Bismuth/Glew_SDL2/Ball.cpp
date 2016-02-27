@@ -27,10 +27,10 @@ Ball::Ball(EntityManager* em,ResourcesManager* rm,glm::vec3 position, glm::vec3 
 	sc1->setPositionDiff(speed);
 	PhysicComponent* pc1 = new PhysicComponent(dc1, sc1);
 
-	mEntity = new Entity(gc1, pc1);
+	mMesh = new Mesh(gc1, pc1);
 
 
-	em->add(mEntity);
+	em->add(mMesh);
 }
 
 Ball::~Ball()
@@ -40,7 +40,7 @@ Ball::~Ball()
 
 void Ball::update(float time_s)
 {
-	StateComponent* sc = mEntity->getPhysicComponent()->getStateComponent();
+	StateComponent* sc = mMesh->getPhysicComponent()->getStateComponent();
 
     sc->force(time_s,vec3(0, 0, -9.8));
 	sc->friction(0.3f*time_s);

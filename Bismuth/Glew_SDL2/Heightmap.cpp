@@ -31,10 +31,10 @@ Heightmap::Heightmap(EntityManager * em, ResourcesManager * rm)
 
 	PhysicComponent* pc1 = new PhysicComponent(dc1, sc1);
 
-	mEntity = new Entity(gc1, pc1);
+	mMesh = new Mesh(gc1, pc1);
 
 
-	em->add(mEntity);
+	em->add(mMesh);
 }
 
 Heightmap::~Heightmap()
@@ -160,16 +160,7 @@ void Heightmap::createVertex()
 
 float Heightmap::z(float x, float y)
 {
-<<<<<<< Updated upstream
-	return exp(2*x*3.141592/10.0  + y);
-=======
-	//return sin(2*x*3.141592/10.0  + y);
-	return exp(x + y);
-
-
-
-
->>>>>>> Stashed changes
+	return sin(2*x*3.141592/10.0  + y);
 }
 
 glm::vec3 Heightmap::calcNormal(float x, float y,float epsilon)

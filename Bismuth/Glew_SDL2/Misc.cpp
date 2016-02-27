@@ -89,7 +89,7 @@ Entity* createSphere(ResourcesManager* rm) {
 	StateComponent* sc1 = new StateComponent();
 	sc1->setPosition(vec3(0, 0, 0.8));
 	PhysicComponent* pc1 = new PhysicComponent(dc1, sc1);
-	Entity* entity = new Entity(gc1, pc1);
+	Mesh* entity = new Mesh(gc1, pc1);
 	return entity;
 }
 
@@ -110,7 +110,7 @@ Entity* createPlane(ResourcesManager* rm) {
 	sc1->setMass(1.0E15f);
 	sc1->setInertia(1E15f);
 	//sc1->setRotation(vec3(0.0, 0, 0));
-	Entity* entity = new Entity(gc1, pc1);
+	Mesh* entity = new Mesh(gc1, pc1);
 
 	return entity;
 }
@@ -128,7 +128,7 @@ Entity* createThing(ResourcesManager* rm,vec3 position) {
 	StateComponent* sc1 = new StateComponent();
 	sc1->setPosition(position);
 	PhysicComponent* pc1 = new PhysicComponent(dc1, sc1);
-	Entity* entity = new Entity(gc1, pc1);
+	Mesh* entity = new Mesh(gc1, pc1);
 	return entity;
 }
 

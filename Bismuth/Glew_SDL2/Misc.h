@@ -21,7 +21,7 @@
 #include "CubeDetectionComponent.h"
 #include "PlaneDetectionComponent.h"
 #include "InteractionManager.h"
-
+#include "Mesh.h"
 
 #define CONFIGPATH  "config.ini"
 

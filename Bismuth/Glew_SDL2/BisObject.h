@@ -19,7 +19,7 @@ public:
 	BisObject(EntityManager* em, ResourcesManager* rm, glm::vec3 position, glm::vec3 speed,std::string path);
 	~BisObject();
 
-	Entity *getMesh() { return mMesh; }
+	Entity *getEntity() { return mMesh; }
 
 	void update(float time_s);
 
