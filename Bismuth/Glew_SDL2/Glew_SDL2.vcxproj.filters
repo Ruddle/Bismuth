@@ -240,6 +240,9 @@
     <ClCompile Include="Heightmap.cpp">
       <Filter>Bis 4</Filter>
     </ClCompile>
+    <ClCompile Include="Light.cpp">
+      <Filter>Bis 3</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h">
@@ -344,9 +347,6 @@
     <ClInclude Include="Observer_Input.h">
       <Filter>Bis 1</Filter>
     </ClInclude>
-    <ClInclude Include="Updatable.h">
-      <Filter>Bis 3</Filter>
-    </ClInclude>
     <ClInclude Include="Loop.h">
       <Filter>Bis 3</Filter>
     </ClInclude>
@@ -445,6 +445,12 @@
     </ClInclude>
     <ClInclude Include="Heightmap.h">
       <Filter>Bis 4</Filter>
+    </ClInclude>
+    <ClInclude Include="Light.h">
+      <Filter>Bis 3</Filter>
+    </ClInclude>
+    <ClInclude Include="Updatable.h">
+      <Filter>Bis 3</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

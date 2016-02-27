@@ -7,6 +7,8 @@
 #include "StateComponent.h"
 #include "InteractionManager.h"
 #include "PhysicComponent.h"
+#include "Mesh.h"
+#include "Light.h"
 
 class EntityManager
 {

@@ -11,7 +11,7 @@ Heightmap::Heightmap(EntityManager * em, ResourcesManager * rm)
 	createVertex();
 
 	GraphicComponent* gc1 = new GraphicComponent(
-		rm->loadTexture("Texture/GRAY200.png", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),
+		rm->loadTexture("Texture/GRAY200.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
 		rm->loadTexture("Texture/BLUE.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
 		rm->loadTexture("Texture/GRAY60.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
 		rm->loadTexture("Texture/BLACK.png", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT), //mystic_e
@@ -160,11 +160,7 @@ void Heightmap::createVertex()
 
 float Heightmap::z(float x, float y)
 {
-	return sin(2*x*3.141592/10.0  + y);
-
-	
-
-
+	return exp(2*x*3.141592/10.0  + y);
 }
 
 glm::vec3 Heightmap::calcNormal(float x, float y,float epsilon)
