@@ -27,7 +27,7 @@ Heightmap::Heightmap(EntityManager * em, ResourcesManager * rm)
 
 	CubeDetectionComponent* dc1 = new CubeDetectionComponent(2, 2, 2);
 	StateComponent* sc1 = new StateComponent();
-
+	sc1->setPosition(vec3(0, 0, 0));
 
 	PhysicComponent* pc1 = new PhysicComponent(dc1, sc1);
 
@@ -169,5 +169,5 @@ float Heightmap::z(float x, float y)
 
 glm::vec3 Heightmap::calcNormal(float x, float y,float epsilon)
 {
-	return normalize(vec3(z(x- epsilon,y) - z(x+ epsilon,y)  , z(x,y- epsilon) - z(x,y+ epsilon), 2));
+	return normalize(vec3(z(x- epsilon,y) - z(x+ epsilon,y)  , z(x,y- epsilon) - z(x,y+ epsilon), 2*epsilon));
 }

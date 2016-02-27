@@ -17,7 +17,7 @@ uniform float far;
 
 
 
-#define SAMPLES 22   // More than 1, 80 max ( FullHD - 870M GTX)
+#define SAMPLES 12   // More than 1, 80 max ( FullHD - 870M GTX)
 #define DISTANCE 4. // Try between 0.5 - 5 
 #define INTENSITY 3.
 
