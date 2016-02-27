@@ -20,6 +20,8 @@
 #include "ResourcesManager.h"
 #include "Texture_Cube.h"
 #include <random>
+#include "Mesh.h"
+#include "Light.h"
 
 class RenderSystem
 {
@@ -87,6 +89,7 @@ private:
 	glm::mat4 mLastViewProjection;
 	GLuint mAttach[4];
 
+	std::vector<Light*> mLights;
 
 };
 

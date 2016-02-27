@@ -983,34 +983,39 @@ void RenderSystem::doStepGeometry(Camera const &cam, std::vector<Entity*> entiti
 		
 		Entity* entity = entities[i];
 
-		if (entity != nullptr)
+		if (entity != nullptr && entity->getType() == Entity::MESH)
 		{
+			Mesh* mesh = (Mesh) entity;
 			glActiveTexture(GL_TEXTURE0);
-			glBindTexture(GL_TEXTURE_2D, (mRm->getTexture(entity->getGraphicComponent()->getTextureDiffuseId())->getId()));
+			glBindTexture(GL_TEXTURE_2D, (mRm->getTexture(mesh->getGraphicComponent()->getTextureDiffuseId())->getId()));
 			glUniform1i(mShaderGeometry.getLocation("texture_diffuse"), 0);
 
 			glActiveTexture(GL_TEXTURE1);
-			glBindTexture(GL_TEXTURE_2D, (mRm->getTexture(entity->getGraphicComponent()->getTextureNormalId())->getId()));
+			glBindTexture(GL_TEXTURE_2D, (mRm->getTexture(mesh->getGraphicComponent()->getTextureNormalId())->getId()));
 			glUniform1i(mShaderGeometry.getLocation("texture_normal"), 1);
 
 			glActiveTexture(GL_TEXTURE2);
-			glBindTexture(GL_TEXTURE_2D, (mRm->getTexture(entity->getGraphicComponent()->getTextureSpecId())->getId()));
+			glBindTexture(GL_TEXTURE_2D, (mRm->getTexture(mesh->getGraphicComponent()->getTextureSpecId())->getId()));
 			glUniform1i(mShaderGeometry.getLocation("texture_spec"), 2);
 
 			glActiveTexture(GL_TEXTURE3);
-			glBindTexture(GL_TEXTURE_2D, (mRm->getTexture(entity->getGraphicComponent()->getTextureEmitId())->getId()));
+			glBindTexture(GL_TEXTURE_2D, (mRm->getTexture(mesh->getGraphicComponent()->getTextureEmitId())->getId()));
 			glUniform1i(mShaderGeometry.getLocation("texture_emit"), 3);
 
 			glActiveTexture(GL_TEXTURE4);
-			glBindTexture(GL_TEXTURE_2D, (mRm->getTexture(entity->getGraphicComponent()->getTextureReflectionId())->getId()));
+			glBindTexture(GL_TEXTURE_2D, (mRm->getTexture(mesh->getGraphicComponent()->getTextureReflectionId())->getId()));
 			glUniform1i(mShaderGeometry.getLocation("texture_reflection"), 4);
 
-			modelview = view*entity->getPhysicComponent()->getStateComponent()->getModel();
-			lastModel = entity->getPhysicComponent()->getStateComponent()->getLastModel();
+			modelview = view*mesh->getPhysicComponent()->getStateComponent()->getModel();
+			lastModel = mesh->getPhysicComponent()->getStateComponent()->getLastModel();
 			glUniformMatrix4fv(mShaderGeometry.getLocation("modelview"), 1, GL_FALSE, value_ptr(modelview));
 			glUniformMatrix4fv(mShaderGeometry.getLocation("lastModel"), 1, GL_FALSE, value_ptr(lastModel));
 			glUniformMatrix3fv(mShaderGeometry.getLocation("normal"), 1, GL_FALSE, value_ptr(transpose(inverse(glm::mat3(modelview)))));
-			mRm->getVao(entity->getGraphicComponent()->getVaoId())->draw();
+			mRm->getVao(mesh->getGraphicComponent()->getVaoId())->draw();
+		}
+		else if (entity != nullptr && entity->getType() == Entity::LIGHT)
+		{
+			mLights.push_back((Light*)entity);
 		}
 	}
 

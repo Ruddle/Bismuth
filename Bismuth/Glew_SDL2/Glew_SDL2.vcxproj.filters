@@ -243,6 +243,9 @@
     <ClCompile Include="Light.cpp">
       <Filter>Bis 3</Filter>
     </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>Bis 3</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h">
@@ -450,6 +453,9 @@
       <Filter>Bis 3</Filter>
     </ClInclude>
     <ClInclude Include="Updatable.h">
+      <Filter>Bis 3</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
       <Filter>Bis 3</Filter>
     </ClInclude>
   </ItemGroup>
