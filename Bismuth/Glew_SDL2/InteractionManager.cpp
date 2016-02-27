@@ -1,6 +1,6 @@
 #include "InteractionManager.h"
 #include "DetectionProcessor.h"
-
+#include "Mesh.h"
 
 using namespace glm;
 
@@ -27,7 +27,7 @@ void InteractionManager::collision()
 			for (int j = i + 1; j < mEntities.size(); j++)
 			{
 				Entity *entity_j = mEntities[j];
-				if (entity_j != nullptr && entity_j->getType() == Entity::MESH))
+				if (entity_j != nullptr && entity_j->getType() == Entity::MESH)
 				{
 					PhysicComponent *phyI = ((Mesh*)entity_i)->getPhysicComponent(), *phyJ = ((Mesh*)entity_j)->getPhysicComponent();
 					Contact* contact = DetectionProcessor::detection(phyI, phyJ);

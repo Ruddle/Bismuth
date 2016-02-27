@@ -985,7 +985,7 @@ void RenderSystem::doStepGeometry(Camera const &cam, std::vector<Entity*> entiti
 
 		if (entity != nullptr && entity->getType() == Entity::MESH)
 		{
-			Mesh* mesh = (Mesh) entity;
+			Mesh* mesh = (Mesh*) entity;
 			glActiveTexture(GL_TEXTURE0);
 			glBindTexture(GL_TEXTURE_2D, (mRm->getTexture(mesh->getGraphicComponent()->getTextureDiffuseId())->getId()));
 			glUniform1i(mShaderGeometry.getLocation("texture_diffuse"), 0);
