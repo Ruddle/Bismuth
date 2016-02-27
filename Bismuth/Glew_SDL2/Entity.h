@@ -12,7 +12,7 @@ public:
 	Entity();
 	virtual Type getType() const = 0;
 	void setId(int id) {mId = id;}
-	void getId() {return mId;}
+	int getId() {return mId;}
 
 private:
     int mId;
