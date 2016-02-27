@@ -8,8 +8,8 @@
 #include "Shader.h"
 #include "Input.h"
 #include "glm.hpp"
-#include "gtx\transform.hpp"
-#include "gtc\type_ptr.hpp"
+#include "gtx/transform.hpp"
+#include "gtc/type_ptr.hpp"
 #include "Texture.h"
 #include "Fbo.h"
 #include "Vao2D.h"
@@ -31,7 +31,7 @@ public:
 	void draw2D(std::vector<Entity2D*> entities);
 
 
-private: 
+private:
 
 	void doStepGeometry(Camera const &cam, std::vector<Entity*> entities);
 	void doStepLight(Camera const &cam, std::vector<Entity*> entities);
@@ -87,6 +87,6 @@ private:
 	glm::mat4 mLastViewProjection;
 	GLuint mAttach[4];
 
-	
+
 };
 

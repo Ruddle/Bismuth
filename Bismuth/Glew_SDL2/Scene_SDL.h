@@ -9,7 +9,9 @@
 #include <chrono>
 #include <thread>
 
+#if defined(WIN32) || defined(_WIN32)
 #include <windows.h>
+#endif
 
 class Scene_SDL
 {

@@ -1,7 +1,7 @@
 #pragma once
 #include "glew.h"
 #include "Shader.h"
-#include "glm\glm.hpp"
+#include "glm/glm.hpp"
 #include "glm/gtx/transform.hpp"
 #include "glm/gtc/type_ptr.hpp"
 

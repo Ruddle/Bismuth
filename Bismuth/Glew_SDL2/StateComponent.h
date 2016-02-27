@@ -2,9 +2,9 @@
 
 #include "DetectionComponent.h"
 #include "glm.hpp"
-#include "glm\gtx\euler_angles.hpp"
-#include "glm\gtx\rotate_vector.hpp"
-#include "glm\gtx\quaternion.hpp"
+#include "glm/gtx/euler_angles.hpp"
+#include "glm/gtx/rotate_vector.hpp"
+#include "glm/gtx/quaternion.hpp"
 
 
 class StateComponent

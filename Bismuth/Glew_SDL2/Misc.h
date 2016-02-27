@@ -8,8 +8,8 @@
 #include "Shader.h"
 #include "Input.h"
 #include "glm.hpp"
-#include "gtx\transform.hpp"
-#include "gtc\type_ptr.hpp"
+#include "gtx/transform.hpp"
+#include "gtc/type_ptr.hpp"
 #include "Texture.h"
 #include "Fbo.h"
 #include "Vao2D.h"
@@ -73,4 +73,4 @@ std::vector<Entity2D*> getVisualCollision(ResourcesManager* rm, InteractionManag
 
 // Utile pour Main_Bis1
 Fbo* createFboGeometry(Config cfg);
-Fbo* createFbo_1ch(Config cfg); // AO, blur, shadow 
+Fbo* createFbo_1ch(Config cfg); // AO, blur, shadow

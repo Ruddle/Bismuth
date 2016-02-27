@@ -1,6 +1,6 @@
 #include "StateComponent.h"
 #include "glm.hpp"
-#include "glm\gtx\rotate_vector.hpp"
+#include "glm/gtx/rotate_vector.hpp"
 
 using namespace glm;
 
@@ -50,7 +50,7 @@ void StateComponent::update(float time_s)
 		quat q = quat(0, mRotationDiff*float(time_s));
 		mRotation = mRotation + 0.5f * q * mRotation;
 	}
-	
+
 	mRotation = normalize(mRotation);
 	mLastModel = mModel;
 	mModel = translate(mPosition)* mat4_cast(mRotation);

@@ -8,8 +8,8 @@
 #include "Shader.h"
 #include "Input.h"
 #include "glm.hpp"
-#include "gtx\transform.hpp"
-#include "gtc\type_ptr.hpp"
+#include "gtx/transform.hpp"
+#include "gtc/type_ptr.hpp"
 #include "Texture.h"
 #include "Fbo.h"
 #include "Vao2D.h"
@@ -65,7 +65,7 @@ int main(int argc, char **argv)
 	int time = 0;
 
 	vector<Updatable*> listUpdate =  vector<Updatable*>();
-	
+
 	double fps = 60;
 
 	while (!input.end()) {
@@ -76,7 +76,7 @@ int main(int argc, char **argv)
 
 		input.update();
 		cam->update(input, elapsedTime);
-		
+
 		float numIterPhys = 10;
 		for (int i = 0; i < numIterPhys; i++)
 		{
@@ -84,10 +84,10 @@ int main(int argc, char **argv)
 			{
 				entityManager->update(float(elapsedTime / numIterPhys));
 
-				//ICI l'utilisateur doit pouvoir update ces entitées physiques  
+				//ICI l'utilisateur doit pouvoir update ces entitées physiques
 
 				// USER_CODE
-				for (int i = 0; i < listUpdate.size(); i++) 
+				for (int i = 0; i < listUpdate.size(); i++)
 					listUpdate[i]->update(elapsedTime / numIterPhys);
 				// END USER_CODE
 			}
@@ -112,7 +112,7 @@ int main(int argc, char **argv)
 			listUpdate.clear();
 		}
 		// END USER_CODE
-		
+
 		renderSystem->draw(entityManager->getEntities(), *cam, time, input, float(fps));
 		renderSystem->draw2D(getVisualCollision(rm, entityManager->getEntities(), *cam));
 		renderSystem->draw2D(entityManager->getEntities2D());

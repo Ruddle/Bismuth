@@ -7,8 +7,8 @@
 #include "CubeDetectionComponent.h"
 
 #include "glm.hpp"
-#include "glm\gtc\quaternion.hpp"
-#include "glm\gtx\norm.hpp"
+#include "glm/gtc/quaternion.hpp"
+#include "glm/gtx/norm.hpp"
 
 class DetectionProcessor
 {
@@ -29,7 +29,7 @@ public:
 
 	static Contact* cubeToSphere(CubeDetectionComponent * cube, SphereDetectionComponent * sphere,
 		glm::vec3 const&pos1, glm::quat const&rot1,
-		glm::vec3 const&pos2, glm::quat const&rot2); 
+		glm::vec3 const&pos2, glm::quat const&rot2);
 	static Contact* cubeToPlane(CubeDetectionComponent * cube, PlaneDetectionComponent * plane,
 		glm::vec3 const&pos1, glm::quat const&rot1,
 		glm::vec3 const&pos2, glm::quat const&rot2);

@@ -2,7 +2,7 @@
 #include "ResourcesManager.h"
 #include "Camera.h"
 #include "Texture.h"
-#include "VAO.h"
+#include "Vao.h"
 #include "Shader.h"
 #include "Fbo.h"
 

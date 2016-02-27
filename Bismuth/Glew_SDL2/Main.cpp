@@ -8,8 +8,8 @@
 #include "Shader.h"
 #include "Input.h"
 #include "glm.hpp"
-#include "gtx\transform.hpp"
-#include "gtc\type_ptr.hpp"
+#include "gtx/transform.hpp"
+#include "gtc/type_ptr.hpp"
 #include "Texture.h"
 #include "Fbo.h"
 #include "Vao2D.h"
@@ -36,12 +36,13 @@
 //#include "UI_link_grid.h"
 //#include "UI_button.h"
 
-
+#if defined(WIN32) || defined(_WIN32)
 FILE _iob[] = { *stdin, *stdout, *stderr };
 extern "C" FILE * __cdecl __iob_func(void)
 {
 	return _iob;
 }
+#endif
 
 using namespace std;
 using namespace glm;
@@ -49,23 +50,23 @@ using namespace glm;
 int main(int argc, char **argv)
 {
 	Loop currentLoop= Loop();// CODE MOTEUR MINIMAL
-	CoreBismuth core = currentLoop.getCore(); 
+	CoreBismuth core = currentLoop.getCore();
 	vector<Updatable*> listUpdate = vector<Updatable*>();
 
 	core.entityManager->add(createPlane(core.resourcesManager));
 	Panel panel = Panel(core.entityManager, core.resourcesManager,core.input, vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), vec2(0, 0), vec2(250, core.cfg->ResolutionY));
-	
+
 	core.entityManager->add(createUI(core.resourcesManager));
-	Font * font = new Font("Font/Calibri64.png", 1.0f); 
+	Font * font = new Font("Font/Calibri64.png", 1.0f);
 	Text text1 = Text(core.entityManager, core.resourcesManager, font, "Fps:", vec2(0, 0), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
 	Text text2 = Text(core.entityManager, core.resourcesManager, font, "x:", vec2(0, 64*0.5), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
 	Text text3 = Text(core.entityManager, core.resourcesManager, font, "nbStep:", vec2(0,2* 64 * 0.5), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
 	Text text4 = Text(core.entityManager, core.resourcesManager, font, "timeFac:", vec2(0, 3 * 64 * 0.5), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
 	Slider slider = Slider(core.entityManager, core.resourcesManager, core.input, vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), vec2(15, 4 * 64 * 0.5),vec2(100,12));
-	
+
 
 	Text info = Text(core.entityManager, core.resourcesManager, font, "keys : F = free mouse, I/K = throw/drop Ball, L = drop Box", vec2(250, 0), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
-	
+
 	Button button = Button(core.entityManager, core.resourcesManager, core.input, vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), vec2(10, 200), vec2(150, 50));
 	Text label =  Text(core.entityManager, core.resourcesManager, font, "AO", vec2(10, 210), vec2(core.cfg->ResolutionX, core.cfg->ResolutionY));
 
@@ -112,7 +113,7 @@ int main(int argc, char **argv)
 	//ui_buttonA->add(ui_link1);
 	//ui_buttonA->add(ui_link2);
 	//ui_buttonA->add(ui_link3);
-	
+
 	//ui_buttonA->update();
 
 	Heightmap hm = Heightmap(core.entityManager, core.resourcesManager);
@@ -143,7 +144,7 @@ int main(int argc, char **argv)
 		if (core.input->getRisingKey(SDL_SCANCODE_V))
 			listUpdate.push_back(new BisObject(core.entityManager, core.resourcesManager, core.camera->getPosition(), 0.00951f*core.camera->getRotation(), "BisObject/saber.txt"));
 
-		
+
 
 		if (core.input->getRisingKey(SDL_SCANCODE_R))
 		{
@@ -165,13 +166,13 @@ int main(int argc, char **argv)
 
 		if (core.input->getRisingKey(SDL_SCANCODE_T))
 			currentLoop.setTimeFactor( -x );
-	
+
 		if (core.input->getRisingKey(SDL_SCANCODE_Y))
 			currentLoop.setTimeFactor(1.0);
 
 		if (core.input->getRisingKey(SDL_SCANCODE_U))
 			currentLoop.setTimeFactor(0.0);
-	
+
 		textTestSlider.flush(core.entityManager);
 		textTime.flush(core.entityManager);
 		textFps2.flush(core.entityManager);

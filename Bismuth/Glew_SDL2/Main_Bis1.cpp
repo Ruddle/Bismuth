@@ -7,8 +7,8 @@
 #include "Shader.h"
 #include "Input.h"
 #include "glm.hpp"
-#include "gtx\transform.hpp"
-#include "gtc\type_ptr.hpp"
+#include "gtx/transform.hpp"
+#include "gtc/type_ptr.hpp"
 #include "Texture.h"
 #include "Fbo.h"
 #include "Vao2D.h"
@@ -26,7 +26,7 @@ extern "C" FILE * __cdecl __iob_func(void)
 
 int main(int argc, char **argv)
 {
-	
+
 
 	Config cfg = readConfig(); // Misc.cpp
 	Scene_SDL* CurrentScene = new Scene_SDL(cfg.ResolutionX,cfg.ResolutionY);
@@ -80,14 +80,14 @@ int main(int argc, char **argv)
 	int frame = 0;
 	while (!input.end()) {
 		frame++;
-		
-			
+
+
 			input.update();
 
 			if (input.getRisingKey(SDL_SCANCODE_SPACE)) {
 				shaderSelected = (shaderSelected == &shaderDeferredDebug) ? &shaderDeferred : &shaderDeferredDebug;
 			}
-				
+
 
 			glViewport(0, 0, cfg.ResolutionX, cfg.ResolutionY);
 			glBindFramebuffer(GL_FRAMEBUFFER, fboGeometry->getId());
@@ -117,7 +117,7 @@ int main(int argc, char **argv)
 
 				glBindTexture(GL_TEXTURE_2D, 0);
 				glUseProgram(0);
-			
+
 
 
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
@@ -144,10 +144,10 @@ int main(int argc, char **argv)
 				glUniform2fv(glGetUniformLocation(shaderSelected->getProgramID(), "resolution"), 1, value_ptr(resolution));
 
 				supportFbo.draw();
-			
+
 			CurrentScene->flip();
 
-		
+
 	}
 
 	delete CurrentScene;
