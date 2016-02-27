@@ -5,7 +5,7 @@ Mesh::Mesh(): mGraphicComponent(nullptr), mPhysicComponent(nullptr)
 
 }
 
-Mesh::Mesh(GraphicComponent* graphicComponent, PhysicComponent* physicComponent)
+Mesh::Mesh(GraphicComponent* graphicComponent, PhysicComponent* physicComponent) : mGraphicComponent(graphicComponent) , mPhysicComponent(physicComponent)
 {}
 
 Mesh::~Mesh()
