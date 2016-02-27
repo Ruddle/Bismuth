@@ -1,5 +1,5 @@
 #pragma once
-#include "Entity.h"
+#include "Mesh.h"
 #include "GraphicComponent.h"
 #include "StateComponent.h"
 #include "PhysicComponent.h"
@@ -33,10 +33,10 @@ class Heightmap
 {
 public:
 	Heightmap(EntityManager* em, ResourcesManager* rm);
-	Entity *getEntity() { return mEntity; }
+	Entity *getMesh() { return mMesh; }
 	~Heightmap();
 private:
-	Entity* mEntity;
+	Mesh *mMesh;
 
 	std::vector<glm::vec3> mPosition;
 	std::vector<glm::vec3> mNormal;

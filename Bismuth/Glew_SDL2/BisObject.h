@@ -2,7 +2,7 @@
 #include "Cube.h"
 #include <string>
 
-struct BisObjectConfig 
+struct BisObjectConfig
 {
 	std::string mesh;
 	std::string texture;
@@ -19,11 +19,11 @@ public:
 	BisObject(EntityManager* em, ResourcesManager* rm, glm::vec3 position, glm::vec3 speed,std::string path);
 	~BisObject();
 
-	Entity *getEntity() { return mEntity; }
+	Entity *getMesh() { return mMesh; }
 
 	void update(float time_s);
 
 private:
-	Entity* mEntity;
+	Mesh* mMesh;
 };
 

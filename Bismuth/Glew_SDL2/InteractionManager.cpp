@@ -22,22 +22,22 @@ void InteractionManager::collision()
 	for (int i = 0; i < mEntities.size() - 1; i++)
 	{
 		Entity *entity_i = mEntities[i];
-		if (entity_i != nullptr)
+		if (entity_i != nullptr && entity_i->getType() == Entity::MESH)
 		{
 			for (int j = i + 1; j < mEntities.size(); j++)
 			{
 				Entity *entity_j = mEntities[j];
-				if (entity_j != nullptr)
+				if (entity_j != nullptr && entity_j->getType() == Entity::MESH))
 				{
-					PhysicComponent *phyI = entity_i->getPhysicComponent(), *phyJ = entity_j->getPhysicComponent();
+					PhysicComponent *phyI = ((Mesh*)entity_i)->getPhysicComponent(), *phyJ = ((Mesh*)entity_j)->getPhysicComponent();
 					Contact* contact = DetectionProcessor::detection(phyI, phyJ);
-				
+
 
 					if (contact != nullptr)
 					{
 						mContacts.push_back(contact);
 					}
-						
+
 				}
 
 			}
@@ -51,13 +51,13 @@ void InteractionManager::singleCollisionResponse()
 	mResponses.clear();
 
 	for (int i = 0; i < mContacts.size(); i++)
-	{	
+	{
 		StateComponent *sc1 = mContacts[i]->who1->getStateComponent(), *sc2 = mContacts[i]->who2->getStateComponent();
 		vec3 r1 = mContacts[i]->position  - sc1->getPosition(), r2 = mContacts[i]->position - sc2->getPosition();
 		vec3 vp1 = sc1->getPositionDiff() + cross(sc1->getRotationDiff(), r1);
 		vec3 vp2 = sc2->getPositionDiff() + cross(sc2->getRotationDiff(), r2);
 		vec3 vr = vp2 - vp1;
-		
+
 		mat3 invI1 = sc1->getInertiaInverse(), invI2 = sc2->getInertiaInverse();
 		float e = (sc2->getRestitution() + sc1->getRestitution()) / 2;
 
@@ -159,7 +159,7 @@ void InteractionManager::elementCollisionResponse(Entity * e)
 	{
 		vector<Constraint*> constraints = phySys->getConstraints(e);
 
-		
+
 
 	}*/
 }

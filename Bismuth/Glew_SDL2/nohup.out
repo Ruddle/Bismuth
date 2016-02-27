@@ -1,0 +1,2087 @@
+Initialize EditColourSet .....
+Initialize EditColourSet: done.
+Loading menubar...
+ScriptedWizard: loaded
+Debugger: loaded
+Autosave: loaded
+AStylePlugin: loaded
+ToDoList: loaded
+Compiler: loaded
+OpenFilesList: loaded
+FilesExtensionHandler: loaded
+ProjectsImporter: loaded
+CodeCompletion: loaded
+ClassWizard: loaded
+Project wizard added for 'Empty project'
+Project wizard added for 'Fortran application'
+Project wizard added for 'Fortran library'
+Project wizard added for 'Fortran DLL'
+Project wizard added for 'Console application'
+Project wizard added for 'D application'
+Project wizard added for 'FLTK project'
+Project wizard added for 'GLFW project'
+Project wizard added for 'GLUT project'
+Project wizard added for 'GTK+ project'
+Project wizard added for 'Irrlicht project'
+Project wizard added for 'Lightfeather project'
+Project wizard added for 'Matlab project'
+Project wizard added for 'OpenCV project'
+Project wizard added for 'OpenGL project'
+Project wizard added for 'Ogre project'
+Project wizard added for 'Code::Blocks plugin'
+Project wizard added for 'QT4 project'
+Project wizard added for 'SDL project'
+Project wizard added for 'SFML project'
+Project wizard added for 'Static library'
+Project wizard added for 'Shared library'
+Project wizard added for 'wxWidgets project'
+Build-target wizard added for 'Console'
+Build-target wizard added for 'Static library'
+Build-target wizard added for 'wxWidgets'
+Project wizard added for 'ARM Project'
+Project wizard added for 'AVR Project'
+Project wizard added for 'TriCore Project'
+Project wizard added for 'PowerPC Project'
+Project wizard added for 'MCS51 Project'
+File(s) wizard added for 'Empty file'
+File(s) wizard added for 'C/C++ source'
+File(s) wizard added for 'C/C++ header'
+File(s) wizard added for 'Fortran source'
+Scripted wizard plugin activated
+Debugger plugin activated
+Autosave plugin activated
+Source code formatter (AStyle) plugin activated
+Todo List plugin activated
+Added compiler "GNU GCC Compiler"
+Added compiler "Intel C/C++ Compiler"
+Added compiler "GDC D Compiler"
+Added compiler "GNU Fortran Compiler"
+Added compiler "G95 Fortran Compiler"
+Added compiler "GNU GCC Compiler for ARM"
+Added compiler "PGI Fortran Compiler"
+Added compiler "GNU GCC Compiler for MSP430"
+Added compiler "Digital Mars D Compiler"
+Added compiler "LLVM Clang Compiler"
+Added compiler "GNU GCC Compiler for AVR"
+Added compiler "*No Compiler*"
+Added compiler "Tiny C Compiler"
+Added compiler "LLVM D Compiler"
+Added compiler "GNU GCC Compiler for TriCore"
+Added compiler "Small Device C Compiler"
+Added compiler "GNU GCC Compiler for PowerPC"
+Compiler plugin activated
+Open files list plugin activated
+Files extension handler plugin activated
+Foreign projects importer plugin activated
+Code completion plugin activated
+Class wizard plugin activated
+Loading toolbar...
+ClassBrowser::UpdateClassBrowserView(): No active project available.
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Initializing plugins...
+Loading project file...
+Parsing project file...
+Loading target Debug x64
+Loading target Release x64
+Loading target Release Win32
+Loading target Debug Win32
+Loading project files...
+159 files loaded
+Done loading project in 15ms
+Project's base path: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/
+Project's common toplevel path: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Project data set for /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Loop.h
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Project data set for /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/RenderSystem.h
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Project data set for /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Main.cpp
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Project data set for /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Slider.h
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Project data set for /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Slider_dot.h
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Project data set for /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Slider_bar.h
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Project data set for /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Main_Bis1.cpp
+Mozilla universal detection engine detected 'windows-1252'.
+Final encoding detected: Windows Western European (CP 1252) (ID: 33)
+Conversion succeeded using wxEncodingConverter (buffer size = 3645, converted size = 3649.
+Project data set for /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Main_Bis2.cpp
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Project data set for /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Main_Test_Physique.cpp
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Project data set for /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/StateComponent.cpp
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Project data set for /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/UI_button.cpp
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Project data set for /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Button.h
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Project data set for /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/AO_button.cpp
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Project data set for /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Panel.h
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Project data set for /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/StateComponent.h
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Project data set for /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/RayDetectionComponent.h
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Project data set for /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/DetectionProcessor.h
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Project data set for /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/SphereDetectionComponent.h
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Project data set for /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Vao2D.h
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Project data set for /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/PlaneDetectionComponent.h
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Project data set for /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/CubeDetectionComponent.h
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Project data set for /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/UI_box.h
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Project data set for /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Misc.h
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Project data set for /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/GraphicComponent.h
+Mozilla univer
+(codeblocks:20079): Gdk-CRITICAL **: IA__gdk_window_get_origin: assertion 'GDK_IS_WINDOW (window)' failed
+
+(codeblocks:20079): Gdk-CRITICAL **: IA__gdk_window_get_origin: assertion 'GDK_IS_WINDOW (window)' failed
+
+(codeblocks:20079): Gdk-CRITICAL **: IA__gdk_window_get_origin: assertion 'GDK_IS_WINDOW (window)' failed
+
+(codeblocks:20079): Gdk-CRITICAL **: IA__gdk_window_get_origin: assertion 'GDK_IS_WINDOW (window)' failed
+
+(codeblocks:20079): Gdk-CRITICAL **: IA__gdk_window_get_origin: assertion 'GDK_IS_WINDOW (window)' failed
+
+(codeblocks:20079): Gdk-CRITICAL **: IA__gdk_window_get_origin: assertion 'GDK_IS_WINDOW (window)' failed
+sal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Project data set for /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Scene_SDL.h
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Project data set for /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Heightmap.h
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Project data set for /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Heightmap.cpp
+Top Editor: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Heightmap.cpp
+NativeParser::GetGCCCompilerDirs(): Caching GCC default include dir: /usr/include/c++/5
+NativeParser::GetGCCCompilerDirs(): Caching GCC default include dir: /usr/include/x86_64-linux-gnu/c++/5
+NativeParser::GetGCCCompilerDirs(): Caching GCC default include dir: /usr/include/c++/5/backward
+NativeParser::GetGCCCompilerDirs(): Caching GCC default include dir: /usr/lib/gcc/x86_64-linux-gnu/5/include
+NativeParser::GetGCCCompilerDirs(): Caching GCC default include dir: /usr/local/include
+NativeParser::GetGCCCompilerDirs(): Caching GCC default include dir: /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed
+NativeParser::GetGCCCompilerDirs(): Caching GCC default include dir: /usr/include/x86_64-linux-gnu
+NativeParser::GetGCCCompilerDirs(): Caching GCC default include dir: /usr/include
+NativeParser::DoFullParsing(): AddCompilerPredefinedMacros failed!
+NativeParser::DoFullParsing(): Adding three kind of files to batch-parser
+NativeParser::DoFullParsing(): Add priority header file: '/usr/include/c++/5/cstddef'
+NativeParser::DoFullParsing(): Add 1 priority file(s) for project 'Glew_SDL2'...
+NativeParser::DoFullParsing(): Added 137 header&source file(s) for project 'Glew_SDL2' to batch-parser...
+ClassBrowser::UpdateClassBrowserView(): No active project available.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Heightmap.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Heightmap.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Heightmap.h
+NativeParser::CreateParser(): Finish creating a new parser for project 'Glew_SDL2'
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::OnParserStart(): Starting batch parsing for project 'Glew_SDL2'...
+ReadVarNames() : Unexpected token '((__unused__))' for 'union274___qnan_union', file '/usr/include/x86_64-linux-gnu/bits/nan.h', line 49.
+NativeParser::OnParserEnd(): Project 'Glew_SDL2' parsing stage done!
+Project 'Glew_SDL2' parsing stage done (380 total parsed files, 25127 tokens in 0 minute(s), 0.570 seconds).
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Heightmap.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Heightmap.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Heightmap.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+SystemHeadersThread: /usr/include/c++/5/ , 642
+SystemHeadersThread: /usr/include/x86_64-linux-gnu/c++/5/ , 23
+SystemHeadersThread: /usr/include/c++/5/backward/ , 8
+SystemHeadersThread: /usr/lib/gcc/x86_64-linux-gnu/5/include/ , 111
+SystemHeadersThread: /usr/local/include/ , 0
+SystemHeadersThread: /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/ , 4
+SystemHeadersThread: /usr/include/x86_64-linux-gnu/ , 299
+SystemHeadersThread: /usr/include/ , 2453
+SystemHeadersThread: Total number of paths: 8
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Vao2D.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Vao2D.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Vao2D.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/hom
+(codeblocks:20079): Gdk-CRITICAL **: IA__gdk_window_get_origin: assertion 'GDK_IS_WINDOW (window)' failed
+
+(codeblocks:20079): Gdk-CRITICAL **: IA__gdk_window_get_origin: assertion 'GDK_IS_WINDOW (window)' failed
+
+(codeblocks:20079): Gdk-CRITICAL **: IA__gdk_window_get_origin: assertion 'GDK_IS_WINDOW (window)' failed
+
+(codeblocks:20079): Gdk-CRITICAL **: IA__gdk_window_get_origin: assertion 'GDK_IS_WINDOW (window)' failed
+
+(codeblocks:20079): Gdk-CRITICAL **: IA__gdk_window_get_origin: assertion 'GDK_IS_WINDOW (window)' failed
+
+(codeblocks:20079): Gdk-CRITICAL **: IA__gdk_window_get_origin: assertion 'GDK_IS_WINDOW (window)' failed
+e/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: CubeDetectionComponent.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/CubeDetectionComponent.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/CubeDetectionComponent.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: PlaneDetectionComponent.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/PlaneDetectionComponent.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/PlaneDetectionComponent.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Loop.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Loop.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Loop.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Main_Bis2.*
+NativeParser::GetAllPathsByFilename(): Traversing ' - /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/' for: Main_Bis2.*
+NativeParser::GetAllPathsByFilename(): Found 1 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Main_Bis2.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Loop.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Loop.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Loop.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Main_Bis1.*
+NativeParser::GetAllPathsByFilename(): Traversing ' - /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/' for: Main_Bis1.*
+NativeParser::GetAllPathsByFilename(): Found 1 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Main_Bis1.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Loop.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Loop.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Loop.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Input.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Input.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Input.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: UI_box.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/UI_box.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/UI_box.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Loop.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Loop.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Loop.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: UI_box.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/UI_box.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/UI_box.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Loop.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Loop.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Loop.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: UI_box.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/UI_box.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/UI_box.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Loop.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Loop.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Loop.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: UI_box.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/UI_box.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/UI_box.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Entity.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: StateComponent.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/StateComponent.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/StateComponent.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Entity.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+CWD for depslib was: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+CWD for depslib is: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+Scanned 0 files for #includes, cache used 0, cache updated 0
+CWD for depslib was: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+CWD for depslib is: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+Scanned 0 files for #includes, cache used 0, cache updated 0
+CWD for depslib was: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+CWD for depslib is: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+-------------- Build: Release x64 in Glew_SDL2 (compiler: GNU GCC Compiler)---------------
+Target is up to date.
+Scanned 0 files for #includes, cache used 264, cache updated 0
+CWD for depslib was: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+CWD for depslib is: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+Scanned 0 files for #includes, cache used 0, cache updated 0
+CWD for depslib was: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+CWD for depslib is: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+Scanned 0 files for #includes, cache used 0, cache updated 0
+CWD for depslib was: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+CWD for depslib is: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+Scanned 0 files for #includes, cache used 0, cache updated 0
+CWD for depslib was: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+CWD for depslib is: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+Scanned 0 files for #includes, cache used 0, cache updated 0
+CWD for depslib was: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+CWD for depslib is: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+Scanned 0 files for #includes, cache used 0, cache updated 0
+Nothing to be done (all items are up-to-date).
+
+CWD for depslib was: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+CWD for depslib is: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+Scanned 0 files for #includes, cache used 0, cache updated 0
+CWD for depslib was: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+CWD for depslib is: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+-------------- Clean: Release x64 in Glew_SDL2 (compiler: GNU GCC Compiler)---------------
+Scanned 0 files for #includes, cache used 0, cache updated 0
+CWD for depslib was: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+CWD for depslib is: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+Scanned 0 files for #includes, cache used 0, cache updated 0
+CWD for depslib was: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+CWD for depslib is: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+Scanned 0 files for #includes, cache used 0, cache updated 0
+CWD for depslib was: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+CWD for depslib is: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+Scanned 0 files for #includes, cache used 0, cache updated 0
+CWD for depslib was: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+CWD for depslib is: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+Scanned 0 files for #includes, cache used 0, cache updated 0
+CWD for depslib was: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+CWD for depslib is: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+Scanned 0 files for #includes, cache used 0, cache updated 0
+CWD for depslib was: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+CWD for depslib is: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+-------------- Build: Release x64 in Glew_SDL2 (compiler: GNU GCC Compiler)---------------
+Scanned 0 files for #includes, cache used 0, cache updated 0
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/AO_button.cpp -o .objs/AO_button.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Ball.cpp -o .objs/Ball.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/BisObject.cpp -o .objs/BisObject.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Button.cpp -o .objs/Button.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/ButtonController.cpp -o .objs/ButtonController.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/ButtonController_int.cpp -o .objs/ButtonController_int.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Camera.cpp -o .objs/Camera.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Cube.cpp -o .objs/Cube.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/CubeDetectionComponent.cpp -o .objs/CubeDetectionComponent.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/DetectionComponent.cpp -o .objs/DetectionComponent.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/DetectionProcessor.cpp -o .objs/DetectionProcessor.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.cpp -o .objs/Entity.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity2D.cpp -o .objs/Entity2D.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/EntityManager.cpp -o .objs/EntityManager.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Fbo.cpp -o .objs/Fbo.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Font.cpp -o .objs/Font.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/GraphicComponent.cpp -o .objs/GraphicComponent.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/GraphicComponent2D.cpp -o .objs/GraphicComponent2D.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Heightmap.cpp -o .objs/Heightmap.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Input.cpp -o .objs/Input.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/InteractionManager.cpp -o .objs/InteractionManager.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Letter.cpp -o .objs/Letter.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Loop.cpp -o .objs/Loop.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Main.cpp -o .objs/Main.o
+/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Main.cpp:1:9: warning: #pragma once in main file
+ #pragma once
+         ^
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Misc.cpp -o .objs/Misc.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Observer_bar.cpp -o .objs/Observer_bar.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Observer_button.cpp -o .objs/Observer_button.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Observer_dot.cpp -o .objs/Observer_dot.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Observer_float.cpp -o .objs/Observer_float.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Observer_Input.cpp -o .objs/Observer_Input.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Observer_Slider.cpp -o .objs/Observer_Slider.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Observer_UI_box.cpp -o .objs/Observer_UI_box.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Panel.cpp -o .objs/Panel.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/PhysicComponent.cpp -o .objs/PhysicComponent.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/PhysicComponent2D.cpp -o .objs/PhysicComponent2D.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/PhysicSystem.cpp -o .objs/PhysicSystem.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/PlaneDetectionComponent.cpp -o .objs/PlaneDetectionComponent.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/RayDetectionComponent.cpp -o .objs/RayDetectionComponent.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/RenderSystem.cpp -o .objs/RenderSystem.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/ResourcesManager.cpp -o .objs/ResourcesManager.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/ResponseProcessor.cpp -o .objs/ResponseProcessor.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Scene_SDL.cpp -o .objs/Scene_SDL.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Shader.cpp -o .objs/Shader.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Slider.cpp -o .objs/Slider.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Slider_bar.cpp -o .objs/Slider_bar.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Slider_dot.cpp -o .objs/Slider_dot.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/SliderController.cpp -o .objs/SliderController.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/SphereDetectionComponent.cpp -o .objs/SphereDetectionComponent.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/StateComponent.cpp -o .objs/StateComponent.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Test_Slider.cpp -o .objs/Test_Slider.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Text.cpp -o .objs/Text.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Texture.cpp -o .objs/Texture.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Texture_Abs.cpp -o .objs/Texture_Abs.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Texture_Cube.cpp -o .objs/Texture_Cube.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/UI_box.cpp -o .objs/UI_box.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Updatable.cpp -o .objs/Updatable.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/UserCamera.cpp -o .objs/UserCamera.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Vao.cpp -o .objs/Vao.o
+g++ -fexpensive-optimizations -O3 -march=native -std=c++11 -I./SDL2-2.0.3/include -I./glew-1.13.0/include/GL -I./SDL2_image-2.0.0/include -I./glm -c /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Vao2D.cpp -o .objs/Vao2D.o
+g++ -L./SDL2-2.0.3/lib/x64 -L./glew-1.13.0/lib/Release/x64 -L./SDL2_image-2.0.0/lib/x64 -o Glew_SDL2 .objs/AO_button.o .objs/Ball.o .objs/BisObject.o .objs/Button.o .objs/ButtonController.o .objs/ButtonController_int.o .objs/Camera.o .objs/Cube.o .objs/CubeDetectionComponent.o .objs/DetectionComponent.o .objs/DetectionProcessor.o .objs/Entity.o .objs/Entity2D.o .objs/EntityManager.o .objs/Fbo.o .objs/Font.o .objs/GraphicComponent.o .objs/GraphicComponent2D.o .objs/Heightmap.o .objs/Input.o .objs/InteractionManager.o .objs/Letter.o .objs/Loop.o .objs/Main.o .objs/Misc.o .objs/Observer_bar.o .objs/Observer_button.o .objs/Observer_dot.o .objs/Observer_float.o .objs/Observer_Input.o .objs/Observer_Slider.o .objs/Observer_UI_box.o .objs/Panel.o .objs/PhysicComponent.o .objs/PhysicComponent2D.o .objs/PhysicSystem.o .objs/PlaneDetectionComponent.o .objs/RayDetectionComponent.o .objs/RenderSystem.o .objs/ResourcesManager.o .objs/ResponseProcessor.o .objs/Scene_SDL.o .objs/Shader.o .objs/Slider.o .objs/Slider_bar.o .objs/Slider_dot.o .objs/SliderController.o .objs/SphereDetectionComponent.o .objs/StateComponent.o .objs/Test_Slider.o .objs/Text.o .objs/Texture.o .objs/Texture_Abs.o .objs/Texture_Cube.o .objs/UI_box.o .objs/Updatable.o .objs/UserCamera.o .objs/Vao.o .objs/Vao2D.o   -lSDL2main -lSDL2 -lGL -lGLEW -lSDL2_image
+Output file is Glew_SDL2 with size 295.72 KB
+CWD for depslib was: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+CWD for depslib is: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+Scanned 0 files for #includes, cache used 0, cache updated 0
+CWD for depslib was: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+CWD for depslib is: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+Scanned 0 files for #includes, cache used 0, cache updated 0
+CWD for depslib was: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+CWD for depslib is: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+Scanned 0 files for #includes, cache used 0, cache updated 0
+CWD for depslib was: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+CWD for depslib is: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+Scanned 0 files for #includes, cache used 0, cache updated 0
+CWD for depslib was: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+CWD for depslib is: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+Scanned 0 files for #includes, cache used 0, cache updated 0
+Process terminated with status 0 (1 minute(s), 15 second(s))
+0 error(s), 1 warning(s) (1 minute(s), 15 second(s))
+CWD for depslib was: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+CWD for depslib is: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+Scanned 0 files for #includes, cache used 0, cache updated 0
+CWD for depslib was: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+CWD for depslib is: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+Scanned 0 files for #includes, cache used 0, cache updated 0
+CWD for depslib was: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+CWD for depslib is: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+-------------- Build: Release x64 in Glew_SDL2 (compiler: GNU GCC Compiler)---------------
+Target is up to date.
+Scanned 0 files for #includes, cache used 264, cache updated 0
+CWD for depslib was: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+CWD for depslib is: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+Scanned 0 files for #includes, cache used 0, cache updated 0
+CWD for depslib was: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+CWD for depslib is: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+Scanned 0 files for #includes, cache used 0, cache updated 0
+CWD for depslib was: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+CWD for depslib is: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+Scanned 0 files for #includes, cache used 0, cache updated 0
+CWD for depslib was: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+CWD for depslib is: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+Scanned 0 files for #includes, cache used 0, cache updated 0
+CWD for depslib was: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+CWD for depslib is: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2.
+Scanned 0 files for #includes, cache used 0, cache updated 0
+Nothing to be done Creation    : Scene_SDL
+click on : 0x5949410
+click on : 0x47e7ae0
+unClick on : 0x5949410
+unClick on : 0x47e7ae0
+click on : 0x47e7ae0
+click on : 0x594a650
+unClick on : 0x47e7ae0
+unClick on : 0x594a650
+click on : 0x594a010
+click on : 0x47e7ae0
+unClick on : 0x594a010
+unClick on : 0x47e7ae0
+click on : 0x59499d0
+click on : 0x47e7ae0
+unClick on : 0x59499d0
+unClick on : 0x47e7ae0
+click on : 0x47e7ae0
+click on : 0x5948da0
+unClick on : 0x47e7ae0
+unClick on : 0x5948da0
+click on : 0x59486d0
+click on : 0x47e7ae0
+unClick on : 0x59486d0
+unClick on : 0x47e7ae0
+click on : 0x47e7ae0
+click on : 0x59482c0
+unClick on : 0x47e7ae0
+unClick on : 0x59482c0
+(all items are up-to-date).
+
+-------------- Run: Release x64 in Glew_SDL2 (compiler: GNU GCC Compiler)---------------
+Process terminated with status -11 (3 minute(s), 18 second(s))
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: PhysicSystem.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/PhysicSystem.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/PhysicSystem.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: PhysicComponent.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/PhysicComponent.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/PhysicComponent.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Entity.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Main.*
+NativeParser::GetAllPathsByFilename(): Traversing ' - /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/' for: Main.*
+NativeParser::GetAllPathsByFilename(): Found 1 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Main.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Loop.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Loop.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Loop.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: RenderSystem.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/RenderSystem.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/RenderSystem.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Loop.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Loop.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Loop.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Main.*
+NativeParser::GetAllPathsByFilename(): Traversing ' - /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/' for: Main.*
+NativeParser::GetAllPathsByFilename(): Found 1 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Main.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Entity.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Main.*
+NativeParser::GetAllPathsByFilename(): Traversing ' - /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/' for: Main.*
+NativeParser::GetAllPathsByFilename(): Found 1 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Main.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Entity.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Main.*
+NativeParser::GetAllPathsByFilename(): Traversing ' - /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/' for: Main.*
+NativeParser::GetAllPathsByFilename(): Found 1 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Main.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Entity.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: PhysicComponent.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/PhysicComponent.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/PhysicComponent.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: StateComponent.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/StateComponent.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/StateComponent.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: PhysicComponent.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/PhysicComponent.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/PhysicComponent.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: StateComponent.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/StateComponent.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/StateComponent.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: PhysicComponent.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/PhysicComponent.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/PhysicComponent.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Main.*
+NativeParser::GetAllPathsByFilename(): Traversing ' - /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/' for: Main.*
+NativeParser::GetAllPathsByFilename(): Found 1 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Main.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Entity.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: ButtonController.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/ButtonController.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/ButtonController.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::OnParserStart(): Starting add file parsing for project 'Glew_SDL2'...
+Project 'Glew_SDL2' parsing stage done (381 total parsed files, 25152 tokens in 0 minute(s), 0.012 seconds).
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Mesh.*
+NativeParser::GetAllPathsByFilename(): Traversing ' - /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/' for: Mesh.*
+NativeParser::GetAllPathsByFilename(): Found 1 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Reparsing when typing for editor /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.h
+NativeParser::OnParserStart(): Starting re-parsing for project 'Glew_SDL2'...
+Project 'Glew_SDL2' parsing stage done (381 total parsed files, 25152 tokens in 0 minute(s), 0.014 seconds).
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Mesh.*
+NativeParser::GetAllPathsByFilename(): Traversing ' - /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/' for: Mesh.*
+NativeParser::GetAllPathsByFilename(): Found 1 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Main.*
+NativeParser::GetAllPathsByFilename(): Traversing ' - /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/' for: Main.*
+NativeParser::GetAllPathsByFilename(): Found 1 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Main.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Entity.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Main.*
+NativeParser::GetAllPathsByFilename(): Traversing ' - /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/' for: Main.*
+NativeParser::GetAllPathsByFilename(): Found 1 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Main.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Entity.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: UI_box.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/UI_box.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/UI_box.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Mesh.*
+NativeParser::GetAllPathsByFilename(): Traversing ' - /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/' for: Mesh.*
+NativeParser::GetAllPathsByFilename(): Found 1 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Entity.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Mesh.*
+NativeParser::GetAllPathsByFilename(): Traversing ' - /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/' for: Mesh.*
+NativeParser::GetAllPathsByFilename(): Found 1 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Entity.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Mesh.*
+NativeParser::GetAllPathsByFilename(): Traversing ' - /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/' for: Mesh.*
+NativeParser::GetAllPathsByFilename(): Found 1 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Reparsing when typing for editor /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.h
+NativeParser::OnParserStart(): Starting re-parsing for project 'Glew_SDL2'...
+Project 'Glew_SDL2' parsing stage done (381 total parsed files, 25152 tokens in 0 minute(s), 0.013 seconds).
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Mesh.*
+NativeParser::GetAllPathsByFilename(): Traversing ' - /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/' for: Mesh.*
+NativeParser::GetAllPathsByFilename(): Found 1 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Reparsing when typing for editor /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.h
+NativeParser::OnParserStart(): Starting re-parsing for project 'Glew_SDL2'...
+Project 'Glew_SDL2' parsing stage done (381 total parsed files, 25161 tokens in 0 minute(s), 0.012 seconds).
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Mesh.*
+NativeParser::GetAllPathsByFilename(): Traversing ' - /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/' for: Mesh.*
+NativeParser::GetAllPathsByFilename(): Found 1 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Reparsing when typing for editor /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.h
+NativeParser::OnParserStart(): Starting re-parsing for project 'Glew_SDL2'...
+Project 'Glew_SDL2' parsing stage done (381 total parsed files, 25162 tokens in 0 minute(s), 0.013 seconds).
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Mesh.*
+NativeParser::GetAllPathsByFilename(): Traversing ' - /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/' for: Mesh.*
+NativeParser::GetAllPathsByFilename(): Found 1 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Reparsing when typing for editor /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.h
+NativeParser::OnParserStart(): Starting re-parsing for project 'Glew_SDL2'...
+Project 'Glew_SDL2' parsing stage done (381 total parsed files, 25163 tokens in 0 minute(s), 0.015 seconds).
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Mesh.*
+NativeParser::GetAllPathsByFilename(): Traversing ' - /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/' for: Mesh.*
+NativeParser::GetAllPathsByFilename(): Found 1 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Reparsing when typing for editor /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.h
+NativeParser::OnParserStart(): Starting re-parsing for project 'Glew_SDL2'...
+Project 'Glew_SDL2' parsing stage done (381 total parsed files, 25163 tokens in 0 minute(s), 0.015 seconds).
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Mesh.*
+NativeParser::GetAllPathsByFilename(): Traversing ' - /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/' for: Mesh.*
+NativeParser::GetAllPathsByFilename(): Found 1 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::OnParserStart(): Starting add file parsing for project 'Glew_SDL2'...
+Project 'Glew_SDL2' parsing stage done (382 total parsed files, 25163 tokens in 0 minute(s), 0.011 seconds).
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Mesh.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Reparsing when typing for editor /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.cpp
+NativeParser::OnParserStart(): Starting re-parsing for project 'Glew_SDL2'...
+Project 'Glew_SDL2' parsing stage done (382 total parsed files, 25163 tokens in 0 minute(s), 0.011 seconds).
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Mesh.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Reparsing when typing for editor /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.cpp
+NativeParser::OnParserStart(): Starting re-parsing for project 'Glew_SDL2'...
+Project 'Glew_SDL2' parsing stage done (382 total parsed files, 25163 tokens in 0 minute(s), 0.014 seconds).
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Mesh.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Get include file count is 1, use time is 14
+Reparsing when typing for editor /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.cpp
+NativeParser::OnParserStart(): Starting re-parsing for project 'Glew_SDL2'...
+Project 'Glew_SDL2' parsing stage done (382 total parsed files, 25163 tokens in 0 minute(s), 0.014 seconds).
+NativeParser::GetAllPathsByFilename(
+(codeblocks:20079): Gtk-WARNING **: gtk_widget_size_allocate(): attempt to allocate widget with width -5 and height 17
+
+(codeblocks:20079): Gtk-WARNING **: gtk_widget_size_allocate(): attempt to allocate widget with width -5 and height 17
+
+(codeblocks:20079): Gtk-WARNING **: gtk_widget_size_allocate(): attempt to allocate widget with width -5 and height 17
+
+(codeblocks:20079): Gtk-WARNING **: gtk_widget_size_allocate(): attempt to allocate widget with width -5 and height 17
+): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Mesh.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Reparsing when typing for editor /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.cpp
+NativeParser::OnParserStart(): Starting re-parsing for project 'Glew_SDL2'...
+Project 'Glew_SDL2' parsing stage done (382 total parsed files, 25163 tokens in 0 minute(s), 0.012 seconds).
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Mesh.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Mesh.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.h
+CodeCompletion::DoAllMethodsImpl(): Trying to find matches for: /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.
+Reparsing when typing for editor /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.cpp
+NativeParser::OnParserStart(): Starting re-parsing for project 'Glew_SDL2'...
+Project 'Glew_SDL2' parsing stage done (382 total parsed files, 25163 tokens in 0 minute(s), 0.014 seconds).
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Mesh.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Reparsing when typing for editor /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.cpp
+NativeParser::OnParserStart(): Starting re-parsing for project 'Glew_SDL2'...
+Project 'Glew_SDL2' parsing stage done (382 total parsed files, 25163 tokens in 0 minute(s), 0.013 seconds).
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Mesh.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Entity.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Mesh.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Entity.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Reparsing when typing for editor /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.cpp
+NativeParser::OnParserStart(): Starting re-parsing for project 'Glew_SDL2'...
+Project 'Glew_SDL2' parsing stage done (382 total parsed files, 25163 tokens in 0 minute(s), 0.015 seconds).
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Entity.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Mesh.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Reparsing when typing for editor /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.cpp
+NativeParser::OnParserStart(): Starting re-parsing for project 'Glew_SDL2'...
+Project 'Glew_SDL2' parsing stage done (382 total parsed files, 25163 tokens in 0 minute(s), 0.014 seconds).
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Mesh.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Reparsing when typing for editor /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.cpp
+NativeParser::OnParserStart(): Starting re-parsing for project 'Glew_SDL2'...
+Project 'Glew_SDL2' parsing stage done (382 total parsed files, 25163 tokens in 0 minute(s), 0.013 seconds).
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Mesh.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Reparsing when typing for editor /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.cpp
+NativeParser::OnParserStart(): Starting re-parsing for project 'Glew_SDL2'...
+Project 'Glew_SDL2' parsing stage done (382 total parsed files, 25163 tokens in 0 minute(s), 0.012 seconds).
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Mesh.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Reparsing when typing for editor /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.cpp
+NativeParser::OnParserStart(): Starting re-parsing for project 'Glew_SDL2'...
+Project 'Glew_SDL2' parsing stage done (382 total parsed files, 25163 tokens in 0 minute(s), 0.015 seconds).
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Mesh.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: PhysicComponent.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/PhysicComponent.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/PhysicComponent.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: StateComponent.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/StateComponent.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/StateComponent.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Entity.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Reparsing when typing for editor /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.h
+NativeParser::OnParserStart(): Starting re-parsing for project 'Glew_SDL2'...
+Project 'Glew_SDL2' parsing stage done (382 total parsed files, 25171 tokens in 0 minute(s), 0.018 seconds).
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Entity.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Reparsing when typing for editor /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.cpp
+NativeParser::OnParserStart(): Starting re-parsing for project 'Glew_SDL2'...
+Project 'Glew_SDL2' parsing stage done (382 total parsed files, 25171 tokens in 0 minute(s), 0.012 seconds).
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Entity.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Reparsing when typing for editor /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.cpp
+NativeParser::OnParserStart(): Starting re-parsing for project 'Glew_SDL2'...
+Project 'Glew_SDL2' parsing stage done (382 total parsed files, 25171 tokens in 0 minute(s), 0.013 seconds).
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Entity.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Reparsing when typing for editor /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.cpp
+NativeParser::OnParserStart(): Starting re-parsing for project 'Glew_SDL2'...
+Project 'Glew_SDL2' parsing stage done (382 total parsed files, 25171 tokens in 0 minute(s), 0.012 seconds).
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Entity.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Mesh.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Reparsing when typing for editor /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.h
+NativeParser::OnParserStart(): Starting re-parsing for project 'Glew_SDL2'...
+Project 'Glew_SDL2' parsing stage done (382 total parsed files, 25158 tokens in 0 minute(s), 0.016 seconds).
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Mesh.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Reparsing when typing for editor /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.h
+NativeParser::OnParserStart(): Starting re-parsing for project 'Glew_SDL2'...
+Project 'Glew_SDL2' parsing stage done (382 total parsed files, 25164 tokens in 0 minute(s), 0.032 seconds).
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Mesh.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'windows-1252'.
+Final encoding detected: Windows Western European (CP 1252) (ID: 33)
+Conversion succeeded using wxEncodingConverter (buffer size = 3182, converted size = 3186.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Detected encoding via BOM: Unicode 8 bit (UTF-8) (ID: 43)
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'windows-1252'.
+Final encoding detected: Windows Western European (CP 1252) (ID: 33)
+Conversion succeeded using wxEncodingConverter (buffer size = 12031, converted size = 12035.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'windows-1252'.
+Final encoding detected: Windows Western European (CP 1252) (ID: 33)
+Conversion succeeded using wxEncodingConverter (buffer size = 2503, converted size = 2507.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'windows-1252'.
+Final encoding detected: Windows Western European (CP 1252) (ID: 33)
+Conversion succeeded using wxEncodingConverter (buffer size = 6612, converted size = 6616.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'windows-1252'.
+Final encoding detected: Windows Western European (CP 1252) (ID: 33)
+Conversion succeeded using wxEncodingConverter (buffer size = 2249, converted size = 2253.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'windows-1252'.
+Final encoding detected: Windows Western European (CP 1252) (ID: 33)
+Conversion succeeded using wxEncodingConverter (buffer size = 4912, converted size = 4916.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'windows-1252'.
+Final encoding detected: Windows Western European (CP 1252) (ID: 33)
+Conversion succeeded using wxEncodingConverter (buffer size = 2706, converted size = 2710.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'windows-1252'.
+Final encoding detected: Windows Western European (CP 1252) (ID: 33)
+Conversion succeeded using wxEncodingConverter (buffer size = 3057, converted size = 3061.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Encoding conversion using settings has failed!
+Encoding chosen was: Unicode 8 bit (UTF-8) (ID: 43)
+Trying ISO-8859-1 as fallback...
+Mozilla universal detection engine detected 'windows-1252'.
+Final encoding detected: Windows Western European (CP 1252) (ID: 33)
+Conversion succeeded using wxEncodingConverter (buffer size = 1082, converted size = 1086.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'windows-1252'.
+Final encoding detected: Windows Western European (CP 1252) (ID: 33)
+Conversion succeeded using wxEncodingConverter (buffer size = 2501, converted size = 2505.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'windows-1252'.
+Final encoding detected: Windows Western European (CP 1252) (ID: 33)
+Conversion succeeded using wxEncodingConverter (buffer size = 6372, converted size = 6376.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'windows-1252'.
+Final encoding detected: Windows Western European (CP 1252) (ID: 33)
+Conversion succeeded using wxEncodingConverter (buffer size = 1606, converted size = 1610.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'windows-1252'.
+Final encoding detected: Windows Western European (CP 1252) (ID: 33)
+Conversion succeeded using wxEncodingConverter (buffer size = 3182, converted size = 3186.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Detected encoding via BOM: Unicode 8 bit (UTF-8) (ID: 43)
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'windows-1252'.
+Final encoding detected: Windows Western European (CP 1252) (ID: 33)
+Conversion succeeded using wxEncodingConverter (buffer size = 12031, converted size = 12035.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'windows-1252'.
+Final encoding detected: Windows Western European (CP 1252) (ID: 33)
+Conversion succeeded using wxEncodingConverter (buffer size = 2503, converted size = 2507.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'windows-1252'.
+Final encoding detected: Windows Western European (CP 1252) (ID: 33)
+Conversion succeeded using wxEncodingConverter (buffer size = 6612, converted size = 6616.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'windows-1252'.
+Final encoding detected: Windows Western European (CP 1252) (ID: 33)
+Conversion succeeded using wxEncodingConverter (buffer size = 2249, converted size = 2253.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'windows-1252'.
+Final encoding detected: Windows Western European (CP 1252) (ID: 33)
+Conversion succeeded using wxEncodingConverter (buffer size = 4912, converted size = 4916.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'windows-1252'.
+Final encoding detected: Windows Western European (CP 1252) (ID: 33)
+Conversion succeeded using wxEncodingConverter (buffer size = 2706, converted size = 2710.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'windows-1252'.
+Final encoding detected: Windows Western European (CP 1252) (ID: 33)
+Conversion succeeded using wxEncodingConverter (buffer size = 3057, converted size = 3061.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Encoding conversion using settings has failed!
+Encoding chosen was: Unicode 8 bit (UTF-8) (ID: 43)
+Trying ISO-8859-1 as fallback...
+Mozilla universal detection engine detected 'windows-1252'.
+Final encoding detected: Windows Western European (CP 1252) (ID: 33)
+Conversion succeeded using wxEncodingConverter (buffer size = 1082, converted size = 1086.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'windows-1252'.
+Final encoding detected: Windows Western European (CP 1252) (ID: 33)
+Conversion succeeded using wxEncodingConverter (buffer size = 2501, converted size = 2505.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'windows-1252'.
+Final encoding detected: Windows Western European (CP 1252) (ID: 33)
+Conversion succeeded using wxEncodingConverter (buffer size = 6372, converted size = 6376.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'windows-1252'.
+Final encoding detected: Windows Western European (CP 1252) (ID: 33)
+Conversion succeeded using wxEncodingConverter (buffer size = 1606, converted size = 1610.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Cube.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Cube.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Cube.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Updatable.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Updatable.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Updatable.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Cube.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Cube.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Cube.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Reparsing when typing for editor /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Cube.h
+NativeParser::OnParserStart(): Starting re-parsing for project 'Glew_SDL2'...
+Project 'Glew_SDL2' parsing stage done (382 total parsed files, 25167 tokens in 0 minute(s), 0.016 seconds).
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Cube.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Cube.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Cube.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Reparsing when typing for editor /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Cube.h
+NativeParser::OnParserStart(): Starting re-parsing for project 'Glew_SDL2'...
+Project 'Glew_SDL2' parsing stage done (382 total parsed files, 25167 tokens in 0 minute(s), 0.012 seconds).
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Cube.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Cube.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Cube.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Ball.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Ball.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Ball.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Reparsing when typing for editor /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Ball.h
+NativeParser::OnParserStart(): Starting re-parsing for project 'Glew_SDL2'...
+Project 'Glew_SDL2' parsing stage done (382 total parsed files, 25167 tokens in 0 minute(s), 0.013 seconds).
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Ball.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Ball.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Ball.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Reparsing when typing for editor /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Ball.h
+NativeParser::OnParserStart(): Starting re-parsing for project 'Glew_SDL2'...
+Project 'Glew_SDL2' parsing stage done (382 total parsed files, 25167 tokens in 0 minute(s), 0.012 seconds).
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Ball.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Ball.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Ball.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Reparsing when typing for editor /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Ball.h
+NativeParser::OnParserStart(): Starting re-parsing for project 'Glew_SDL2'...
+Project 'Glew_SDL2' parsing stage done (382 total parsed files, 25167 tokens in 0 minute(s), 0.014 seconds).
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Ball.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Ball.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Ball.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Get include file count is 1, use time is 4
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Cube.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Cube.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Cube.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Reparsing when typing for editor /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Cube.h
+NativeParser::OnParserStart(): Starting re-parsing for project 'Glew_SDL2'...
+Project 'Glew_SDL2' parsing stage done (382 total parsed files, 25167 tokens in 0 minute(s), 0.015 seconds).
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Cube.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Cube.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Cube.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Get include file count is 1, use time is 5
+Reparsing when typing for editor /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Cube.h
+NativeParser::OnParserStart(): Starting re-parsing for project 'Glew_SDL2'...
+Project 'Glew_SDL2' parsing stage done (382 total parsed files, 25167 tokens in 0 minute(s), 0.013 seconds).
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Cube.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Cube.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Cube.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: DetectionComponent.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/DetectionComponent.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/DetectionComponent.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Entity.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Reparsing when typing for editor /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.h
+NativeParser::OnParserStart(): Starting re-parsing for project 'Glew_SDL2'...
+Project 'Glew_SDL2' parsing stage done (382 total parsed files, 25162 tokens in 0 minute(s), 0.012 seconds).
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Entity.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Reparsing when typing for editor /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.h
+NativeParser::OnParserStart(): Starting re-parsing for project 'Glew_SDL2'...
+Project 'Glew_SDL2' parsing stage done (382 total parsed files, 25162 tokens in 0 minute(s), 0.013 seconds).
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Entity.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: DetectionComponent.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/DetectionComponent.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/DetectionComponent.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Reparsing when typing for editor /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/DetectionComponent.h
+NativeParser::OnParserStart(): Starting re-parsing for project 'Glew_SDL2'...
+Project 'Glew_SDL2' parsing stage done (382 total parsed files, 25163 tokens in 0 minute(s), 0.012 seconds).
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: DetectionComponent.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/DetectionComponent.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/DetectionComponent.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Entity.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Reparsing when typing for editor /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.h
+NativeParser::OnParserStart(): Starting re-parsing for project 'Glew_SDL2'...
+Project 'Glew_SDL2' parsing stage done (382 total parsed files, 25162 tokens in 0 minute(s), 0.015 seconds).
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Entity.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Reparsing when typing for editor /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.h
+NativeParser::OnParserStart(): Starting re-parsing for project 'Glew_SDL2'...
+Project 'Glew_SDL2' parsing stage done (382 total parsed files, 25162 tokens in 0 minute(s), 0.014 seconds).
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Entity.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Reparsing when typing for editor /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.h
+NativeParser::OnParserStart(): Starting re-parsing for project 'Glew_SDL2'...
+Project 'Glew_SDL2' parsing stage done (382 total parsed files, 25165 tokens in 0 minute(s), 0.014 seconds).
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Entity.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: DetectionComponent.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/DetectionComponent.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/DetectionComponent.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Cube.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Cube.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Cube.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Button.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Button.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Button.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: BisObject.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/BisObject.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/BisObject.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Reparsing when typing for editor /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/BisObject.h
+NativeParser::OnParserStart(): Starting re-parsing for project 'Glew_SDL2'...
+Project 'Glew_SDL2' parsing stage done (382 total parsed files, 25167 tokens in 0 minute(s), 0.012 seconds).
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: BisObject.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/BisObject.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/BisObject.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Cube.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Cube.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Cube.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: BisObject.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/BisObject.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/BisObject.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Reparsing when typing for editor /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/BisObject.h
+NativeParser::OnParserStart(): Starting re-parsing for project 'Glew_SDL2'...
+Project 'Glew_SDL2' parsing stage done (382 total parsed files, 25167 tokens in 0 minute(s), 0.012 seconds).
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: BisObject.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/BisObject.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/BisObject.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Fbo.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Fbo.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Fbo.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Heightmap.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Heightmap.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Heightmap.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Get include file count is 1, use time is 8
+Reparsing when typing for editor /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Heightmap.h
+NativeParser::OnParserStart(): Starting re-parsing for project 'Glew_SDL2'...
+Project 'Glew_SDL2' parsing stage done (382 total parsed files, 25167 tokens in 0 minute(s), 0.014 seconds).
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Heightmap.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Heightmap.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Heightmap.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Cube.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Cube.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Cube.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Heightmap.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Heightmap.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Heightmap.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Reparsing when typing for editor /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Heightmap.h
+NativeParser::OnParserStart(): Starting re-parsing for project 'Glew_SDL2'...
+Project 'Glew_SDL2' parsing stage done (382 total parsed files, 25167 tokens in 0 minute(s), 0.012 seconds).
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Heightmap.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Heightmap.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Heightmap.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Cube.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Cube.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Cube.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Heightmap.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Heightmap.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Heightmap.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Reparsing when typing for editor /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Heightmap.h
+NativeParser::OnParserStart(): Starting re-parsing for project 'Glew_SDL2'...
+Project 'Glew_SDL2' parsing stage done (382 total parsed files, 25167 tokens in 0 minute(s), 0.013 seconds).
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Heightmap.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Heightmap.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Heightmap.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: EntityManager.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/EntityManager.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/EntityManager.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Cube.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Cube.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Cube.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'windows-1252'.
+Final encoding detected: Windows Western European (CP 1252) (ID: 33)
+Conversion succeeded using wxEncodingConverter (buffer size = 3182, converted size = 3186.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Detected encoding via BOM: Unicode 8 bit (UTF-8) (ID: 43)
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'windows-1252'.
+Final encoding detected: Windows Western European (CP 1252) (ID: 33)
+Conversion succeeded using wxEncodingConverter (buffer size = 12031, converted size = 12035.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'windows-1252'.
+Final encoding detected: Windows Western European (CP 1252) (ID: 33)
+Conversion succeeded using wxEncodingConverter (buffer size = 2503, converted size = 2507.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'windows-1252'.
+Final encoding detected: Windows Western European (CP 1252) (ID: 33)
+Conversion succeeded using wxEncodingConverter (buffer size = 6612, converted size = 6616.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'windows-1252'.
+Final encoding detected: Windows Western European (CP 1252) (ID: 33)
+Conversion succeeded using wxEncodingConverter (buffer size = 2249, converted size = 2253.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'windows-1252'.
+Final encoding detected: Windows Western European (CP 1252) (ID: 33)
+Conversion succeeded using wxEncodingConverter (buffer size = 4912, converted size = 4916.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'windows-1252'.
+Final encoding detected: Windows Western European (CP 1252) (ID: 33)
+Conversion succeeded using wxEncodingConverter (buffer size = 2706, converted size = 2710.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'windows-1252'.
+Final encoding detected: Windows Western European (CP 1252) (ID: 33)
+Conversion succeeded using wxEncodingConverter (buffer size = 3057, converted size = 3061.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Encoding conversion using settings has failed!
+Encoding chosen was: Unicode 8 bit (UTF-8) (ID: 43)
+Trying ISO-8859-1 as fallback...
+Mozilla universal detection engine detected 'windows-1252'.
+Final encoding detected: Windows Western European (CP 1252) (ID: 33)
+Conversion succeeded using wxEncodingConverter (buffer size = 1082, converted size = 1086.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'windows-1252'.
+Final encoding detected: Windows Western European (CP 1252) (ID: 33)
+Conversion succeeded using wxEncodingConverter (buffer size = 2501, converted size = 2505.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'windows-1252'.
+Final encoding detected: Windows Western European (CP 1252) (ID: 33)
+Conversion succeeded using wxEncodingConverter (buffer size = 6372, converted size = 6376.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'windows-1252'.
+Final encoding detected: Windows Western European (CP 1252) (ID: 33)
+Conversion succeeded using wxEncodingConverter (buffer size = 1606, converted size = 1610.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Letter.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robcodeblocks: Fatal IO error 11 (Resource temporarily unavailable) on X server :0.
+in/Prog/Bismuth/Bismuth/Glew_SDL2/Letter.h
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Letter.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Main.*
+NativeParser::GetAllPathsByFilename(): Traversing ' - /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/' for: Main.*
+NativeParser::GetAllPathsByFilename(): Found 1 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Main.cpp
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.
+Mozilla universal detection engine detected 'Pure *ASCII*'.
+Final encoding detected: Unicode 8 bit (UTF-8) (ID: 43)
+NativeParser::GetAllPathsByFilename(): Traversing '/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2' for: Text.*
+NativeParser::GetAllPathsByFilename(): Found 2 files:
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Text.cpp
+- /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Text.h
+ClassBrowser::OnThreadEvent(): Updating class browser...
+ClassBrowser::OnThreadEvent(): Class browser updated.

@@ -6,18 +6,12 @@
 class Entity
 {
 public:
+
+    enum Type { MESH, LIGHT };
+
 	Entity();
-	Entity(GraphicComponent* graphicComponent, PhysicComponent* physicComponent);
-	~Entity();
-
-	PhysicComponent*  getPhysicComponent(void) { return mPhysicComponent; }
-	GraphicComponent* getGraphicComponent(void)  { return mGraphicComponent; }
-
-	void setId(int id) {mId = id;}
-	int getId() { return mId; }
+	virtual Type getType() const = 0;
 
 private:
-	GraphicComponent* mGraphicComponent;
-	PhysicComponent* mPhysicComponent;
-	int mId;
+	glm::mat4 mModel;
 };

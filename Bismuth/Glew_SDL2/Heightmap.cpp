@@ -45,7 +45,7 @@ void Heightmap::createVertex()
 {
 
 	vector< vector< quad > > grille;
-	
+
 	int sizeX = 100;
 	int sizeY = 100;
 	float size = 0.2;
@@ -107,7 +107,7 @@ void Heightmap::createVertex()
 			quad local;
 			local.a = a;
 			local.b = b;
-		
+
 			grille[i][j] = local;
 		}
 	}
@@ -147,7 +147,7 @@ void Heightmap::createVertex()
 			 mUv.push_back(b.mUvA);
 			 mUv.push_back(b.mUvB);
 			 mUv.push_back(b.mUvC);
-	
+
 		}
 	}
 
@@ -160,7 +160,16 @@ void Heightmap::createVertex()
 
 float Heightmap::z(float x, float y)
 {
+<<<<<<< Updated upstream
 	return exp(2*x*3.141592/10.0  + y);
+=======
+	//return sin(2*x*3.141592/10.0  + y);
+	return exp(x + y);
+
+
+
+
+>>>>>>> Stashed changes
 }
 
 glm::vec3 Heightmap::calcNormal(float x, float y,float epsilon)

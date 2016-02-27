@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Glew_SDL2" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug x64">
+				<Option output="Glew_SDL2" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add directory="./SDL2-2.0.3/include" />
+					<Add directory="./glew-1.13.0/include/GL" />
+					<Add directory="./SDL2_image-2.0.0/include" />
+					<Add directory="./glm" />
+				</Compiler>
+				<Linker>
+					<Add directory="./SDL2-2.0.3/lib/x64" />
+					<Add directory="./glew-1.13.0/lib/Release/x64" />
+					<Add directory="./SDL2_image-2.0.0/lib/x64" />
+				</Linker>
+			</Target>
+			<Target title="Release x64">
+				<Option output="Glew_SDL2" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-march=athlon64" />
+					<Add option="-fexpensive-optimizations" />
+					<Add option="-O3" />
+					<Add directory="./SDL2-2.0.3/include" />
+					<Add directory="./glew-1.13.0/include/GL" />
+					<Add directory="./SDL2_image-2.0.0/include" />
+					<Add directory="./glm" />
+				</Compiler>
+				<Linker>
+					<Add directory="./SDL2-2.0.3/lib/x64" />
+					<Add directory="./glew-1.13.0/lib/Release/x64" />
+					<Add directory="./SDL2_image-2.0.0/lib/x64" />
+				</Linker>
+			</Target>
+			<Target title="Release Win32">
+				<Option output="Glew_SDL2" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="Debug Win32">
+				<Option output="Glew_SDL2" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add directory="./SDL2-2.0.3/include" />
+				</Compiler>
+				<Linker>
+					<Add directory="D:/PROG/CPP/Glew_SDL2/Glew_SDL2/SDL2-2.0.3/lib/x64" />
+				</Linker>
+			</Target>
+		</Build>
+		<Linker>
+			<Add library="SDL2main" />
+			<Add library="SDL2" />
+			<Add library="GL" />
+			<Add library="GLEW" />
+			<Add library="SDL2_image" />
+		</Linker>
+		<Unit filename="AO_button.cpp" />
+		<Unit filename="AO_button.h" />
+		<Unit filename="Ball.cpp" />
+		<Unit filename="Ball.h" />
+		<Unit filename="BisObject.cpp" />
+		<Unit filename="BisObject.h" />
+		<Unit filename="Button.cpp" />
+		<Unit filename="Button.h" />
+		<Unit filename="ButtonController.cpp" />
+		<Unit filename="ButtonController.h" />
+		<Unit filename="ButtonController_int.cpp" />
+		<Unit filename="ButtonController_int.h" />
+		<Unit filename="Camera.cpp" />
+		<Unit filename="Camera.h" />
+		<Unit filename="ClassDiagram.cd" />
+		<Unit filename="Constraint.h" />
+		<Unit filename="Contact.h" />
+		<Unit filename="Cube.cpp" />
+		<Unit filename="Cube.h" />
+		<Unit filename="CubeDetectionComponent.cpp" />
+		<Unit filename="CubeDetectionComponent.h" />
+		<Unit filename="DetectionComponent.cpp" />
+		<Unit filename="DetectionComponent.h" />
+		<Unit filename="DetectionProcessor.cpp" />
+		<Unit filename="DetectionProcessor.h" />
+		<Unit filename="Entity.cpp" />
+		<Unit filename="Entity.h" />
+		<Unit filename="Entity2D.cpp" />
+		<Unit filename="Entity2D.h" />
+		<Unit filename="EntityManager.cpp" />
+		<Unit filename="EntityManager.h" />
+		<Unit filename="Fbo.cpp" />
+		<Unit filename="Fbo.h" />
+		<Unit filename="Font.cpp" />
+		<Unit filename="Font.h" />
+		<Unit filename="GraphicComponent.cpp" />
+		<Unit filename="GraphicComponent.h" />
+		<Unit filename="GraphicComponent2D.cpp" />
+		<Unit filename="GraphicComponent2D.h" />
+		<Unit filename="Heightmap.cpp" />
+		<Unit filename="Heightmap.h" />
+		<Unit filename="Input.cpp" />
+		<Unit filename="Input.h" />
+		<Unit filename="InteractionManager.cpp" />
+		<Unit filename="InteractionManager.h" />
+		<Unit filename="Letter.cpp" />
+		<Unit filename="Letter.h" />
+		<Unit filename="Loop.cpp" />
+		<Unit filename="Loop.h" />
+		<Unit filename="Main.cpp" />
+		<Unit filename="Main_Bis1.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="Main_Bis2.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="Main_Test_Physique.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="Misc.cpp" />
+		<Unit filename="Misc.h" />
+		<Unit filename="Observer_Input.cpp" />
+		<Unit filename="Observer_Input.h" />
+		<Unit filename="Observer_Slider.cpp" />
+		<Unit filename="Observer_Slider.h" />
+		<Unit filename="Observer_UI_box.cpp" />
+		<Unit filename="Observer_UI_box.h" />
+		<Unit filename="Observer_bar.cpp" />
+		<Unit filename="Observer_bar.h" />
+		<Unit filename="Observer_button.cpp" />
+		<Unit filename="Observer_button.h" />
+		<Unit filename="Observer_dot.cpp" />
+		<Unit filename="Observer_dot.h" />
+		<Unit filename="Observer_float.cpp" />
+		<Unit filename="Observer_float.h" />
+		<Unit filename="Panel.cpp" />
+		<Unit filename="Panel.h" />
+		<Unit filename="PhysicComponent.cpp" />
+		<Unit filename="PhysicComponent.h" />
+		<Unit filename="PhysicComponent2D.cpp" />
+		<Unit filename="PhysicComponent2D.h" />
+		<Unit filename="PhysicSystem.cpp" />
+		<Unit filename="PhysicSystem.h" />
+		<Unit filename="PlaneDetectionComponent.cpp" />
+		<Unit filename="PlaneDetectionComponent.h" />
+		<Unit filename="RayDetectionComponent.cpp" />
+		<Unit filename="RayDetectionComponent.h" />
+		<Unit filename="RenderSystem.cpp" />
+		<Unit filename="RenderSystem.h" />
+		<Unit filename="ResourcesManager.cpp" />
+		<Unit filename="ResourcesManager.h" />
+		<Unit filename="ResponseProcessor.cpp" />
+		<Unit filename="ResponseProcessor.h" />
+		<Unit filename="Scene_SDL.cpp" />
+		<Unit filename="Scene_SDL.h" />
+		<Unit filename="Screw.h" />
+		<Unit filename="Shader.cpp" />
+		<Unit filename="Shader.h" />
+		<Unit filename="Shader/2D.frag" />
+		<Unit filename="Shader/2D.vert" />
+		<Unit filename="Shader/AO.frag" />
+		<Unit filename="Shader/AO2.frag" />
+		<Unit filename="Shader/AO3.frag" />
+		<Unit filename="Shader/FXAA.frag" />
+		<Unit filename="Shader/blurBilateral_1ch.frag" />
+		<Unit filename="Shader/blurBilateral_1chV2.frag" />
+		<Unit filename="Shader/blurDir_3ch.frag" />
+		<Unit filename="Shader/blur_1ch.frag" />
+		<Unit filename="Shader/blur_3ch.frag" />
+		<Unit filename="Shader/defPass1.frag" />
+		<Unit filename="Shader/defPass1.vert" />
+		<Unit filename="Shader/defPassN.frag" />
+		<Unit filename="Shader/defPassN.vert" />
+		<Unit filename="Shader/lensFlare.frag" />
+		<Unit filename="Shader/light.frag" />
+		<Unit filename="Shader/light.vert" />
+		<Unit filename="Shader/tone.frag" />
+		<Unit filename="Slider.cpp" />
+		<Unit filename="Slider.h" />
+		<Unit filename="SliderController.cpp" />
+		<Unit filename="SliderController.h" />
+		<Unit filename="Slider_bar.cpp" />
+		<Unit filename="Slider_bar.h" />
+		<Unit filename="Slider_dot.cpp" />
+		<Unit filename="Slider_dot.h" />
+		<Unit filename="SphereDetectionComponent.cpp" />
+		<Unit filename="SphereDetectionComponent.h" />
+		<Unit filename="StateComponent.cpp" />
+		<Unit filename="StateComponent.h" />
+		<Unit filename="Test_Slider.cpp" />
+		<Unit filename="Test_Slider.h" />
+		<Unit filename="Text.cpp" />
+		<Unit filename="Text.h" />
+		<Unit filename="Texture.cpp" />
+		<Unit filename="Texture.h" />
+		<Unit filename="Texture/bac/layout.psd" />
+		<Unit filename="Texture_Abs.cpp" />
+		<Unit filename="Texture_Abs.h" />
+		<Unit filename="Texture_Cube.cpp" />
+		<Unit filename="Texture_Cube.h" />
+		<Unit filename="UI_Assembler.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="UI_Assembler.h" />
+		<Unit filename="UI_box.cpp" />
+		<Unit filename="UI_box.h" />
+		<Unit filename="UI_button.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="UI_button.h" />
+		<Unit filename="UI_element.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="UI_element.h" />
+		<Unit filename="UI_layout.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="UI_layout.h" />
+		<Unit filename="UI_layout_grid.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="UI_layout_grid.h" />
+		<Unit filename="UI_link.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="UI_link.h" />
+		<Unit filename="UI_link_grid.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="UI_link_grid.h" />
+		<Unit filename="Updatable.cpp" />
+		<Unit filename="Updatable.h" />
+		<Unit filename="UserCamera.cpp" />
+		<Unit filename="UserCamera.h" />
+		<Unit filename="Vao.cpp" />
+		<Unit filename="Vao.h" />
+		<Unit filename="Vao2D.cpp" />
+		<Unit filename="Vao2D.h" />
+		<Unit filename="config.ini" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

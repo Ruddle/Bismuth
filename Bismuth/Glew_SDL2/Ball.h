@@ -1,5 +1,5 @@
 #pragma once
-#include "Entity.h"
+#include "Mesh.h"
 #include "GraphicComponent.h"
 #include "StateComponent.h"
 #include "PhysicComponent.h"
@@ -14,11 +14,11 @@ class Ball : public Updatable
 public:
 	Ball(EntityManager* em,ResourcesManager* rm, glm::vec3 position, glm::vec3 speed);
 	~Ball();
-	Entity *getEntity() { return mEntity; }
+	Mesh *getMesh() { return mMesh; }
 
 	void update(float time_s);
 
-private: 
-	Entity* mEntity;
+private:
+	Mesh *mMesh;
 };
 
