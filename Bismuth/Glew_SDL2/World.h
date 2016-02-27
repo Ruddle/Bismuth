@@ -2,11 +2,11 @@
 #include "Entity.h"
 class World : public Entity
 {
-private:
+public:
 	World();
 	~World();
 
-
+	Type getType() { return Entity::WORLD; }
 
 };
 

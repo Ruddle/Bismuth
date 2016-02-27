@@ -21,6 +21,8 @@ EntityManager::EntityManager()
 		mEntity2D.push_back(nullptr);
 		mFreeIds2D.insert(i);
 	}
+
+	mWorld = new World();
 }
 EntityManager::~EntityManager()
 {

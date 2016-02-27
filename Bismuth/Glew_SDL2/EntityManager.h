@@ -9,7 +9,7 @@
 #include "PhysicComponent.h"
 #include "Mesh.h"
 #include "Light.h"
-
+#include "World.h"
 class EntityManager
 {
 
@@ -33,7 +33,11 @@ public:
 
 	InteractionManager* getIM() { return mIM; }
 
+	World* getWorld() { return mWorld; }
+
 private:
+
+	World* mWorld;
 
 	std::vector<Entity*> mEntity;
 	std::set<unsigned int> mFreeIds;

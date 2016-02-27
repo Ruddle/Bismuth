@@ -7,7 +7,7 @@ class Entity
 {
 public:
 
-    enum Type { MESH, LIGHT };
+    enum Type { MESH, LIGHT, WORLD };
 
 	Entity();
 	virtual Type getType() const = 0;
