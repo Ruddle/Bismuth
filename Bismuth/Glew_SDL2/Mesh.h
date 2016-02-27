@@ -10,14 +10,13 @@ public:
 	Mesh(GraphicComponent* graphicComponent, PhysicComponent* physicComponent);
 	~Mesh();
 
+	Type getType() const {return Entity::MESH;}
+
 	PhysicComponent*  getPhysicComponent(void) { return mPhysicComponent; }
 	GraphicComponent* getGraphicComponent(void)  { return mGraphicComponent; }
 
-	void setId(int id) {mId = id;}
-	int getId() { return mId; }
 
 private:
 	GraphicComponent* mGraphicComponent;
 	PhysicComponent* mPhysicComponent;
-	int mId;
 };
