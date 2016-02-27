@@ -249,6 +249,7 @@
     <ClCompile Include="UserCamera.cpp" />
     <ClCompile Include="Vao.cpp" />
     <ClCompile Include="Vao2D.cpp" />
+    <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AO_button.h" />
@@ -341,6 +342,7 @@
     <ClInclude Include="UserCamera.h" />
     <ClInclude Include="Vao.h" />
     <ClInclude Include="Vao2D.h" />
+    <ClInclude Include="World.h" />
   </ItemGroup>
   <ItemGroup>
     <Object Include="Mesh\bac.obj">

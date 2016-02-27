@@ -246,6 +246,9 @@
     <ClCompile Include="Mesh.cpp">
       <Filter>Bis 3</Filter>
     </ClCompile>
+    <ClCompile Include="World.cpp">
+      <Filter>Bis 3</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h">
@@ -456,6 +459,9 @@
       <Filter>Bis 3</Filter>
     </ClInclude>
     <ClInclude Include="Mesh.h">
+      <Filter>Bis 3</Filter>
+    </ClInclude>
+    <ClInclude Include="World.h">
       <Filter>Bis 3</Filter>
     </ClInclude>
   </ItemGroup>

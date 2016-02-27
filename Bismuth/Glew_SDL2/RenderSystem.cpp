@@ -1016,6 +1016,8 @@ void RenderSystem::doStepGeometry(Camera const &cam, std::vector<Entity*> entiti
 		else if (entity != nullptr && entity->getType() == Entity::LIGHT)
 		{
 			mLights.push_back((Light*)entity);
+
+
 		}
 	}
 
