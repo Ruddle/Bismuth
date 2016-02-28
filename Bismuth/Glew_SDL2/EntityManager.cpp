@@ -78,6 +78,8 @@ void EntityManager::add(Entity* entity)
 		entity->setId(*it);
 		mFreeIds.erase(it);
 		mWorld->add(entity);
+
+		entity->setParent(mWorld);
 	}
 }
 
@@ -90,6 +92,8 @@ void EntityManager::add(Entity* parent, Entity *entity)
 		entity->setId(*it);
 		mFreeIds.erase(it);
 		parent->add(entity);
+
+		entity->setParent(parent);
 	}
 }
 

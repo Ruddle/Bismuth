@@ -12,7 +12,7 @@
 class Ball : public Updatable
 {
 public:
-	Ball(EntityManager* em,ResourcesManager* rm, glm::vec3 position, glm::vec3 speed);
+	Ball(EntityManager* em, ResourcesManager* rm, glm::vec3 position, glm::vec3 speed, Entity* parent = nullptr);
 	~Ball();
 	Mesh *getEntity() { return mMesh; }
 

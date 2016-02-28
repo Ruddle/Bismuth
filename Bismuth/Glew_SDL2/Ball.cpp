@@ -33,6 +33,10 @@ Ball::Ball(EntityManager* em,ResourcesManager* rm,glm::vec3 position, glm::vec3 
 	em->add(mMesh);
 }
 
+Ball::Ball(EntityManager * em, ResourcesManager * rm, glm::vec3 position, glm::vec3 speed, Entity * parent)
+{
+}
+
 Ball::~Ball()
 {
 }
