@@ -981,7 +981,7 @@
 	"Texture.h"
 	<vector>
 
-1456613500 /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/EntityManager.h
+1456617143 /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/EntityManager.h
 	<vector>
 	"Entity.h"
 	"Entity2D.h"
@@ -991,8 +991,9 @@
 	"PhysicComponent.h"
 	"Mesh.h"
 	"Light.h"
+	"World.h"
 
-1456615605 /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.h
+1456656514 /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.h
 	"GraphicComponent.h"
 	"PhysicComponent.h"
 
@@ -1079,10 +1080,10 @@
 	"glm/gtx/transform.hpp"
 	"glm/gtc/type_ptr.hpp"
 
-1456615321 source:/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Ball.cpp
+1456657190 source:/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Ball.cpp
 	"Ball.h"
 
-1456615321 /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Ball.h
+1456657190 /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Ball.h
 	"Mesh.h"
 	"GraphicComponent.h"
 	"StateComponent.h"
@@ -1142,13 +1143,13 @@
 	"DetectionProcessor.h"
 	<iostream>
 
-1456613501 source:/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.cpp
+1456658390 source:/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity.cpp
 	"Entity.h"
 
 1456578975 source:/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Entity2D.cpp
 	"Entity2D.h"
 
-1456614336 source:/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/EntityManager.cpp
+1456658390 source:/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/EntityManager.cpp
 	"EntityManager.h"
 
 1456578975 source:/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Fbo.cpp
@@ -1188,7 +1189,7 @@
 1456578975 source:/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Letter.cpp
 	"Letter.h"
 
-1456578975 source:/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Loop.cpp
+1456654423 source:/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Loop.cpp
 	"Loop.h"
 
 1456605865 /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Loop.h
@@ -1217,7 +1218,7 @@
 	"Updatable.h"
 	"Text.h"
 
-1456614336 /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/RenderSystem.h
+1456654423 /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/RenderSystem.h
 	"SDL.h"
 	<iostream>
 	"glew.h"
@@ -1241,6 +1242,7 @@
 	<random>
 	"Mesh.h"
 	"Light.h"
+	"World.h"
 
 1456604841 /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Texture_Cube.h
 	"glew.h"
@@ -1250,7 +1252,7 @@
 	"SDL_image.h"
 	"Texture_Abs.h"
 
-1456605865 source:/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Main.cpp
+1456658390 source:/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Main.cpp
 	"SDL.h"
 	<iostream>
 	"glew.h"
@@ -1284,6 +1286,7 @@
 	"ButtonController_int.h"
 	"BisObject.h"
 	"Heightmap.h"
+	"Hat.h"
 
 1456578975 /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/UserCamera.h
 	"Camera.h"
@@ -1406,7 +1409,7 @@
 1456578975 source:/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/RayDetectionComponent.cpp
 	"RayDetectionComponent.h"
 
-1456615321 source:/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/RenderSystem.cpp
+1456654423 source:/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/RenderSystem.cpp
 	"RenderSystem.h"
 
 1456578975 source:/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/ResourcesManager.cpp
@@ -1486,4 +1489,23 @@
 
 1456615384 source:/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Mesh.cpp
 	"Mesh.h"
+
+1456654423 /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/World.h
+	"Entity.h"
+
+1456657190 /home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Hat.h
+	"Mesh.h"
+	"GraphicComponent.h"
+	"StateComponent.h"
+	"PhysicComponent.h"
+	"ResourcesManager.h"
+	"CubeDetectionComponent.h"
+	"EntityManager.h"
+	"Updatable.h"
+
+1456616480 source:/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/World.cpp
+	"World.h"
+
+1456658516 source:/home/robin/Prog/Bismuth/Bismuth/Glew_SDL2/Hat.cpp
+	"Hat.h"
 
