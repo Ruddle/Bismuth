@@ -54,6 +54,7 @@ void Loop::insertInLoop(std::vector<Updatable*> &toUpdate)
 		mEntityManager->systemCollisionResponse(signTF * float(mTimeStep / 1000));
 		mEntityManager->doResponseCollision();
 
+
 		if (mCfg->DrawCollision)
 			mRenderSystem->draw2D(getVisualCollision(mResourcesManager, mEntityManager->getIM(), *mCamera));
 	}

@@ -3,7 +3,7 @@
 using namespace glm;
 
 
-Cube::Cube(EntityManager* em, ResourcesManager* rm, glm::vec3 position, glm::vec3 speed)
+Cube::Cube(EntityManager* em, ResourcesManager* rm, glm::vec3 position, glm::vec3 speed) : Mesh()
 {
 	GraphicComponent* gc1 = new GraphicComponent(
 		rm->loadTexture("Texture/mystic_d.png", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),
@@ -31,10 +31,10 @@ Cube::Cube(EntityManager* em, ResourcesManager* rm, glm::vec3 position, glm::vec
 
 	PhysicComponent* pc1 = new PhysicComponent(dc1, sc1);
 
-	mMesh = new Mesh(gc1, pc1);
+	this->setGraphicComponent(gc1);
+	this->setPhysicComponent(pc1);
 
-
-	em->add(mMesh);
+	em->add(this);
 }
 
 Cube::~Cube()
@@ -43,7 +43,7 @@ Cube::~Cube()
 
 void Cube::update(float time_s)
 {
-	StateComponent* sc = mMesh->getPhysicComponent()->getStateComponent();
+	StateComponent* sc = getPhysicComponent()->getStateComponent();
 
 	sc->force(time_s,vec3(0, 0, -9.8));
 	sc->friction(0.3f*time_s);

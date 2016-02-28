@@ -9,16 +9,13 @@
 #include "EntityManager.h"
 #include "Updatable.h"
 
-class Ball : public Updatable
+class Ball : public Mesh, public Updatable
 {
 public:
 	Ball(EntityManager* em, ResourcesManager* rm, glm::vec3 position, glm::vec3 speed);
 	~Ball();
-	Mesh *getEntity() { return mMesh; }
-
+	
 	void update(float time_s);
 
-private:
-	Mesh *mMesh;
 };
 
