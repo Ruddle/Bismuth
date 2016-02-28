@@ -4,7 +4,7 @@
 
 
 
-Gravity::Gravity(DetectionComponent * detectionComponent) : Forcefield(detectionComponent)
+Gravity::Gravity(PhysicComponent* physicComponent) : Forcefield(physicComponent)
 {
 }
 
@@ -12,7 +12,7 @@ Gravity::~Gravity()
 {
 }
 
-glm::vec3 Gravity::force(glm::vec3 pos)
+glm::vec3 Gravity::force(glm::vec3 pos) const
 {
 	return glm::vec3(0,0,-9.8);
 }

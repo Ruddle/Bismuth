@@ -3,7 +3,7 @@
 #include "Entity.h"
 #include "PhysicComponent.h"
 #include "Screw.h"
-
+#include "Forcefield.h"
 
 
 
@@ -18,7 +18,7 @@ public:
 	void systemCollisionResponse();
 	void doResponse();
 
-	std::vector<Contact*> getContacts() { return mContacts; }
+	std::vector<ContactEntity*> getContacts() { return mContactsEntity; }
 
 private:
 	std::vector<Entity*> &mEntities;

@@ -29,7 +29,7 @@ Hat::Hat(EntityManager* em, ResourcesManager* rm,Entity* parent) : Mesh()
 	this->setGraphicComponent(gc1);
 	this->setPhysicComponent(pc1);
 
-	em->add(this);
+	em->add(parent,this);
 }
 
 Hat::~Hat()

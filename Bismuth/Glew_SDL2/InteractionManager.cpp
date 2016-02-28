@@ -62,16 +62,16 @@ void InteractionManager::singleCollisionResponse(float elapsedTime)
         ( (entityF = mContactsEntity[i]->ent1)->getType() == Entity::FORCEFIELD
         && (entityM = mContactsEntity[i]->ent2)->getType() == Entity::MESH))
         {
-            StateComponent* scM = ((Mesh*)entityM)->getStateComponent();
+            StateComponent* scM = ((Mesh*)entityM)->getPhysicComponent()-> getStateComponent();
             scM->force(elapsedTime, ((Forcefield*)entityF)->force(scM->getPosition()));
 
         }
-        else if(mContactsEntity[i]->entity1->getType() == Entity::MESH &&
-                mContactsEntity[i]->entity2->getType() == Entity::MESH)
+        else if(mContactsEntity[i]->ent1->getType() == Entity::MESH &&
+                mContactsEntity[i]->ent2->getType() == Entity::MESH)
         {
 
             StateComponent *sc1 = mContactsEntity[i]->contact->who1->getStateComponent(), *sc2 = mContactsEntity[i]->contact->who2->getStateComponent();
-            vec3 r1 = mContacts[i]->position  - sc1->getPosition(), r2 = mContacts[i]->position - sc2->getPosition();
+            vec3 r1 = mContactsEntity[i]->contact-> position  - sc1->getPosition(), r2 = mContactsEntity[i]->contact->position - sc2->getPosition();
             vec3 vp1 = sc1->getPositionDiff() + cross(sc1->getRotationDiff(), r1);
             vec3 vp2 = sc2->getPositionDiff() + cross(sc2->getRotationDiff(), r2);
             vec3 vr = vp2 - vp1;
@@ -79,7 +79,7 @@ void InteractionManager::singleCollisionResponse(float elapsedTime)
             mat3 invI1 = sc1->getInertiaInverse(), invI2 = sc2->getInertiaInverse();
             float e = (sc2->getRestitution() + sc1->getRestitution()) / 2;
 
-            vec3 normalized = normalize(mContacts[i]->normal);
+            vec3 normalized = normalize(mContactsEntity[i]->contact->normal);
             float numJr = -(1 + e)*dot(vr, normalized);
             vec3 denJr_1 = invI1 *cross(cross(r1, normalized), r1);
             vec3 denJr_2 = invI2 *cross(cross(r2, normalized), r2);
@@ -101,9 +101,9 @@ void InteractionManager::singleCollisionResponse(float elapsedTime)
             ContactResponse response;
             response.screw1 = screw1;
             response.screw2 = screw2;
-            response.normal = mContacts[i]->normal;
-            response.who1 = mContacts[i]->who1;
-            response.who2 = mContacts[i]->who2;
+            response.normal = mContactsEntity[i]->contact->normal;
+            response.who1 = mContactsEntity[i]->contact->who1;
+            response.who2 = mContactsEntity[i]->contact->who2;
             mResponses.push_back(response);
 		}
 

@@ -150,19 +150,19 @@ std::vector<Entity2D*> getVisualCollision(ResourcesManager* rm, InteractionManag
 	std::vector<vec2> a = std::vector<vec2>();
 
 
-	vector<Contact*> contacts = im->getContacts();
+	vector<ContactEntity*> contacts = im->getContacts();
 			for (auto it = contacts.begin(); it != contacts.end(); it++)
 			{
 				if (*it != nullptr)
 				{
-					vec4 worldSpace = vec4((*it)->position, 1);
+					vec4 worldSpace = vec4((*it)->contact->position, 1);
 					vec4 screenSpace = cam.getProjection() * cam.getView() * worldSpace;
 					screenSpace /= screenSpace.w;
 					a.push_back(vec2(screenSpace));
 
 					for (int i = 0; i < 10; i++)
 					{
-						vec4 worldSpace = vec4((*it)->position + i*100.0f*(*it)->normal, 1);
+						vec4 worldSpace = vec4((*it)->contact->position + i*100.0f*(*it)->contact->normal, 1);
 						vec4 screenSpace = cam.getProjection() * cam.getView() * worldSpace;
 						screenSpace /= screenSpace.w;
 						a.push_back(vec2(screenSpace));

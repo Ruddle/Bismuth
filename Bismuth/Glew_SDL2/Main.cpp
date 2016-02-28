@@ -36,6 +36,7 @@
 //#include "UI_link_grid.h"
 //#include "UI_button.h"
 #include "Hat.h"
+#include "Gravity.h"
 
 
 #if defined(WIN32) || defined(_WIN32)
@@ -57,6 +58,13 @@ int main(int argc, char **argv)
 	vector<Entity*> listUpdateEntity = vector<Entity*>();
 
 	core.entityManager->add(createPlane(core.resourcesManager));
+	
+	SphereDetectionComponent* dc1 = new SphereDetectionComponent(1000);
+	StateComponent* sc1 = new StateComponent();
+	PhysicComponent* pc1 = new PhysicComponent(dc1, sc1);
+	Gravity* g = new Gravity(pc1);
+	core.entityManager->add(g);
+
 	Panel panel = Panel(core.entityManager, core.resourcesManager,core.input, vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), vec2(0, 0), vec2(250, core.cfg->ResolutionY));
 
 	core.entityManager->add(createUI(core.resourcesManager));

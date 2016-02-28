@@ -3,9 +3,9 @@
 class Gravity : public Forcefield
 {
 public:
-	Gravity(DetectionComponent* detectionComponent);
+	Gravity(PhysicComponent* physicComponent);
 	~Gravity();
 
-	glm::vec3 force(glm::vec3 pos);
+	glm::vec3 force(glm::vec3 pos) const;
 };
 

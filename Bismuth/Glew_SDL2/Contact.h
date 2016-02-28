@@ -1,7 +1,7 @@
 #pragma once
-
-
 #include "Screw.h"
+
+class Entity;
 class PhysicComponent;
 
 struct Contact
