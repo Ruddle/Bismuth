@@ -31,6 +31,9 @@
     <Object Include="Mesh\Default\o.obj">
       <Filter>Resources\Mesh\Default</Filter>
     </Object>
+    <Object Include="Mesh\hat.obj">
+      <Filter>Resources\Mesh</Filter>
+    </Object>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Ball.cpp">

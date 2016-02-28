@@ -6,7 +6,7 @@ using namespace glm;
 Hat::Hat(EntityManager* em, ResourcesManager* rm,Entity* parent)
 {
 	GraphicComponent* gc1 = new GraphicComponent(
-		rm->loadTexture("Texture/GRAY200.png", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),
+		rm->loadTexture("Texture/GRAY60.png", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),
 		rm->loadTexture("Texture/BLUE.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
 		rm->loadTexture("Texture/GRAY200.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
 		rm->loadTexture("Texture/BLACK.png", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT), //mystic_e
@@ -15,7 +15,7 @@ Hat::Hat(EntityManager* em, ResourcesManager* rm,Entity* parent)
 																							  rm->loadTexture("Texture/rock.png", GL_RGB8, GL_LINEAR, GL_REPEAT),
 																							  rm->loadTexture("Texture/BLACK.png", GL_RGB8, GL_LINEAR, GL_REPEAT),*/
 		rm->loadTexture("Texture/GRAY60.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
-		rm->loadVao("Mesh/cube.obj"));
+		rm->loadVao("Mesh/hat.obj"));
 
 
 	SphereDetectionComponent* dc1 = new SphereDetectionComponent(0);
