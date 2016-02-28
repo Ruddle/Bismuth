@@ -1059,7 +1059,7 @@ void RenderSystem::doStepLight(Camera const &cam, World* world)
 	for (int i = 0; i < children.size(); i++) {
 
 		Entity* child = children[i];
-		doStepLightItnCallChildren(modelview, child);
+		doStepLightItnCallChildren(view, child);
 	}
 
 
