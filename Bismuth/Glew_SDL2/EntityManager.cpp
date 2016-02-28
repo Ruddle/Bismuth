@@ -77,6 +77,7 @@ void EntityManager::add(Entity* entity)
 		mEntity[*it] = entity;
 		entity->setId(*it);
 		mFreeIds.erase(it);
+		mWorld->add(entity);
 	}
 }
 
@@ -98,6 +99,7 @@ void EntityManager::suppr(unsigned int id)
 		delete mEntity[id];
 		mEntity[id] = nullptr;
 		mFreeIds.insert(id);
+		
 	}
 }
 

@@ -30,9 +30,6 @@ void main()
 	varBitangent = normal * inBitangent;
 
 
-
-
-
 	varCurrPosition_Proj =  projection * modelview * vec4(inPosition, 1.0);
 	varPrevPosition_Proj = lastViewProjection*lastModel *  vec4(inPosition, 1.0);
 
