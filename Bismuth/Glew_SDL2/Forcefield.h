@@ -1,0 +1,25 @@
+#ifndef FORCEFIELD_H
+#define FORCEFIELD_H
+
+#include "glm.hpp"
+#include "gtx/transform.hpp"
+#include "Updatable.h"
+#include "DetectionComponent.h"
+
+
+class Forcefield : public Updatable
+{
+    public:
+        Forcefield(DetectionComponent *mDetectionComponent);
+        ~Forcefield();
+        DetectionComponent* getDetectionComponent() { return mDetectionComponent; }
+        void force(glm::vec3 pos) const = 0;
+
+
+    protected:
+        DetectionComponent *mDetectionComponent;
+
+
+};
+
+#endif // FORCEFIELD_H
