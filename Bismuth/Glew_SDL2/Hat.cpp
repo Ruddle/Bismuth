@@ -34,6 +34,9 @@ Hat::Hat(EntityManager* em, ResourcesManager* rm,Entity* parent)
 
 Hat::~Hat()
 {
+
+
+
 }
 
 void Hat::update(float time_s)

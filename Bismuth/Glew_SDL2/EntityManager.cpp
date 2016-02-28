@@ -112,6 +112,10 @@ void EntityManager::suppr(unsigned int id)
 {
 	if (mEntity[id] != nullptr)
 	{
+
+		for (int i = 0; i < mEntity[id]->getChildren().size(); i++)
+			suppr(mEntity[id]->getChildren()[i]->getId());
+
 		delete mEntity[id];
 		mEntity[id] = nullptr;
 		mFreeIds.insert(id);
