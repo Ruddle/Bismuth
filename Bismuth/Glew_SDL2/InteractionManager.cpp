@@ -38,7 +38,7 @@ void InteractionManager::collision()
                     ContactEntity* contactEntity = new ContactEntity();
                     contactEntity->contact = contact;
                     contactEntity->ent1 = entity_i;
-                    contactEntity->entj = entity_j;
+                    contactEntity->ent2 = entity_j;
 
                     if (contact != nullptr)
                         mContactsEntity.push_back(contactEntity);
@@ -57,13 +57,13 @@ void InteractionManager::singleCollisionResponse(float elapsedTime)
 	for (int i = 0; i < mContactsEntity.size(); i++)
 	{
         Entity *entityF = nullptr, *entityM = nullptr;
-        if( ( (entityM = mContactsEntity[i]->entity1)->getType() == Entity::MESH
-        && (entityF = mContactsEntity[i]->entity2)->getType() == Entity::FORCEFIELD) ||
-        ( (entityF = mContactsEntity[i]->entity1)->getType() == Entity::FORCEFIELD
-        && (entityM = mContactsEntity[i]->entity2)->getType() == Entity::MESH))
+        if( ( (entityM = mContactsEntity[i]->ent1)->getType() == Entity::MESH
+        && (entityF = mContactsEntity[i]->ent2)->getType() == Entity::FORCEFIELD) ||
+        ( (entityF = mContactsEntity[i]->ent1)->getType() == Entity::FORCEFIELD
+        && (entityM = mContactsEntity[i]->ent2)->getType() == Entity::MESH))
         {
             StateComponent* scM = ((Mesh*)entityM)->getStateComponent();
-            scM->force(TEMPS, ((Forcefield*)entityF)->force(elapsedTime, scM->getPosition()));
+            scM->force(elapsedTime, ((Forcefield*)entityF)->force(scM->getPosition()));
 
         }
         else if(mContactsEntity[i]->entity1->getType() == Entity::MESH &&

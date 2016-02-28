@@ -14,7 +14,7 @@ public:
 	InteractionManager(std::vector<Entity*> &entities);
 	~InteractionManager();
 	void collision();
-	void singleCollisionResponse(elapsedTime);
+	void singleCollisionResponse(float elapsedTime);
 	void systemCollisionResponse();
 	void doResponse();
 
