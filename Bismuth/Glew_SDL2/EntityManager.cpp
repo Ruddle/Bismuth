@@ -37,8 +37,11 @@ void EntityManager::update(float time_s)
 	for (int i = 0; i < mEntityToDelete.size(); i++)
 	{
 		if (mTimeSinceStart_s > mEntityToDelete[i].timeOfDeath)
-		suppr(mEntityToDelete[i].id);
-		mEntityToDelete.erase(mEntityToDelete.begin()+ i);
+		{
+			suppr(mEntityToDelete[i].id);
+			mEntityToDelete.erase(mEntityToDelete.begin() + i);
+		}
+		
 	}
 
 

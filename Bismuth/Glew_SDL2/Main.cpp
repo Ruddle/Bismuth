@@ -180,7 +180,7 @@ int main(int argc, char **argv)
 			PhysicComponent* pc1 = new PhysicComponent(dc1, sc1);
 			PhysicBoom* g = new PhysicBoom(pc1);
 			core.entityManager->add(g);
-			core.entityManager->setTimeOfDeath(g->getId(), 1);
+			core.entityManager->setTimeOfDeath(g->getId(), 0.2);
 		}
 
 
