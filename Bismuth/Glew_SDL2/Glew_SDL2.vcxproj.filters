@@ -249,6 +249,9 @@
     <ClCompile Include="World.cpp">
       <Filter>Bis 3</Filter>
     </ClCompile>
+    <ClCompile Include="Hat.cpp">
+      <Filter>Bis 4</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h">
@@ -463,6 +466,9 @@
     </ClInclude>
     <ClInclude Include="World.h">
       <Filter>Bis 3</Filter>
+    </ClInclude>
+    <ClInclude Include="Hat.h">
+      <Filter>Bis 4</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

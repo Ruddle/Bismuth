@@ -35,6 +35,7 @@
 //#include "UI_layout_grid.h"
 //#include "UI_link_grid.h"
 //#include "UI_button.h"
+#include "Hat.h"
 
 #if defined(WIN32) || defined(_WIN32)
 FILE _iob[] = { *stdin, *stdout, *stderr };
@@ -144,7 +145,8 @@ int main(int argc, char **argv)
 		if (core.input->getRisingKey(SDL_SCANCODE_V))
 			listUpdate.push_back(new BisObject(core.entityManager, core.resourcesManager, core.camera->getPosition(), 0.00951f*core.camera->getRotation(), "BisObject/saber.txt"));
 
-
+		if (core.input->getRisingKey(SDL_SCANCODE_N))
+			Hat a(core.entityManager, core.resourcesManager, listUpdate. back()->getEntity()  );
 
 		if (core.input->getRisingKey(SDL_SCANCODE_R))
 		{
