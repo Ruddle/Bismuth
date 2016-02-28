@@ -54,8 +54,7 @@ void EntityManager::collision()
 
 void EntityManager::singleCollisionResponse(float time_s)
 {
-	mIM->singleCollisionResponse();
-
+	mIM->singleCollisionResponse(time_s);
 }
 
 void EntityManager::systemCollisionResponse(float time_s)

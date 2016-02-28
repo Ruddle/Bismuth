@@ -1,5 +1,4 @@
-#ifndef FORCEFIELD_H
-#define FORCEFIELD_H
+#pragma once
 
 #include "glm.hpp"
 #include "gtx/transform.hpp"
@@ -21,5 +20,3 @@ class Forcefield : public Updatable
 
 
 };
-
-#endif // FORCEFIELD_H

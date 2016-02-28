@@ -13,17 +13,14 @@ struct BisObjectConfig
 	std::string texture_e;
 };
 
-class BisObject : public Updatable
+class BisObject : public Updatable, public Mesh
 {
 public:
 	BisObject(EntityManager* em, ResourcesManager* rm, glm::vec3 position, glm::vec3 speed,std::string path);
 	~BisObject();
 
-	Entity *getEntity() { return mMesh; }
-
 	void update(float time_s);
 
-private:
-	Mesh* mMesh;
+
 };
 

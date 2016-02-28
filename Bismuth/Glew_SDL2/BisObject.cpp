@@ -126,16 +126,16 @@ BisObject::BisObject(EntityManager* em, ResourcesManager* rm, glm::vec3 position
 	sc1->setPosition(position + speed*1000.0f);
 	sc1->setPositionDiff(vec3(0, 0, 0.0));
 
-	sc1->setRotationDiff(vec3(10.0f, 0.00000f, 0.0f));
+	sc1->setRotationDiff(vec3(1.0f, 0.00000f, 0.0f));
 	sc1->setRotation(quat(1, 0, 0, 0));
 
 
 	PhysicComponent* pc1 = new PhysicComponent(dc1, sc1);
 
-	mMesh = new Mesh(gc1, pc1);
+	this->setGraphicComponent(gc1);
+	this->setPhysicComponent(pc1);
 
-
-	em->add(mMesh);
+	em->add(this);
 }
 
 
