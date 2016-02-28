@@ -66,6 +66,7 @@ Config* readConfig(void);
 Entity* createSphere(ResourcesManager* rm);
 Entity* createThing(ResourcesManager* rm,glm::vec3 position);
 Entity* createPlane(ResourcesManager* rm);
+Entity* createWall1(ResourcesManager* rm);
 Entity2D* createUI(ResourcesManager* rm);
 
 std::vector<Entity2D*> getVisualCollision(ResourcesManager* rm, InteractionManager * im, Camera const & cam);

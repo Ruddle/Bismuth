@@ -59,7 +59,8 @@ int main(int argc, char **argv)
 	vector<Entity*> listUpdateEntity = vector<Entity*>();
 
 	core.entityManager->add(createPlane(core.resourcesManager));
-	
+	//core.entityManager->add(createWall1(core.resourcesManager));
+
 	SphereDetectionComponent* dc1 = new SphereDetectionComponent(1000);
 	StateComponent* sc1 = new StateComponent();
 	PhysicComponent* pc1 = new PhysicComponent(dc1, sc1);

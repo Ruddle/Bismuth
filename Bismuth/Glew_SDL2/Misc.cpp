@@ -115,6 +115,54 @@ Entity* createPlane(ResourcesManager* rm) {
 	return entity;
 }
 
+Entity* createWall1(ResourcesManager* rm) {
+	GraphicComponent* gc1 = new GraphicComponent(
+		rm->loadTexture("Texture/wood.jpg", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),
+		rm->loadTexture("Texture/wood_N.jpg", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),
+		rm->loadTexture("Texture/WHITE.png", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),
+		/*	rm->loadTexture("Texture/rock.png", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),
+		rm->loadTexture("Texture/rock_N.png", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),
+		rm->loadTexture("Texture/rock.png", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),*/
+		rm->loadTexture("Texture/BLACK.png", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),
+		rm->loadTexture("Texture/GRAY60.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
+		rm->loadVao("Mesh/plane.obj"));
+	PlaneDetectionComponent* dc1 = new PlaneDetectionComponent(1000, 1000);
+	StateComponent* sc1 = new StateComponent();
+	PhysicComponent* pc1 = new PhysicComponent(dc1, sc1);
+	sc1->setPosition(vec3(-10, 0, 0));
+	sc1->setRotation(quat(vec3(0.0f, 3.141592f/2.0f, 0.0f)));
+	sc1->setMass(1.0E15f);
+	sc1->setInertia(1E15f);
+	//sc1->setRotation(vec3(0.0, 0, 0));
+	Mesh* entity = new Mesh(gc1, pc1);
+
+	return entity;
+}
+
+Entity* createWall2(ResourcesManager* rm) {
+	GraphicComponent* gc1 = new GraphicComponent(
+		rm->loadTexture("Texture/wood.jpg", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),
+		rm->loadTexture("Texture/wood_N.jpg", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),
+		rm->loadTexture("Texture/WHITE.png", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),
+		/*	rm->loadTexture("Texture/rock.png", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),
+		rm->loadTexture("Texture/rock_N.png", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),
+		rm->loadTexture("Texture/rock.png", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),*/
+		rm->loadTexture("Texture/BLACK.png", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),
+		rm->loadTexture("Texture/GRAY60.png", GL_RGB8, GL_NEAREST, GL_REPEAT),
+		rm->loadVao("Mesh/plane.obj"));
+	PlaneDetectionComponent* dc1 = new PlaneDetectionComponent(1000, 1000);
+	StateComponent* sc1 = new StateComponent();
+	PhysicComponent* pc1 = new PhysicComponent(dc1, sc1);
+	sc1->setPosition(vec3(-10, 0, 0));
+	sc1->setRotation(quat(vec3(0.0f, 3.141592f / 2.0f, 0.0f)));
+	sc1->setMass(1.0E15f);
+	sc1->setInertia(1E15f);
+	//sc1->setRotation(vec3(0.0, 0, 0));
+	Mesh* entity = new Mesh(gc1, pc1);
+
+	return entity;
+}
+
 
 Entity* createThing(ResourcesManager* rm,vec3 position) {
 	GraphicComponent* gc1 = new GraphicComponent(
