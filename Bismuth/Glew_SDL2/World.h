@@ -6,7 +6,7 @@ public:
 	World();
 	~World();
 
-	Type getType() { return Entity::WORLD; }
+	Type getType() const { return Entity::WORLD; }
 
 };
 

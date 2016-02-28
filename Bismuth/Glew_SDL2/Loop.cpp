@@ -27,7 +27,7 @@ Loop::~Loop()
 
 void Loop::insertInLoop(std::vector<Updatable*> &toUpdate)
 {
-	mRenderSystem->draw(mEntityManager->getEntities(), *mCamera, float(mFrame), *mInput, float(mFps));
+	mRenderSystem->draw(mEntityManager->getWorld(), *mCamera, float(mFrame), *mInput, float(mFps));
 
 	mContinue = !mInput->end();
 	mFrame++;
