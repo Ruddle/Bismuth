@@ -50,7 +50,7 @@ void EntityManager::collision()
 void EntityManager::singleCollisionResponse(float time_s)
 {
 	mIM->singleCollisionResponse();
-	
+
 }
 
 void EntityManager::systemCollisionResponse(float time_s)
@@ -72,6 +72,19 @@ void EntityManager::add(Entity* entity)
 		mEntity[*it] = entity;
 		entity->setId(*it);
 		mFreeIds.erase(it);
+		mWorld->add(entity);
+	}
+}
+
+void EntityManager::add(Entity* parent, Entity *entity)
+{
+    if (mFreeIds.size() > 0)
+	{
+		auto it = mFreeIds.begin();
+		mEntity[*it] = entity;
+		entity->setId(*it);
+		mFreeIds.erase(it);
+		parent->add(entity);
 	}
 }
 
