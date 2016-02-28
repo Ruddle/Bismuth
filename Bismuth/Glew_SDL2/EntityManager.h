@@ -10,6 +10,14 @@
 #include "Mesh.h"
 #include "Light.h"
 #include "World.h"
+
+
+struct EntityToDelete
+{
+	int id;
+	double timeOfDeath;
+};
+
 class EntityManager
 {
 
@@ -32,6 +40,8 @@ public:
 	std::vector<Entity*> getEntities() { return mEntity; }
 	std::vector<Entity2D*> getEntities2D() { return mEntity2D; }
 
+	void setTimeOfDeath(int id, double offset);
+
 	InteractionManager* getIM() { return mIM; }
 
 	World* getWorld() { return mWorld; }
@@ -47,5 +57,8 @@ private:
 	std::set<unsigned int> mFreeIds2D;
 
 	InteractionManager* mIM;
+
+	double mTimeSinceStart_s ;
+	std::vector<EntityToDelete> mEntityToDelete;
 
 };

@@ -16,11 +16,14 @@ public:
 	void setPhysicComponent(PhysicComponent* p) { mPhysicComponent = p; }
 	void setGraphicComponent(GraphicComponent* p) { mGraphicComponent = p; }
 
-	PhysicComponent*  getPhysicComponent(void) { return mPhysicComponent; }
+
 	GraphicComponent* getGraphicComponent(void)  { return mGraphicComponent; }
 
+	PhysicComponent* getPhysicComponent() { return mPhysicComponent; }
+protected:
+	PhysicComponent* mPhysicComponent;
 
 private:
 	GraphicComponent* mGraphicComponent;
-	PhysicComponent* mPhysicComponent;
+
 };

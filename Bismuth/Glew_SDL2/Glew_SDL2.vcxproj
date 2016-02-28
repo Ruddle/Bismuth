@@ -201,6 +201,7 @@
     <ClCompile Include="Observer_Slider.cpp" />
     <ClCompile Include="Observer_UI_box.cpp" />
     <ClCompile Include="Panel.cpp" />
+    <ClCompile Include="PhysicBoom.cpp" />
     <ClCompile Include="PhysicComponent.cpp" />
     <ClCompile Include="PhysicComponent2D.cpp" />
     <ClCompile Include="PhysicSystem.cpp" />
@@ -294,6 +295,7 @@
     <ClInclude Include="Observer_Slider.h" />
     <ClInclude Include="Observer_UI_box.h" />
     <ClInclude Include="Panel.h" />
+    <ClInclude Include="PhysicBoom.h" />
     <ClInclude Include="PhysicComponent.h" />
     <ClInclude Include="PhysicComponent2D.h" />
     <ClInclude Include="PhysicSystem.h" />

@@ -25,14 +25,26 @@ void InteractionManager::collision()
 	for (int i = 0; i < mEntities.size() - 1; i++)
 	{
 		Entity *entity_i = mEntities[i];
-		if (entity_i != nullptr && entity_i->getType() == Entity::MESH)
+		if (entity_i != nullptr && ( entity_i->getType() == Entity::MESH || entity_i->getType() == Entity::FORCEFIELD) )
 		{
 			for (int j = i + 1; j < mEntities.size(); j++)
 			{
 				Entity *entity_j = mEntities[j];
-				if (entity_j != nullptr && entity_j->getType() == Entity::MESH)
+				if (entity_j != nullptr && (entity_j->getType() == Entity::MESH || entity_j->getType() == Entity::FORCEFIELD))
 				{
-                    PhysicComponent *phyI = ((Mesh*)entity_i)->getPhysicComponent(), *phyJ = ((Mesh*)entity_j)->getPhysicComponent();
+
+					PhysicComponent	*phyI;
+					PhysicComponent	*phyJ;
+
+					if (entity_i->getType() == Entity::MESH)
+						phyI = ((Mesh*)entity_i)->getPhysicComponent();
+					else
+						phyI = ((Forcefield*)entity_i)->getPhysicComponent();
+
+					if (entity_j->getType() == Entity::MESH)
+						phyJ = ((Mesh*)entity_j)->getPhysicComponent();
+					else
+						phyJ = ((Forcefield*)entity_j)->getPhysicComponent();
 
                     Contact* contact = DetectionProcessor::detection(phyI, phyJ);
                     ContactEntity* contactEntity = new ContactEntity();

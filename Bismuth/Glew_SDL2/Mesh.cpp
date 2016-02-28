@@ -1,6 +1,6 @@
 #include "Mesh.h"
 
-Mesh::Mesh(): mGraphicComponent(nullptr), mPhysicComponent(nullptr)
+Mesh::Mesh():mPhysicComponent(nullptr), mGraphicComponent(nullptr)
 {
 
 }

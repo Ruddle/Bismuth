@@ -3,7 +3,7 @@
 
 EntityManager::EntityManager()
 {
-
+	mTimeSinceStart_s = 0;
 	mIM = new InteractionManager(mEntity);
 
 	mEntity.reserve(1000);
@@ -32,6 +32,17 @@ EntityManager::~EntityManager()
 
 void EntityManager::update(float time_s)
 {
+	mTimeSinceStart_s += time_s;
+	
+	for (int i = 0; i < mEntityToDelete.size(); i++)
+	{
+		if (mTimeSinceStart_s > mEntityToDelete[i].timeOfDeath)
+		suppr(mEntityToDelete[i].id);
+		mEntityToDelete.erase(mEntityToDelete.begin()+ i);
+	}
+
+
+
 
 	for (int i = 0; i < mEntity.size(); i++)
 	{
@@ -129,4 +140,9 @@ void EntityManager::suppr2D(unsigned int id)
 		mEntity2D[id] = nullptr;
 		mFreeIds2D.insert(id);
 	}
+}
+
+void EntityManager::setTimeOfDeath(int id, double offset_s)
+{
+	mEntityToDelete.push_back({ id, mTimeSinceStart_s + offset_s });
 }

@@ -37,6 +37,7 @@
 //#include "UI_button.h"
 #include "Hat.h"
 #include "Gravity.h"
+#include "PhysicBoom.h"
 
 
 #if defined(WIN32) || defined(_WIN32)
@@ -127,7 +128,7 @@ int main(int argc, char **argv)
 
 	//ui_buttonA->update();
 
-	Heightmap hm = Heightmap(core.entityManager, core.resourcesManager);
+	//Heightmap hm = Heightmap(core.entityManager, core.resourcesManager);
 
 	UserCamera cam = UserCamera(core.camera);
 	while (currentLoop.doContinue())// CODE MOTEUR MINIMAL
@@ -171,6 +172,19 @@ int main(int argc, char **argv)
 			listUpdate.push_back(e);
 			listUpdateEntity.push_back(e);
 		}
+
+		if (core.input->getRisingKey(SDL_SCANCODE_O))
+		{
+			SphereDetectionComponent* dc1 = new SphereDetectionComponent(100);
+			StateComponent* sc1 = new StateComponent();
+			PhysicComponent* pc1 = new PhysicComponent(dc1, sc1);
+			PhysicBoom* g = new PhysicBoom(pc1);
+			core.entityManager->add(g);
+			core.entityManager->setTimeOfDeath(g->getId(), 1);
+		}
+
+
+
 
 		if (core.input->getRisingKey(SDL_SCANCODE_N))
 			new Hat (core.entityManager, core.resourcesManager, listUpdateEntity[listUpdateEntity.size()-1 ] );
