@@ -17,14 +17,14 @@ uniform float far;
 
 
 
-#define SAMPLES 12   // More than 1, 80 max ( FullHD - 870M GTX)
-#define DISTANCE 4. // Try between 0.5 - 5 
+#define SAMPLES 16   // More than 1, 80 max ( FullHD - 870M GTX)
+#define DISTANCE 3. // Try between 0.5 - 5 
 #define INTENSITY 3.
 
 #define SCALE 0.005
 #define BIAS 0.05
 #define SAMPLE_RAD 1*DISTANCE
-#define MAX_DISTANCE 60.
+#define MAX_DISTANCE 30.
 
 
 vec3 decodeNormal(vec2 enc){

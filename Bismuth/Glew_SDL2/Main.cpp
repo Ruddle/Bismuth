@@ -37,6 +37,7 @@
 //#include "UI_button.h"
 #include "Hat.h"
 
+
 #if defined(WIN32) || defined(_WIN32)
 FILE _iob[] = { *stdin, *stdout, *stderr };
 extern "C" FILE * __cdecl __iob_func(void)
@@ -53,6 +54,7 @@ int main(int argc, char **argv)
 	Loop currentLoop= Loop();// CODE MOTEUR MINIMAL
 	CoreBismuth core = currentLoop.getCore();
 	vector<Updatable*> listUpdate = vector<Updatable*>();
+	vector<Entity*> listUpdateEntity = vector<Entity*>();
 
 	core.entityManager->add(createPlane(core.resourcesManager));
 	Panel panel = Panel(core.entityManager, core.resourcesManager,core.input, vec2(core.cfg->ResolutionX, core.cfg->ResolutionY), vec2(0, 0), vec2(250, core.cfg->ResolutionY));
@@ -133,29 +135,46 @@ int main(int argc, char **argv)
 
 		currentLoop.insertInLoop(listUpdate); // CODE MOTEUR MINIMAL
 		cam.update(*core.input, currentLoop.getElapsedTime());
-		if (core.input->getRisingKey(SDL_SCANCODE_K))
-			listUpdate.push_back(new Ball(core.entityManager, core.resourcesManager, core.camera->getPosition(), 0*10.51f*normalize(core.camera->getRotation())));
+
+		if (core.input->getRisingKey(SDL_SCANCODE_K)) {
+			Ball* e = new Ball(core.entityManager, core.resourcesManager, core.camera->getPosition(), 0 * 10.51f*normalize(core.camera->getRotation()));
+			listUpdate.push_back(e);
+			listUpdateEntity.push_back(e);
+		}
+
 		if (core.input->getKey(SDL_SCANCODE_I))
-			listUpdate.push_back(new Ball(core.entityManager, core.resourcesManager, core.camera->getPosition(), 1*10.51f*normalize(core.camera->getRotation())));
+		{
+			Ball* e = new Ball(core.entityManager, core.resourcesManager, core.camera->getPosition(), 1 * 10.51f*normalize(core.camera->getRotation()));
+			listUpdate.push_back(e);
+			listUpdateEntity.push_back(e);
+		}
 		if (core.input->getRisingKey(SDL_SCANCODE_L))
-			listUpdate.push_back(new Cube(core.entityManager, core.resourcesManager, core.camera->getPosition(), 0.00951f*core.camera->getRotation()));
-			//listUpdate.push_back(new Cube(core.entityManager, core.resourcesManager, vec3(0, 0, 0), vec3(0, 0, 0)));
+		{
+			Cube* e =new Cube(core.entityManager, core.resourcesManager, core.camera->getPosition(), 0.00951f*core.camera->getRotation());
+			listUpdate.push_back(e);
+			listUpdateEntity.push_back(e);
+		}
+			
 
 
 		if (core.input->getRisingKey(SDL_SCANCODE_V))
-			listUpdate.push_back(new BisObject(core.entityManager, core.resourcesManager, core.camera->getPosition(), 0.00951f*core.camera->getRotation(), "BisObject/saber.txt"));
+		{
+			BisObject* e =new BisObject(core.entityManager, core.resourcesManager, core.camera->getPosition(), 0.00951f*core.camera->getRotation(), "BisObject/saber.txt");
+			listUpdate.push_back(e);
+			listUpdateEntity.push_back(e);
+		}
 
 		if (core.input->getRisingKey(SDL_SCANCODE_N))
-			new Hat (core.entityManager, core.resourcesManager, (Mesh*)listUpdate. back()  );
+			new Hat (core.entityManager, core.resourcesManager, listUpdateEntity[listUpdateEntity.size()-1 ] );
 
 		if (core.input->getRisingKey(SDL_SCANCODE_R))
 		{
-			for (auto it = listUpdate.begin(); it != listUpdate.end(); it++)
+			for (int i = 0; i < listUpdateEntity.size();i++)
 			{
-				core.entityManager->suppr(  ((Entity*)(*it))  ->getId());
-				delete (*it);
+				core.entityManager->suppr(  listUpdateEntity[i]->getId());
 			}
 			listUpdate.clear();
+			listUpdateEntity.clear();
 		}
 
 		double x = currentLoop.getTimeFactor();
