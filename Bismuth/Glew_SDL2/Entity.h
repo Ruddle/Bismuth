@@ -7,7 +7,7 @@ class Entity
 {
 public:
 
-    enum Type { MESH, LIGHT, WORLD, };
+    enum Type { MESH, LIGHT, WORLD };
 
 	Entity();
 	~Entity();
