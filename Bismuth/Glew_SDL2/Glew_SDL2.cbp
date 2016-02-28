@@ -11,6 +11,7 @@
 				<Option type="0" />
 				<Option compiler="gcc" />
 				<Compiler>
+					<Add option="-g" />
 					<Add directory="./SDL2-2.0.3/include" />
 					<Add directory="./glew-1.13.0/include/GL" />
 					<Add directory="./SDL2_image-2.0.0/include" />
@@ -104,6 +105,8 @@
 		<Unit filename="GraphicComponent.h" />
 		<Unit filename="GraphicComponent2D.cpp" />
 		<Unit filename="GraphicComponent2D.h" />
+		<Unit filename="Hat.cpp" />
+		<Unit filename="Hat.h" />
 		<Unit filename="Heightmap.cpp" />
 		<Unit filename="Heightmap.h" />
 		<Unit filename="Input.cpp" />
@@ -127,6 +130,8 @@
 			<Option compile="0" />
 			<Option link="0" />
 		</Unit>
+		<Unit filename="Mesh.cpp" />
+		<Unit filename="Mesh.h" />
 		<Unit filename="Misc.cpp" />
 		<Unit filename="Misc.h" />
 		<Unit filename="Observer_Input.cpp" />
@@ -253,6 +258,8 @@
 		<Unit filename="Vao.h" />
 		<Unit filename="Vao2D.cpp" />
 		<Unit filename="Vao2D.h" />
+		<Unit filename="World.cpp" />
+		<Unit filename="World.h" />
 		<Unit filename="config.ini" />
 		<Extensions>
 			<code_completion />
