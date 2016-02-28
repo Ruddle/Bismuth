@@ -55,7 +55,7 @@ void EntityManager::collision()
 void EntityManager::singleCollisionResponse(float time_s)
 {
 	mIM->singleCollisionResponse();
-	
+
 }
 
 void EntityManager::systemCollisionResponse(float time_s)
@@ -81,6 +81,18 @@ void EntityManager::add(Entity* entity)
 	}
 }
 
+void EntityManager::add(Entity* parent, Entity *entity)
+{
+    if (mFreeIds.size() > 0)
+	{
+		auto it = mFreeIds.begin();
+		mEntity[*it] = entity;
+		entity->setId(*it);
+		mFreeIds.erase(it);
+		parent->add(entity);
+	}
+}
+
 void EntityManager::add(Entity2D* entity)
 {
 	if (mFreeIds.size() > 0)
@@ -99,7 +111,6 @@ void EntityManager::suppr(unsigned int id)
 		delete mEntity[id];
 		mEntity[id] = nullptr;
 		mFreeIds.insert(id);
-		
 	}
 }
 

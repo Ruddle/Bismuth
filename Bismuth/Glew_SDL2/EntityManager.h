@@ -25,6 +25,7 @@ public:
 	void doResponseCollision();
 
 	void add(Entity* entity);
+	void add(Entity* parent, Entity *entity);
 	void add(Entity2D* entity);
 	void suppr(unsigned int id);
 	void suppr2D(unsigned int id);
