@@ -14,14 +14,14 @@ public:
 
 	virtual Type getType() const = 0;
 	void setId(int id) {mId = id;}
-	int getId() {return mId;}
+	int getId() {return mId;} 
 	void add(Entity *entity) { mChildren.push_back(entity); }
 	void suppr(Entity *entity);
 
 	std::vector<Entity*>& getChildren() { return mChildren; }
 
-	glm::mat4 getModel() { return mModel; }
-	glm::mat4 getLastModel() { return mLastModel; }
+	glm::mat4 getModel() const { return mModel; } 
+	glm::mat4 getLastModel()  const { return mLastModel; }
 
 	void setModel(glm::mat4 model) { mLastModel = mModel; mModel = model; }
 	void setParent(Entity* parent) { mParent = parent; }

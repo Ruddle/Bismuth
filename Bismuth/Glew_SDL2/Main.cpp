@@ -175,12 +175,15 @@ int main(int argc, char **argv)
 
 		if (core.input->getRisingKey(SDL_SCANCODE_O))
 		{
-			SphereDetectionComponent* dc1 = new SphereDetectionComponent(100);
-			StateComponent* sc1 = new StateComponent();
-			PhysicComponent* pc1 = new PhysicComponent(dc1, sc1);
-			PhysicBoom* g = new PhysicBoom(pc1);
-			core.entityManager->add(g);
-			core.entityManager->setTimeOfDeath(g->getId(), 0.2);
+			SphereDetectionComponent* dc = new SphereDetectionComponent(100);
+			StateComponent* sc = new StateComponent();
+			PhysicComponent* pc = new PhysicComponent(dc, sc);
+			PhysicBoom* s = new PhysicBoom(pc1);
+			sc->setPosition(core.camera->getPosition());
+			s->setModel(glm::translate(core.camera->getPosition()));
+			core.entityManager->add(s);
+			core.entityManager->setTimeOfDeath(s->getId(), 0.1);
+			
 		}
 
 
