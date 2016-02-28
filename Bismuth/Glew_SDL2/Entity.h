@@ -14,9 +14,17 @@ public:
 	void setId(int id) {mId = id;}
 	int getId() {return mId;}
 	void add(Entity *entity) { mChildren.push_back(entity); }
+	std::vector<Entity*>& getChildren() { return mChildren; }
+
+	glm::mat4 getModel() { return mModel; }
+	glm::mat4 getLastModel() { return mLastModel; }
+
+	void setModel(glm::mat4 model) { mLastModel = mModel; mModel = model; }
+
 
 private:
     int mId;
 	glm::mat4 mModel;
+	glm::mat4 mLastModel;
 	std::vector<Entity*> mChildren;
 };

@@ -22,6 +22,7 @@
 #include <random>
 #include "Mesh.h"
 #include "Light.h"
+#include "World.h"
 
 class RenderSystem
 {
@@ -29,14 +30,18 @@ public:
 	RenderSystem(Config * cfg, ResourcesManager* rm);
 	~RenderSystem();
 
-	void draw(std::vector<Entity*> entities, Camera const& cam, float time, Input &input,float fps);
+	void draw(World* world, Camera const& cam, float time, Input &input,float fps);
 	void draw2D(std::vector<Entity2D*> entities);
 
 
 private:
 
-	void doStepGeometry(Camera const &cam, std::vector<Entity*> entities);
-	void doStepLight(Camera const &cam, std::vector<Entity*> entities);
+	void doStepGeometry(Camera const &cam, World* world);
+	void doStepGeometryItnCallChildren(glm::mat4 const& modelviewParent, glm::mat4 const& lastModelParent, Entity* it);
+
+	void doStepLight(Camera const &cam, World* world);
+	void doStepLightItnCallChildren(glm::mat4 const& modelviewParent, Entity* it);
+
 	void doStepAo(Camera const &cam);
 	void doStepBlurAo();
 	void doStepBloom();

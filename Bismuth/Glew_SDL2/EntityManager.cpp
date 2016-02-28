@@ -36,8 +36,13 @@ void EntityManager::update(float time_s)
 	for (int i = 0; i < mEntity.size(); i++)
 	{
 		Entity *entity = mEntity[i];
-		if(entity != nullptr && entity->getType() == Entity::MESH)
+		if (entity != nullptr && entity->getType() == Entity::MESH) {
+
 			((Mesh*)entity)->getPhysicComponent()->getStateComponent()->update(time_s);
+			entity->setModel(((Mesh*)entity)->getPhysicComponent()->getStateComponent()->getModel());
+
+		}
+			
 	}
 }
 
