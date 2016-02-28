@@ -13,7 +13,7 @@ class Forcefield : public Updatable
         Forcefield(DetectionComponent *mDetectionComponent);
         ~Forcefield();
         DetectionComponent* getDetectionComponent() { return mDetectionComponent; }
-        void force(glm::vec3 pos) const = 0;
+        virtual oid force(glm::vec3 pos) const = 0;
 
 
     protected:
