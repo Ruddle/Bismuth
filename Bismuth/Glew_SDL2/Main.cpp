@@ -146,13 +146,13 @@ int main(int argc, char **argv)
 			listUpdate.push_back(new BisObject(core.entityManager, core.resourcesManager, core.camera->getPosition(), 0.00951f*core.camera->getRotation(), "BisObject/saber.txt"));
 
 		if (core.input->getRisingKey(SDL_SCANCODE_N))
-			new Hat (core.entityManager, core.resourcesManager, listUpdate. back()->getEntity()  );
+			new Hat (core.entityManager, core.resourcesManager, (Mesh*)listUpdate. back()  );
 
 		if (core.input->getRisingKey(SDL_SCANCODE_R))
 		{
 			for (auto it = listUpdate.begin(); it != listUpdate.end(); it++)
 			{
-				core.entityManager->suppr((*it)->getEntity()->getId());
+				core.entityManager->suppr(  ((Entity*)(*it))  ->getId());
 				delete (*it);
 			}
 			listUpdate.clear();

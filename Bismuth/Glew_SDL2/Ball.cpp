@@ -3,7 +3,7 @@
 using namespace glm;
 
 
-Ball::Ball(EntityManager* em,ResourcesManager* rm,glm::vec3 position, glm::vec3 speed)
+Ball::Ball(EntityManager* em,ResourcesManager* rm,glm::vec3 position, glm::vec3 speed) : Mesh()
 {
 	GraphicComponent* gc1 = new GraphicComponent(
 		rm->loadTexture("Texture/circleColor2.png", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),
@@ -19,7 +19,6 @@ Ball::Ball(EntityManager* em,ResourcesManager* rm,glm::vec3 position, glm::vec3 
 		rm->loadVao("Mesh/sphere.obj"));
 
 
-		
 
 	SphereDetectionComponent* dc1 = new SphereDetectionComponent(1);
 	StateComponent* sc1 = new StateComponent();
@@ -27,10 +26,10 @@ Ball::Ball(EntityManager* em,ResourcesManager* rm,glm::vec3 position, glm::vec3 
 	sc1->setPositionDiff(speed);
 	PhysicComponent* pc1 = new PhysicComponent(dc1, sc1);
 
-	mMesh = new Mesh(gc1, pc1);
+	this->setGraphicComponent(gc1);
+	this->setPhysicComponent(pc1);
 
-
-	em->add(mMesh);
+	em->add(this);
 }
 
 
@@ -42,7 +41,7 @@ Ball::~Ball()
 
 void Ball::update(float time_s)
 {
-	StateComponent* sc = mMesh->getPhysicComponent()->getStateComponent();
+	StateComponent* sc = getPhysicComponent()->getStateComponent();
 
     sc->force(time_s,vec3(0, 0, -9.8));
 	sc->friction(0.3f*time_s);

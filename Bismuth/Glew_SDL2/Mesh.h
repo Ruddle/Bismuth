@@ -13,6 +13,9 @@ public:
 
 	Type getType() const {return Entity::MESH;}
 
+	void setPhysicComponent(PhysicComponent* p) { mPhysicComponent = p; }
+	void setGraphicComponent(GraphicComponent* p) { mGraphicComponent = p; }
+
 	PhysicComponent*  getPhysicComponent(void) { return mPhysicComponent; }
 	GraphicComponent* getGraphicComponent(void)  { return mGraphicComponent; }
 

@@ -3,7 +3,7 @@
 using namespace glm;
 
 
-Hat::Hat(EntityManager* em, ResourcesManager* rm,Entity* parent)
+Hat::Hat(EntityManager* em, ResourcesManager* rm,Entity* parent) : Mesh()
 {
 	GraphicComponent* gc1 = new GraphicComponent(
 		rm->loadTexture("Texture/GRAY60.png", GL_RGB8, GL_LINEAR_MIPMAP_LINEAR, GL_REPEAT),
@@ -26,10 +26,10 @@ Hat::Hat(EntityManager* em, ResourcesManager* rm,Entity* parent)
 
 	
 
-	mMesh = new Mesh(gc1, pc1);
+	this->setGraphicComponent(gc1);
+	this->setPhysicComponent(pc1);
 
-
-	em->add(parent,mMesh);
+	em->add(this);
 }
 
 Hat::~Hat()
@@ -42,8 +42,5 @@ Hat::~Hat()
 void Hat::update(float time_s)
 {
 
-	/*if (sc->getPosition().z < 1) {
-	sc->setPosition(vec3(sc->getPosition().x, sc->getPosition().y, 1));
-	sc->setPositionDiff(vec3(sc->getPositionDiff().x, sc->getPositionDiff().y, -0.2*sc->getPositionDiff().z));
-	}*/
+	
 }

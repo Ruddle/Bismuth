@@ -9,15 +9,13 @@
 #include "Updatable.h"
 
 
-class Hat : public Updatable
+class Hat : public Mesh, public Updatable
 {
 public:
 	Hat(EntityManager* em, ResourcesManager* rm,Entity* parent);
 	~Hat();
-	Entity *getEntity() { return mMesh; }
+
 	void update(float time_s);
 
-private:
-	Mesh *mMesh;
 };
 
