@@ -14,15 +14,15 @@ public:
 	InteractionManager(std::vector<Entity*> &entities);
 	~InteractionManager();
 	void collision();
-	void singleCollisionResponse();
+	void singleCollisionResponse(elapsedTime);
 	void systemCollisionResponse();
 	void doResponse();
 
 	std::vector<Contact*> getContacts() { return mContacts; }
-	
+
 private:
 	std::vector<Entity*> &mEntities;
-	std::vector<Contact*> mContacts;
+	std::vector<ContactEntity*> mContactsEntity;
 	std::vector<ContactResponse> mResponses;
 	std::vector<ContactResponse> mResponsesWithSystem;
 

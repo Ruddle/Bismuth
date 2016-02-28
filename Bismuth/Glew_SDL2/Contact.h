@@ -12,6 +12,13 @@ struct Contact
 	PhysicComponent* who2;
 };
 
+struct ContactEntity
+{
+    Contact *contact;
+    Entity *ent1;
+    Entity *ent2;
+};
+
 struct ContactResponse
 {
 	glm::vec3 normal;

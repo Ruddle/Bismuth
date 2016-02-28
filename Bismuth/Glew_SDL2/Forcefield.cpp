@@ -1,6 +1,6 @@
 #include "Forcefield.h"
 
-Forcefield::Forcefield(DetectionComponent *detectionComponent) : mDetectionComponent(detectionComponent)
+Forcefield::Forcefield(PhysicComponent *physicComponent) : mPhysicComponent(physicComponent)
 {
     //ctor
 }

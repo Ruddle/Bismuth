@@ -14,10 +14,13 @@ InteractionManager::~InteractionManager()
 
 void InteractionManager::collision()
 {
-	for (auto it = mContacts.begin(); it != mContacts.end(); it++)
+	for (auto it = mContactsEntity.begin(); it != mContactsEntity.end(); it++)
+	{
+        delete (*it)->contact;
 		delete (*it);
+    }
 
-	mContacts.clear();
+	mContactsEntity.clear();
 
 	for (int i = 0; i < mEntities.size() - 1; i++)
 	{
@@ -29,15 +32,16 @@ void InteractionManager::collision()
 				Entity *entity_j = mEntities[j];
 				if (entity_j != nullptr && entity_j->getType() == Entity::MESH)
 				{
-					PhysicComponent *phyI = ((Mesh*)entity_i)->getPhysicComponent(), *phyJ = ((Mesh*)entity_j)->getPhysicComponent();
-					Contact* contact = DetectionProcessor::detection(phyI, phyJ);
+                    PhysicComponent *phyI = ((Mesh*)entity_i)->getPhysicComponent(), *phyJ = ((Mesh*)entity_j)->getPhysicComponent();
 
+                    Contact* contact = DetectionProcessor::detection(phyI, phyJ);
+                    ContactEntity* contactEntity = new ContactEntity();
+                    contactEntity->contact = contact;
+                    contactEntity->ent1 = entity_i;
+                    contactEntity->entj = entity_j;
 
-					if (contact != nullptr)
-					{
-						mContacts.push_back(contact);
-					}
-
+                    if (contact != nullptr)
+                        mContactsEntity.push_back(contactEntity);
 				}
 
 			}
@@ -45,48 +49,63 @@ void InteractionManager::collision()
 	}
 }
 
-void InteractionManager::singleCollisionResponse()
+void InteractionManager::singleCollisionResponse(float elapsedTime)
 {
 
 	mResponses.clear();
 
-	for (int i = 0; i < mContacts.size(); i++)
+	for (int i = 0; i < mContactsEntity.size(); i++)
 	{
-		StateComponent *sc1 = mContacts[i]->who1->getStateComponent(), *sc2 = mContacts[i]->who2->getStateComponent();
-		vec3 r1 = mContacts[i]->position  - sc1->getPosition(), r2 = mContacts[i]->position - sc2->getPosition();
-		vec3 vp1 = sc1->getPositionDiff() + cross(sc1->getRotationDiff(), r1);
-		vec3 vp2 = sc2->getPositionDiff() + cross(sc2->getRotationDiff(), r2);
-		vec3 vr = vp2 - vp1;
+        Entity *entityF = nullptr, *entityM = nullptr;
+        if( ( (entityM = mContactsEntity[i]->entity1)->getType() == Entity::MESH
+        && (entityF = mContactsEntity[i]->entity2)->getType() == Entity::FORCEFIELD) ||
+        ( (entityF = mContactsEntity[i]->entity1)->getType() == Entity::FORCEFIELD
+        && (entityM = mContactsEntity[i]->entity2)->getType() == Entity::MESH))
+        {
+            StateComponent* scM = ((Mesh*)entityM)->getStateComponent();
+            scM->force(TEMPS, ((Forcefield*)entityF)->force(elapsedTime, scM->getPosition()));
 
-		mat3 invI1 = sc1->getInertiaInverse(), invI2 = sc2->getInertiaInverse();
-		float e = (sc2->getRestitution() + sc1->getRestitution()) / 2;
+        }
+        else if(mContactsEntity[i]->entity1->getType() == Entity::MESH &&
+                mContactsEntity[i]->entity2->getType() == Entity::MESH)
+        {
 
-		vec3 normalized = normalize(mContacts[i]->normal);
-		float numJr = -(1 + e)*dot(vr, normalized);
-		vec3 denJr_1 = invI1 *cross(cross(r1, normalized), r1);
-		vec3 denJr_2 = invI2 *cross(cross(r2, normalized), r2);
-		float denJr_3 = dot(denJr_1 + denJr_2, normalized),
-			denJr = (1 / sc1->getMass()) + (1 / sc2->getMass()) + denJr_3;
-		float jr = numJr / denJr;
+            StateComponent *sc1 = mContactsEntity[i]->contact->who1->getStateComponent(), *sc2 = mContactsEntity[i]->contact->who2->getStateComponent();
+            vec3 r1 = mContacts[i]->position  - sc1->getPosition(), r2 = mContacts[i]->position - sc2->getPosition();
+            vec3 vp1 = sc1->getPositionDiff() + cross(sc1->getRotationDiff(), r1);
+            vec3 vp2 = sc2->getPositionDiff() + cross(sc2->getRotationDiff(), r2);
+            vec3 vr = vp2 - vp1;
 
-	//	mat4 toRotCube1 = inverse(mat4(mat3(sc1->getModel())));
-	//	vec3 axis1 = vec3(toRotCube1*vec4(cross(r1, normalized), 1));
-		vec3 axis1 = cross(r1, normalized);
+            mat3 invI1 = sc1->getInertiaInverse(), invI2 = sc2->getInertiaInverse();
+            float e = (sc2->getRestitution() + sc1->getRestitution()) / 2;
 
-	//	mat4 toRotCube2 = inverse(mat4(mat3(sc2->getModel())));
-	//	vec3 axis2 = vec3(toRotCube2*vec4(cross(r2, normalized), 1));
-		vec3 axis2 = cross(r2, normalized);
+            vec3 normalized = normalize(mContacts[i]->normal);
+            float numJr = -(1 + e)*dot(vr, normalized);
+            vec3 denJr_1 = invI1 *cross(cross(r1, normalized), r1);
+            vec3 denJr_2 = invI2 *cross(cross(r2, normalized), r2);
+            float denJr_3 = dot(denJr_1 + denJr_2, normalized),
+                denJr = (1 / sc1->getMass()) + (1 / sc2->getMass()) + denJr_3;
+            float jr = numJr / denJr;
 
-		Screw screw1 = { -jr*invI1*axis1,  -(jr / sc1->getMass())*normalized   , r1};
-		Screw screw2 = { +jr*invI2*axis2 , +(jr / sc2->getMass())*normalized ,   r2};
+        //	mat4 toRotCube1 = inverse(mat4(mat3(sc1->getModel())));
+        //	vec3 axis1 = vec3(toRotCube1*vec4(cross(r1, normalized), 1));
+            vec3 axis1 = cross(r1, normalized);
 
-		ContactResponse response;
-		response.screw1 = screw1;
-		response.screw2 = screw2;
-		response.normal = mContacts[i]->normal;
-		response.who1 = mContacts[i]->who1;
-		response.who2 = mContacts[i]->who2;
-		mResponses.push_back(response);
+        //	mat4 toRotCube2 = inverse(mat4(mat3(sc2->getModel())));
+        //	vec3 axis2 = vec3(toRotCube2*vec4(cross(r2, normalized), 1));
+            vec3 axis2 = cross(r2, normalized);
+
+            Screw screw1 = { -jr*invI1*axis1,  -(jr / sc1->getMass())*normalized   , r1};
+            Screw screw2 = { +jr*invI2*axis2 , +(jr / sc2->getMass())*normalized ,   r2};
+
+            ContactResponse response;
+            response.screw1 = screw1;
+            response.screw2 = screw2;
+            response.normal = mContacts[i]->normal;
+            response.who1 = mContacts[i]->who1;
+            response.who2 = mContacts[i]->who2;
+            mResponses.push_back(response);
+		}
 
 	}
 }

@@ -7,17 +7,17 @@
 #include "DetectionComponent.h"
 
 
-class Forcefield : public Updatable
+class Forcefield : public Entity
 {
     public:
-        Forcefield(DetectionComponent *mDetectionComponent);
+        Forcefield(PhysicComponent *mPhysicComponent;
         ~Forcefield();
-        DetectionComponent* getDetectionComponent() { return mDetectionComponent; }
+        PhysicComponent* getPhysicComponentComponent() { return mPhysicComponent; }
         virtual glm::vec3 force(glm::vec3 pos) const = 0;
 
 
     protected:
-        DetectionComponent *mDetectionComponent;
+        PhysicComponent *mPhysicComponent;
 
 
 };
