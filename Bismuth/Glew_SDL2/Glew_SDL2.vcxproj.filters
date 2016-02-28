@@ -255,6 +255,12 @@
     <ClCompile Include="Hat.cpp">
       <Filter>Bis 4</Filter>
     </ClCompile>
+    <ClCompile Include="Forcefield.cpp">
+      <Filter>Bis 3</Filter>
+    </ClCompile>
+    <ClCompile Include="Gravity.cpp">
+      <Filter>Bis 4</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h">
@@ -471,6 +477,12 @@
       <Filter>Bis 3</Filter>
     </ClInclude>
     <ClInclude Include="Hat.h">
+      <Filter>Bis 4</Filter>
+    </ClInclude>
+    <ClInclude Include="Forcefield.h">
+      <Filter>Bis 3</Filter>
+    </ClInclude>
+    <ClInclude Include="Gravity.h">
       <Filter>Bis 4</Filter>
     </ClInclude>
   </ItemGroup>

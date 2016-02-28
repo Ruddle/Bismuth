@@ -167,8 +167,10 @@
     <ClCompile Include="EntityManager.cpp" />
     <ClCompile Include="Fbo.cpp" />
     <ClCompile Include="Font.cpp" />
+    <ClCompile Include="Forcefield.cpp" />
     <ClCompile Include="GraphicComponent.cpp" />
     <ClCompile Include="GraphicComponent2D.cpp" />
+    <ClCompile Include="Gravity.cpp" />
     <ClCompile Include="Hat.cpp" />
     <ClCompile Include="Heightmap.cpp" />
     <ClCompile Include="Input.cpp" />
@@ -271,8 +273,10 @@
     <ClInclude Include="EntityManager.h" />
     <ClInclude Include="Fbo.h" />
     <ClInclude Include="Font.h" />
+    <ClInclude Include="Forcefield.h" />
     <ClInclude Include="GraphicComponent.h" />
     <ClInclude Include="GraphicComponent2D.h" />
+    <ClInclude Include="Gravity.h" />
     <ClInclude Include="Hat.h" />
     <ClInclude Include="Heightmap.h" />
     <ClInclude Include="Input.h" />
